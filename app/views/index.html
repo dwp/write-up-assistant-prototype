@@ -1,6 +1,15 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-wua.html" %}
 
 {% set pageName="WUA Home" %}
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Discovery"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+
+{% endblock %}
 
 {% block content %}
 
@@ -8,13 +17,14 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">
-      {{ serviceName }}
+     Prototype index
     </h1>
     <h2 class="govuk-heading-l">
        Team Sparrowhawk 
     </h2>
     <h3 class="govuk-heading-m">The Write-Up Assistant Solution</h3>
-    <p>An AI-powered tool that generates drafts of reports from claimant documentation and HCP notes for the HCP to review and finalise.</p>
+    <p>An AI-powered tool that generates drafts of reports from claimant documentation 
+      and HCP notes for the HCP to review and finalise.</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>Removes the need for the HCP to summarise documentation and notes from scratch.</li>
       <li>Ensures the initial draft follows a consistent format and contains appropriate detail.</li>
