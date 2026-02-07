@@ -1,0 +1,45 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Start page
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Discovery"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+<a href="../index" class="govuk-back-link">Back</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+       Create HCP reports with AI
+      </h1>
+
+      <p>Use this service to:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Create AI generated HCP reports</li>
+      </ul>
+      {{ govukButton({
+        text: "Start now",
+        href: "select-case",
+        isStartButton: true
+      }) }}
+      <h2 class="govuk-heading-m">
+        Before you start
+      </h2>
+      <p>
+       Make sure you have done the assessments interview.
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

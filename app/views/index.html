@@ -1,13 +1,11 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Home" %}
+{% set pageName="WUA Home" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
-  
 
     <h1 class="govuk-heading-xl">
       {{ serviceName }}
@@ -15,18 +13,30 @@
     <h2 class="govuk-heading-l">
        Team Sparrowhawk 
     </h2>
+    <h3 class="govuk-heading-m">The Write-Up Assistant Solution</h3>
+    <p>An AI-powered tool that generates drafts of reports from claimant documentation and HCP notes for the HCP to review and finalise.</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Removes the need for the HCP to summarise documentation and notes from scratch.</li>
+      <li>Ensures the initial draft follows a consistent format and contains appropriate detail.</li>
+    </ul>
     <p class="govuk-body">This is the main index where the different prototypes and iterations will be placed.</p>
     <h2 class="govuk-heading-m">
-       WUA prototype 1.0
+       WUA prototypes
     </h2>
-    <p>
-      PoC discovery & exploration
-    </p>
-     <p>
-    <a class="govuk-service-navigation__link" href="">Link to prototype</a>
-   </p> 
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          WUA 1.0
+        </dt>
+        <dd class="govuk-summary-list__value">
+          PoC discovery & exploration
+        </dd>
+        <dd>
+         <a class="govuk-service-navigation__link" href="iteration1/write-up-assistant.html">Visit prototype</a>
+        </dd>
+      </div>
+   </dl>
 <!-- design link -->
- <hr class="govuk-!-margin-top-8">
 <details class="govuk-details govuk-!-padding-top-8">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
