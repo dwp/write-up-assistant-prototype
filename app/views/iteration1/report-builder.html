@@ -1,0 +1,445 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Start page
+{% endblock %}
+
+{% block beforeContent %}
+{% block govukServiceNavigation %}
+  {{ govukServiceNavigation({
+    navigation: [
+      {
+        href: "select-case",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "write-up-assistant",
+        text: "Logout"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Discovery"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+<a href="" class="govuk-back-link">Back</a>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+         <h1 class="govuk-heading-l">Create your report</h1>
+         <div class="govuk-inset-text">
+        <P>We have created an AI generated report with the PIP details, interview details, and evidence provided as a start point.<br>
+          You must review and amend each section before submitting it</P>
+        </div>
+            <h2 class="govuk-heading-m">Claimant details</h2>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+           Alex Craig
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          National insurance number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          RN 00 01 23 A
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+         Date of birth
+        </dt>
+        <dd class="govuk-summary-list__value">
+          31 December 1999
+        </dd>
+      </div>
+    </dl> 
+        <form class="form" method="post" action="check-your-answers" novalidate="novalidate">
+        <h2 class="govuk-heading-m">Consultation and evidence</h2>
+        <ul class="govuk-task-list">
+          <li class="govuk-task-list__item govuk-task-list__item--with-link hide">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="before-you-start-2-status">
+                Evidence files
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="before-you-start-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link hide">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="before-you-start-2-status">
+                Consulation details
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="before-you-start-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+        </ul>
+        <h2 class="govuk-heading-m govuk-!-margin-top-5">History</h2>
+        <ul class="govuk-task-list">
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-1-status">
+                History of condition
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-1-status">
+             <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-2-status">
+                Current medication and treatment
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-3-status">
+               Social and occupational history
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+        </ul>
+         <h2 class="govuk-heading-m govuk-!-margin-top-5">Daily living</h2>
+        <ul class="govuk-task-list">
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-1-status">
+                Preparing food
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-1-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-2-status">
+                Taking nutrition
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-3-status">
+               Managing therapy
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-3-status">
+               Washing and bathing
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-2-status">
+                Managing toilet needs
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>          
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-2-status">
+                Dressing and undressing
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-2-status">
+               Reading and understanding signs, symbols and words
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-2-status">
+                Engaging face to face
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-2-status">
+                Budgeting
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+        </ul>
+        <h2 class="govuk-heading-m govuk-!-margin-top-5">Mobility</h2>
+        <ul class="govuk-task-list">
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-1-status">
+                Planning and following journeys
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-1-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-2-status">
+               Moving around
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-3-status">
+               Social and occupational history
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+        </ul>
+       <h2 class="govuk-heading-m govuk-!-margin-top-5">Observations</h2>
+        <ul class="govuk-task-list">
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-1-status">
+                Mental state observations
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-1-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-2-status">
+               Informal observations
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-3-status">
+               Daily living qualifying period and prospective test
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+           <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-3-status">
+              Mobility qualifying period and prospective test
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+                     <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-3-status">
+              Harmful information
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+        </ul>
+       <h2 class="govuk-heading-m govuk-!-margin-top-5">Review period</h2>
+        <ul class="govuk-task-list">
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-1-status">
+                Recommended future review period
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-1-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-2-status">
+               Reason for this review period
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-3-status">
+               Is it likely that the functional restriction will still be present when reviewed?
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+           <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-3-status">
+              Do they need additional support for future claims processes?
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-3-status">
+              Does the claimant meet the criteria for special rules?
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-2-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+        </ul>
+        <h2 class="govuk-heading-m govuk-!-margin-top-5">Case decision</h2>
+          <ul class="govuk-task-list">
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="prepare-application-1-status">
+                Rates and Awards
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="prepare-application-1-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not reviewed
+              </strong>
+            </div>
+          </li>
+        </ul>
+        <div class="govuk-button-group">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Start page
+{% endblock %}
+
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Discovery"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+  <h1 class="govuk-heading-l">Sign in with your One Login account</h1>
+  <p class="govuk-body">If you do not have an account, you can
+    <a class="govuk-link" href="">create one now</a>.</p>
+  <p class="govuk-body">Enter your email address to sign in.</p>
+   <form class="form" method="post" action="one_login2" novalidate="novalidate">
+    
+<div class="govuk-form-group">
+  <label class="govuk-label" for="emailAddress">
+    Email address
+  </label>
+
+  <input class="govuk-input govuk-!-width-three-quarters" id="emailAddress" name="emailAddress" type="email" spellcheck="false" value="" autocomplete="email">
+
+</div>
+    <div class="govuk-button-group">
+    
+
+<button type="submit" class="govuk-button" data-module="govuk-button" id="submit" data-govuk-button-init="">
+  Continue
+</button>
+      
+    </div>
+  </form>
+
+  
+
+  
+
+    </div>
+  </div>
+
+{% endblock %}

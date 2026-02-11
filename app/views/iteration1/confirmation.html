@@ -1,0 +1,68 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Start page
+{% endblock %}
+
+
+{% block beforeContent %}
+
+{% block govukServiceNavigation %}
+  {{ govukServiceNavigation({
+    navigation: [
+      {
+        href: "select-case",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "write-up-assistant",
+        text: "Logout"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Discovery"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+
+
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Report submitted
+          </h1>
+          <div class="govuk-panel__body">
+            Your reference number<br><strong>HDJ2123F</strong>
+          </div>
+        </div>
+        <p class="govuk-body">We have sent you a confirmation email.</p>
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p class="govuk-body">
+          Your report will be reviewed and approved, the claimant will be notified
+        </p>
+        <p class="govuk-body">
+          We will contact you in case we need any further information
+        </p>
+        <p class="govuk-body">
+          <a href="select-case" class="govuk-link">Back to home</a> 
+        </p>
+      </div>
+    </div>
+
+{% endblock %}
