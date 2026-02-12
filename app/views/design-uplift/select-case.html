@@ -11,19 +11,18 @@
   {{ govukServiceNavigation({
     navigation: [
       {
-        href: "select-case",
+        href: "page-list",
         text: "Home",
         active: true
       },
       {
-        href: "write-up-assistant",
+        href: "intro-page",
         text: "Logout"
       }
     ]
   }) }}
+  
 {% endblock %}
-
-
 
   {{ govukPhaseBanner({
     tag: {
@@ -31,8 +30,9 @@
     },
     html: 'This is a not a service, it is a prototype created for user testing'
   }) }}
-{% endblock %}
 
+  <a href="" class="govuk-back-link">Back</a>
+{% endblock %}
 
 
 
@@ -47,10 +47,16 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-       Create an assessment report
+       Booked appointments
       </h1>
+      <ul class="govuk-list govuk-list--bullet">
+        <p>Follow these steps to complete your report:</p>
+        <li>review application documents</li>
+        <li>upload your notes</li>
+        <li>select the descriptors</li>
+        <li>review AI created first assessment report draft and edit if needed</li>
+      </ul>
 
-      <p>This tool is created for PIP healthcare professionals to help create an assessment report.</p>
       <h1 class="govuk-heading-m">
        Select claimant from the list
       </h1>
