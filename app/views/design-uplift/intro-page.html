@@ -7,27 +7,9 @@
 
 {% block beforeContent %}
 
-{% block govukServiceNavigation %}
-  {{ govukServiceNavigation({
-    navigation: [
-      {
-        href: "page-list",
-        text: "Home",
-        active: true
-      },
-      {
-        href: "../write-up-assistant",
-        text: "Logout"
-      }
-    ]
-  }) }}
-{% endblock %}
-
-
-
   {{ govukPhaseBanner({
     tag: {
-      text: "Discovery"
+      text: "Prototype"
     },
     html: 'This is a not a service, it is a prototype created for user testing'
   }) }}
@@ -41,13 +23,13 @@
       <h1 class="govuk-heading-xl">
         Create an assessment report
       </h1>
-      <p>This tool is created for PIP healthcare professionals to help create an assessment report. </p>
-      <p>You can upload information about your case and generate an assessment report using AI, with the ability to review and edit.</p>
+     <p class="govuk-body">This tool is created for PIP healthcare professionals to help create an assessment report. </p>
+      <p class="govuk-body">You can upload information about your case and generate an assessment report using AI, with the ability to review and edit.</p>
 
 
       {{ govukButton({
         text: "Continue",
-        href: "page-list",
+        href: "select-case",
         isStartButton: false
       }) }}
 
@@ -55,7 +37,7 @@
         Before you start
       </h2>
 
-      <p>
+      <p class="govuk-body">
         Make sure you have access to your notes
       </p>
 

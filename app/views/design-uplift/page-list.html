@@ -7,40 +7,16 @@
 
 {% block beforeContent %}
 
-{% block govukServiceNavigation %}
-  {{ govukServiceNavigation({
-    navigation: [
-      {
-        href: "page-list",
-        text: "Home",
-        active: true
-      },
-      {
-        href: "intro-page",
-        text: "Logout"
-      }
-    ]
-  }) }}
-{% endblock %}
-
-
-
   {{ govukPhaseBanner({
     tag: {
-      text: "Discovery"
+      text: "Prototype"
     },
     html: 'This is a not a service, it is a prototype created for user testing'
   }) }}
 {% endblock %}
 
 
-
-
-
-
 {% block content %}
-
-
 
 
   <div class="govuk-grid-row">
@@ -59,16 +35,22 @@
     </tr>
   </thead>
   <tbody class="govuk-table__body">
+     <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link" href="sign-in">Sign in</a>
+      </th>
+    </tr>
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">
         <a class="govuk-link" href="intro-page">Intro page</a>
       </th>
     </tr>
-        <tr class="govuk-table__row">
+     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">
         <a class="govuk-link" href="select-case">Select case</a>
       </th>
     </tr>
+     
   </tbody>
 </table>
       

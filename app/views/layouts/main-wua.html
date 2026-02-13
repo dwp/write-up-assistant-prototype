@@ -5,4 +5,36 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{% block header %}
+
+    {{ govukHeader(
+
+        {
+        serviceName: serviceName
+        }
+
+    ) }}
+
+
+
+    {% block govukServiceNavigation %}
+  {{ govukServiceNavigation({
+    navigation: [
+      {
+        href: "intro-page",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "sign-in",
+        text: "Logout"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% endblock %}
+
 

@@ -7,33 +7,13 @@
 
 {% block beforeContent %}
 
-{% block govukServiceNavigation %}
-  {{ govukServiceNavigation({
-    navigation: [
-      {
-        href: "page-list",
-        text: "Home",
-        active: true
-      },
-      {
-        href: "intro-page",
-        text: "Logout"
-      }
-    ]
-  }) }}
-  
-{% endblock %}
-
   {{ govukPhaseBanner({
     tag: {
-      text: "Discovery"
+      text: "Prototype"
     },
     html: 'This is a not a service, it is a prototype created for user testing'
   }) }}
-
-  <a href="" class="govuk-back-link">Back</a>
 {% endblock %}
-
 
 
 
@@ -49,13 +29,7 @@
       <h1 class="govuk-heading-xl">
        Booked appointments
       </h1>
-      <ul class="govuk-list govuk-list--bullet">
-        <p>Follow these steps to complete your report:</p>
-        <li>review application documents</li>
-        <li>upload your notes</li>
-        <li>select the descriptors</li>
-        <li>review AI created first assessment report draft and edit if needed</li>
-      </ul>
+     
 
       <h1 class="govuk-heading-m">
        Select claimant from the list
@@ -74,7 +48,7 @@
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">
-        <a class="govuk-link" href="report-builder">Alex Craig</a>
+        <a class="govuk-link" href="review-evidence">Alex Craig</a>
       </th>
       <td class="govuk-table__cell">PIP</td>
       <td class="govuk-table__cell">Telephone</td>
@@ -107,12 +81,27 @@
   </tbody>
 </table>
 
-
-
-
-
-      
     </div>
+
+
+
+<div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          How it works
+        </h2>
+        <ul class="govuk-list govuk-list--bullet">
+        <li>review application documents</li>
+        <li>upload your notes</li>
+        <li>select the descriptors</li>
+        <li>review AI created first assessment report draft and edit if needed</li>
+      </ul>
+      </aside>
+
+    </div>
+
+
   </div>
 
 {% endblock %}

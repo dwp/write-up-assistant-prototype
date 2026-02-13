@@ -1,0 +1,94 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Review application documents
+      </h1>
+      <p>Your artificial intelligence assistant will review the documents and extract the relevant information to produce an initial draft assessment report. </p>
+    
+
+<table class="govuk-table">
+
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">File name</th>
+
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+          <a class="govuk-link" href="report-builder">PIP.pdf</a>
+      </th>
+    </tr>
+     <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+          <a class="govuk-link" href="report-builder">Xray.pdf</a>
+      </th>
+    </tr>
+         <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+          <a class="govuk-link" href="report-builder">Doctor-letter1.pdf</a>
+      </th>
+    </tr>
+         <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+          <a class="govuk-link" href="report-builder">Doctor-letter2.pdf</a>
+      </th>
+    </tr>
+         <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+          <a class="govuk-link" href="report-builder">Doctor-letter3.pdf</a>
+      </th>
+    </tr>
+         <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+          <a class="govuk-link" href="report-builder">Exam-results1.pdf</a>
+      </th>
+    </tr>
+         <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+          <a class="govuk-link" href="report-builder">Exam-results6.pdf</a>
+      </th>
+    </tr>
+         <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+          <a class="govuk-link" href="report-builder">Exam-results7.pdf</a>
+      </th>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+   {{ govukButton({
+        text: "Continue",
+        href: "add-notes",
+        isStartButton: false
+      }) }}
+    
+
+    </div>
+
+  </div>
+
+{% endblock %}

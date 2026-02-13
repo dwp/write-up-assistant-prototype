@@ -8,7 +8,13 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% block header %}
 
-    {{ govukHeader() }}
+    {{ govukHeader(
+        {
+        serviceName: serviceName
+        }
+
+       ) }}
+
     {{ govukServiceNavigation({
         serviceName: serviceName
     })}}

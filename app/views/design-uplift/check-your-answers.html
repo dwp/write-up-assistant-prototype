@@ -1,0 +1,212 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Start page
+{% endblock %}
+
+
+{% block beforeContent %}
+
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+ <div style="margin-top: -30px;"><a href="javascript:history.back()" class="govuk-back-link">Back</a></div> 
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-xl">Check your answers</h1>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Preparing food (1)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave (1c)
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Taking nutrition (2)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Can take nutrition unaided (2a)
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Managing therapy (3)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided (3a)
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Washing and bathing (4)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Needs to use an aid or appliance to be able to wash or bathe (4b)
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Managing toilet needs (5)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Needs to use an aid or appliance to be able to manage toilet needs or incontinence (5b)
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Dressing and undressing (6)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Can dress and undress unaided (6a)
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Communicating verbally (7)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Can express and understand verbal information unaided (7a)
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Reading and understanding signs, symbols and words (8)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Can read and understand basic and complex written information either unaided or using spectacles or contact lenses (8a)
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Engaging face to face (9)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Can engage with other people unaided (9a)
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Budgeting (10)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Can manage complex budgeting decisions unaided (10a)
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Planning and following journeys (11)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Can plan and follow the route of a journey unaided (11a)
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Moving around (12)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Can stand and then move unaided more than 20 metres but no more than 50 metres (12c)
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p class="govuk-body">
+        The AI assistant will create a draft report for you to review. You’ll be able to check each section and make any changes you want before submitting it.
+      </p>
+
+      {{ govukButton({
+        text: "Generate report",
+        href: "select-case",
+        isStartButton: false
+      }) }}
+
+  </div>
+</div>
+
+
+{% endblock %}
