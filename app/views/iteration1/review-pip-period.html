@@ -1,0 +1,152 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+  
+{% endblock %}
+
+{% block content %}
+  <a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+  
+      <h1 class="govuk-heading-xl">
+        Review period for PIP
+      </h1>
+      <p>Your artificial intelligence assistant will review the documents and extract the relevant information to produce an initial draft assessment report. </p>
+   <!--consultation date--> 
+<div>
+{{ govukDateInput({
+  id: "passport-issued",
+  namePrefix: "consultation-date",
+  fieldset: {
+    legend: {
+      text: "What is the consultation date?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "For example, 27 3 2024"
+  }
+}) }}
+</div>
+   <!--checked id?--> 
+
+<div>
+
+
+ {% set yescheck %}
+
+{{ govukTextarea({
+ id: "yes-check",
+  name: "yescheck",
+  label: {
+    text: "How did you confirm the identity?",
+    classes: "govuk-label--m",
+    isPageHeading: false
+  },
+  hint: {
+    text: ""
+  }
+}) }}
+
+{% endset -%} 
+
+{{ govukRadios({
+  classes: "govuk-radios",
+  name: "changedName",
+  fieldset: {
+    legend: {
+      text: "Did you confirm claimant's identity?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "no",
+      text: "No"
+    },
+    {
+      value: "yes",
+      text: "Yes",
+      conditional: {
+        html: yescheck
+      }
+    }
+  ]
+}) }}
+</div>   
+
+<!--concent-->
+
+<div>
+
+{{ govukRadios({
+  classes: "govuk-radios",
+  name: "gave-concsent",
+  fieldset: {
+    legend: {
+      text: "Did the claimant give you their consent?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Make sure the claimant understands the purpose of the consultation, and they consent to continue."
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+</div>
+
+
+<!--additional-->
+
+
+      <h2 class="govuk-heading-m">Additional attendees</h2>
+     <p class="govuk-body">No additional attendees have been added. <a class="govuk-link" href="">Add an atendee</a></p>
+
+
+
+
+<div class="govuk-!-margin-top-8">
+   {{ govukButton({
+        text: "Continue",
+        href: "preview-report",
+        isStartButton: false
+      }) }}
+
+</div>
+
+
+    
+
+    </div>
+
+  </div>
+
+{% endblock %}

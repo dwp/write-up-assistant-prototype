@@ -1,0 +1,42 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Start page
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        You can now view the full report
+      </h1>
+<p class="govuk-body govuk-">You have reviewed the AI created report sections and can now view the full first assessment report draft.</p>
+
+
+<div class="govuk-!-margin-top-8">
+
+      {{ govukButton({
+        text: "View the full report",
+        href: "report-final-preview",
+        isStartButton: false
+      }) }}
+</div>
+
+    </div>
+
+  </div>
+
+{% endblock %}
