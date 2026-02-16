@@ -1,0 +1,184 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+  Home – Health assessment service – GOV.UK Prototype Kit
+{% endblock %}
+
+{# REMOVE THE SKIP LINK FROM THE LAYOUT #}
+{% block skipLink %}{% endblock %}
+
+{% block head %}
+  <style>
+    /* ===============================
+       FULL‑WIDTH SERVICE HEADER
+       =============================== */
+    .app-service-header {
+      background: #1d70b8; /* GOV.UK blue */
+      color: #fff;
+      width: 100%;
+    }
+    .app-service-header__container {
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    .app-service-header__name a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 20px;
+      display: inline-block;
+    }
+    .app-service-header__name a:focus {
+      color: #0b0c0c;
+      background: #fd0;
+      box-shadow: 0 -2px #fd0, 0 4px #0b0c0c;
+      outline: 3px solid transparent;
+      text-decoration: none;
+    }
+
+    /* ===============================
+       KEY DETAILS BAR
+       =============================== */
+    .app-key-details {
+      background: #eaf4fb;
+      border-bottom: 1px solid #b1b4b6;
+      width: 100%;
+    }
+    .app-key-details__container {
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    .app-key-details__top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #d9dadd;
+      align-items: center;
+    }
+    .app-key-details__name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0b0c0c;
+      line-height: 1.2;
+    }
+    .app-key-details__nino {
+      font-weight: 700;
+      color: #0b0c0c;
+      letter-spacing: 0.02em;
+    }
+    .app-key-details__status .govuk-tag {
+      font-size: 14px;
+      vertical-align: middle;
+    }
+    .app-key-details__bottom {
+      display: flex;
+      gap: 28px;
+      padding-top: 10px;
+      flex-wrap: wrap;
+    }
+    .app-kd-pair {
+      display: inline-flex;
+      gap: 6px;
+      color: #0b0c0c;
+    }
+    .app-kd-pair dt { margin: 0; font-weight: 700; }
+    .app-kd-pair dd { margin: 0; }
+
+    /* ===============================
+       SIMPLE PRIMARY NAV (optional)
+       =============================== */
+    .app-primary-nav {
+      background: #f3f2f1;
+      border-bottom: 1px solid #b1b4b6;
+      width: 100%;
+    }
+    .app-primary-nav__container {
+      display: flex;
+      align-items: center;
+    }
+    .app-primary-nav__list {
+      list-style: none;
+      display: flex;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+    }
+    .app-primary-nav__item a {
+      display: inline-block;
+      padding: 12px 10px;
+      font-weight: 700;
+      text-decoration: none;
+      color: #1d70b8;
+      border-bottom: 4px solid transparent;
+    }
+    .app-primary-nav__item a[aria-current="page"] {
+      border-bottom-color: #1d70b8;
+      color: #0b0c0c;
+    }
+
+    @media (max-width: 40.0625em) {
+      .app-key-details__name { font-size: 20px; }
+    }
+  </style>
+{% endblock %}
+
+{% block header %}
+  <!-- SERVICE HEADER -->
+  <header class="app-service-header" role="banner">
+    <div class="govuk-width-container app-service-header__container">
+      <div class="app-service-header__name">
+        <a href="/">Health Assessment Service</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- KEY DETAILS BAR -->
+  <section class="app-key-details" role="contentinfo" aria-label="Key details">
+    <div class="govuk-width-container app-key-details__container">
+
+      <!-- TOP ROW -->
+      <div class="app-key-details__top">
+        <span class="app-key-details__name">John Smith</span>
+        <span class="app-key-details__nino">AB&nbsp;CD&nbsp;12&nbsp;13</span>
+        <span class="app-key-details__status">
+          <strong class="govuk-tag govuk-tag--blue">ASSESSMENT BOOKED</strong>
+        </span>
+      </div>
+
+      <!-- BOTTOM ROW -->
+      <div class="app-key-details__bottom">
+        <dl class="app-kd-pair">
+          <dt>Date of birth:</dt>
+          <dd>31 December 1999</dd>
+        </dl>
+        <dl class="app-kd-pair">
+          <dt>Postcode:</dt>
+          <dd>N2 1XX</dd>
+        </dl>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OPTIONAL PRIMARY NAVIGATION -->
+  <nav class="app-primary-nav" aria-label="Primary navigation">
+    <div class="govuk-width-container app-primary-nav__container">
+      <ul class="app-primary-nav__list">
+        <li class="app-primary-nav__item">
+          <a href="#" aria-current="page">Assessment</a>
+        </li>
+        <!-- Add more items as needed -->
+      </ul>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-xl">Unbranded page template</h1>
+  <p class="govuk-body-l">
+    This page doesn't use New Transport or display the GOV.UK header and footer.
+  </p>
+{% endblock %}
+
+{% block bodyEnd %}{% endblock %}

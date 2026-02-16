@@ -7,6 +7,24 @@
 
 {% block beforeContent %}
 
+{% block govukServiceNavigation %}
+  {{ govukServiceNavigation({
+    navigation: [
+      {
+        href: "select-case",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "write-up-assistant",
+        text: "Logout"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+
+
   {{ govukPhaseBanner({
     tag: {
       text: "Prototype"
@@ -14,6 +32,8 @@
     html: 'This is a not a service, it is a prototype created for user testing'
   }) }}
 {% endblock %}
+
+
 
 
 
@@ -27,10 +47,10 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-       Booked appointments
+       Create an assessment report
       </h1>
-     
 
+      <p>This tool is created for PIP healthcare professionals to help create an assessment report.</p>
       <h1 class="govuk-heading-m">
        Select claimant from the list
       </h1>
@@ -48,7 +68,7 @@
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">
-        <a class="govuk-link" href="review-evidence">Alex Craig</a>
+        <a class="govuk-link" href="report-builder">Alex Craig</a>
       </th>
       <td class="govuk-table__cell">PIP</td>
       <td class="govuk-table__cell">Telephone</td>
@@ -81,27 +101,12 @@
   </tbody>
 </table>
 
+
+
+
+
+      
     </div>
-
-
-
-<div class="govuk-grid-column-one-third">
-
-      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
-          You will follow this steps
-        </h2>
-        <ul class="govuk-list govuk-list--bullet">
-        <li>review application documents</li>
-        <li>upload your notes</li>
-        <li>select the descriptors</li>
-        <li>review AI created first assessment report draft and edit if needed</li>
-      </ul>
-      </aside>
-
-    </div>
-
-
   </div>
 
 {% endblock %}

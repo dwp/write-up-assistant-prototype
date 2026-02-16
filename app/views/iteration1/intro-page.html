@@ -1,0 +1,41 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Start page
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Create an assessment report
+      </h1>
+     <p class="govuk-body">This tool is created for PIP healthcare professionals to help create an assessment report. </p>
+      <p class="govuk-body">You can upload information about your case and generate an assessment report using AI, with the ability to review and edit.</p>
+
+
+      {{ govukButton({
+        text: "Continue",
+        href: "select-case",
+        isStartButton: false
+      }) }}
+
+
+    </div>
+
+  </div>
+
+{% endblock %}

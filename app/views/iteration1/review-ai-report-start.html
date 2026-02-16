@@ -1,0 +1,42 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Start page
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Review the AI generated sections of the report
+      </h1>
+<p class="govuk-body govuk-">Next, the AI assistant will create a draft report for you to review. You’ll be able to check each section and make any changes you want before submitting it. </p>
+
+
+<div class="govuk-!-margin-top-8">
+
+      {{ govukButton({
+        text: "Continue",
+        href: "ai-section",
+        isStartButton: false
+      }) }}
+</div>
+
+    </div>
+
+  </div>
+
+{% endblock %}

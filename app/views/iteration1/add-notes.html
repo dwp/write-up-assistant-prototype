@@ -1,0 +1,219 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+ <a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Add your consultation notes
+      </h1>
+    <p class="govuk-body">Your artificial intelligence assistant will review these notes and use them to produce an initial draft assessment report. </p>
+    
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Condition history
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    Provide a clear summary of the claimant’s health conditions, including onset, duration, progression and any recent changes.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Medication
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    List all prescribed and over‑the‑counter medications, including dosage, frequency and any reported side effects..
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Social and occupational history
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    Describe the claimant’s living situation, daily routines, work history and any social or environmental factors that affect their functioning.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Preparing food
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    Record any difficulties with planning, preparing, or safely cooking meals.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Taking nutrition
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    Describe issues with eating, drinking, or managing nutritional needs independently.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Managing therapy
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    Note the claimant’s ability to follow treatment plans, manage therapy routines, or carry out medical interventions.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Washing and bathing
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    Document any challenges with personal hygiene tasks, including washing, bathing or using facilities safely.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Managing toilet needs
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    Describe continence issues or difficulties accessing, using, or managing toilet needs.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Dressing and undressing
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    Record problems with selecting clothing, dressing independently, or removing garments.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Communicating verbally
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    Note speech, comprehension, articulation or communication difficulties observed during the consultation.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Reading and understanding signs, symbols and words
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    Describe any challenges with reading, processing written information or understanding visual prompts.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Engaging face to face
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    Record how the claimant engages in face‑to‑face interactions, including cooperation, rapport, and social communication skills.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Budgeting
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    Describe any limitations in managing money, budgeting tasks or making financial decisions.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Planning and following journeys
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    Document difficulties with route planning, navigation, or travelling independently.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Moving around
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    Record mobility issues, including walking distances, balance, pain, stability or the use of mobility aids.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+   {{ govukButton({
+        text: "Continue",
+        href: "select-descriptors",
+        isStartButton: false
+      }) }}
+    
+
+    </div>
+
+  </div>
+
+{% endblock %}
