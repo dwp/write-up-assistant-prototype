@@ -1,0 +1,99 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+ 
+{% endblock %}
+
+{% block content %}
+ <div style="margin-top: -30px;"><a href="javascript:history.back()" class="govuk-back-link">Back</a></div> 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<span class="govuk-caption-xl">Dressing and undressing (5)</span>
+<h1 class="govuk-heading-xl">How well the claimant can manage toilet needs?</h1>
+
+
+
+
+
+{{ govukRadios({
+    idPrefix: "descriptor-5",
+    name: "descriptor5",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+
+    items: [
+      {
+        value: "5a",
+        text: "(5a) Can manage toilet needs or incontinence unaided"
+      },
+      {
+        value: "5b",
+        text: "(5b) Needs to use an aid or appliance to be able to manage toilet needs or incontinence"
+      },
+      {
+        value: "5c",
+        text: "(5c) Needs supervision or prompting to be able to manage toilet needs"
+      },
+      {
+        value: "5d",
+        text: "(5d) Needs assistance to be able to manage toilet needs"
+      },
+      {
+        value: "5e",
+        text: "(5e) Needs assistance to be able to manage incontinence of either bladder or bowel"
+      },
+      {
+        value: "5f",
+        text: "(5f) Needs assistance to be able to manage incontinence of both bladder and bowel"
+      }
+    ]
+  }) }}
+
+
+
+
+
+<!-- place it in a form if will use it-->
+
+<div class="govuk-button-group">
+
+
+
+      {{ govukButton({
+        text: "Continue",
+        href: "descriptor-6",
+        isStartButton: false
+      }) }}
+
+        {{ govukButton({
+          text: "View descriptor list",
+          classes: "govuk-button--secondary"
+        }) }}
+
+
+</div>
+  
+
+    </div>
+
+  </div>
+
+{% endblock %}

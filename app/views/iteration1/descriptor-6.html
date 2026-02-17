@@ -1,0 +1,98 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+ 
+{% endblock %}
+
+{% block content %}
+ <div style="margin-top: -30px;"><a href="javascript:history.back()" class="govuk-back-link">Back</a></div> 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<span class="govuk-caption-xl">Dressing and undressing (6)</span>
+<h1 class="govuk-heading-xl">How well the claimant can dress and undress?</h1>
+
+
+
+
+{{ govukRadios({
+    idPrefix: "descriptor-6",
+    name: "descriptor6",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+
+    items: [
+      {
+        value: "6a",
+        text: "(1a) Can prepare and cook a simple meal unaided"
+      },
+      {
+        value: "6b",
+        text: "(6b) Needs to use an aid or appliance to be able to dress or undress"
+      },
+      {
+        value: "6c",
+        text: "(6c) Needs either prompting to be able to dress, undress or determine appropriate circumstances for remaining clothed, or needs prompting or assistance to be able to select appropriate clothing"
+      },
+      {
+        value: "6d",
+        text: "(6d) Needs assistance to be able to dress or undress their lower body"
+      },
+      {
+        value: "6e",
+        text: "(6e) Needs assistance to be able to dress or undress their upper body"
+      },
+      {
+        value: "6f",
+        text: "(6f) Cannot dress or undress at all"
+      }
+    ]
+  }) }}
+
+
+
+
+
+<!-- place it in a form if will use it-->
+
+<div class="govuk-button-group">
+
+
+
+      {{ govukButton({
+        text: "Continue",
+        href: "descriptor-7",
+        isStartButton: false
+      }) }}
+
+        {{ govukButton({
+          text: "View descriptor list",
+          classes: "govuk-button--secondary"
+        }) }}
+
+
+</div>
+  
+
+    </div>
+
+  </div>
+
+{% endblock %}

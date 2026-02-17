@@ -1,0 +1,97 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+ 
+{% endblock %}
+
+{% block content %}
+ <div style="margin-top: -30px;"><a href="javascript:history.back()" class="govuk-back-link">Back</a></div> 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<span class="govuk-caption-xl">Taking nutrition(2)</span>
+<h1 class="govuk-heading-xl">How well the claimant can take nutrition?</h1>
+
+
+
+{{ govukRadios({
+    idPrefix: "descriptor-2",
+    name: "descriptor2",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+
+    items: [
+      {
+        value: "2a",
+        text: "(2a) Can take nutrition unaided"
+      },
+      {
+        value: "2b",
+        text: "(2b) Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take nutrition, or assistance to be able to cut up food"
+      },
+      {
+        value: "2c",
+        text: "(2c) Needs a therapeutic source to be able to take nutrition"
+      },
+      {
+        value: "2d",
+        text: "(2d) Needs prompting to be able to take nutrition"
+      },
+      {
+        value: "2e",
+        text: "(2e) Needs assistance to be able to manage a therapeutic source to take nutrition"
+      },
+      {
+        value: "2f",
+        text: "(2f) Cannot convey food and drink to their mouth and needs another person to do so"
+      }
+    ]
+  }) }}
+
+
+
+
+
+<!-- place it in a form if will use it-->
+
+<div class="govuk-button-group">
+
+
+
+      {{ govukButton({
+        text: "Continue",
+        href: "descriptor-3",
+        isStartButton: false
+      }) }}
+
+        {{ govukButton({
+          text: "View descriptor list",
+          classes: "govuk-button--secondary"
+        }) }}
+
+
+</div>
+  
+
+    </div>
+
+  </div>
+
+{% endblock %}

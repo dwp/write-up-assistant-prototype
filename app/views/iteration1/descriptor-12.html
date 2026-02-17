@@ -1,0 +1,99 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+ 
+{% endblock %}
+
+{% block content %}
+ <div style="margin-top: -30px;"><a href="javascript:history.back()" class="govuk-back-link">Back</a></div> 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<span class="govuk-caption-xl">Moving around (12)</span>
+<h1 class="govuk-heading-xl">How well the claimant can move around?</h1>
+
+
+
+
+
+{{ govukRadios({
+    idPrefix: "descriptor-12",
+    name: "descriptor12",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+
+    items: [
+      {
+        value: "12a",
+        text: "(12a) Can stand and then move more than 200 metres, either aided or unaided"
+      },
+      {
+        value: "12b",
+        text: "(12b) Can stand and then move more than 50 metres but no more than 200 metres, either aided or unaided"
+      },
+      {
+        value: "12c",
+        text: "(12c) Can stand and then move unaided more than 20 metres but no more than 50 metres"
+      },
+      {
+        value: "12d",
+        text: "(12d) Can stand and then move using an aid or appliance more than 20 metres but no more than 50 metres"
+      },
+      {
+        value: "12e",
+        text: "((12e) Can stand and then move more than 1 metre but no more than 20 metres, either aided or unaided"
+      },
+      {
+        value: "12f",
+        text: "(12f) Cannot stand or move more than 1 metre, either aided or unaided"
+      }
+    ]
+  }) }}
+
+
+
+
+
+<!-- place it in a form if will use it-->
+
+<div class="govuk-button-group">
+
+
+
+      {{ govukButton({
+        text: "Continue",
+        href: "check-your-answers",
+        isStartButton: false
+      }) }}
+
+        {{ govukButton({
+          text: "View descriptor list",
+          classes: "govuk-button--secondary"
+        }) }}
+
+
+</div>
+  
+
+    </div>
+
+  </div>
+
+{% endblock %}

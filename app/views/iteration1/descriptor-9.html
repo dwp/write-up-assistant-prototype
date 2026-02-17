@@ -1,0 +1,88 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+ 
+{% endblock %}
+
+{% block content %}
+ <div style="margin-top: -30px;"><a href="javascript:history.back()" class="govuk-back-link">Back</a></div> 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<span class="govuk-caption-xl">Engaging face to face (9)</span>
+<h1 class="govuk-heading-xl">How well the claimant can engage face to face?</h1>
+
+
+{{ govukRadios({
+    idPrefix: "descriptor-9",
+    name: "descriptor9",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+
+    items: [
+      {
+        value: "9a",
+        text: "(9a) Can engage with other people unaided"
+      },
+      {
+        value: "9b",
+        text: "(9b) Needs prompting to be able to engage with other people"
+      },
+      {
+        value: "9c",
+        text: "(9c) Needs social support to be able to engage with other people"
+      },
+      {
+        value: "9d",
+        text: "(9d) Cannot engage with other people due to such engagement, causing either overwhelming psychological distress to the claimant or leading the claimant to exhibit behaviour which would result in a substantial risk of harm to the claimant or another person"
+      }
+    ]
+  }) }}
+
+
+
+
+
+<!-- place it in a form if will use it-->
+
+<div class="govuk-button-group">
+
+
+
+      {{ govukButton({
+        text: "Continue",
+        href: "descriptor-10",
+        isStartButton: false
+      }) }}
+
+        {{ govukButton({
+          text: "View descriptor list",
+          classes: "govuk-button--secondary"
+        }) }}
+
+
+</div>
+  
+
+    </div>
+
+  </div>
+
+{% endblock %}

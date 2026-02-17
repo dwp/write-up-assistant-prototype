@@ -21,15 +21,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-<span class="govuk-caption-xl">Preparing food (1)</span>
-<h1 class="govuk-heading-xl">How well can the claimant cook food?</h1>
-
-
-
+<span class="govuk-caption-xl">Communicating verbally (7)</span>
+<h1 class="govuk-heading-xl">How well the claimant can communicate verbally?</h1>
 
 {{ govukRadios({
-    idPrefix: "preparing-food",
-    name: "preparingFood",
+    idPrefix: "descriptor-7",
+    name: "descriptor7",
     fieldset: {
       legend: {
         text: "",
@@ -40,28 +37,28 @@
 
     items: [
       {
-        value: "1a",
-        text: "(1a) Can prepare and cook a simple meal unaided"
+        value: "7a",
+        text: "(7a) Can express and understand verbal information unaided"
       },
       {
-        value: "1b",
-        text: "(1b) Needs to use an aid or appliance to be able to either prepare or cook a simple meal"
+        value: "7b",
+        text: "(7b) Needs to use an aid or appliance to be able to speak or hear"
       },
       {
-        value: "1c",
-        text: "(1c) Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave"
+        value: "7c",
+        text: "(7c) Needs communication support to be able to express or understand complex verbal information"
       },
       {
-        value: "1d",
-        text: "(1d) Needs prompting to be able to either prepare or cook a simple meal"
+        value: "7d",
+        text: "(7d) Needs communication support to be able to express or understand basic verbal information"
       },
       {
-        value: "1e",
+        value: "7e",
         text: "(1e) Needs supervision or assistance to either prepare or cook a simple meal"
       },
       {
-        value: "1f",
-        text: "(1f) Cannot prepare and cook food"
+        value: "7f",
+        text: "(7e) Cannot express or understand verbal information at all even with communication support"
       }
     ]
   }) }}
@@ -76,9 +73,10 @@
 
 
 
+
       {{ govukButton({
-        text: "Save and continue",
-        href: "check-your-answers",
+        text: "Continue",
+        href: "descriptor-8",
         isStartButton: false
       }) }}
 

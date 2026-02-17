@@ -1,0 +1,104 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+ 
+{% endblock %}
+
+{% block content %}
+ <div style="margin-top: -30px;"><a href="javascript:history.back()" class="govuk-back-link">Back</a></div> 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<span class="govuk-caption-xl">Washing and bathing (4)</span>
+<h1 class="govuk-heading-xl">how well the claimant can wash and bathe?</h1>
+
+
+
+
+
+{{ govukRadios({
+    idPrefix: "descriptor-4",
+    name: "descriptor4",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+
+    items: [
+      {
+        value: "4a",
+        text: "(4a) Can wash and bathe unaided"
+      },
+      {
+        value: "4b",
+        text: "(4b) Needs to use an aid or appliance to be able to wash or bathe"
+      },
+      {
+        value: "4c",
+        text: "(4c) Needs supervision or prompting to be able to wash or bathe"
+      },
+      {
+        value: "4d",
+        text: "(4d) Needs assistance to be able to wash either their hair or body below the waist"
+      },
+      {
+        value: "4e",
+        text: "(4e) Needs assistance to be able to get in or out of a bath or shower"
+      },
+      {
+        value: "4f",
+        text: "(4f) Needs assistance to be able to wash their body between the shoulders and waist"
+      }
+      ,
+      {
+        value: "4g",
+        text: "(4g) Cannot wash and bathe at all and needs another person to wash their entire body"
+      }
+    ]
+  }) }}
+
+
+
+
+
+<!-- place it in a form if will use it-->
+
+<div class="govuk-button-group">
+
+
+
+      {{ govukButton({
+        text: "Continue",
+        href: "descriptor-5",
+        isStartButton: false
+      }) }}
+
+        {{ govukButton({
+          text: "View descriptor list",
+          classes: "govuk-button--secondary"
+        }) }}
+
+
+</div>
+  
+
+    </div>
+
+  </div>
+
+{% endblock %}

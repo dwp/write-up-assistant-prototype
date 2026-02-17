@@ -1,0 +1,97 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+ 
+{% endblock %}
+
+{% block content %}
+ <div style="margin-top: -30px;"><a href="javascript:history.back()" class="govuk-back-link">Back</a></div> 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<span class="govuk-caption-xl">Planning and following journeys (11)</span>
+<h1 class="govuk-heading-xl">How well the claimant can plan and follow journeys?</h1>
+
+
+
+
+{{ govukRadios({
+    idPrefix: "descriptor-11",
+    name: "descriptor11",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+
+    items: [
+      {
+        value: "11a",
+        text: "(11a) Can plan and follow the route of a journey unaided"
+      },
+      {
+        value: "11b",
+        text: "(11b) Needs prompting to be able to undertake any journey to avoid overwhelming psychological distress to the claimant"
+      },
+      {
+        value: "11c",
+        text: "(11c) Cannot plan the route of a journey"
+      },
+      {
+        value: "11d",
+        text: "(11d) Cannot follow the route of an unfamiliar journey without another person, assistance dog or orientation aid"
+      },
+      {
+        value: "11e",
+        text: "(11e) Cannot undertake any journey because it would cause overwhelming psychological distress to the claimant"
+      },
+      {
+        value: "11f",
+        text: "(11f) Cannot follow the route of a familiar journey without another person, an assistance dog or an orientation aid"
+      }
+    ]
+  }) }}
+
+
+
+
+
+<!-- place it in a form if will use it-->
+
+<div class="govuk-button-group">
+
+
+    {{ govukButton({
+        text: "Continue",
+        href: "descriptor-12",
+        isStartButton: false
+      }) }}
+
+        {{ govukButton({
+          text: "View descriptor list",
+          classes: "govuk-button--secondary"
+        }) }}
+
+
+</div>
+  
+
+    </div>
+
+  </div>
+
+{% endblock %}

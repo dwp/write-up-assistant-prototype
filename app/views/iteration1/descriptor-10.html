@@ -1,0 +1,90 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+ 
+{% endblock %}
+
+{% block content %}
+ <div style="margin-top: -30px;"><a href="javascript:history.back()" class="govuk-back-link">Back</a></div> 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<span class="govuk-caption-xl">Budgeting (10)</span>
+<h1 class="govuk-heading-xl">How well the claimant can budget?</h1>
+
+
+
+
+{{ govukRadios({
+    idPrefix: "descriptor-10",
+    name: "descriptor10",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+
+    items: [
+      {
+        value: "10a",
+        text: "(10a) Can manage complex budgeting decisions unaided"
+      },
+      {
+        value: "10b",
+        text: "(10b) Needs prompting or assistance to be able to make complex budgeting decisions"
+      },
+      {
+        value: "10c",
+        text: "(10c) Needs prompting or assistance to be able to make simple budgeting decisions"
+      },
+      {
+        value: "10d",
+        text: "(10d) Cannot make any budgeting decisions at all"
+      }
+    ]
+  }) }}
+
+
+
+
+
+<!-- place it in a form if will use it-->
+
+<div class="govuk-button-group">
+
+
+
+    {{ govukButton({
+        text: "Continue",
+        href: "descriptor-11",
+        isStartButton: false
+      }) }}
+
+        {{ govukButton({
+          text: "View descriptor list",
+          classes: "govuk-button--secondary"
+        }) }}
+
+
+</div>
+  
+
+    </div>
+
+  </div>
+
+{% endblock %}
