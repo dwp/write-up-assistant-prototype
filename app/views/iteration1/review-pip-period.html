@@ -24,111 +24,137 @@
       <h1 class="govuk-heading-xl">
         Review period for PIP
       </h1>
+
       <p>Your artificial intelligence assistant will review the documents and extract the relevant information to produce an initial draft assessment report. </p>
    <!--consultation date--> 
 <div>
-{{ govukDateInput({
-  id: "passport-issued",
-  namePrefix: "consultation-date",
-  fieldset: {
-    legend: {
-      text: "What is the consultation date?",
-      isPageHeading: false,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  hint: {
-    text: "For example, 27 3 2024"
-  }
-}) }}
-</div>
-   <!--checked id?--> 
 
-<div>
+<!-- Review period for PIP -->
 
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      When should this claim be reviewed?
+    </legend>
 
- {% set yescheck %}
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="review-18-months" name="review-period" type="radio" value="18 months">
+        <label class="govuk-label govuk-radios__label" for="review-18-months">18 months</label>
+      </div>
 
-{{ govukTextarea({
- id: "yes-check",
-  name: "yescheck",
-  label: {
-    text: "How did you confirm the identity?",
-    classes: "govuk-label--m",
-    isPageHeading: false
-  },
-  hint: {
-    text: ""
-  }
-}) }}
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="review-3-years" name="review-period" type="radio" value="3 years">
+        <label class="govuk-label govuk-radios__label" for="review-3-years">3 years</label>
+      </div>
 
-{% endset -%} 
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="review-5-years" name="review-period" type="radio" value="5 years">
+        <label class="govuk-label govuk-radios__label" for="review-5-years">5 years</label>
+      </div>
 
-{{ govukRadios({
-  classes: "govuk-radios",
-  name: "changedName",
-  fieldset: {
-    legend: {
-      text: "Did you confirm claimant's identity?",
-      isPageHeading: false,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "no",
-      text: "No"
-    },
-    {
-      value: "yes",
-      text: "Yes",
-      conditional: {
-        html: yescheck
-      }
-    }
-  ]
-}) }}
-</div>   
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="review-none" name="review-period" type="radio" value="no future assessments required">
+        <label class="govuk-label govuk-radios__label" for="review-none">No future assessments required</label>
+      </div>
 
-<!--concent-->
-
-<div>
-
-{{ govukRadios({
-  classes: "govuk-radios",
-  name: "gave-concsent",
-  fieldset: {
-    legend: {
-      text: "Did the claimant give you their consent?",
-      isPageHeading: false,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  hint: {
-    text: "Make sure the claimant understands the purpose of the consultation, and they consent to continue."
-  },
-  items: [
-    {
-      value: "yes",
-      text: "Yes"
-    },
-    {
-      value: "no",
-      text: "No"
-    }
-  ]
-}) }}
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="review-other" name="review-period" type="radio" value="other">
+        <label class="govuk-label govuk-radios__label" for="review-other">Other</label>
+      </div>
+    </div>
+  </fieldset>
 </div>
 
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--m" for="review-reason">
+    Why do you recommend this review period?
+  </label>
+  <textarea class="govuk-textarea" id="review-reason" name="review-reason" rows="5"></textarea>
+</div>
 
-<!--additional-->
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      Is it likely that the functional restriction identified in this report will still be present when the claim is reviewed?
+    </legend>
+
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="restriction-yes" name="restriction-present" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="restriction-yes">Yes</label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="restriction-no" name="restriction-present" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="restriction-no">No</label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="restriction-na" name="restriction-present" type="radio" value="not applicable">
+        <label class="govuk-label govuk-radios__label" for="restriction-na">Not applicable</label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      Is the claimant likely to need additional support for future claim processes?
+    </legend>
+
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="future-support-yes" name="future-support" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="future-support-yes">Yes</label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="future-support-no" name="future-support" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="future-support-no">No</label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      Although they have not claimed under special rules, in your opinion, does the claimant meet the criteria for special rules?
+    </legend>
+
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="special-rules-yes" name="special-rules" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="special-rules-yes">Yes</label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="special-rules-no" name="special-rules" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="special-rules-no">No</label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="govuk-form-group">
+  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="harmful-info" name="harmful-info" type="checkbox" value="no harmful information">
+      <label class="govuk-label govuk-checkboxes__label" for="harmful-info">
+        No harmful information has been included in this report.
+      </label>
+    </div>
+  </div>
+</div>
 
 
-      <h2 class="govuk-heading-m">Additional attendees</h2>
-     <p class="govuk-body">No additional attendees have been added. <a class="govuk-link" href="">Add an atendee</a></p>
+
+</div>
+
+
+
 
 
 

@@ -22,93 +22,21 @@
     <div class="govuk-grid-column-two-thirds">
   
       <h1 class="govuk-heading-xl">
-        Daily Living Qualifying period and prospective test
+        Daily living qualifying period and prospective test
       </h1>
-      <p>Your artificial intelligence assistant will review the documents and extract the relevant information to produce an initial draft assessment report. </p>
-   <!--consultation date--> 
-<div>
-{{ govukDateInput({
-  id: "passport-issued",
-  namePrefix: "consultation-date",
+     
+
+   <!--3m?--> 
+
+<div class="govuk-!-mardin-bottom-8">
+  {{ govukRadios({
+  name: "func-restric-3m",
   fieldset: {
     legend: {
-      text: "What is the consultation date?",
+      text: "Has the claimant had the functional restriction for at least 3 months?",
       isPageHeading: false,
       classes: "govuk-fieldset__legend--m"
     }
-  },
-  hint: {
-    text: "For example, 27 3 2024"
-  }
-}) }}
-</div>
-   <!--checked id?--> 
-
-<div>
-
-
- {% set yescheck %}
-
-{{ govukTextarea({
- id: "yes-check",
-  name: "yescheck",
-  label: {
-    text: "How did you confirm the identity?",
-    classes: "govuk-label--m",
-    isPageHeading: false
-  },
-  hint: {
-    text: ""
-  }
-}) }}
-
-{% endset -%} 
-
-{{ govukRadios({
-  classes: "govuk-radios",
-  name: "changedName",
-  fieldset: {
-    legend: {
-      text: "Did you confirm claimant's identity?",
-      isPageHeading: false,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "no",
-      text: "No"
-    },
-    {
-      value: "yes",
-      text: "Yes",
-      conditional: {
-        html: yescheck
-      }
-    }
-  ]
-}) }}
-</div>   
-
-<!--concent-->
-
-<div>
-
-{{ govukRadios({
-  classes: "govuk-radios",
-  name: "gave-concsent",
-  fieldset: {
-    legend: {
-      text: "Did the claimant give you their consent?",
-      isPageHeading: false,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  hint: {
-    text: "Make sure the claimant understands the purpose of the consultation, and they consent to continue."
   },
   items: [
     {
@@ -118,17 +46,123 @@
     {
       value: "no",
       text: "No"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "nf",
+      text: "No daily living restriction found"
+    }
+  ]
+}) }}
+</div>
+
+   <!--9m?--> 
+
+<div class="govuk-!-marging-bottom-8">
+  {{ govukRadios({
+  name: "func-restric-9m",
+  fieldset: {
+    legend: {
+      text: "Is the claimant likely to have the functional restriction in 9 months?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "nf",
+      text: "No daily living restriction found"
+    }
+  ]
+}) }}
+</div>
+
+<div class="govuk-body govuk-!-margin-top-8">
+
+<h1 class="govuk-heading-xl">
+  Mobility qualifying period and prospective test
+</h1>
+</div>     
+
+   <!--3m?--> 
+
+<div class="govuk-!-mardin-bottom-8">
+  {{ govukRadios({
+  name: "func-restric-mob-3m",
+  fieldset: {
+    legend: {
+      text: "Has the claimant had the functional restriction for at least 3 months?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "nf",
+      text: "No daily living restriction found"
+    }
+  ]
+}) }}
+</div>
+
+   <!--9m?--> 
+
+<div class="govuk-!-mardin-bottom-8">
+  {{ govukRadios({
+  name: "func-restric-mob-9m",
+  fieldset: {
+    legend: {
+      text: "Is the claimant likely to have the functional restriction in 9 months?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "nf",
+      text: "No daily living restriction found"
     }
   ]
 }) }}
 </div>
 
 
-<!--additional-->
 
-
-      <h2 class="govuk-heading-m">Additional attendees</h2>
-     <p class="govuk-body">No additional attendees have been added. <a class="govuk-link" href="">Add an atendee</a></p>
 
 
 
