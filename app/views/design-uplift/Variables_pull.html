@@ -1,0 +1,704 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Start page
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+
+
+
+{% block content %}
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+       Booked appointments
+      </h1>
+     
+
+      <h1 class="govuk-heading-m">
+       Select claimant from the list
+      </h1>
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Variable Name</th>
+      <th scope="col" class="govuk-table__header">How to call</th>
+      <th scope="col" class="govuk-table__header">Value</th>
+      <th scope="col" class="govuk-table__header">Type</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+
+    <!-- =========================== -->
+    <!-- CASE METADATA -->
+    <!-- =========================== -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">case_id (Case 1)</th>
+      <td class="govuk-table__cell">data.cases[0].case_id</td>
+      <td class="govuk-table__cell">{{ data.cases[0].case_id }}</td>
+      <td class="govuk-table__cell">Number</td>
+    </tr>
+
+    <!-- =========================== -->
+    <!-- REPORT 1: CONDITIONS -->
+    <!-- =========================== -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">status (Report 1)</th>
+      <td class="govuk-table__cell">data.cases[0].report[0].status</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[0].status }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- Condition 1 -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Condition or disability name (Report 1 · Condition 1)</th>
+      <td class="govuk-table__cell">data.cases[0].report[0].content[0]["Condition or disability name"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[0].content[0]["Condition or disability name"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">When did the condition or disability start? (Report 1 · Condition 1)</th>
+      <td class="govuk-table__cell">data.cases[0].report[0].content[0]["When did the condition or disability start?"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[0].content[0]["When did the condition or disability start?"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Diagnosis, impact and variability (Report 1 · Condition 1)</th>
+      <td class="govuk-table__cell">data.cases[0].report[0].content[0]["Diagnosis, impact and variability"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[0].content[0]["Diagnosis, impact and variability"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Current treatments, specialist input and hospital stays (Report 1 · Condition 1)</th>
+      <td class="govuk-table__cell">data.cases[0].report[0].content[0]["Current treatments, specialist input and hospital stays"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[0].content[0]["Current treatments, specialist input and hospital stays"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Home therapies (optional) (Report 1 · Condition 1)</th>
+      <td class="govuk-table__cell">data.cases[0].report[0].content[0]["Home therapies (optional)"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[0].content[0]["Home therapies (optional)"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Suicidal thoughts and self harm (optional) (Report 1 · Condition 1)</th>
+      <td class="govuk-table__cell">data.cases[0].report[0].content[0]["Suicidal thoughts and self harm (optional)"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[0].content[0]["Suicidal thoughts and self harm (optional)"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- Condition 2 -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Condition or disability name (Report 1 · Condition 2)</th>
+      <td class="govuk-table__cell">data.cases[0].report[0].content[1]["Condition or disability name"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[0].content[1]["Condition or disability name"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">When did the condition or disability start? (Report 1 · Condition 2)</th>
+      <td class="govuk-table__cell">data.cases[0].report[0].content[1]["When did the condition or disability start?"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[0].content[1]["When did the condition or disability start?"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Diagnosis, impact and variability (Report 1 · Condition 2)</th>
+      <td class="govuk-table__cell">data.cases[0].report[0].content[1]["Diagnosis, impact and variability"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[0].content[1]["Diagnosis, impact and variability"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Current treatments, specialist input and hospital stays (Report 1 · Condition 2)</th>
+      <td class="govuk-table__cell">data.cases[0].report[0].content[1]["Current treatments, specialist input and hospital stays"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[0].content[1]["Current treatments, specialist input and hospital stays"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Home therapies (optional) (Report 1 · Condition 2)</th>
+      <td class="govuk-table__cell">data.cases[0].report[0].content[1]["Home therapies (optional)"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[0].content[1]["Home therapies (optional)"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Suicidal thoughts and self harm (optional) (Report 1 · Condition 2)</th>
+      <td class="govuk-table__cell">data.cases[0].report[0].content[1]["Suicidal thoughts and self harm (optional)"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[0].content[1]["Suicidal thoughts and self harm (optional)"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- =========================== -->
+    <!-- REPORT 2: SOCIAL HISTORY -->
+    <!-- =========================== -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">status (Report 2)</th>
+      <td class="govuk-table__cell">data.cases[0].report[1].status</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[1].status }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- Social and occupational history -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">section (Report 2 · Item 1)</th>
+      <td class="govuk-table__cell">data.cases[0].report[1].content[0].section</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[1].content[0].section }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">text (Report 2 · Item 1)</th>
+      <td class="govuk-table__cell">data.cases[0].report[1].content[0].text</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[1].content[0].text }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- Mental state -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">section (Report 2 · Item 2)</th>
+      <td class="govuk-table__cell">data.cases[0].report[1].content[1].section</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[1].content[1].section }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">text (Report 2 · Item 2)</th>
+      <td class="govuk-table__cell">data.cases[0].report[1].content[1].text</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[1].content[1].text }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- Observations -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">section (Report 2 · Item 3)</th>
+      <td class="govuk-table__cell">data.cases[0].report[1].content[2].section</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[1].content[2].section }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">text (Report 2 · Item 3)</th>
+      <td class="govuk-table__cell">data.cases[0].report[1].content[2].text</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[1].content[2].text }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- =========================== -->
+    <!-- REPORT 3: MEDICATIONS -->
+    <!-- =========================== -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">status (Report 3)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].status</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].status }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- Medication 1 -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Medication Name (Report 3 · Medication 1)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[0]["Medication Name"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[0]["Medication Name"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Dosage (Report 3 · Medication 1)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[0].Dosage</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[0].Dosage }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Frequency (Report 3 · Medication 1)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[0].Frequency</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[0].Frequency }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Reason for taking (Report 3 · Medication 1)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[0]["Reason for taking"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[0]["Reason for taking"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Effectiveness (optional) (Report 3 · Medication 1)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[0]["Effectiveness (optional)"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[0]["Effectiveness (optional)"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Side effects (optional) (Report 3 · Medication 1)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[0]["Side effects (optional)"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[0]["Side effects (optional)"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- Medication 2 -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Medication Name (Report 3 · Medication 2)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[1]["Medication Name"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[1]["Medication Name"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Dosage (Report 3 · Medication 2)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[1].Dosage</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[1].Dosage }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Frequency (Report 3 · Medication 2)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[1].Frequency</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[1].Frequency }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Reason for taking (Report 3 · Medication 2)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[1]["Reason for taking"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[1]["Reason for taking"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Effectiveness (optional) (Report 3 · Medication 2)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[1]["Effectiveness (optional)"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[1]["Effectiveness (optional)"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Side effects (optional) (Report 3 · Medication 2)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[1]["Side effects (optional)"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[1]["Side effects (optional)"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- Medication 3 -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Medication Name (Report 3 · Medication 3)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[2]["Medication Name"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[2]["Medication Name"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Dosage (Report 3 · Medication 3)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[2].Dosage</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[2].Dosage }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Frequency (Report 3 · Medication 3)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[2].Frequency</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[2].Frequency }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Reason for taking (Report 3 · Medication 3)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[2]["Reason for taking"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[2]["Reason for taking"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Effectiveness (optional) (Report 3 · Medication 3)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[2]["Effectiveness (optional)"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[2]["Effectiveness (optional)"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Side effects (optional) (Report 3 · Medication 3)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[2]["Side effects (optional)"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[2]["Side effects (optional)"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- Medication 4 -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Medication Name (Report 3 · Medication 4)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[3]["Medication Name"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[3]["Medication Name"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Dosage (Report 3 · Medication 4)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[3].Dosage</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[3].Dosage }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Frequency (Report 3 · Medication 4)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[3].Frequency</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[3].Frequency }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Reason for taking (Report 3 · Medication 4)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[3]["Reason for taking"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[3]["Reason for taking"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Effectiveness (optional) (Report 3 · Medication 4)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[3]["Effectiveness (optional)"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[3]["Effectiveness (optional)"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Side effects (optional) (Report 3 · Medication 4)</th>
+      <td class="govuk-table__cell">data.cases[0].report[2].content[3]["Side effects (optional)"]</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[2].content[3]["Side effects (optional)"] }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- =========================== -->
+    <!-- REPORT 4: PREPARING FOOD -->
+    <!-- =========================== -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Preparing food – name (Report 4)</th>
+      <td class="govuk-table__cell">data.cases[0].report[3].content.name</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[3].content.name }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Preparing food – description (Report 4)</th>
+      <td class="govuk-table__cell">data.cases[0].report[3].content.description</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[3].content.description }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Preparing food – option (Report 4)</th>
+      <td class="govuk-table__cell">data.cases[0].report[3].content.option</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[3].content.option }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Preparing food – justification (Report 4)</th>
+      <td class="govuk-table__cell">data.cases[0].report[3].content.justification</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[3].content.justification }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- =========================== -->
+    <!-- REPORT 5: TAKING NUTRITION -->
+    <!-- =========================== -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Taking nutrition – name (Report 5)</th>
+      <td class="govuk-table__cell">data.cases[0].report[4].content.name</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[4].content.name }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Taking nutrition – description (Report 5)</th>
+      <td class="govuk-table__cell">data.cases[0].report[4].content.description</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[4].content.description }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Taking nutrition – option (Report 5)</th>
+      <td class="govuk-table__cell">data.cases[0].report[4].content.option</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[4].content.option }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Taking nutrition – justification (Report 5)</th>
+      <td class="govuk-table__cell">data.cases[0].report[4].content.justification</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[4].content.justification }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- =========================== -->
+    <!-- REPORT 6: MANAGING THERAPY -->
+    <!-- =========================== -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Managing therapy – name (Report 6)</th>
+      <td class="govuk-table__cell">data.cases[0].report[5].content.name</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[5].content.name }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Managing therapy – description (Report 6)</th>
+      <td class="govuk-table__cell">data.cases[0].report[5].content.description</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[5].content.description }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Managing therapy – option (Report 6)</th>
+      <td class="govuk-table__cell">data.cases[0].report[5].content.option</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[5].content.option }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Managing therapy – justification (Report 6)</th>
+      <td class="govuk-table__cell">data.cases[0].report[5].content.justification</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[5].content.justification }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- =========================== -->
+    <!-- REPORT 7: WASHING & BATHING -->
+    <!-- =========================== -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Washing and bathing – name (Report 7)</th>
+      <td class="govuk-table__cell">data.cases[0].report[6].content.name</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[6].content.name }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Washing and bathing – description (Report 7)</th>
+      <td class="govuk-table__cell">data.cases[0].report[6].content.description</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[6].content.description }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Washing and bathing – option (Report 7)</th>
+      <td class="govuk-table__cell">data.cases[0].report[6].content.option</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[6].content.option }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Washing and bathing – justification (Report 7)</th>
+      <td class="govuk-table__cell">data.cases[0].report[6].content.justification</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[6].content.justification }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- =========================== -->
+    <!-- REPORT 8: MANAGING TOILET NEEDS -->
+    <!-- =========================== -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Managing toilet needs – name (Report 8)</th>
+      <td class="govuk-table__cell">data.cases[0].report[7].content.name</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[7].content.name }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Managing toilet needs – description (Report 8)</th>
+      <td class="govuk-table__cell">data.cases[0].report[7].content.description</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[7].content.description }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Managing toilet needs – option (Report 8)</th>
+      <td class="govuk-table__cell">data.cases[0].report[7].content.option</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[7].content.option }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Managing toilet needs – justification (Report 8)</th>
+      <td class="govuk-table__cell">data.cases[0].report[7].content.justification</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[7].content.justification }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- =========================== -->
+    <!-- REPORT 9: DRESSING & UNDRESSING -->
+    <!-- =========================== -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Dressing and undressing – name (Report 9)</th>
+      <td class="govuk-table__cell">data.cases[0].report[8].content.name</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[8].content.name }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Dressing and undressing – description (Report 9)</th>
+      <td class="govuk-table__cell">data.cases[0].report[8].content.description</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[8].content.description }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Dressing and undressing – option (Report 9)</th>
+      <td class="govuk-table__cell">data.cases[0].report[8].content.option</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[8].content.option }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Dressing and undressing – justification (Report 9)</th>
+      <td class="govuk-table__cell">data.cases[0].report[8].content.justification</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[8].content.justification }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- =========================== -->
+    <!-- REPORT 10: COMMUNICATING VERBALLY -->
+    <!-- =========================== -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Communicating verbally – name (Report 10)</th>
+      <td class="govuk-table__cell">data.cases[0].report[9].content.name</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[9].content.name }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Communicating verbally – description (Report 10)</th>
+      <td class="govuk-table__cell">data.cases[0].report[9].content.description</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[9].content.description }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Communicating verbally – option (Report 10)</th>
+      <td class="govuk-table__cell">data.cases[0].report[9].content.option</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[9].content.option }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Communicating verbally – justification (Report 10)</th>
+      <td class="govuk-table__cell">data.cases[0].report[9].content.justification</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[9].content.justification }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- =========================== -->
+    <!-- REPORT 11: READING & UNDERSTANDING -->
+    <!-- =========================== -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Reading & understanding signs, symbols and words – name (Report 11)</th>
+      <td class="govuk-table__cell">data.cases[0].report[10].content.name</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[10].content.name }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Reading & understanding signs, symbols and words – description (Report 11)</th>
+      <td class="govuk-table__cell">data.cases[0].report[10].content.description</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[10].content.description }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Reading & understanding signs, symbols and words – option (Report 11)</th>
+      <td class="govuk-table__cell">data.cases[0].report[10].content.option</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[10].content.option }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Reading & understanding signs, symbols and words – justification (Report 11)</th>
+      <td class="govuk-table__cell">data.cases[0].report[10].content.justification</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[10].content.justification }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- =========================== -->
+    <!-- REPORT 12: ENGAGING FACE TO FACE -->
+    <!-- =========================== -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Engaging face to face – name (Report 12)</th>
+      <td class="govuk-table__cell">data.cases[0].report[11].content.name</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[11].content.name }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Engaging face to face – description (Report 12)</th>
+      <td class="govuk-table__cell">data.cases[0].report[11].content.description</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[11].content.description }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Engaging face to face – option (Report 12)</th>
+      <td class="govuk-table__cell">data.cases[0].report[11].content.option</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[11].content.option }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Engaging face to face – justification (Report 12)</th>
+      <td class="govuk-table__cell">data.cases[0].report[11].content.justification</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[11].content.justification }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- =========================== -->
+    <!-- REPORT 13: BUDGETING -->
+    <!-- =========================== -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Budgeting – name (Report 13)</th>
+      <td class="govuk-table__cell">data.cases[0].report[12].content.name</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[12].content.name }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Budgeting – description (Report 13)</th>
+      <td class="govuk-table__cell">data.cases[0].report[12].content.description</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[12].content.description }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Budgeting – option (Report 13)</th>
+      <td class="govuk-table__cell">data.cases[0].report[12].content.option</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[12].content.option }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Budgeting – justification (Report 13)</th>
+      <td class="govuk-table__cell">data.cases[0].report[12].content.justification</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[12].content.justification }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- =========================== -->
+    <!-- REPORT 14: PLANNING & FOLLOWING JOURNEYS -->
+    <!-- =========================== -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Planning and following journeys – name (Report 14)</th>
+      <td class="govuk-table__cell">data.cases[0].report[13].content.name</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[13].content.name }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Planning and following journeys – description (Report 14)</th>
+      <td class="govuk-table__cell">data.cases[0].report[13].content.description</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[13].content.description }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Planning and following journeys – option (Report 14)</th>
+      <td class="govuk-table__cell">data.cases[0].report[13].content.option</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[13].content.option }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Planning and following journeys – justification (Report 14)</th>
+      <td class="govuk-table__cell">data.cases[0].report[13].content.justification</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[13].content.justification }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+    <!-- =========================== -->
+    <!-- REPORT 15: MOVING AROUND -->
+    <!-- =========================== -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Moving around – name (Report 15)</th>
+      <td class="govuk-table__cell">data.cases[0].report[14].content.name</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[14].content.name }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Moving around – description (Report 15)</th>
+      <td class="govuk-table__cell">data.cases[0].report[14].content.description</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[14].content.description }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Moving around – option (Report 15)</th>
+      <td class="govuk-table__cell">data.cases[0].report[14].content.option</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[14].content.option }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Moving around – justification (Report 15)</th>
+      <td class="govuk-table__cell">data.cases[0].report[14].content.justification</td>
+      <td class="govuk-table__cell">{{ data.cases[0].report[14].content.justification }}</td>
+      <td class="govuk-table__cell">String</td>
+    </tr>
+
+  </tbody>
+</table>>
+
+    </div>
+
+
+
+  </div>
+
+{% endblock %}
