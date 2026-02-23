@@ -18,7 +18,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
-  {# Use Case 2 data for all variables #}
+  {# Use Case 1 data for all variables #}
 {% set case = data.cases[0] %}
 
 
@@ -32,7 +32,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Name</dt>
-    <dd class="govuk-summary-list__value">Jane Smith</dd>
+    <dd class="govuk-summary-list__value">{{ data['userName']  or "not captured" }}</dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="#change-name">Change<span class="govuk-visually-hidden"> name</span></a>
     </dd>
@@ -40,7 +40,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">National insurance number</dt>
-    <dd class="govuk-summary-list__value">RN 00 01 23 A</dd>
+    <dd class="govuk-summary-list__value">{{ data['userNINO']  or "not captured" }}</dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="#change-nino">Change<span class="govuk-visually-hidden"> national insurance number</span></a>
     </dd>
@@ -48,7 +48,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Date of birth</dt>
-    <dd class="govuk-summary-list__value">31 December 1999</dd>
+    <dd class="govuk-summary-list__value">{{ data['userDoB']  or "not captured" }}</dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="#change-dob">Change<span class="govuk-visually-hidden"> date of birth</span></a>
     </dd>
@@ -61,7 +61,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Date report was completed</dt>
-    <dd class="govuk-summary-list__value">13th October 2023</dd>
+    <dd class="govuk-summary-list__value">{{ data['reportCompleteDate']  or "not captured" }}</dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="#change-report-date">Change<span class="govuk-visually-hidden"> date report was completed</span></a>
     </dd>
@@ -69,7 +69,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Benefit</dt>
-    <dd class="govuk-summary-list__value">Personal Independence Payment</dd>
+    <dd class="govuk-summary-list__value">{{ data['reportBenefitType']  or "not captured" }}</dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="#change-benefit">Change<span class="govuk-visually-hidden"> benefit</span></a>
     </dd>
@@ -77,7 +77,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Assessment type</dt>
-    <dd class="govuk-summary-list__value">Telephone assessment</dd>
+    <dd class="govuk-summary-list__value">{{ data['reportAssessType']  or "not captured" }}</dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="#change-assessment-type">Change<span class="govuk-visually-hidden"> assessment type</span></a>
     </dd>
@@ -85,7 +85,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Healthcare professional</dt>
-    <dd class="govuk-summary-list__value">Dr. Smith</dd>
+    <dd class="govuk-summary-list__value">{{ data['reportHCP']  or "not captured" }}</dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="#change-hcp">Change<span class="govuk-visually-hidden"> healthcare professional</span></a>
     </dd>
@@ -98,7 +98,7 @@
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Evidence used 1</dt>
-    <dd class="govuk-summary-list__value">PIP_1</dd>
+    <dd class="govuk-summary-list__value">PIP</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
   <div class="govuk-summary-list__row">
@@ -112,6 +112,11 @@
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Consultation date</dt>
+    <dd class="govuk-summary-list__value">{{ data['ConsultationDate']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Attendees</dt>
     <dd class="govuk-summary-list__value">No additional attendees have been added.</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
@@ -200,14 +205,14 @@
     <dd class="govuk-summary-list__value">{{ med.Dosage }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Effectiveness (optional)</dt>
-    <dd class="govuk-summary-list__value">{{ med["Effectiveness (optional)"] }}</dd>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Frequency</dt>
+    <dd class="govuk-summary-list__value">{{ med.Frequency }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Frequency</dt>
-    <dd class="govuk-summary-list__value">{{ med.Frequency }}</dd>
+    <dt class="govuk-summary-list__key">Effectiveness (optional)</dt>
+    <dd class="govuk-summary-list__value">{{ med["Effectiveness (optional)"] }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
   <div class="govuk-summary-list__row">

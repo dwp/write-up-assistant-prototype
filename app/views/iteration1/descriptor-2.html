@@ -24,7 +24,7 @@
 <span class="govuk-caption-xl">Taking nutrition (2)</span>
 <h1 class="govuk-heading-xl">How well the claimant can take nutrition?</h1>
 
-
+  <form action="descriptor-3" method="post" novalidate="">
 
 {{ govukRadios({
     idPrefix: "descriptor-2",
@@ -39,27 +39,27 @@
 
     items: [
       {
-        value: "2a",
+        value: "(2a) Can take nutrition unaided",
         text: "(2a) Can take nutrition unaided"
       },
       {
-        value: "2b",
+        value: "(2b) Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take nutrition, or assistance to be able to cut up food",
         text: "(2b) Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take nutrition, or assistance to be able to cut up food"
       },
       {
-        value: "2c",
+        value: "(2c) Needs a therapeutic source to be able to take nutrition",
         text: "(2c) Needs a therapeutic source to be able to take nutrition"
       },
       {
-        value: "2d",
+        value: "(2d) Needs prompting to be able to take nutrition",
         text: "(2d) Needs prompting to be able to take nutrition"
       },
       {
-        value: "2e",
+        value: "(2e) Needs assistance to be able to manage a therapeutic source to take nutrition",
         text: "(2e) Needs assistance to be able to manage a therapeutic source to take nutrition"
       },
       {
-        value: "2f",
+        value: "(2f) Cannot convey food and drink to their mouth and needs another person to do so",
         text: "(2f) Cannot convey food and drink to their mouth and needs another person to do so"
       }
     ]
@@ -71,23 +71,23 @@
 
 <!-- place it in a form if will use it-->
 
+
+
 <div class="govuk-button-group">
-
-
 
       {{ govukButton({
         text: "Continue",
-        href: "descriptor-3",
         isStartButton: false
       }) }}
 
         {{ govukButton({
           text: "View descriptor list",
+          href: "check-your-answers",
           classes: "govuk-button--secondary"
         }) }}
 
-
 </div>
+</form>
   
 
     </div>

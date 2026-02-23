@@ -25,7 +25,7 @@
 <h1 class="govuk-heading-xl">How well the claimant can manage therapy or monitor a health condition?</h1>
 
 
-
+ <form action="descriptor-3" method="post" novalidate="">
 
 {{ govukRadios({
     idPrefix: "descriptor-3",
@@ -40,27 +40,27 @@
 
     items: [
       {
-        value: "3a",
+        value: "(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided",
         text: "(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided"
       },
       {
-        value: "3b",
+        value: "(3b) Needs to use an aid or appliance to be able to manage medication, or needs supervision, prompting or assistance to be able to manage medication, or needs ",
         text: "(3b) Needs to use an aid or appliance to be able to manage medication, or needs supervision, prompting or assistance to be able to manage medication, or needs "
       },
       {
-        value: "3c",
+        value: "(3c) Needs supervision, prompting or assistance to be able to manage therapy that takes no more than 3.5 hours a week",
         text: "(3c) Needs supervision, prompting or assistance to be able to manage therapy that takes no more than 3.5 hours a week"
       },
       {
-        value: "3d",
+        value: "(3d) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 3.5 but no more than 7 hours a week",
         text: "(3d) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 3.5 but no more than 7 hours a week"
       },
       {
-        value: "3e",
+        value: "(3e) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 7 but no more than 14 hours a week",
         text: "(3e) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 7 but no more than 14 hours a week"
       },
       {
-        value: "3f",
+        value: "(3f) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 14 hours a week",
         text: "(3f) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 14 hours a week"
       }
     ]
@@ -68,28 +68,22 @@
 
 
 
-
-
 <!-- place it in a form if will use it-->
 
 <div class="govuk-button-group">
-
-
-
       {{ govukButton({
         text: "Continue",
-        href: "descriptor-4",
         isStartButton: false
       }) }}
 
         {{ govukButton({
           text: "View descriptor list",
+           href: "check-your-answers",
           classes: "govuk-button--secondary"
         }) }}
-
-
 </div>
-  
+
+  </form>
 
     </div>
 

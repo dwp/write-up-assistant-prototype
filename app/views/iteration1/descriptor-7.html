@@ -24,6 +24,8 @@
 <span class="govuk-caption-xl">Communicating verbally (7)</span>
 <h1 class="govuk-heading-xl">How well the claimant can communicate verbally?</h1>
 
+<form action="descriptor-8" method="post" novalidate="">
+
 {{ govukRadios({
     idPrefix: "descriptor-7",
     name: "descriptor7",
@@ -82,13 +84,14 @@
 
         {{ govukButton({
           text: "View descriptor list",
+           href: "check-your-answers",
           classes: "govuk-button--secondary"
         }) }}
 
 
 </div>
   
-
+</form>
     </div>
 
   </div>

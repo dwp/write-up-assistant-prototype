@@ -16,6 +16,7 @@
 {% endblock %}
 
 {% block content %}
+{% set case = data.cases[0] %}
  <a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -34,7 +35,21 @@
   <div id="more-detail-hint" class="govuk-hint">
     Provide a clear summary of the claimant’s health conditions, including onset, duration, progression and any recent changes.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">
+Condition 1:
+{{ case.report[0].content[0]["Condition or disability name"] }}
+{{ case.report[0].content[0]["Current treatments, specialist input and hospital stays"] }}
+{{ case.report[0].content[0]["Diagnosis, impact and variability"] }}
+{{ case.report[0].content[0]["Home therapies (optional)"] }}
+Started in {{ case.report[0].content[0]["When did the condition or disability start?"] }}
+Condition 2
+{{ case.report[0].content[1]["Condition or disability name"] }}
+{{ case.report[0].content[1]["Current treatments, specialist input and hospital stays"] }}
+{{ case.report[0].content[1]["Diagnosis, impact and variability"] }}
+{{ case.report[0].content[1]["Home therapies (optional)"] }}
+Started in {{ case.report[0].content[0]["When did the condition or disability start?"] }}
+No Suicidal thoughts no self harm 
+</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -46,7 +61,11 @@
   <div id="more-detail-hint" class="govuk-hint">
     List all prescribed and over‑the‑counter medications, including dosage, frequency and any reported side effects..
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">
+    {% for med in case.report[2].content %}
+    {{ med["Medication Name"] }}  {{ med.Dosage }}  {{ med.Frequency }}  {{ med["Effectiveness (optional)"] }} {{ med["Reason for taking"] }} {{ med["Side effects (optional)"] }}
+    {% endfor %}
+  </textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -58,7 +77,7 @@
   <div id="more-detail-hint" class="govuk-hint">
     Describe the claimant’s living situation, daily routines, work history and any social or environmental factors that affect their functioning.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">{{ case.report[3].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -70,7 +89,7 @@
   <div id="more-detail-hint" class="govuk-hint">
     Record any difficulties with planning, preparing, or safely cooking meals.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">{{ case.report[3].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -82,7 +101,7 @@
   <div id="more-detail-hint" class="govuk-hint">
     Describe issues with eating, drinking, or managing nutritional needs independently.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">{{ case.report[4].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -94,7 +113,7 @@
   <div id="more-detail-hint" class="govuk-hint">
     Note the claimant’s ability to follow treatment plans, manage therapy routines, or carry out medical interventions.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">{{ case.report[5].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -106,7 +125,7 @@
   <div id="more-detail-hint" class="govuk-hint">
     Document any challenges with personal hygiene tasks, including washing, bathing or using facilities safely.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">{{ case.report[6].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -118,7 +137,7 @@
   <div id="more-detail-hint" class="govuk-hint">
     Describe continence issues or difficulties accessing, using, or managing toilet needs.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">{{ case.report[7].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -130,7 +149,7 @@
   <div id="more-detail-hint" class="govuk-hint">
     Record problems with selecting clothing, dressing independently, or removing garments.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">{{ case.report[8].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -142,7 +161,7 @@
   <div id="more-detail-hint" class="govuk-hint">
     Note speech, comprehension, articulation or communication difficulties observed during the consultation.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">{{ case.report[9].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -154,7 +173,7 @@
   <div id="more-detail-hint" class="govuk-hint">
     Describe any challenges with reading, processing written information or understanding visual prompts.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">{{ case.report[10].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -166,7 +185,7 @@
   <div id="more-detail-hint" class="govuk-hint">
     Record how the claimant engages in face‑to‑face interactions, including cooperation, rapport, and social communication skills.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">{{ case.report[11].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -178,7 +197,7 @@
   <div id="more-detail-hint" class="govuk-hint">
     Describe any limitations in managing money, budgeting tasks or making financial decisions.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">{{ case.report[12].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -190,7 +209,7 @@
   <div id="more-detail-hint" class="govuk-hint">
     Document difficulties with route planning, navigation, or travelling independently.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">{{ case.report[13].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -202,7 +221,7 @@
   <div id="more-detail-hint" class="govuk-hint">
     Record mobility issues, including walking distances, balance, pain, stability or the use of mobility aids.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">{{ case.report[14].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -214,7 +233,7 @@
   <div id="more-detail-hint" class="govuk-hint">
    Describe any observations about the claimant’s mood, behaviour, communication, awareness, and interaction during the assessment.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">{{ case.report[1].content[1].text }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -226,7 +245,7 @@
   <div id="more-detail-hint" class="govuk-hint">
    Record any informal observations you noticed before, during, or after the assessment, not captured elsewhere.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint">{{ case.report[1].content[2].text }}</textarea>
 </div>
 
    {{ govukButton({

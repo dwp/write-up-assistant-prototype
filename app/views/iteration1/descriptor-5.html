@@ -25,71 +25,62 @@
 <h1 class="govuk-heading-xl">How well the claimant can manage toilet needs?</h1>
 
 
+ <form action="descriptor-6" method="post" novalidate="">
+      {{ govukRadios({
+          idPrefix: "descriptor-5",
+          name: "descriptor5",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
 
-
-
-{{ govukRadios({
-    idPrefix: "descriptor-5",
-    name: "descriptor5",
-    fieldset: {
-      legend: {
-        text: "",
-        isPageHeading: false,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-
-    items: [
-      {
-        value: "5a",
-        text: "(5a) Can manage toilet needs or incontinence unaided"
-      },
-      {
-        value: "5b",
-        text: "(5b) Needs to use an aid or appliance to be able to manage toilet needs or incontinence"
-      },
-      {
-        value: "5c",
-        text: "(5c) Needs supervision or prompting to be able to manage toilet needs"
-      },
-      {
-        value: "5d",
-        text: "(5d) Needs assistance to be able to manage toilet needs"
-      },
-      {
-        value: "5e",
-        text: "(5e) Needs assistance to be able to manage incontinence of either bladder or bowel"
-      },
-      {
-        value: "5f",
-        text: "(5f) Needs assistance to be able to manage incontinence of both bladder and bowel"
-      }
-    ]
-  }) }}
-
-
-
-
-
-<!-- place it in a form if will use it-->
-
-<div class="govuk-button-group">
-
-
-
-      {{ govukButton({
-        text: "Continue",
-        href: "descriptor-6",
-        isStartButton: false
-      }) }}
-
-        {{ govukButton({
-          text: "View descriptor list",
-          classes: "govuk-button--secondary"
+          items: [
+            {
+              value: "(5a) Can manage toilet needs or incontinence unaided"
+              text: "(5a) Can manage toilet needs or incontinence unaided"
+            },
+            {
+              value: "(5b) Needs to use an aid or appliance to be able to manage toilet needs or incontinence",
+              text: "(5b) Needs to use an aid or appliance to be able to manage toilet needs or incontinence"
+            },
+            {
+              value: "(5c) Needs supervision or prompting to be able to manage toilet needs",
+              text: "(5c) Needs supervision or prompting to be able to manage toilet needs"
+            },
+            {
+              value: "(5d) Needs assistance to be able to manage toilet needs",
+              text: "(5d) Needs assistance to be able to manage toilet needs"
+            },
+            {
+              value: "(5e) Needs assistance to be able to manage incontinence of either bladder or bowel",
+              text: "(5e) Needs assistance to be able to manage incontinence of either bladder or bowel"
+            },
+            {
+              value: "(5f) Needs assistance to be able to manage incontinence of both bladder and bowel",
+              text: "(5f) Needs assistance to be able to manage incontinence of both bladder and bowel"
+            }
+          ]
         }) }}
 
+      <!-- place it in a form if will use it-->
+<div class="govuk-button-group">
+            {{ govukButton({
+              text: "Continue",
+              isStartButton: false
+            }) }}
 
-</div>
+              {{ govukButton({
+                text: "View descriptor list",
+                href: "check-your-answers",
+                classes: "govuk-button--secondary"
+              }) }}
+            
+   </div>
+</form>
+
   
 
     </div>

@@ -25,7 +25,7 @@
 <h1 class="govuk-heading-xl">How well the claimant can dress and undress?</h1>
 
 
-
+<form action="descriptor-6" method="post" novalidate="">
 
 {{ govukRadios({
     idPrefix: "descriptor-6",
@@ -74,22 +74,19 @@
 
 <div class="govuk-button-group">
 
-
-
       {{ govukButton({
         text: "Continue",
-        href: "descriptor-7",
         isStartButton: false
       }) }}
 
         {{ govukButton({
           text: "View descriptor list",
+           href: "check-your-answers",
           classes: "govuk-button--secondary"
         }) }}
 
-
 </div>
-  
+</form>  
 
     </div>
 

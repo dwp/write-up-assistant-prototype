@@ -7,7 +7,6 @@
 
 {% block beforeContent %}
 
-
   {{ govukPhaseBanner({
     tag: {
       text: "Prototype"
@@ -23,6 +22,7 @@
   <div class="govuk-grid-column-three-quarters">
 
     <h1 class="govuk-heading-xl">Check your answers</h1>
+    <p class="govuk-">These are the descriptors you selected</p>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
@@ -30,10 +30,10 @@
           Preparing food (1)
         </dt>
         <dd class="govuk-summary-list__value">
-          Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave (1c)
+          {{ data['descriptor1']  or "(1b) Needs to use an aid or appliance to be able to either prepare or cook a simple meal" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+          <a class="govuk-link" href="descriptor-1">
             Change
           </a>
         </dd>
@@ -44,10 +44,10 @@
           Taking nutrition (2)
         </dt>
         <dd class="govuk-summary-list__value">
-          Can take nutrition unaided (2a)
+           {{ data['descriptor2']  or "(2a) Can take nutrition unaided" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+          <a class="govuk-link" href="descriptor-2">
             Change
           </a>
         </dd>
@@ -58,10 +58,10 @@
           Managing therapy (3)
         </dt>
         <dd class="govuk-summary-list__value">
-          Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided (3a)
+           {{ data['descriptor3']  or "(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+          <a class="govuk-link" href="descriptor-3">
             Change
           </a>
         </dd>
@@ -72,10 +72,10 @@
           Washing and bathing (4)
         </dt>
         <dd class="govuk-summary-list__value">
-          Needs to use an aid or appliance to be able to wash or bathe (4b)
+          {{ data['descriptor4']  or "(4e) Needs assistance to be able to get in or out of a bath or showe" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+          <a class="govuk-link" href="descriptor-4">
             Change
           </a>
         </dd>
@@ -86,10 +86,10 @@
           Managing toilet needs (5)
         </dt>
         <dd class="govuk-summary-list__value">
-          Needs to use an aid or appliance to be able to manage toilet needs or incontinence (5b)
+           {{ data['descriptor5']  or "(5b) Needs to use an aid or appliance to be able to manage toilet needs or incontinence" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+          <a class="govuk-link" href="descriptor-5">
             Change
           </a>
         </dd>
@@ -100,10 +100,10 @@
           Dressing and undressing (6)
         </dt>
         <dd class="govuk-summary-list__value">
-          Can dress and undress unaided (6a)
+           {{ data['descriptor6']  or "(6b) Needs to use an aid or appliance to be able to dress or undress" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+          <a class="govuk-link" href="descriptor-6">
             Change
           </a>
         </dd>
@@ -114,10 +114,10 @@
           Communicating verbally (7)
         </dt>
         <dd class="govuk-summary-list__value">
-          Can express and understand verbal information unaided (7a)
+           {{ data['descriptor7']  or "(7a) Can express and understand verbal information unaided" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+          <a class="govuk-link" href="descriptor-7">
             Change
           </a>
         </dd>
@@ -128,10 +128,10 @@
           Reading and understanding signs, symbols and words (8)
         </dt>
         <dd class="govuk-summary-list__value">
-          Can read and understand basic and complex written information either unaided or using spectacles or contact lenses (8a)
+           {{ data['descriptor8']  or "(8a) Can read and understand basic and complex written information either unaided or using spectacles or contact lenses" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+          <a class="govuk-link" href="descriptor-8">
             Change
           </a>
         </dd>
@@ -142,10 +142,10 @@
           Engaging face to face (9)
         </dt>
         <dd class="govuk-summary-list__value">
-          Can engage with other people unaided (9a)
+           {{ data['descriptor9']  or "(9a) Can engage with other people unaided" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+          <a class="govuk-link" href="descriptor-9">
             Change
           </a>
         </dd>
@@ -156,10 +156,10 @@
           Budgeting (10)
         </dt>
         <dd class="govuk-summary-list__value">
-          Can manage complex budgeting decisions unaided (10a)
+           {{ data['descriptor10']  or "(10a) Can manage complex budgeting decisions unaided" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+          <a class="govuk-link" href="descriptor-10">
             Change
           </a>
         </dd>
@@ -170,10 +170,10 @@
           Planning and following journeys (11)
         </dt>
         <dd class="govuk-summary-list__value">
-          Can plan and follow the route of a journey unaided (11a)
+           {{ data['descriptor11']  or "(11a) Can plan and follow the route of a journey unaided" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+          <a class="govuk-link" href="descriptor-11">
             Change
           </a>
         </dd>
@@ -184,10 +184,10 @@
           Moving around (12)
         </dt>
         <dd class="govuk-summary-list__value">
-          Can stand and then move unaided more than 20 metres but no more than 50 metres (12c)
+           {{ data['descriptor12']  or "(12c) Can stand and then move unaided more than 20 metres but no more than 50 metres" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+          <a class="govuk-link" href="descriptor-12">
             Change
           </a>
         </dd>

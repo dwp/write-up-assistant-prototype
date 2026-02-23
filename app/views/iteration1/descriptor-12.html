@@ -24,9 +24,7 @@
 <span class="govuk-caption-xl">Moving around (12)</span>
 <h1 class="govuk-heading-xl">How well the claimant can move around?</h1>
 
-
-
-
+<form action="check-your-answers" method="post" novalidate="">
 
 {{ govukRadios({
     idPrefix: "descriptor-12",
@@ -58,7 +56,7 @@
       },
       {
         value: "12e",
-        text: "((12e) Can stand and then move more than 1 metre but no more than 20 metres, either aided or unaided"
+        text: "(12e) Can stand and then move more than 1 metre but no more than 20 metres, either aided or unaided"
       },
       {
         value: "12f",
@@ -67,30 +65,21 @@
     ]
   }) }}
 
-
-
-
-
 <!-- place it in a form if will use it-->
 
 <div class="govuk-button-group">
-
-
-
       {{ govukButton({
         text: "Continue",
-        href: "check-your-answers",
         isStartButton: false
       }) }}
 
         {{ govukButton({
           text: "View descriptor list",
+           href: "check-your-answers",
           classes: "govuk-button--secondary"
         }) }}
-
-
 </div>
-  
+</form>
 
     </div>
 
