@@ -24,7 +24,7 @@ module.exports = {
               "Suicidal thoughts and self harm (optional)": ""
             },
             {
-              "Condition or disability name": "Back pain/sciatica pain",
+              "Condition or disability name": "Back pain / sciatica pain",
               "When did the condition or disability start?": "Several months ago",
               "Diagnosis, impact and variability": "MRI of the lumbar spine revealed bulging discs and impingement with arthritis, while an MRI of the neck revealed disc protrusion and bulging with multiple nerve impingement. Pain triggered by walking, twisting, and slight bending, and occurs most days.",
               "Current treatments, specialist input and hospital stays": "Under the care of their GP and has been referred for physiotherapy and pain management. Taking Paracetamol, Ibuprofen, Codeine, and Naproxen 3-4 times a day.",
