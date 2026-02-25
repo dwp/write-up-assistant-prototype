@@ -49,11 +49,11 @@ module.exports = {
               text: "The claimant lives in a house with 2 flights of stairs, but stays on the ground floor due to toilet access, and crawls up the stairs to their bedroom at night.\nThey live with their wife, and there are no pets.\nNo adaptations have been made to the accommodations.\nThe claimant last worked as a self-employed facilities manager on 15/09/2023, driving to sites and facilities, but had to stop due to prostate operations and resulting bladder incontinence.\nThey have no carer responsibilities, but struggle with housework due to back pain and bladder incontinence.\nThey also struggle with shopping due to back pain and bladder incontinence, feeling embarrassed and in pain.\nThe claimant has a driving licence, but stopped driving due to back pain and bladder incontinence.\nWhen driving, their wife helps with seat and seatbelt adjustments as twisting is painful.\nThe claimant attended mainstream Primary and Secondary school, and was in the Armed Forces as an Electric Mechanical Engineer.\nThey attended College for various management and electric engineer courses.\nThey used to enjoy Judo, gardening, and golf, but have no hobbies now, and spend their day listening to music and the world news."
             },
             {
-              section: "Mental state",
+              section: "Mental state observations",
               text: "This was a telephone assessment.\nCoped well at assessment.\nNormal manner.\nNo overt signs of anxiety noted and no signs of OPD.\nGood rapport and engaged well.\nMaking humorous remarks.\nSpeech was normal in amount, content, rate, tone and volume.\nBehaved normally, he was not withdrawn.\nConversation content during assessment indicated self-awareness and a good understanding of their condition.\nNo evidence of cognitive impairment.\nWas fully alert and orientated throughout assessment.\nAnswered all questions fully and appropriately.\nWas able to participate in the process and engaged well without any input.\nNo prompting required.\nHad good insight, adequate general memory and concentration.\nNo evidence of suicidal ideation or self-harm."
             },
             {
-              section: "Observations",
+              section: "Informal observations",
               text: "The claimant had adequate rapport and coped well during the phone interview. Speech was clear, normal in rate and volume. The claimant was able to provide adequate information regarding their condition without prompting. They were oriented in time, place, and person. The claimant had good insight into their conditions. During the assessment, they did not disclose any self-harm or suicidal thoughts."
             }
           ]

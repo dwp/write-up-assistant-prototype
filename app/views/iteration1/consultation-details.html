@@ -28,7 +28,7 @@
    <!--consultation date--> 
 <div>
 
-
+<form action="add-notes" method="post" novalidate="">
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" role="group" aria-describedby="dob-hint">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -83,7 +83,7 @@
     classes: "govuk-label--m",
     isPageHeading: false
   },
-  value: "ID checked",
+  value: "Passport, NINo, First line of address",
   hint: {
     text: ""
   }
@@ -107,11 +107,11 @@
   },
   items: [
     {
-      value: "no",
+      value: "No",
       text: "No"
     },
     {
-      value: "yes",
+      value: "Yes",
       text: "Yes",
       checked : true,
       conditional: {
@@ -145,7 +145,7 @@
       text: "No"
     },
     {
-      value: "yes",
+      value: "Yes",
       text: "Yes",
       checked : true
     }
@@ -158,7 +158,7 @@
 
 
       <h2 class="govuk-heading-m">Additional attendees</h2>
-     <p class="govuk-body">No additional attendees have been added. <a class="govuk-link" href="">Add an atendee</a></p>
+     <p class="govuk-body">No additional attendees have been added. <a class="govuk-link" href="#">Add an atendee</a></p>
 
 
 
@@ -166,14 +166,13 @@
 <div class="govuk-!-margin-top-8">
    {{ govukButton({
         text: "Continue",
-        href: "add-notes",
         isStartButton: false
       }) }}
 
 </div>
 
 
-    
+</form>    
 
     </div>
 

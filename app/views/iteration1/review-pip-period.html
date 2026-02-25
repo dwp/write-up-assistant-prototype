@@ -30,7 +30,7 @@
 <div>
 
 <!-- Review period for PIP -->
-
+<form action="preview-report" method="post" novalidate="">
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -70,7 +70,9 @@
   <label class="govuk-label govuk-label--m" for="review-reason">
     Why do you recommend this review period?
   </label>
-  <textarea class="govuk-textarea" id="review-reason" name="review-reason" rows="5"></textarea>
+  <textarea class="govuk-textarea" id="review-reason" name="review-reason" rows="5">
+Certain functional limitations were present at the time of the assessment, which would warrant a review. She is currently on the waiting list to have counselling.
+  </textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -81,17 +83,17 @@
 
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="restriction-yes" name="restriction-present" type="radio" value="yes">
+        <input class="govuk-radios__input" id="restriction-yes" name="restriction-present" type="radio" value="Yes">
         <label class="govuk-label govuk-radios__label" for="restriction-yes">Yes</label>
       </div>
 
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="restriction-no" name="restriction-present" type="radio" value="no">
+        <input class="govuk-radios__input" id="restriction-no" name="restriction-present" type="radio" value="No">
         <label class="govuk-label govuk-radios__label" for="restriction-no">No</label>
       </div>
 
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="restriction-na" name="restriction-present" type="radio" value="not applicable">
+        <input class="govuk-radios__input" id="restriction-na" name="restriction-present" type="radio" value="Not applicable">
         <label class="govuk-label govuk-radios__label" for="restriction-na">Not applicable</label>
       </div>
     </div>
@@ -106,12 +108,12 @@
 
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="future-support-yes" name="future-support" type="radio" value="yes">
+        <input class="govuk-radios__input" id="future-support-yes" name="future-support" type="radio" value="Yes">
         <label class="govuk-label govuk-radios__label" for="future-support-yes">Yes</label>
       </div>
 
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="future-support-no" name="future-support" type="radio" value="no">
+        <input class="govuk-radios__input" id="future-support-no" name="future-support" type="radio" value="No">
         <label class="govuk-label govuk-radios__label" for="future-support-no">No</label>
       </div>
     </div>
@@ -126,12 +128,12 @@
 
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="special-rules-yes" name="special-rules" type="radio" value="yes">
+        <input class="govuk-radios__input" id="special-rules-yes" name="special-rules" type="radio" value="Yes">
         <label class="govuk-label govuk-radios__label" for="special-rules-yes">Yes</label>
       </div>
 
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="special-rules-no" name="special-rules" type="radio" value="no">
+        <input class="govuk-radios__input" id="special-rules-no" name="special-rules" type="radio" value="No">
         <label class="govuk-label govuk-radios__label" for="special-rules-no">No</label>
       </div>
     </div>
@@ -141,7 +143,7 @@
 <div class="govuk-form-group">
   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
     <div class="govuk-checkboxes__item">
-      <input class="govuk-checkboxes__input" id="harmful-info" name="harmful-info" type="checkbox" value="no harmful information">
+      <input class="govuk-checkboxes__input" id="harmful-info" name="harmful-info" type="checkbox" value="No harmful information">
       <label class="govuk-label govuk-checkboxes__label" for="harmful-info">
         No harmful information has been included in this report.
       </label>
@@ -162,13 +164,12 @@
 <div class="govuk-!-margin-top-8">
    {{ govukButton({
         text: "Continue",
-        href: "preview-report",
         isStartButton: false
       }) }}
 
 </div>
 
-
+</form>
     
 
     </div>

@@ -1,0 +1,572 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Start page
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+  {# Use Case 1 data for all variables #}
+{% set case = data.cases[0] %}
+
+
+<span class="govuk-caption-xl">Personal Independence Payment</span>
+<h1 class="govuk-heading-xl">Health assessment report</h1>
+
+{# Claimant + Assessment details header block with Change links #}
+
+<h2 class="govuk-heading-l">Claimant details</h2>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Name</dt>
+    <dd class="govuk-summary-list__value">{{ data['userName']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#change-name">Change<span class="govuk-visually-hidden"> name</span></a>
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">National insurance number</dt>
+    <dd class="govuk-summary-list__value">{{ data['userNINO']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#change-nino">Change<span class="govuk-visually-hidden"> national insurance number</span></a>
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Date of birth</dt>
+    <dd class="govuk-summary-list__value">{{ data['userDoB']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#change-dob">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+    </dd>
+  </div>
+
+</dl>
+
+<h2 class="govuk-heading-l">Assessment details</h2>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Date report was completed</dt>
+    <dd class="govuk-summary-list__value">{{ data['reportCompleteDate']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#change-report-date">Change<span class="govuk-visually-hidden"> date report was completed</span></a>
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Benefit</dt>
+    <dd class="govuk-summary-list__value">{{ data['reportBenefitType']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#change-benefit">Change<span class="govuk-visually-hidden"> benefit</span></a>
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Assessment type</dt>
+    <dd class="govuk-summary-list__value">{{ data['reportAssessType']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#change-assessment-type">Change<span class="govuk-visually-hidden"> assessment type</span></a>
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Healthcare professional</dt>
+    <dd class="govuk-summary-list__value">{{ data['reportHCP']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#change-hcp">Change<span class="govuk-visually-hidden"> healthcare professional</span></a>
+    </dd>
+  </div>
+
+</dl>
+
+
+<h2 class="govuk-heading-l">Evidence</h2>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Evidence used 1</dt>
+    <dd class="govuk-summary-list__value">PIP</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Evidence used 2</dt>
+    <dd class="govuk-summary-list__value">Evidence_2</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+<h2 class="govuk-heading-l">Consultation</h2>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Consultation date</dt>
+    <dd class="govuk-summary-list__value">{{ data['ConsultationDate']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Attendees</dt>
+    <dd class="govuk-summary-list__value">No additional attendees have been added.</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+<h2 class="govuk-heading-l">Condition history</h2>
+
+{# Condition 1 #}
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Condition or disability name</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[0].content[0]["Condition or disability name"] }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Current treatments, specialist input and hospital stays</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[0].content[0]["Current treatments, specialist input and hospital stays"] }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Diagnosis, impact and variability</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[0].content[0]["Diagnosis, impact and variability"] }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Home therapies (optional)</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[0].content[0]["Home therapies (optional)"] }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Suicidal thoughts and self harm (optional)</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[0].content[0]["Suicidal thoughts and self harm (optional)"] }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">When did the condition or disability start?</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[0].content[0]["When did the condition or disability start?"] }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+{# Condition 2 #}
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Condition or disability name</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[0].content[1]["Condition or disability name"] }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Current treatments, specialist input and hospital stays</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[0].content[1]["Current treatments, specialist input and hospital stays"] }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Diagnosis, impact and variability</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[0].content[1]["Diagnosis, impact and variability"] }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Home therapies (optional)</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[0].content[1]["Home therapies (optional)"] }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Suicidal thoughts and self harm (optional)</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[0].content[1]["Suicidal thoughts and self harm (optional)"] }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">When did the condition or disability start?</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[0].content[1]["When did the condition or disability start?"] }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+<h2 class="govuk-heading-l">Medication</h2>
+{% for med in case.report[2].content %}
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Medication Name</dt>
+    <dd class="govuk-summary-list__value">{{ med["Medication Name"] }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Dosage</dt>
+    <dd class="govuk-summary-list__value">{{ med.Dosage }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Frequency</dt>
+    <dd class="govuk-summary-list__value">{{ med.Frequency }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Effectiveness (optional)</dt>
+    <dd class="govuk-summary-list__value">{{ med["Effectiveness (optional)"] }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Reason for taking</dt>
+    <dd class="govuk-summary-list__value">{{ med["Reason for taking"] }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Side effects (optional)</dt>
+    <dd class="govuk-summary-list__value">{{ med["Side effects (optional)"] }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+{% endfor %}
+
+<h2 class="govuk-heading-l">Social and occupational history</h2>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Social and occupational history</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[1].content[0].text }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+<h2 class="govuk-heading-l">Daily living</h2>
+
+{# Preparing food (report[3]) #}
+<h3 class="govuk-heading-m">Preparing food</h3>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Functional history for preparing food</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[3].content.description }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How well can the claimant cook food?</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[3].content.option }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Justification for preparing food</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[3].content.justification }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+{# Taking nutrition (report[4]) #}
+<h3 class="govuk-heading-m">Taking nutrition</h3>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Functional history for taking nutrition</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[4].content.description }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How well can the claimant take nutrition?</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[4].content.option }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Justification for taking nutrition</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[4].content.justification }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+{# Managing therapy (report[5]) #}
+<h3 class="govuk-heading-m">Managing therapy</h3>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Functional history for managing therapy</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[5].content.description }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How well can the claimant manage therapy or monitor a health condition?</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[5].content.option }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Justification for managing therapy</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[5].content.justification }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+{# Washing and bathing (report[6]) #}
+<h3 class="govuk-heading-m">Washing and bathing</h3>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Functional history for washing and bathing</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[6].content.description }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How well can the claimant wash and bathe?</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[6].content.option }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Justification for washing and bathing</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[6].content.justification }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+{# Managing toilet needs (report[7]) #}
+<h3 class="govuk-heading-m">Managing toilet needs</h3>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Functional history for managing toilet needs</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[7].content.description }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How well can the claimant manage toilet needs?</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[7].content.option }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Justification for managing toilet needs</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[7].content.justification }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+{# Dressing and undressing (report[8]) #}
+<h3 class="govuk-heading-m">Dressing and undressing</h3>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Functional history for dressing and undressing</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[8].content.description }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How well can the claimant dress and undress?</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[8].content.option }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Justification for dressing and undressing</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[8].content.justification }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+{# Communicating verbally (report[9]) #}
+<h3 class="govuk-heading-m">Communicating verbally</h3>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Functional history for communicating verbally</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[9].content.description }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How well can the claimant communicate verbally?</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[9].content.option }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Justification for communicating verbally</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[9].content.justification }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+{# Reading and understanding signs, symbols and words (report[10]) #}
+<h3 class="govuk-heading-m">Reading and understanding signs, symbols and words</h3>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Functional history for reading and understanding signs, symbols and words</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[10].content.description }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How well can the claimant read and understand signs, symbols and words?</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[10].content.option }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Justification for reading and understanding signs, symbols and words</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[10].content.justification }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+{# Engaging face to face (report[11]) #}
+<h3 class="govuk-heading-m">Engaging face to face</h3>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Functional history for engaging face to face</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[11].content.description }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How well can the claimant engage face to face?</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[11].content.option }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Justification for engaging face to face</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[11].content.justification }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+{# Budgeting (report[12]) #}
+<h3 class="govuk-heading-m">Budgeting</h3>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Functional history for budgeting</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[12].content.description }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How well can the claimant budget?</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[12].content.option }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Justification for budgeting</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[12].content.justification }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+<h2 class="govuk-heading-l">Daily living qualifying period and prospective test</h2>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Has the claimant had the functional restriction for at least 3 months?</dt>
+    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Is the claimant likely to have the functional restriction in 9 months?</dt>
+    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+<h2 class="govuk-heading-l">Mobility</h2>
+
+{# Planning and following journeys (report[13]) #}
+<h3 class="govuk-heading-m">Planning and following journeys</h3>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Functional history for planning and following journeys</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[13].content.description }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How well can the claimant plan and follow journeys?</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[13].content.option }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Justification for planning and following journeys</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[13].content.justification }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+{# Moving around (report[14]) #}
+<h3 class="govuk-heading-m">Moving around</h3>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Functional history for moving around</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[14].content.description }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How well can the claimant move around?</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[14].content.option }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Justification for moving around</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[14].content.justification }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+<h2 class="govuk-heading-l">Mobility qualifying period and prospective test</h2>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Has the claimant had the functional restriction for at least 3 months?</dt>
+    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Is the claimant likely to have the functional restriction in 9 months?</dt>
+    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+<h2 class="govuk-heading-l">Observations</h2>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Mental state</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[1].content[1].text }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Observations</dt>
+    <dd class="govuk-summary-list__value">{{ case.report[1].content[2].text }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+<h2 class="govuk-heading-l">Review period</h2>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Recommended future review period</dt>
+    <dd class="govuk-summary-list__value">3 years</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Reason for this review period</dt>
+    <dd class="govuk-summary-list__value">yy</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Is it likely that the functional restriction in this report will still be present when reviewed?</dt>
+    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Do they need additional support for future claims processes?</dt>
+    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Do they meet the criteria for special rules?</dt>
+    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+<div>
+  <h1 class="govuk-heading-m">Check your report before you submit it</h1>
+<p>Before you submit, check the information in your report carefully. You are responsible for making sure it is correct.</p>
+<p>An AI tool helped create your report, but you should still review the content and amend anything that’s unclear, incomplete or inaccurate. You can return to previous steps to make changes.</p>
+</div>
+
+    <form action="confirmation" method="get" novalidate>
+      <input type="hidden" name="answers-checked" value="true">
+      <button class="govuk-button" data-module="govuk-button">
+        Submit report
+      </button>
+    </form>
+
+
+  </div>      
+</div>
+
+{% endblock %}

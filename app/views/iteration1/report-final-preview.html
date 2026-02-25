@@ -116,88 +116,114 @@
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
     <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Was the claimant's identity confirmed?</dt>
+    <dd class="govuk-summary-list__value">{{ data['gave-concsent']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">How was their identity confirmed?</dt>
+    <dd class="govuk-summary-list__value">{{ data['yescheck']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Did the claimant consent to the consultation?</dt>
+    <dd class="govuk-summary-list__value">{{ data['gave-concsent']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
+</dl>
+
+<h2 class="govuk-heading-l">Additional attendees</h2>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Attendees</dt>
     <dd class="govuk-summary-list__value">No additional attendees have been added.</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
 </dl>
 
+
 <h2 class="govuk-heading-l">Condition history</h2>
 
-{# Condition 1 #}
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Condition or disability name</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[0].content[0]["Condition or disability name"] }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Current treatments, specialist input and hospital stays</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[0].content[0]["Current treatments, specialist input and hospital stays"] }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Diagnosis, impact and variability</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[0].content[0]["Diagnosis, impact and variability"] }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Home therapies (optional)</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[0].content[0]["Home therapies (optional)"] }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Suicidal thoughts and self harm (optional)</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[0].content[0]["Suicidal thoughts and self harm (optional)"] }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">When did the condition or disability start?</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[0].content[0]["When did the condition or disability start?"] }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
-</dl>
 
-{# Condition 2 #}
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Condition or disability name</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[0].content[1]["Condition or disability name"] }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+{% for cond in case.report[0].content %}
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-2">
+    <div class="govuk-grid-column-two-thirds">
+      <h3 class="govuk-heading-m">{{ cond["Condition or disability name"] }}</h3>
+    </div>
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+      <a class="govuk-link" href="#">Change</a>
+    </div>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Current treatments, specialist input and hospital stays</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[0].content[1]["Current treatments, specialist input and hospital stays"] }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-1">
+    <div class="govuk-grid-column-two-thirds">
+      <h4 class="govuk-heading-s">When did the condition or disability start?</h4>
+    </div>
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+      <a class="govuk-link" href="#">Change</a>
+    </div>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Diagnosis, impact and variability</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[0].content[1]["Diagnosis, impact and variability"] }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  <p class="govuk-body">{{ cond["When did the condition or disability start?"] }}</p>
+  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-1">
+    <div class="govuk-grid-column-two-thirds">
+      <h4 class="govuk-heading-s">Diagnosis, impact and variability</h4>
+    </div>
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+      <a class="govuk-link" href="#">Change</a>
+    </div>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Home therapies (optional)</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[0].content[1]["Home therapies (optional)"] }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  <p class="govuk-body">{{ cond["Diagnosis, impact and variability"] }}</p>
+  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-1">
+    <div class="govuk-grid-column-two-thirds">
+      <h4 class="govuk-heading-s">Current treatments, specialist input and hospital stays</h4>
+    </div>
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+      <a class="govuk-link" href="#">Change</a>
+    </div>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Suicidal thoughts and self harm (optional)</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[0].content[1]["Suicidal thoughts and self harm (optional)"] }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  <p class="govuk-body">{{ cond["Current treatments, specialist input and hospital stays"] }}</p>
+  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-1">
+    <div class="govuk-grid-column-two-thirds">
+      <h4 class="govuk-heading-s">Home therapies (optional)</h4>
+    </div>
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+      <a class="govuk-link" href="#">Change</a>
+    </div>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">When did the condition or disability start?</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[0].content[1]["When did the condition or disability start?"] }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  <p class="govuk-body">{{ cond["Home therapies (optional)"] }}</p>
+  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-1">
+    <div class="govuk-grid-column-two-thirds">
+      <h4 class="govuk-heading-s">Suicidal thoughts and self harm (optional)</h4>
+    </div>
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+      <a class="govuk-link" href="#">Change</a>
+    </div>
   </div>
-</dl>
+  <p class="govuk-body">
+    {{ cond["Suicidal thoughts and self harm (optional)"] or "No details provided" }}
+  </p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-9">
+{% endfor %}
+
+
 
 <h2 class="govuk-heading-l">Medication</h2>
+
 {% for med in case.report[2].content %}
+
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-    <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Medication Name</dt>
-    <dd class="govuk-summary-list__value">{{ med["Medication Name"] }}</dd>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key"><h2 class="govuk-heading-m">{{ med["Medication Name"] }}</h2> </dt>
+      <dd class="govuk-summary-list__value"></dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
   <div class="govuk-summary-list__row">
@@ -210,245 +236,460 @@
     <dd class="govuk-summary-list__value">{{ med.Frequency }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Reason for taking</dt>
+    <dd class="govuk-summary-list__value">{{ med["Reason for taking"] }}</dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Effectiveness (optional)</dt>
     <dd class="govuk-summary-list__value">{{ med["Effectiveness (optional)"] }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Reason for taking</dt>
-    <dd class="govuk-summary-list__value">{{ med["Reason for taking"] }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
+
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Side effects (optional)</dt>
     <dd class="govuk-summary-list__value">{{ med["Side effects (optional)"] }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
 </dl>
+
 {% endfor %}
 
 <h2 class="govuk-heading-l">Social and occupational history</h2>
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Social and occupational history</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[1].content[0].text }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+
+  {% set mio1 = case.report[1].content[0] %}
+
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m">
+      {{ mio1.section }}
+    </h3>
   </div>
-</dl>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+   <p class="govuk-body"><a href="#">Change</a></p>
+  </div>
+</div>
+<p class="govuk-body">{{ mio1.text }}</p>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-9">
+
+
 
 <h2 class="govuk-heading-l">Daily living</h2>
 
-{# Preparing food (report[3]) #}
-<h3 class="govuk-heading-m">Preparing food</h3>
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Functional history for preparing food</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[3].content.description }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How well can the claimant cook food?</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[3].content.option }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Justification for preparing food</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[3].content.justification }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
-</dl>
+{% set pf = case.report[3].content %}
 
-{# Taking nutrition (report[4]) #}
+<h3 class="govuk-heading-m">{{ pf.name }}</h3>
+
+{# Functional history for preparing food + Change link #}
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for preparing food</h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+     <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ pf.description }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+{# How well can the claimant prepare food? + Change link #}
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">How well can the claimant prepare food?</h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+    <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ pf.option }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+{# Justification for preparing food + Change link #}
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Justification for preparing food</h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+   <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body ">{{ pf.justification }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
+
+<!---->
+
 <h3 class="govuk-heading-m">Taking nutrition</h3>
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Functional history for taking nutrition</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[4].content.description }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+{% set tn = case.report[4].content %}
+
+{# Functional history for taking nutrition + Change link #}
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for taking nutrition</h4>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How well can the claimant take nutrition?</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[4].content.option }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+     <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Justification for taking nutrition</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[4].content.justification }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+</div>
+<p class="govuk-body">{{ tn.description }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+{# How well can the claimant take nutrition? + Change link #}
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">How well can the claimant take nutrition?</h4>
   </div>
-</dl>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+     <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ tn.option }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+{# Justification for taking nutrition + Change link #}
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Justification for taking nutrition</h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+     <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ tn.justification }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
+<!---->
+
 
 {# Managing therapy (report[5]) #}
 <h3 class="govuk-heading-m">Managing therapy</h3>
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Functional history for managing therapy</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[5].content.description }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+{% set mt = case.report[5].content %}
+
+
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for managing therapy</h4>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How well can the claimant manage therapy or monitor a health condition?</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[5].content.option }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+   <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Justification for managing therapy</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[5].content.justification }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+</div>
+<p class="govuk-body">{{ mt.description }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
+      How well can the claimant manage therapy or monitor a health condition?
+    </h4>
   </div>
-</dl>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+  <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ mt.option }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+ <div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Justification for managing therapy</h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+    <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+
+<p class="govuk-body">{{ mt.justification }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
+<!---->
+
 
 {# Washing and bathing (report[6]) #}
 <h3 class="govuk-heading-m">Washing and bathing</h3>
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Functional history for washing and bathing</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[6].content.description }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How well can the claimant wash and bathe?</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[6].content.option }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Justification for washing and bathing</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[6].content.justification }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
-</dl>
 
-{# Managing toilet needs (report[7]) #}
+{% set wb = case.report[6].content %}
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for washing and bathing</h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+     <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ wb.description }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
+      How well can the claimant wash and bathe?
+    </h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+     <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ wb.option }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Justification for washing and bathing</h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+     <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+
+<p class="govuk-body">{{ wb.justification }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
+<!---->
+
+
 <h3 class="govuk-heading-m">Managing toilet needs</h3>
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Functional history for managing toilet needs</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[7].content.description }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How well can the claimant manage toilet needs?</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[7].content.option }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Justification for managing toilet needs</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[7].content.justification }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
-</dl>
+{% set mtn = case.report[7].content %}
 
-{# Dressing and undressing (report[8]) #}
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for managing toilet needs</h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+      <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ mtn.description }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
+      How well can the claimant manage toilet needs or incontinence?
+    </h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+      <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ mtn.option }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Justification for managing toilet needs</h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+      <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ mtn.justification }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
+<!---->
+
 <h3 class="govuk-heading-m">Dressing and undressing</h3>
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Functional history for dressing and undressing</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[8].content.description }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+{% set mtn = case.report[8].content %}
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
+      Functional history for {{ mtn.name | lower }}
+    </h4>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How well can the claimant dress and undress?</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[8].content.option }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+     <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Justification for dressing and undressing</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[8].content.justification }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+</div>
+<p class="govuk-body">{{ mtn.description }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
+      How well can the claimant {{ mtn.name | lower }}?
+    </h4>
   </div>
-</dl>
-
-{# Communicating verbally (report[9]) #}
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+     <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ mtn.option }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
+      Justification for {{ mtn.name | lower }}
+    </h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+     <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ mtn.justification }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
+<!---->
 <h3 class="govuk-heading-m">Communicating verbally</h3>
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Functional history for communicating verbally</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[9].content.description }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+{% set cmv = case.report[9].content %}
+
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for communicating verbally</h4>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How well can the claimant communicate verbally?</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[9].content.option }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+    <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Justification for communicating verbally</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[9].content.justification }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+</div>
+<p class="govuk-body">{{ cmv.description }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
+      How well can the claimant communicate verbally?
+    </h4>
   </div>
-</dl>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+    <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ cmv.option }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Justification for communicating verbally</h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+    <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ cmv.justification }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
+<!---->
+
+
+
 
 {# Reading and understanding signs, symbols and words (report[10]) #}
 <h3 class="govuk-heading-m">Reading and understanding signs, symbols and words</h3>
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Functional history for reading and understanding signs, symbols and words</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[10].content.description }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+{% set rus = case.report[10].content %}
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for reading and understanding signs, symbols and words</h4>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How well can the claimant read and understand signs, symbols and words?</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[10].content.option }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+    <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Justification for reading and understanding signs, symbols and words</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[10].content.justification }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+</div>
+<p class="govuk-body">{{ rus.description }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
+      How well can the claimant read and understand signs, symbols and words?
+    </h4>
   </div>
-</dl>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+     <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ rus.option }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Justification for reading and understanding signs, symbols and words</h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+     <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ rus.justification }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
+<!---->
+
 
 {# Engaging face to face (report[11]) #}
 <h3 class="govuk-heading-m">Engaging face to face</h3>
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Functional history for engaging face to face</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[11].content.description }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+{% set eff = case.report[11].content %}
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for engaging face to face</h4>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How well can the claimant engage face to face?</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[11].content.option }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+    <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Justification for engaging face to face</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[11].content.justification }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+</div>
+<p class="govuk-body">{{ eff.description }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
+      How well can the claimant engage face to face?
+    </h4>
   </div>
-</dl>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+    <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ eff.option }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
+      Justification for engaging face to face
+    </h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+   <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ eff.justification }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
+<!---->
+
 
 {# Budgeting (report[12]) #}
 <h3 class="govuk-heading-m">Budgeting</h3>
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Functional history for budgeting</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[12].content.description }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+{% set bdg = case.report[12].content %}
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for budgeting</h4>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How well can the claimant budget?</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[12].content.option }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+    <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Justification for budgeting</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[12].content.justification }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+</div>
+<p class="govuk-body">{{ bdg.description }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
+      How well can the claimant budget?
+    </h4>
   </div>
-</dl>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+    <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ bdg.option }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
+     Justification for budgeting
+    </h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+    <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ bdg.justification }}</p>
 
-<h2 class="govuk-heading-l">Daily living qualifying period and prospective test</h2>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
+<!---->
+
+<h2 class="govuk-heading-m">Daily living qualifying period and prospective test</h2>
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Has the claimant had the functional restriction for at least 3 months?</dt>
-    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__value">{{ data['func-restric-3m']  or "not captured" }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Is the claimant likely to have the functional restriction in 9 months?</dt>
-    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__value">{{ data['func-restric-9m']  or "not captured" }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
 </dl>
@@ -457,100 +698,179 @@
 
 {# Planning and following journeys (report[13]) #}
 <h3 class="govuk-heading-m">Planning and following journeys</h3>
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Functional history for planning and following journeys</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[13].content.description }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+{% set pfj = case.report[13].content %}
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for planning and following journeys</h4>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How well can the claimant plan and follow journeys?</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[13].content.option }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+    <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Justification for planning and following journeys</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[13].content.justification }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+</div>
+<p class="govuk-body">{{ pfj.description }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
+      How well can the claimant plan and follow journeys?
+    </h4>
   </div>
-</dl>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+     <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ pfj.option }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
+     Justification for planning and following journeys
+    </h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+    <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ pfj.justification }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
+<!---->
+
+
 
 {# Moving around (report[14]) #}
 <h3 class="govuk-heading-m">Moving around</h3>
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Functional history for moving around</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[14].content.description }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+{% set mva = case.report[14].content %}
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for moving around</h4>
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">How well can the claimant move around?</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[14].content.option }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+ <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Justification for moving around</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[14].content.justification }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+</div>
+<p class="govuk-body">{{ mva.description }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
+      How well can the claimant move around?
+    </h4>
   </div>
-</dl>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+ <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ mva.option }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
+     Justification for moving around
+    </h4>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+ <p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ mva.justification }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
+<!---->
 
-<h2 class="govuk-heading-l">Mobility qualifying period and prospective test</h2>
+<h2 class="govuk-heading-m">Mobility qualifying period and prospective test</h2>
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Has the claimant had the functional restriction for at least 3 months?</dt>
-    <dd class="govuk-summary-list__value">Yes</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+    <dd class="govuk-summary-list__value">{{ data['func-restric-mob-3m']  or "not captured" }}
+    <dd class="govuk-summary-list__actions"><p><a class="govuk-link" href="#">Change</a></p> </dd>
   </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Is the claimant likely to have the functional restriction in 9 months?</dt>
-    <dd class="govuk-summary-list__value">Yes</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+    <dd class="govuk-summary-list__value">{{ data['func-restric-mob-9m']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__actions"><p><a class="govuk-link" href="#">Change</a></p> </dd>
   </div>
 </dl>
 
 <h2 class="govuk-heading-l">Observations</h2>
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Mental state</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[1].content[1].text }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+{% set mio = case.report[1].content[1] %}
+{% set mio2 = case.report[1].content[2] %}
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m">
+      {{ mio.section }} 
+    </h3>
   </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+<p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">I{{ mio.text }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m">
+      {{ mio2.section }}
+    </h3>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+<p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ mio2.text }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
+<!---->
+
+
+<h2 class="govuk-heading-l">Review period</h2>
+
+<dl class="govuk-summary-list ">
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Observations</dt>
-    <dd class="govuk-summary-list__value">{{ case.report[1].content[2].text }}</dd>
+    <dt class="govuk-summary-list__key">Recommended future review period</dt>
+    <dd class="govuk-summary-list__value"> {{ data['review-period']  or "not captured" }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
 </dl>
 
-<h2 class="govuk-heading-l">Review period</h2>
+<div class="govuk-grid-row ">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-s">
+      Reason for this review period
+    </h3>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+<p><a class="govuk-link" href="#">Change</a></p> 
+  </div>
+</div>
+<p class="govuk-body">{{ data['review-reason']  or "not captured" }}</p>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
+
+
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Recommended future review period</dt>
-    <dd class="govuk-summary-list__value">3 years</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Reason for this review period</dt>
-    <dd class="govuk-summary-list__value">yy</dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
-  </div>
-  <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Is it likely that the functional restriction in this report will still be present when reviewed?</dt>
-    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__value">{{ data['restriction-present']  or "not captured" }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Do they need additional support for future claims processes?</dt>
-    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__value">{{ data['future-support']  or "not captured" }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Do they meet the criteria for special rules?</dt>
-    <dd class="govuk-summary-list__value">Yes</dd>
+    <dd class="govuk-summary-list__value">{{ data['special-rules']  or "not captured" }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
 </dl>
+<div class="govuk-!-margin-bottom-9">
+{{ govukInsetText({
+  text: "No harmful information has been included in this report."
+}) }}
+
+</div>
+
+
+
+
 
 <div>
   <h1 class="govuk-heading-m">Check your report before you submit it</h1>
