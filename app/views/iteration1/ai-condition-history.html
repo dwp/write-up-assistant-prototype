@@ -36,27 +36,66 @@
       <h3 class="govuk-heading-m">{{ cond["Condition or disability name"] }}</h3>
     </div>
     <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-      <a class="govuk-link" href="#">Change</a>
+      <p><a class="govuk-link" href="#">Change</a></p> 
     </div>
   </div>
 
-  <h4 class="govuk-heading-s">When did the condition or disability start?</h4>
+  <div class="govuk-grid-row govuk-!-margin-bottom-1">
+    <div class="govuk-grid-column-two-thirds">
+      <h4 class="govuk-heading-s">When did the condition or disability start?</h4>
+    </div>
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+      <p><a class="govuk-link" href="#">Change</a></p> 
+    </div>
+  </div>
   <p class="govuk-body">{{ cond["When did the condition or disability start?"] }}</p>
+
   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-  <h4 class="govuk-heading-s">Diagnosis, impact and variability</h4>
+  <div class="govuk-grid-row govuk-!-margin-bottom-1">
+    <div class="govuk-grid-column-two-thirds">
+      <h4 class="govuk-heading-s">Diagnosis, impact and variability</h4>
+    </div>
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+      <p><a class="govuk-link" href="#">Change</a></p> 
+    </div>
+  </div>
   <p class="govuk-body">{{ cond["Diagnosis, impact and variability"] }}</p>
+
   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-  <h4 class="govuk-heading-s">Current treatments, specialist input and hospital stays</h4>
+  <div class="govuk-grid-row govuk-!-margin-bottom-1">
+    <div class="govuk-grid-column-two-thirds">
+      <h4 class="govuk-heading-s">Current treatments, specialist input and hospital stays</h4>
+    </div>
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+      <p><a class="govuk-link" href="#">Change</a></p> 
+    </div>
+  </div>
   <p class="govuk-body">{{ cond["Current treatments, specialist input and hospital stays"] }}</p>
+
   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-  <h4 class="govuk-heading-s">Home therapies (optional)</h4>
+  <div class="govuk-grid-row govuk-!-margin-bottom-1">
+    <div class="govuk-grid-column-two-thirds">
+      <h4 class="govuk-heading-s">Home therapies (optional)</h4>
+    </div>
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+      <p><a class="govuk-link" href="#">Change</a></p> 
+    </div>
+  </div>
   <p class="govuk-body">{{ cond["Home therapies (optional)"] }}</p>
+
   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-  <h4 class="govuk-heading-s">Suicidal thoughts and self harm (optional)</h4>
+  <div class="govuk-grid-row govuk-!-margin-bottom-1">
+    <div class="govuk-grid-column-two-thirds">
+      <h4 class="govuk-heading-s">Suicidal thoughts and self harm (optional)</h4>
+    </div>
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+      <p><a class="govuk-link" href="#">Change</a></p> 
+    </div>
+  </div>
   <p class="govuk-body govuk-!-margin-bottom-9">
     {{ cond["Suicidal thoughts and self harm (optional)"] or "No details provided" }}
   </p>
@@ -99,7 +138,7 @@
         },
         items: [
           {
-            value: "ack-ai-review",
+            value: "ack-ai-review-condion-history",
             text: "I confirm I have read and reviewed AI created content."
           }
         ]

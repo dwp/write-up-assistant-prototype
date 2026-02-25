@@ -30,41 +30,47 @@
   
 {% for med in case.report[2].content %}
 
-
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key"><h2 class="govuk-heading-m">{{ med["Medication Name"] }}</h2> </dt>
-      <dd class="govuk-summary-list__value"></dd>
-    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
+    <dt class="govuk-summary-list__key">
+      <h2 class="govuk-heading-m">{{ med["Medication Name"] }}</h2>
+    </dt>
+    <dd class="govuk-summary-list__value"></dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
   </div>
+
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Dosage</dt>
     <dd class="govuk-summary-list__value">{{ med.Dosage }}</dd>
-    <dd class="govuk-summary-list__actions"></dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
   </div>
-    <div class="govuk-summary-list__row">
+
+  <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Frequency</dt>
     <dd class="govuk-summary-list__value">{{ med.Frequency }}</dd>
-    <dd class="govuk-summary-list__actions"></dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
   </div>
-    <div class="govuk-summary-list__row">
+
+  <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Reason for taking</dt>
     <dd class="govuk-summary-list__value">{{ med["Reason for taking"] }}</dd>
-    <dd class="govuk-summary-list__actions"></dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
   </div>
+
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Effectiveness (optional)</dt>
     <dd class="govuk-summary-list__value">{{ med["Effectiveness (optional)"] }}</dd>
-    <dd class="govuk-summary-list__actions"></dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Side effects (optional)</dt>
     <dd class="govuk-summary-list__value">{{ med["Side effects (optional)"] }}</dd>
-    <dd class="govuk-summary-list__actions"></dd>
+    <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
   </div>
-</dl>
 
+</dl>
 
 {% endfor %}
 
@@ -103,7 +109,7 @@
         },
         items: [
           {
-            value: "ack-ai-review",
+            value: "ack-ai-review-meds",
             text: "I confirm I have read and reviewed AI created content."
           }
         ]
