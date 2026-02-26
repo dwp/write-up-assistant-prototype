@@ -1,5 +1,5 @@
 module.exports = {
-  userName: "Jane Smith",
+  userName: "John Smith",
   userNINO: "RN 00 01 23 A",
   userDoB: "31 December 1999",
   reportCompleteDate: "20th March 2026",
