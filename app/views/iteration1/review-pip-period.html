@@ -44,7 +44,7 @@
       </div>
 
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="review-3-years" name="review-period" type="radio" value="3 years">
+        <input class="govuk-radios__input" id="review-3-years" name="review-period" type="radio" value="3 years" checked>
         <label class="govuk-label govuk-radios__label" for="review-3-years">3 years</label>
       </div>
 
@@ -71,7 +71,7 @@
     Why do you recommend this review period?
   </label>
   <textarea class="govuk-textarea" id="review-reason" name="review-reason" rows="5">
-Certain functional limitations were present at the time of the assessment, which would warrant a review. She is currently on the waiting list to have counselling.
+{{ data['RecommendedReviewPeriod']  or "not captured" }}
   </textarea>
 </div>
 
@@ -83,7 +83,7 @@ Certain functional limitations were present at the time of the assessment, which
 
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="restriction-yes" name="restriction-present" type="radio" value="Yes">
+        <input class="govuk-radios__input" id="restriction-yes" name="restriction-present" type="radio" value="Yes" checked>
         <label class="govuk-label govuk-radios__label" for="restriction-yes">Yes</label>
       </div>
 
@@ -108,7 +108,7 @@ Certain functional limitations were present at the time of the assessment, which
 
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="future-support-yes" name="future-support" type="radio" value="Yes">
+        <input class="govuk-radios__input" id="future-support-yes" name="future-support" type="radio" value="Yes" checked>
         <label class="govuk-label govuk-radios__label" for="future-support-yes">Yes</label>
       </div>
 
@@ -128,7 +128,7 @@ Certain functional limitations were present at the time of the assessment, which
 
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="special-rules-yes" name="special-rules" type="radio" value="Yes">
+        <input class="govuk-radios__input" id="special-rules-yes" name="special-rules" type="radio" value="Yes" checked>
         <label class="govuk-label govuk-radios__label" for="special-rules-yes">Yes</label>
       </div>
 

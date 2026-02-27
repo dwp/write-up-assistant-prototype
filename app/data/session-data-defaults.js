@@ -7,6 +7,7 @@ module.exports = {
   reportAssessType: "Telephone assessment",
   reportHCP: "Dr. Smith",
   ConsultationDate: "20th March 2026",
+  RecommendedReviewPeriod: "Certain functional limitations were present at the time of the assessment, which would warrant a review. She is currently on the waiting list to have counselling.",
 
   cases: [
     {
