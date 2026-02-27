@@ -2,11 +2,11 @@ module.exports = {
   userName: "John Smith",
   userNINO: "RN 00 01 23 A",
   userDoB: "31 December 1999",
-  reportCompleteDate: "20th March 2026",
+  reportCompleteDate: "6th February 2024",
   reportBenefitType: "Personal Independence Payment",
   reportAssessType: "Telephone assessment",
   reportHCP: "Dr. Smith",
-  ConsultationDate: "20th March 2026",
+  ConsultationDate: "22nd January 2024",
   RecommendedReviewPeriod: "Certain functional limitations were present at the time of the assessment, which would warrant a review. She is currently on the waiting list to have counselling.",
 
   cases: [
