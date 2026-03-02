@@ -1,0 +1,89 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Start page
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+       Revamp pages list (TBC)
+      </h1>
+
+
+      <table class="govuk-table">
+
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Page</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+     <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link" href="sign-in">Sign in</a>
+      </th>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link" href="intro-page">Intro page</a>
+      </th>
+    </tr>
+     <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link" href="select-case">Select case</a>
+      </th>
+    </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link" href="review-evidence">Review evidence</a>
+      </th>
+    </tr>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link" href="add-notes">Add notes</a>
+      </th>
+    </tr>
+      </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link" href="descriptors">Descriptors</a>
+      </th>
+    </tr>
+    </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link" href="check-your-answers">Check your answers</a>
+      </th>
+    </tr>
+    </tr>
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">
+        <a class="govuk-link" href="ai-section">AI generated section</a>
+      </th>
+    </tr>
+     
+  </tbody>
+</table>
+      
+    </div>
+  </div>
+
+{% endblock %}

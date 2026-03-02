@@ -1,0 +1,96 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+ 
+{% endblock %}
+
+{% block content %}
+ <div style="margin-top: -30px;"><a href="javascript:history.back()" class="govuk-back-link">Back</a></div> 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<span class="govuk-caption-xl">Communicating verbally (7)</span>
+<h1 class="govuk-heading-xl">How well the claimant can communicate verbally?</h1>
+
+<form action="descriptor-8" method="post" novalidate="">
+
+{{ govukRadios({
+    idPrefix: "descriptor-7",
+    name: "descriptor7",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+
+    items: [
+      {
+        value: "(7a) Can express and understand verbal information unaided",
+        text: "(7a) Can express and understand verbal information unaided",
+        checked: true
+      },
+      {
+        value: "(7b) Needs to use an aid or appliance to be able to speak or hear",
+        text: "(7b) Needs to use an aid or appliance to be able to speak or hear"
+      },
+      {
+        value: "(7c) Needs communication support to be able to express or understand complex verbal information",
+        text: "(7c) Needs communication support to be able to express or understand complex verbal information"
+      },
+      {
+        value: "(7d) Needs communication support to be able to express or understand basic verbal information",
+        text: "(7d) Needs communication support to be able to express or understand basic verbal information"
+      },
+      {
+        value: "(7e) Cannot express or understand verbal information at all even with communication support",
+        text: "(7e) Cannot express or understand verbal information at all even with communication support"
+      }
+    ]
+  }) }}
+
+
+
+
+
+<!-- place it in a form if will use it-->
+
+<div class="govuk-button-group">
+
+
+
+
+      {{ govukButton({
+        text: "Continue",
+        href: "descriptor-8",
+        isStartButton: false
+      }) }}
+
+        {{ govukButton({
+          text: "View descriptor list",
+           href: "check-your-answers",
+          classes: "govuk-button--secondary"
+        }) }}
+
+
+</div>
+  
+</form>
+    </div>
+
+  </div>
+
+{% endblock %}

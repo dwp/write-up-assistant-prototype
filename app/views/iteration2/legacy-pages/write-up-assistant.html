@@ -1,0 +1,40 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Start page
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+       Write-up Assistant
+      </h1>
+
+      <p>Use this service to:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Create Reports assisted by AI</li>
+        <li>Submit reports</li>
+      </ul>
+      {{ govukButton({
+        text: "Continue",
+        href: "select-case",
+        isStartButton: false
+      }) }}
+      <p>* this is a prototype *</p>
+    </div>
+  </div>
+
+{% endblock %}
