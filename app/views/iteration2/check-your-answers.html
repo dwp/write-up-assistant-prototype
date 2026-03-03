@@ -194,11 +194,20 @@
       </div>
     </dl>
 
-      {{ govukButton({
-        text: "Continue",
-        href: "review-ai-report-start",
-        isStartButton: false
-      }) }}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Save and continue",
+          href: "generating-report",
+          classes: "govuk-button"
+        }) }}
+
+        {{ govukButton({
+          text: "Save and exit",
+          classes: "govuk-button govuk-button--secondary",
+          href: "/save-and-exit-consultation"
+        }) }}
+      </div>
 
   </div>
 </div>

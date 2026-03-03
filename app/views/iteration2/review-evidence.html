@@ -4,66 +4,79 @@
 {{ serviceName }} – Review documents
 {% endblock %}
 
-
 {% block beforeContent %}
-
   {{ govukPhaseBanner({
-    tag: {
-      text: "Prototype"
-    },
+    tag: { text: "Prototype" },
     html: 'This is a not a service, it is a prototype created for user testing'
   }) }}
-  
 {% endblock %}
 
 {% block content %}
-  <a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-  
-      <h1 class="govuk-heading-xl">
-        Review application documents
-      </h1>
-      <p>Your artificial intelligence assistant will review the documents and extract the relevant information to produce an initial draft assessment report. </p>
-    
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
 
-<table class="govuk-table">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">File name</th>
+    <h1 class="govuk-heading-xl">Review application documents</h1>
+    <p>Your artificial intelligence assistant will review the documents and extract the relevant information to produce an initial draft assessment report.</p>
 
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">
-          <a class="govuk-link" href="#">PIP.pdf</a>
-      </th>
-    </tr>
-   <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">
-          <a class="govuk-link" href="#">evidence_2.pdf</a>
-      </th>
-    </tr>
-     <tr class="govuk-table__row" style="display: none;">
-      <th scope="row" class="govuk-table__header">
-          <a class="govuk-link" href="#">Xray.pdf</a>
-      </th>
-    </tr>
-  </tbody>
-</table>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">File name</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">
+            <a class="govuk-link" href="#">PIP.pdf</a>
+          </th>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">
+            <a class="govuk-link" href="#">evidence_2.pdf</a>
+          </th>
+        </tr>
+        <tr class="govuk-table__row" style="display: none;">
+          <th scope="row" class="govuk-table__header">
+            <a class="govuk-link" href="#">Xray.pdf</a>
+          </th>
+        </tr>
+      </tbody>
+    </table>
 
+    {% if data.aiCheck == "done" %}
+      <div class="govuk-inset-text" id="ai-result">
+        <p class="govuk-body">
+          <strong>AI check completed.</strong> The uploaded documents were verified. All required information
+          appears to be present to begin drafting the assessment report. You can proceed to consultation details.
+        </p>
+      </div>
+    {% endif %}
 
-   {{ govukButton({
-        text: "Continue",
-        href: "consultation-details",
-        isStartButton: false
-      }) }}
-    
+    <form method="post" novalidate>
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue",
+          href: "consultation-details"
+        }) }}
 
-    </div>
+        {% if data.aiCheck != "done" %}
+          {{ govukButton({
+            text: "Run AI check",
+            classes: "govuk-button--secondary",
+            attributes: { "name": "aiCheck", "value": "done" }
+          }) }}
+        {% else %}
+          {{ govukButton({
+            text: "Run AI check again",
+            classes: "govuk-button--secondary",
+            attributes: { "name": "aiCheck", "value": "done" }
+          }) }}
+        {% endif %}
+      </div>
+    </form>
 
   </div>
-
+</div>
 {% endblock %}

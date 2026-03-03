@@ -41,7 +41,7 @@
               {
                 value: "(11a) Can plan and follow the route of a journey unaided",
                 text: "(11a) Can plan and follow the route of a journey unaided",
-        checked: true
+                checked: true
               },
               {
                 value: "(11b) Needs prompting to be able to undertake any journey to avoid overwhelming psychological distress to the claimant",
@@ -75,16 +75,16 @@
         <div class="govuk-button-group">
 
 
-            {{ govukButton({
-                text: "Continue",
-                isStartButton: false
-              }) }}
+      {{ govukButton({
+        text: "Save and continue",
+        isStartButton: false
+      }) }}
 
-                {{ govukButton({
-                  text: "View descriptor list",
-                  href: "check-your-answers",
-                  classes: "govuk-button--secondary"
-                }) }}
+        {{ govukButton({
+          text: "Save and return",
+            href: "select-descriptors?descriptor11=(11a) Can plan and follow the route of a journey unaided",
+          classes: "govuk-button--secondary"
+        }) }}
 
 
         </div>

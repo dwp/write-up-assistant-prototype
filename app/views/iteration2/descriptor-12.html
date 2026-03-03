@@ -69,14 +69,15 @@
 <!-- place it in a form if will use it-->
 
 <div class="govuk-button-group">
+
       {{ govukButton({
-        text: "Continue",
+        text: "Save and continue",
         isStartButton: false
       }) }}
 
         {{ govukButton({
-          text: "View descriptor list",
-           href: "check-your-answers",
+          text: "Save and return",
+            href: "select-descriptors?descriptor12=(12c) Can stand and then move unaided more than 20 metres but no more than 50 metres",
           classes: "govuk-button--secondary"
         }) }}
 </div>

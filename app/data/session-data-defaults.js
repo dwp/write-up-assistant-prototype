@@ -8,7 +8,7 @@ module.exports = {
   reportHCP: "Dr. Smith",
   ConsultationDate: "22nd January 2024",
   RecommendedReviewPeriod: "Certain functional limitations were present at the time of the assessment, which would warrant a review. She is currently on the waiting list to have counselling.",
-
+  caseStatus: "New",
   cases: [
     {
       case_id: 1,
