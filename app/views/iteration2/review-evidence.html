@@ -60,6 +60,11 @@
           text: "Continue",
           href: "consultation-details"
         }) }}
+        {{ govukButton({
+          text: "Upload file",
+          classes: "govuk-button--secondary",
+          href: ""
+        }) }}
 
         {% if data.aiCheck != "done" %}
           {{ govukButton({
