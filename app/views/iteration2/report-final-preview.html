@@ -164,7 +164,7 @@
       <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
     </div>
   </div>
-  <p class="govuk-body" style="white-space: pre-line;">{{ cond["When did the condition or disability start?"] }}</p>
+  <p class="govuk-body pre-line">{{ cond["When did the condition or disability start?"] }}</p>
   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
   <div class="govuk-grid-row govuk-!-margin-bottom-1">
@@ -175,7 +175,7 @@
        <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
     </div>
   </div>
-  <p class="govuk-body" style="white-space: pre-line;">{{ cond["Diagnosis, impact and variability"] }}</p>
+  <p class="govuk-body pre-line">{{ cond["Diagnosis, impact and variability"] }}</p>
   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
   <div class="govuk-grid-row govuk-!-margin-bottom-1">
@@ -186,7 +186,7 @@
        <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
     </div>
   </div>
-  <p class="govuk-body" style="white-space: pre-line;">{{ cond["Current treatments, specialist input and hospital stays"] }}</p>
+  <p class="govuk-body pre-line">{{ cond["Current treatments, specialist input and hospital stays"] }}</p>
   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
   <div class="govuk-grid-row govuk-!-margin-bottom-1">
@@ -197,7 +197,7 @@
        <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
     </div>
   </div>
-  <p class="govuk-body" style="white-space: pre-line;">{{ cond["Home therapies (optional)"] }}</p>
+  <p class="govuk-body pre-line">{{ cond["Home therapies (optional)"] }}</p>
   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
   <div class="govuk-grid-row govuk-!-margin-bottom-1">
@@ -208,7 +208,7 @@
        <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
     </div>
   </div>
-  <p class="govuk-body" style="white-space: pre-line;">
+  <p class="govuk-body pre-line">
     {{ cond["Suicidal thoughts and self harm (optional)"] or "No details provided" }}
   </p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-9">
@@ -260,7 +260,7 @@
 
   {% set mio1 = case.report[1].content[0] %}
   <h2 class="govuk-heading-l">{{ mio1.section }}</h2>
-<p class="govuk-body" style="white-space: pre-line;">{{ mio1.text }}</p>
+<p class="govuk-body pre-line">{{ mio1.text }}</p>
 
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-9">
 
@@ -281,7 +281,7 @@
      <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;"> {{ pf.description }}</p>
+<p class="govuk-body pre-line"> {{ pf.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 {# How well can the claimant prepare food? + Change link #}
@@ -305,7 +305,7 @@
     <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ pf.justification }}</p>
+<p class="govuk-body pre-line">{{ pf.justification }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
 
 <!---->
@@ -322,7 +322,7 @@
       <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ tn.description }}</p>
+<p class="govuk-body pre-line">{{ tn.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 {# How well can the claimant take nutrition? + Change link #}
@@ -346,7 +346,7 @@
       <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ tn.justification }}</p>
+<p class="govuk-body pre-line">{{ tn.justification }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
 <!---->
 
@@ -364,7 +364,7 @@
     <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ mt.description }}</p>
+<p class="govuk-body pre-line">{{ mt.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
@@ -389,7 +389,7 @@
   </div>
 </div>
 
-<p class="govuk-body" style="white-space: pre-line;">{{ mt.justification }}</p>
+<p class="govuk-body pre-line">{{ mt.justification }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
 <!---->
 
@@ -406,7 +406,7 @@
       <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ wb.description }}</p>
+<p class="govuk-body pre-line">{{ wb.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
@@ -431,7 +431,7 @@
   </div>
 </div>
 
-<p class="govuk-body" style="white-space: pre-line;">{{ wb.justification }}</p>
+<p class="govuk-body pre-line">{{ wb.justification }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
 <!---->
 
@@ -447,7 +447,7 @@
        <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ mtn.description }}</p>
+<p class="govuk-body pre-line">{{ mtn.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
@@ -469,7 +469,7 @@
        <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ mtn.justification }}</p>
+<p class="govuk-body pre-line">{{ mtn.justification }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
 <!---->
 
@@ -485,7 +485,7 @@
       <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ mtn.description }}</p>
+<p class="govuk-body pre-line">{{ mtn.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
@@ -509,7 +509,7 @@
       <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ mtn.justification }}</p>
+<p class="govuk-body pre-line">{{ mtn.justification }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
 <!---->
 <h3 class="govuk-heading-m">Communicating verbally</h3>
@@ -523,7 +523,7 @@
      <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ cmv.description }}</p>
+<p class="govuk-body pre-line">{{ cmv.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
@@ -545,7 +545,7 @@
      <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ cmv.justification }}</p>
+<p class="govuk-body pre-line">{{ cmv.justification }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
 <!---->
 
@@ -563,7 +563,7 @@
      <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ rus.description }}</p>
+<p class="govuk-body pre-line">{{ rus.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
@@ -585,7 +585,7 @@
       <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ rus.justification }}</p>
+<p class="govuk-body pre-line">{{ rus.justification }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
 <!---->
 
@@ -601,7 +601,7 @@
      <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ eff.description }}</p>
+<p class="govuk-body pre-line">{{ eff.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
@@ -625,7 +625,7 @@
     <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ eff.justification }}</p>
+<p class="govuk-body pre-line">{{ eff.justification }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
 <!---->
 
@@ -641,7 +641,7 @@
      <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ bdg.description }}</p>
+<p class="govuk-body pre-line">{{ bdg.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
@@ -665,7 +665,7 @@
      <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ bdg.justification }}</p>
+<p class="govuk-body pre-line">{{ bdg.justification }}</p>
 
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
 <!---->
@@ -697,7 +697,7 @@
      <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ pfj.description }}</p>
+<p class="govuk-body pre-line">{{ pfj.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
@@ -721,7 +721,7 @@
      <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ pfj.justification }}</p>
+<p class="govuk-body pre-line">{{ pfj.justification }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
 <!---->
 
@@ -738,7 +738,7 @@
   <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ mva.description }}</p>
+<p class="govuk-body pre-line">{{ mva.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
@@ -762,7 +762,7 @@
   <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ mva.justification }}</p>
+<p class="govuk-body pre-line">{{ mva.justification }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
 <!---->
 
@@ -793,7 +793,7 @@
  <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">I{{ mio.text }}</p>
+<p class="govuk-body pre-line">I{{ mio.text }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
@@ -805,7 +805,7 @@
  <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body" style="white-space: pre-line;">{{ mio2.text }}</p>
+<p class="govuk-body pre-line">{{ mio2.text }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
 <!---->
 
@@ -830,7 +830,7 @@
   </div>
 </div>
 
-<p class="govuk-body" style="white-space: pre-line;">
+<p class="govuk-body pre-line">
   {{ data['RecommendedReviewPeriod'] }}
 </p>
 
