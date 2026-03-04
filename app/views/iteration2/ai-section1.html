@@ -38,16 +38,16 @@
     </div>
 
     <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for preparing food</h4>
-    <p class="govuk-body">{{ pf.description }}</p>
+    <p class="govuk-body" style="white-space: pre-line;">{{ pf.description }}</p>
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
     <h4 class="govuk-heading-s govuk-!-margin-bottom-1">How well can the claimant prepare food?</h4>
-    <p class="govuk-body">{{ pf.option }}</p>
+    <p class="govuk-body" style="white-space: pre-line;">{{ pf.option }}</p>
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
     <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Justification for preparing food</h4>
-    <p class="govuk-body govuk-!-margin-bottom-9">{{ pf.justification }}</p>
-
+   <p class="govuk-body" style="white-space: pre-line;">{{ pf.justification }}</p>
+   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
   </div>
 
 
@@ -95,16 +95,16 @@
 
     <div class="govuk-button-group">
       {{ govukButton({
-        text: "Continue",
+        text: "Save and continue",
         href: "ai-section2",
         isStartButton: false
       }) }}
 
-      {{ govukButton({
-        text: "View section list",
-        classes: "govuk-button--secondary",
-        href: "ai-checklist"
-      }) }}
+        {{ govukButton({
+          text: "Save and return to list",
+          classes: "govuk-button--secondary",
+          href: "review-ai-report-start"
+        }) }}
     </div>
 
   </div>

@@ -40,7 +40,7 @@
     <p><a class="govuk-link" href="#" class="govuk-link">Change</a></p>
   </div>
 </div>
-<p class="govuk-body">{{ mio1.text }}</p>
+<p class="govuk-body" style="white-space: pre-line;">{{ mio1.text }}</p>
 
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
@@ -63,7 +63,6 @@
 
 {% endfor %}
 -->
-
 
       <details class="govuk-details govuk-!-margin-bottom-9">
         <summary class="govuk-details__summary">
@@ -106,13 +105,13 @@
 
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Continue",
+          text: "Save and continue",
           href: "ai-section1",
           isStartButton: false
         }) }}
 
         {{ govukButton({
-          text: "View section list",
+          text: "Save and return to list",
           classes: "govuk-button--secondary",
           href: "ai-checklist"
         }) }}

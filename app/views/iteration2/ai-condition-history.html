@@ -60,7 +60,7 @@
     
     </div>
   </div>
-  <p class="govuk-body">{{ cond["Diagnosis, impact and variability"] }}</p>
+  <p class="govuk-body" style="white-space: pre-line;">{{ cond["Diagnosis, impact and variability"] }}</p>
 
   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
@@ -72,7 +72,7 @@
       
     </div>
   </div>
-  <p class="govuk-body">{{ cond["Current treatments, specialist input and hospital stays"] }}</p>
+ <p class="govuk-body" style="white-space: pre-line;">{{ cond["Current treatments, specialist input and hospital stays"] }}</p>
 
   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
@@ -102,8 +102,9 @@
 
 {% endfor %}
 
-
-
+<div class="govuk-!-margin-bottom-8">
+<p><a class="govuk-link" href="#">Add new condition</a></p>
+</div>
 
       <details class="govuk-details govuk-!-margin-bottom-9">
         <summary class="govuk-details__summary">
@@ -146,15 +147,15 @@
 
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Continue",
+          text: "Save and continue",
           href: "ai-medication",
           isStartButton: false
         }) }}
 
         {{ govukButton({
-          text: "View section list",
+          text: "Save and return to list",
           classes: "govuk-button--secondary",
-          href: "ai-checklist"
+          href: "review-ai-report-start"
         }) }}
       </div>
 

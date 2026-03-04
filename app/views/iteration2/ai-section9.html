@@ -37,7 +37,7 @@
 <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body">{{ eff.description }}</p>
+<p class="govuk-body" style="white-space: pre-line;">{{ eff.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
@@ -61,7 +61,7 @@
 <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
-<p class="govuk-body">{{ eff.justification }}</p>
+<p class="govuk-body" style="white-space: pre-line;">{{ eff.justification }}</p>
 
       <details class="govuk-details govuk-!-margin-bottom-9 govuk-!-margin-top-6">
         <summary class="govuk-details__summary">
@@ -102,15 +102,15 @@
 
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Continue",
+          text: "Save and continue",
           href: "ai-section10",
           isStartButton: false
         }) }}
 
         {{ govukButton({
-          text: "View section list",
+          text: "Save and return to list",
           classes: "govuk-button--secondary",
-          href: "ai-checklist"
+          href: "review-ai-report-start"
         }) }}
       </div>
 
