@@ -1,0 +1,300 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+{% set case = data.cases[0] %}
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Add your consultation notes</h1>
+    <p class="govuk-body">Your artificial intelligence assistant will review these notes and use them to produce an initial draft assessment report.</p>
+    <form action="select-descriptors" method="post" novalidate="">
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="conditionHistory">Condition history</label>
+      </h1>
+      <div id="conditionHistory-hint" class="govuk-hint">
+        Provide a clear summary of the claimant’s health conditions, including onset, duration, progression and any recent changes.
+      </div>
+      <textarea class="govuk-textarea" id="conditionHistory" name="conditionHistory" rows="10" aria-describedby="conditionHistory-hint">
+          HOC
+          
+          Diagnosis:
+
+          Input & management:
+          
+          Symptoms & Variability:
+          
+          Aids:
+      </textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="medication">Medication</label>
+      </h1>
+      <div id="medication-hint" class="govuk-hint">
+        List all prescribed and over‑the‑counter medications, including dosage, frequency and any reported side effects.
+      </div>
+      <textarea class="govuk-textarea" id="medication" name="medication" rows="10" aria-describedby="medication-hint">
+        Name:
+
+        Dosage:
+
+        Frequency:
+
+        Side effects:
+
+      </textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="socialHistory">Social and occupational history</label>
+      </h1>
+      <div id="socialHistory-hint" class="govuk-hint">
+        Describe the claimant’s living situation, daily routines, work history and any social or environmental factors that affect their functioning.
+      </div>
+      <textarea class="govuk-textarea" id="socialHistory" name="socialHistory" rows="10" aria-describedby="socialHistory-hint">
+          Accommodation
+          
+          Live with:
+          
+          Adaptation:
+          
+          Children/pet:
+          
+          Bathroom/shower, walk-in shower:
+          
+          Currently working Last worked as/ Left due to:
+          
+          Currently studying:
+          
+          Correspondence/bills:
+          
+          Driving:
+          
+          Shopping:
+          
+          Housework:
+          
+          Walking:
+          
+          Hobbies:
+      
+      </textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="preparingFood">Preparing food</label>
+      </h1>
+      <div id="preparingFood-hint" class="govuk-hint">
+        Record any difficulties with planning, preparing, or safely cooking meals.
+      </div>
+      <textarea class="govuk-textarea" id="preparingFood" name="preparingFood" rows="10" aria-describedby="preparingFood-hint">{{ case.report[3].content.description }}</textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="takingNutrition">Taking nutrition</label>
+      </h1>
+      <div id="takingNutrition-hint" class="govuk-hint">
+        Describe issues with eating, drinking, or managing nutritional needs independently.
+      </div>
+      <textarea class="govuk-textarea" id="takingNutrition" name="takingNutrition" rows="10" aria-describedby="takingNutrition-hint">{{ case.report[4].content.description }}</textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="managingTherapy">Managing therapy</label>
+      </h1>
+      <div id="managingTherapy-hint" class="govuk-hint">
+        Note the claimant’s ability to follow treatment plans, manage therapy routines, or carry out medical interventions.
+      </div>
+      <textarea class="govuk-textarea" id="managingTherapy" name="managingTherapy" rows="10" aria-describedby="managingTherapy-hint">{{ case.report[5].content.description }}</textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="washingBathing">Washing and bathing</label>
+      </h1>
+      <div id="washingBathing-hint" class="govuk-hint">
+        Document any challenges with personal hygiene tasks, including washing, bathing or using facilities safely.
+      </div>
+      <textarea class="govuk-textarea" id="washingBathing" name="washingBathing" rows="10" aria-describedby="washingBathing-hint">{{ case.report[6].content.description }}</textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="toiletNeeds">Managing toilet needs</label>
+      </h1>
+      <div id="toiletNeeds-hint" class="govuk-hint">
+        Describe continence issues or difficulties accessing, using, or managing toilet needs.
+      </div>
+      <textarea class="govuk-textarea" id="toiletNeeds" name="toiletNeeds" rows="10" aria-describedby="toiletNeeds-hint">{{ case.report[7].content.description }}</textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="dressingUndressing">Dressing and undressing</label>
+      </h1>
+      <div id="dressingUndressing-hint" class="govuk-hint">
+        Record problems with selecting clothing, dressing independently, or removing garments.
+      </div>
+      <textarea class="govuk-textarea" id="dressingUndressing" name="dressingUndressing" rows="10" aria-describedby="dressingUndressing-hint">{{ case.report[8].content.description }}</textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="communicatingVerbally">Communicating verbally</label>
+      </h1>
+      <div id="communicatingVerbally-hint" class="govuk-hint">
+        Note speech, comprehension, articulation or communication difficulties observed during the consultation.
+      </div>
+      <textarea class="govuk-textarea" id="communicatingVerbally" name="communicatingVerbally" rows="10" aria-describedby="communicatingVerbally-hint">{{ case.report[9].content.description }}</textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="readingUnderstanding">Reading and understanding signs, symbols and words</label>
+      </h1>
+      <div id="readingUnderstanding-hint" class="govuk-hint">
+        Describe any challenges with reading, processing written information or understanding visual prompts.
+      </div>
+      <textarea class="govuk-textarea" id="readingUnderstanding" name="readingUnderstanding" rows="10" aria-describedby="readingUnderstanding-hint">{{ case.report[10].content.description }}</textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="engagingFaceToFace">Engaging face to face</label>
+      </h1>
+      <div id="engagingFaceToFace-hint" class="govuk-hint">
+        Record how the claimant engages in face‑to‑face interactions, including cooperation, rapport, and social communication skills.
+      </div>
+      <textarea class="govuk-textarea" id="engagingFaceToFace" name="engagingFaceToFace" rows="10" aria-describedby="engagingFaceToFace-hint">{{ case.report[11].content.description }}</textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="budgeting">Budgeting</label>
+      </h1>
+      <div id="budgeting-hint" class="govuk-hint">
+        Describe any limitations in managing money, budgeting tasks or making financial decisions.
+      </div>
+      <textarea class="govuk-textarea" id="budgeting" name="budgeting" rows="10" aria-describedby="budgeting-hint">{{ case.report[12].content.description }}</textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="planningJourneys">Planning and following journeys</label>
+      </h1>
+      <div id="planningJourneys-hint" class="govuk-hint">
+        Document difficulties with route planning, navigation, or travelling independently.
+      </div>
+      <textarea class="govuk-textarea" id="planningJourneys" name="planningJourneys" rows="10" aria-describedby="planningJourneys-hint">{{ case.report[13].content.description }}</textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="movingAround">Moving around</label>
+      </h1>
+      <div id="movingAround-hint" class="govuk-hint">
+        Record mobility issues, including walking distances, balance, pain, stability or the use of mobility aids.
+      </div>
+      <textarea class="govuk-textarea" id="movingAround" name="movingAround" rows="10" aria-describedby="movingAround-hint">{{ case.report[14].content.description }}</textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="mentalStateObservations">Mental state observations</label>
+      </h1>
+      <div id="mentalStateObservations-hint" class="govuk-hint">
+        Describe any observations about the claimant’s mood, behaviour, communication, awareness, and interaction during the assessment.
+      </div>
+      <textarea class="govuk-textarea" id="mentalStateObservations" name="mentalStateObservations" rows="10" aria-describedby="mentalStateObservations-hint">{{ case.report[1].content[1].text }}</textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="informalObservations">Informal observations</label>
+      </h1>
+      <div id="informalObservations-hint" class="govuk-hint">
+        Record any informal observations you noticed before, during, or after the assessment, not captured elsewhere.
+      </div>
+      <textarea class="govuk-textarea" id="informalObservations" name="informalObservations" rows="10" aria-describedby="informalObservations-hint">{{ case.report[1].content[2].text }}</textarea>
+    </div>
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Save and continue"
+  }) }}
+
+  {{ govukButton({
+    text: "Save and exit",
+    href: "select-case",
+    classes: "govuk-button--secondary"
+  }) }}
+</div>
+</form>
+  </div>
+
+<div class="govuk-grid-column-one-third">
+  <h2 class="govuk-heading-m">Evidence files</h2>
+  <table class="govuk-table govuk-!-margin-bottom-0">
+    <tbody class="govuk-table__body">
+
+      <tr class="govuk-table__row govuk-table__row--no-border">
+        <td class="govuk-table__cell govuk-table__cell--no-border">
+          <a class="govuk-link" href="#">PIP.pdf</a>
+        </td>
+        <td class="govuk-table__cell govuk-table__cell--numeric govuk-table__cell--no-border">
+          18 February 2026
+        </td>
+      </tr>
+      <tr class="govuk-table__row govuk-table__row--no-border">
+        <td class="govuk-table__cell govuk-table__cell--no-border">
+          <a class="govuk-link" href="#">evidence_2.pdf</a>
+        </td>
+        <td class="govuk-table__cell govuk-table__cell--numeric govuk-table__cell--no-border">
+          18 February 2026
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

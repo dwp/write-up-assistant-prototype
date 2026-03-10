@@ -16,128 +16,142 @@
 <a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
 
 <div class="govuk-grid-row">
+
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Add the consultation details</h1>
+      <h1 class="govuk-heading-xl">Add the consultation details</h1>
 
-    <p>Provide the details from the consultation. These will be used to help prepare the assessment report.</p>
+      <p>Provide the details from the consultation. These will be used to help prepare the assessment report.</p>
 
-    <form action="taking-notes-preference" method="post" novalidate>
+      <form action="taking-notes-preference" method="post" novalidate>
 
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" role="group" aria-describedby="consultation-date-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            <h1 class="govuk-fieldset__heading">What is the consultation date?</h1>
-          </legend>
-          <div id="consultation-date-hint" class="govuk-hint">For example, 31 3 2025</div>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="consultation-date-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">What is the consultation date?</h1>
+            </legend>
+            <div id="consultation-date-hint" class="govuk-hint">For example, 31 3 2025</div>
 
-          <div class="govuk-date-input" id="consultation-date">
+            <div class="govuk-date-input" id="consultation-date">
 
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="date-day">Day</label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-day" name="date-day" type="text" value="20">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-day">Day</label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                         id="date-day" name="date-day" type="text" value="20">
+                </div>
               </div>
-            </div>
 
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="date-month">Month</label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-month" name="date-month" type="text" value="04">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-month">Month</label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                         id="date-month" name="date-month" type="text" value="04">
+                </div>
               </div>
-            </div>
 
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="date-year">Year</label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-year" name="date-year" type="text" value="2026">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="date-year">Year</label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4"
+                         id="date-year" name="date-year" type="text" value="2026">
+                </div>
               </div>
+
             </div>
+          </fieldset>
+        </div>
 
-          </div>
-        </fieldset>
-      </div>
+        {# Conditional checkbox content #}
+        {% set identityCheck %}
+          {{ govukCheckboxes({
+            id: "id-docs",
+            name: "id-docs",
+            fieldset: {
+              legend: {
+                text: "How did you confirm their identity?",
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              { value: "Full name", text: "Full name", checked:true },
+              { value: "Date of Birth", text: "Date of birth", checked:true },
+              { value: "Address", text: "Address (first line and postcode)", checked:true },
+              { value: "NINO", text: "National Insurance number (NINO)", checked:true },
+              { value: "security Questions", text: "DWP security questions (case details)" }
+            ]
+          }) }}
+        {% endset -%}
 
-      {% set identityCheck %}
+        {# Combined checkbox group, fixed and ordered #}
         {{ govukCheckboxes({
-          id: "id-docs",
-          name: "id-docs",
+          idPrefix: "identity-consent",
+          name: "identity-consent",
           fieldset: {
             legend: {
-              text: "How did you confirm their identity?",
-              classes: "govuk-fieldset__legend--s"
+              text: "Identity and consent",
+              classes: "govuk-fieldset__legend--m"
             }
           },
           items: [
-            { value: "Full name", text: "Full name", checked:true },
-            { value: "Date of Birth", text: "Date of birth", checked:true },
-            { value: "Address", text: "Address (first line and postcode)", checked:true },
-            { value: "NINO", text: "National Insurance number (NINO)", checked:true },
-            { value: "security Questions", text: "DWP security questions (case details)" }
+          {
+              value: "identity-confirmed",
+              text: "Yes, I confirmed the claimant’s identity",
+              checked: true,
+              conditional: { html: identityCheck }
+            },
+            {
+              value: "consent-given",
+              text: "Yes, the claimant gave consent",
+              checked: true,
+              hint: {
+                text: "Make sure the claimant understands the purpose of the consultation, and they consent to continue."
+              }
+            }
+            
           ]
         }) }}
-      {% endset -%}
 
-      {{ govukRadios({
-        classes: "govuk-radios",
-        name: "identity-confirmed",
-        fieldset: {
-          legend: {
-            text: "Did you confirm the claimant's identity?",
-            classes: "govuk-fieldset__legend--m"
-          }
-        },
-        items: [
-          { value: "no", text: "No" },
-          {
-            value: "yes",
-            text: "Yes",
-            checked: true,
-            conditional: { html: identityCheck }
-          }
-        ]
-      }) }}
+        <h2 class="govuk-heading-m">Additional attendees</h2>
+        <p class="govuk-body">
+          No additional attendees have been added.
+          <a class="govuk-link" href="#">Add an attendee</a>
+        </p>
 
-      {{ govukRadios({
-        classes: "govuk-radios",
-        name: "consent",
-        fieldset: {
-          legend: {
-            text: "Did the claimant give you their consent?",
-            classes: "govuk-fieldset__legend--m"
-          }
-        },
-        hint: { text: "Make sure the claimant understands the purpose of the consultation, and they consent to continue." },
-        items: [
-          { value: "no", text: "No" },
-          { value: "yes", text: "Yes", checked: true }
-        ]
-      }) }}
+        <div class="govuk-button-group govuk-!-margin-top-8">
+          {{ govukButton({
+            text: "Save and continue",
+            classes: "govuk-button"
+          }) }}
 
-      <h2 class="govuk-heading-m">Additional attendees</h2>
-      <p class="govuk-body">
-        No additional attendees have been added.
-        <a class="govuk-link" href="#">Add an attendee</a>
-      </p>
+          {{ govukButton({
+            text: "Save and exit",
+            classes: "govuk-button govuk-button--secondary",
+            href: "/save-and-exit-consultation"
+          }) }}
+        </div>
 
-      <div class="govuk-button-group govuk-!-margin-top-8">
-
-        {{ govukButton({
-          text: "Save and continue",
-          classes: "govuk-button"
-        }) }}
-
-        {{ govukButton({
-          text: "Save and exit",
-          classes: "govuk-button govuk-button--secondary",
-          href: "/save-and-exit-consultation"
-        }) }}
-
-      </div>
-
-    </form>
+      </form>
 
   </div>
+
+  <div class="govuk-grid-column-one-third">
+
+      <h2 class="govuk-heading-m" id="subsection-title">Quick access</h2>
+
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <p class="govuk-body"><a href="#">Evidence</a></p>
+          </li>
+          <li>
+            <p class="govuk-body"><a href="#">Assessment notes</a></p>
+          </li>
+        </ul>
+      </nav>
+
+  </div>
+
 </div>
 
 {% endblock %}

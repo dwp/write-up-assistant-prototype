@@ -18,8 +18,8 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Choose an outcome for each activity</h1>
-    <p>Choose the outcome that best reflects the claimant’s ability for each activity. These will be used to build the assessment report and explain how their condition affects them.</p>
+    <h1 class="govuk-heading-xl">Choose the option that best describes the claimant’s condition</h1>
+    <p>These will be used to build the assessment report and explain how their condition affects them.</p>
 
     {# Helper to show a status tag based on whether a descriptor value exists in session data #}
     {% macro statusTag(selected, id) -%}
@@ -194,6 +194,22 @@
           href: "/save-and-exit-consultation"
         }) }}
       </div>
+
+  </div>
+    <div class="govuk-grid-column-one-third">
+
+      <h2 class="govuk-heading-m" id="subsection-title">Quick access</h2>
+
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <p class="govuk-body"><a href="review-evidence">Evidence</a></p>
+          </li>
+          <li>
+            <p class="govuk-body"><a href="add-notes">Assessment notes</a></p>
+          </li>
+        </ul>
+      </nav>
 
   </div>
 </div>

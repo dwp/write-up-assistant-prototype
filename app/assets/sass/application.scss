@@ -5,6 +5,30 @@
 
 // Add extra styles here
 
+
 .pre-line {
   white-space: pre-line;
+}
+
+
+
+.govuk-main-wrapper {
+  overflow: visible;
+}
+
+.sticky-container {
+  position: relative;
+  align-self: flex-start;
+  height: 7000px;
+}
+
+.sticky-nav {
+  position: sticky;
+
+  top: 16px;
+  z-index: 2;
+}
+
+.govuk-grid-row {
+  overflow: visible;
 }
