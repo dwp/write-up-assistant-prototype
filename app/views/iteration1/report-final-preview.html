@@ -61,7 +61,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Date report was completed</dt>
-    <dd class="govuk-summary-list__value">{{ data['reportCompleteDate']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__value">{{ data['reportCompleteDate']  or "20 March 2026" }}</dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="#change-report-date">Change<span class="govuk-visually-hidden"> date report was completed</span></a>
     </dd>
@@ -69,7 +69,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Benefit</dt>
-    <dd class="govuk-summary-list__value">{{ data['reportBenefitType']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__value">{{ data['reportBenefitType']  or "20 March 2026" }}</dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="#change-benefit">Change<span class="govuk-visually-hidden"> benefit</span></a>
     </dd>
@@ -77,7 +77,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Assessment type</dt>
-    <dd class="govuk-summary-list__value">{{ data['reportAssessType']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__value">{{ data['reportAssessType']  or "Telephone assessment" }}</dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="#change-assessment-type">Change<span class="govuk-visually-hidden"> assessment type</span></a>
     </dd>
@@ -112,22 +112,22 @@
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Consultation date</dt>
-    <dd class="govuk-summary-list__value">{{ data['ConsultationDate']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__value">{{ data['ConsultationDate']  or "20 March 2026" }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
     <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Was the claimant's identity confirmed?</dt>
-    <dd class="govuk-summary-list__value">{{ data['gave-concsent']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__value">{{ data['gave-concsent']  or "Yes" }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">How was their identity confirmed?</dt>
-    <dd class="govuk-summary-list__value">{{ data['yescheck']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__value">{{ data['yescheck']  or "Passport, NINo, First line of address" }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
     <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Did the claimant consent to the consultation?</dt>
-    <dd class="govuk-summary-list__value">{{ data['gave-concsent']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__value">{{ data['gave-concsent']  or "Yes" }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
 </dl>
