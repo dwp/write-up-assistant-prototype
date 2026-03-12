@@ -170,7 +170,7 @@ module.exports = {
               "Medication Name": "Tadalafil",
               "Dosage": "20mg",
               "Frequency": "Once a week",
-              "Reason for taking": "Prostatic hyperplasia (BPH)",
+              "Reason for taking": "",
               "Effectiveness (optional)": "NA",
               "Side effects (optional)": "NA"
             },

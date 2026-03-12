@@ -117,17 +117,17 @@
   </div>
     <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Was the claimant's identity confirmed?</dt>
-    <dd class="govuk-summary-list__value">{{ data['gave-concsent']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__value">{{ data['gave-concsent']  or "Yes" }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#" style="display: none;">Change</a> </dd>
   </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">How was their identity confirmed?</dt>
-    <dd class="govuk-summary-list__value">{{ data['yescheck']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__value">{{ data['yescheck']  or "Passport, NINo, First line of address" }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#" style="display: none;">Change</a> </dd>
   </div>
     <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Did the claimant consent to the consultation?</dt>
-    <dd class="govuk-summary-list__value">{{ data['gave-concsent']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__value">{{ data['gave-concsent']  or "Yes" }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#" style="display: none;">Change</a> </dd>
   </div>
 </dl>
@@ -674,12 +674,12 @@
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Has the claimant had the functional restriction for at least 3 months?</dt>
-    <dd class="govuk-summary-list__value">{{ data['func-restric-3m']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__value">{{ data['func-restric-3m']  or "Yes" }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#" style="display: none;">Change</a> </dd>
   </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Is the claimant likely to have the functional restriction in 9 months?</dt>
-    <dd class="govuk-summary-list__value">{{ data['func-restric-9m']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__value">{{ data['func-restric-9m']  or "Yes" }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#" style="display: none;">Change</a> </dd>
   </div>
 </dl>
@@ -770,12 +770,12 @@
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Has the claimant had the functional restriction for at least 3 months?</dt>
-    <dd class="govuk-summary-list__value">{{ data['func-restric-mob-3m']  or "not captured" }}
+    <dd class="govuk-summary-list__value">{{ data['func-restric-mob-3m']  or "Yes" }}
     <dd class="govuk-summary-list__actions"> <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> </dd>
   </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Is the claimant likely to have the functional restriction in 9 months?</dt>
-    <dd class="govuk-summary-list__value">{{ data['func-restric-mob-9m']  or "not captured" }}</dd>
+    <dd class="govuk-summary-list__value">{{ data['func-restric-mob-9m']  or "Yes" }}</dd>
     <dd class="govuk-summary-list__actions"> <p style="display: none;"><a class="govuk-link" href="#">Change</a></p> </dd>
   </div>
 </dl>
@@ -815,7 +815,7 @@
 <dl class="govuk-summary-list ">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Recommended future review period</dt>
-    <dd class="govuk-summary-list__value"> {{ data['review-period']  or "3 years" }}</dd>
+    <dd class="govuk-summary-list__value"> {{ data['review-period']  or "18 months" }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#" style="display: none;">Change</a> </dd>
   </div>
 </dl>
@@ -845,7 +845,7 @@
   </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Do they need additional support for future claims processes?</dt>
-    <dd class="govuk-summary-list__value">{{ data['future-support']  or "Yes" }}</dd>
+    <dd class="govuk-summary-list__value">{{ data['future-support']  or "No" }}</dd>
     <dd class="govuk-summary-list__actions"><a href="#" style="display: none;">Change</a> </dd>
   </div>
   <div class="govuk-summary-list__row">
