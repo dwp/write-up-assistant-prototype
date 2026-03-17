@@ -41,7 +41,7 @@
         </div>
       </td>
       <td class="govuk-table__cell">
-        <a class="govuk-link" href="files/PIP2-Claimant3.pdf" target="_blank">PIP2.pdf</a>
+        <a class="govuk-link" href="files/view-pip2.html" target="_blank">PIP2.pdf</a>
       </td>
       <td class="govuk-table__cell">18 February 2026</td>
     </tr>
@@ -56,7 +56,7 @@
         </div>
       </td>
       <td class="govuk-table__cell">
-        <a class="govuk-link" href="files/FE-Claimant3.pdf" target="_blank">FE.pdf</a>
+        <a class="govuk-link" href="files/view-fe" target="_blank">FE.pdf</a>
       </td>
       <td class="govuk-table__cell">18 February 2026</td>
     </tr>
@@ -184,9 +184,30 @@
   </tbody>
 </table>
 
+<div class="govuk-!-padding-bottom-4">
+{{ govukPagination({
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 2,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}
+<p>Showing 1 to 10 of 28 results</p>
 
-
-
+</div>
     {% if data.aiCheck == "done" %}
       <div class="govuk-inset-text" id="ai-result">
         <p class="govuk-body">

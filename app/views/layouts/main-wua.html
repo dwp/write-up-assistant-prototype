@@ -3,38 +3,57 @@ For guidance on how to use layouts see:
 https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 #}
 
+{% from "internal-service-header/macro.njk" import dwpHeader %}
+{% from "internal-service-footer/macro.njk" import dwpFooter %}
+
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 
 {% block header %}
 
-    {{ govukHeader(
-
-        {
-        serviceName: serviceName
-        }
-
-    ) }}
 
 
-
-    {% block govukServiceNavigation %}
-  {{ govukServiceNavigation({
-    navigation: [
-      {
-        href: "intro-page",
-        text: "Home",
-        active: true
-      },
-      {
-        href: "sign-in",
-        text: "Logout"
-      }
+{{ dwpHeader({
+  serviceName: serviceName,
+  serviceHref: "/",
+  container: true,
+  navigation: {
+    items: [
+      { href: "select-case", text: "Home" },
+      { href: "sign-in", text: "Logout" }
     ]
-  }) }}
+  }
+}) }}
+
+
 {% endblock %}
 
+
+{% block footer %}
+{{
+    dwpFooter({
+        meta: {
+            visuallyHiddenTitle: "About this website",
+            items: [
+            {
+                href: "",
+                text: "Accessibility statement"
+            },
+            {
+                href: "",
+                text: "AI "
+            },
+            {
+                href: "",
+                text: "Privacy"
+            },
+            {
+                href: "/manage-prototype/clear-data",
+                text: "Clear data"
+              }
+            ]
+        }
+    }) 
+}}
 {% endblock %}
-
-

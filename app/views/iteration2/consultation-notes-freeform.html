@@ -20,22 +20,33 @@
   <div class="govuk-grid-column-two-thirds">
 
     <form method="post" action="select-descriptors" novalidate>
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--l" for="freeFormNotes">
+    Write your consultation notes
+  </label>
 
-      {{ govukCharacterCount({
-        id: "freeFormNotes",
-        name: "freeFormNotes",
-        rows: 24,
-        maxwords: 4000,
-        label: {
-          text: "Write your consultation notes",
-          classes: "govuk-label--l",
-          isPageHeading: true
-        },
-        hint: {
-          text: "Write one clear narrative covering the consultation. You can refine or structure this later."
-        },
-        value: data.freeFormNotes
-      }) }}
+  <div id="freeFormNotes-hint" class="govuk-hint">
+    Write one clear narrative covering the consultation. You can refine or structure this later.
+  </div>
+        {{ govukButton({
+          text: "Import crip list",
+          classes: "govuk-button govuk-button--secondary",
+          href: "/save-and-exit-consultation"
+        }) }}
+  <textarea class="govuk-textarea govuk-js-character-count" 
+            id="freeFormNotes" 
+            name="freeFormNotes" 
+            rows="24" 
+            aria-describedby="freeFormNotes-info freeFormNotes-hint" 
+            data-maxwords="4000">{{ data.freeFormNotes }}</textarea>
+
+  <div id="freeFormNotes-info" 
+       class="govuk-hint govuk-character-count__message"
+       aria-live="polite">
+    You can enter up to 4000 words
+  </div>
+</div>
+
     <div class="govuk-inset-text">
       Keep notes factual and clinically justified, linked to functional impact. Summarise evidence rather than copying large passages.
     </div>

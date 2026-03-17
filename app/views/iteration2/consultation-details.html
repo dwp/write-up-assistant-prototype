@@ -30,10 +30,14 @@
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               <h1 class="govuk-fieldset__heading">What is the consultation date?</h1>
             </legend>
-            <div id="consultation-date-hint" class="govuk-hint">For example, 31 3 2025</div>
+
+            <div id="consultation-date-hint" class="govuk-hint">
+              For example, 31 3 2025
+            </div>
 
             <div class="govuk-date-input" id="consultation-date">
 
+              <!-- DAY -->
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-date-input__label" for="date-day">Day</label>
@@ -42,6 +46,7 @@
                 </div>
               </div>
 
+              <!-- MONTH -->
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-date-input__label" for="date-month">Month</label>
@@ -50,12 +55,34 @@
                 </div>
               </div>
 
+              <!-- YEAR -->
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-date-input__label" for="date-year">Year</label>
                   <input class="govuk-input govuk-date-input__input govuk-input--width-4"
                          id="date-year" name="date-year" type="text" value="2026">
                 </div>
+              </div>
+
+              <!-- NEW: PERIOD DROPDOWN (right next to Year) -->
+              <div class="govuk-date-input__item">
+                    {{ govukSelect({
+                      id: "consultation-period",
+                      name: "consultation-period",
+                      label: { text: "Time" },
+                      classes: "govuk-!-margin-top-1",
+                      items: [
+                        { value: "09:00", text: "09:00" },
+                        { value: "10:00", text: "10:00" },
+                        { value: "11:00", text: "11:00" },
+                        { value: "12:00", text: "12:00" },
+                        { value: "13:00", text: "13:00" },
+                        { value: "14:00", text: "14:00" },
+                        { value: "15:00", text: "15:00" },
+                        { value: "16:00", text: "16:00" },
+                        { value: "17:00", text: "17:00" }
+                      ]
+                    }) }}
               </div>
 
             </div>
@@ -83,7 +110,6 @@
           }) }}
         {% endset -%}
 
-        {# Combined checkbox group, fixed and ordered #}
         {{ govukCheckboxes({
           idPrefix: "identity-consent",
           name: "identity-consent",
@@ -94,7 +120,7 @@
             }
           },
           items: [
-          {
+            {
               value: "identity-confirmed",
               text: "Yes, I confirmed the claimant’s identity",
               checked: true,
@@ -108,11 +134,11 @@
                 text: "Make sure the claimant understands the purpose of the consultation, and they consent to continue."
               }
             }
-            
           ]
         }) }}
 
         <h2 class="govuk-heading-m">Additional attendees</h2>
+
         <p class="govuk-body">
           No additional attendees have been added.
           <a class="govuk-link" href="#">Add an attendee</a>
@@ -135,13 +161,18 @@
 
   </div>
 
+  <!-- RIGHT COLUMN NAV -->
   <div class="govuk-grid-column-one-third">
 
       <h2 class="govuk-heading-m" id="subsection-title">Quick access</h2>
+
       <nav role="navigation" aria-labelledby="subsection-title">
-        <ul class="govuk-list govuk-!-font-size-16">
+        <ul class="govuk-list">
           <li>
-         <p class="govuk-body"><a href="review-evidence">Evidence list</a></p>
+            <p class="govuk-body"><a href="my-crib-sheet">Crib-sheet</a></p>
+          </li>
+          <li>
+            <p class="govuk-body"><a href="review-evidence">Evidence list</a></p>
           </li>
           <li>
             <p class="govuk-body"><a href="">PIP2.pdf</a></p>

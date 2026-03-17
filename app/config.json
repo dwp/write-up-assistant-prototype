@@ -2,7 +2,7 @@
   "serviceName": "Write-up Assistant",
   "plugins": {
     "govuk-frontend": {
-      "rebrand": true
+      "rebrand": false
     }
   }
 }

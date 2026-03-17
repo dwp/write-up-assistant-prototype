@@ -1,0 +1,43 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% from "internal-service-header/macro.njk" import dwpHeader %}
+{% from "internal-service-footer/macro.njk" import dwpFooter %}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{% block header %}
+
+    {{ govukHeader(
+
+        {
+        serviceName: serviceName
+        }
+
+    ) }}
+
+
+
+    {% block govukServiceNavigation %}
+  {{ govukServiceNavigation({
+    navigation: [
+      {
+        href: "intro-page",
+        text: "Home",
+        active: true
+      },
+      {
+        href: "sign-in",
+        text: "Logout"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% endblock %}
+
+

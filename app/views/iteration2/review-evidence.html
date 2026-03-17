@@ -18,9 +18,9 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">Review application documents</h1>
-    <p>Select the documents you want to include in the assessment. Choose only the files that are relevant and provide useful information about the claimant’s health condition and daily living needs.</p>
+    <p class="govuk-!-padding-bottom-7">Select the documents you want to include in the assessment. Choose only the files that are relevant and provide useful information about the claimant’s health condition and daily living needs.</p>
+    <p>All name links open in a new tab.</p>
     <form method="post" novalidate>
-
       <table class="govuk-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
@@ -42,7 +42,7 @@
               </div>
             </td>
             <td class="govuk-table__cell">
-              <a class="govuk-link" href="files/PIP2-Claimant3.pdf" target="_blank">PIP2.pdf</a>
+              <a class="govuk-link" href="files/view-pip2" target="_blank">PIP2.pdf</a>
             </td>
             <td class="govuk-table__cell">18 February 2026</td>
           </tr>
@@ -57,7 +57,7 @@
               </div>
             </td>
             <td class="govuk-table__cell">
-              <a class="govuk-link" href="files/FE-Claimant3.pdf" target="_blank">FE.pdf</a>
+              <a class="govuk-link" href="files/view-fe" target="_blank">FE.pdf</a>
             </td>
             <td class="govuk-table__cell">18 February 2026</td>
           </tr>
@@ -184,7 +184,29 @@
 
         </tbody>
       </table>
-
+      <div class="govuk-!-padding-bottom-4">
+{{ govukPagination({
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 2,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}
+<p>Showing 1 to 10 of 28 results</p>
+</div>
       <div class="govuk-button-group">
         {{ govukButton({
           text: "Save and continue",
@@ -201,5 +223,21 @@
     </form>
 
   </div>
+
+  <div class="govuk-grid-column-one-third">
+
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
+      <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in new tab
+  </div>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+         <p class="govuk-body"><a href="my-crib-sheet" target="_blank">Crib-sheet</a></p>
+          </li>
+        </ul>
+      </nav>
+
+  </div>
+
 </div>
 {% endblock %}

@@ -24,7 +24,6 @@ router.post('/iteration2/notes-entry-choice', function (req, res) {
     return res.redirect('/iteration2/consultation-notes-freeform')
   }
 
-  // If nothing selected, reload the page (or add an error on the page)
   return res.redirect('/iteration2/notes-entry-choice')
 })
 
@@ -32,10 +31,31 @@ router.post('/iteration2/notes-entry-choice', function (req, res) {
 router.get('/save-and-exit-consultation', function (req, res) {
   req.session.data['caseStatus'] = "Started";
   res.redirect('/iteration2/select-case');
-});
+})
 
 
+// =========================================================
+// Crisp list route — handles "Save" and "Copy and return"
+// =========================================================
+router.post('/save-crisplist', function (req, res) {
+  // Save crisp list to session
+  req.session.data['crisplist'] = req.body.freeFormNotes
 
+  const action = req.body.action
+  const returnUrl = req.body.returnUrl || req.headers.referer || '/'
 
+  // Save → stay on same page
+  if (action === 'save') {
+    return res.redirect(req.headers.referer || returnUrl)
+  }
+
+  // Copy and return → go back after copying
+  if (action === 'copy-return') {
+    return res.redirect(returnUrl)
+  }
+
+  // Default fallback
+  res.redirect(returnUrl)
+})
 
 module.exports = router

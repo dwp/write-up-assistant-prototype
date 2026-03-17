@@ -8,6 +8,28 @@ module.exports = {
   reportHCP: "Dr. Smith",
   ConsultationDate: "20th March 2026",
 
+ crisplist:
+  "HOC\n"
+  + "Diagnosis:\n\n"
+  + "Input & management:\n\n"
+  + "Symptoms & Variability:\n\n"
+  + "Aids:\n\n\n"
+  + "SOH\n\n"
+  + "Accommodation\n\n"
+  + "Live with:\n\n"
+  + "Adaptation:\n\n"
+  + "Children/pet:\n\n"
+  + "Bathroom/shower, walk-in shower:\n\n"
+  + "Currently working Last worked as/ Left due to:\n\n"
+  + "Currently studying:\n\n"
+  + "Correspondence/bills:\n\n"
+  + "Driving:\n\n"
+  + "Shopping:\n\n"
+  + "Housework:\n\n"
+  + "Walking:\n\n"
+  + "Hobbies:",
+
+
   RecommendedReviewPeriod:
     "The claimant is known to have prostate cancer, back pain and low mood.\n\n"
     + "His assessment showed functional restrictions in some daily living activities and mobility. He remains under the care of the urology consultant due to ongoing bladder incontinence, and is awaiting review by the pain management and physiotherapy teams for his back pain. There may be significant improvement or deterioration during this timeframe. Therefore, a review in 18 months was advised.\n\n"
@@ -324,7 +346,7 @@ module.exports = {
           content: {
             name: "Budgeting",
             description:
-              "TThe individual is capable of handling finances independently, utilizing direct debit for bills and online banking for transfers and account management.\n\n"
+              "The individual is capable of handling finances independently, utilizing direct debit for bills and online banking for transfers and account management.\n\n"
               + "They frequently use a card for daily purchases and typically manage change without issues, demonstrating an ability to make budgeting decisions without assistance.",
             option: "(10a) Can manage complex budgeting decisions unaided",
             justification:

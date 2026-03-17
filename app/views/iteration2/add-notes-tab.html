@@ -237,24 +237,20 @@ No suicidal thoughts. No self harm.
       </div>
 
       <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Save and continue"
-        }) }}
+
 
         {{ govukButton({
-          text: "Save and exit",
-          href: "select-case",
+          text: "Close and return",
+          href: "select-case"
+        }) }}
+              {{ govukButton({
+          text: "Regenerate AI report",
+          href: "generating-report",
           classes: "govuk-button--secondary"
         }) }}
       </div>
 
     </form>
-    <div>
-       {{ govukButton({
-          text: "Create AI report",
-          href: "generating-report"
-        }) }}
-    </div>
   </div>
 
   <!-- RIGHT SIDEBAR -->

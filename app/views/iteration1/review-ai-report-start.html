@@ -21,9 +21,16 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Review the AI generated sections of the report
+        Review AI created report sections
       </h1>
 <p class="govuk-body govuk-">AI has created report sections. You must review all sections to view the full first assessment report draft. </p>
+
+<div>
+  {{ govukWarningText({
+  text: "AI was used to create the content.",
+  iconFallbackText: "Warning"
+}) }}
+</div>
 
 
 <div class="govuk-!-margin-top-8">
