@@ -34,28 +34,4 @@ router.get('/save-and-exit-consultation', function (req, res) {
 })
 
 
-// =========================================================
-// Crisp list route — handles "Save" and "Copy and return"
-// =========================================================
-router.post('/save-crisplist', function (req, res) {
-  // Save crisp list to session
-  req.session.data['crisplist'] = req.body.freeFormNotes
-
-  const action = req.body.action
-  const returnUrl = req.body.returnUrl || req.headers.referer || '/'
-
-  // Save → stay on same page
-  if (action === 'save') {
-    return res.redirect(req.headers.referer || returnUrl)
-  }
-
-  // Copy and return → go back after copying
-  if (action === 'copy-return') {
-    return res.redirect(returnUrl)
-  }
-
-  // Default fallback
-  res.redirect(returnUrl)
-})
-
 module.exports = router
