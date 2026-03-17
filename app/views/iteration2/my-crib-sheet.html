@@ -13,13 +13,11 @@
 
 {% block content %}
 
-<a href="javascript:history.back()" class="govuk-back-link">Back</a>
-
 <div class="govuk-grid-row">
 
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="post" action="/save-crisplist" novalidate>
+    <form method="post" action="" novalidate>
 
       <input type="hidden" name="returnUrl" value="{{ request.headers.referer }}">
 
@@ -63,50 +61,13 @@
 
   </div>
 
-  <div class="govuk-grid-column-one-third">
-   
-
-      <table class="govuk-table">
-      <caption class="govuk-table__caption govuk-table__caption--m">Abbreviations used in this report</caption>
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Abbreviation</th>
-          <th scope="col" class="govuk-table__header">What it means</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">CH</th>
-          <td class="govuk-table__cell">Condition history</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">FE</th>
-          <td class="govuk-table__cell">Further evidence</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">FH</th>
-          <td class="govuk-table__cell">Functional history</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">IO</th>
-          <td class="govuk-table__cell">Informal observations</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">MSO</th>
-          <td class="govuk-table__cell">Mental state observations</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">SOH</th>
-          <td class="govuk-table__cell">Social and occupational history</td>
-        </tr>
-      </tbody>
-    </table>
-
-{{ govukButton({
-  text: "Copy abbreviations",
-  classes: "govuk-button--secondary"
-}) }}
-
+  <div class="govuk-grid-column-one-third" style="display: none;">
+      <h2 class="govuk-heading-m">Abbreviations list</h2>
+      <p class="govuk-body"><b>Abbreviations used in this report:</b> CH: Condition history, FE: Further evidence, FH:	Functional history, IO: Informal observations, MSO:Mental state observations, SOH:Social and occupational history.</p>
+      {{ govukButton({
+        text: "Copy abbreviations",
+        classes: "govuk-button--secondary"
+      }) }}
   </div>
 
 </div>
