@@ -1,0 +1,118 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+{% set case = data.cases[0] %}
+  <div style="margin-top: -30px;">
+    <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+  </div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Preparing food</h1>
+ 
+
+
+{% set pf = case.report[3].content %}
+
+
+{# Functional history for preparing food + Change link #}
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for preparing food</h4>
+
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+   
+  </div>
+</div>
+ 
+  <form action="descriptor-1" method="post" novalidate="">
+
+{{ govukRadios({
+    idPrefix: "descriptor-1",
+    name: "descriptor1",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+
+    items: [
+      {
+        value: "(1a) Can prepare and cook a simple meal unaided",
+        text: "(1a) Can prepare and cook a simple meal unaided"
+      },
+      {
+        value: "(1b) Needs to use an aid or appliance to be able to either prepare or cook a simple meal",
+        text: "(1b) Needs to use an aid or appliance to be able to either prepare or cook a simple meal",
+        checked: true
+      },
+      {
+        value: "(1c) Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave",
+        text: "(1c) Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave"
+      },
+      {
+        value: "(1d) Needs prompting to be able to either prepare or cook a simple meal",
+        text: "(1d) Needs prompting to be able to either prepare or cook a simple meal"
+      },
+      {
+        value: "(1e) Needs supervision or assistance to either prepare or cook a simple meal",
+        text: "(1e) Needs supervision or assistance to either prepare or cook a simple meal"
+      },
+      {
+        value: "(1f) Cannot prepare and cook food",
+        text: "(1f) Cannot prepare and cook food"
+      }
+    ]
+  }) }}
+
+
+
+
+
+<!-- place it in a form if will use it-->
+
+<div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Save",
+          href: "ai-section1",
+          isStartButton: false
+        }) }}
+
+                {{ govukButton({
+          text: "Cancel",
+          classes: "govuk-button--secondary",
+          href: "ai-section1"
+        }) }}
+      </div>
+
+</div>
+
+
+
+</form>
+
+
+
+
+
+</div>
+{% endblock %}

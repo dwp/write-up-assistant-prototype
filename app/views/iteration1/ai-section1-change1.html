@@ -1,0 +1,64 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+{% set case = data.cases[0] %}
+  <div style="margin-top: -30px;">
+    <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+  </div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Preparing food</h1>
+ 
+
+
+{% set pf = case.report[3].content %}
+
+
+{# Functional history for preparing food + Change link #}
+<div class="govuk-grid-row govuk-!-margin-bottom-1">
+  <div class="govuk-grid-column-two-thirds">
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for preparing food</h4>
+
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+  
+  </div>
+</div>
+ <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="15" aria-describedby="more-detail-hint">{{ pf.description }}</textarea>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Save",
+          href: "ai-section1",
+          isStartButton: false
+        }) }}
+
+                {{ govukButton({
+          text: "Cancel",
+          classes: "govuk-button--secondary",
+          href: "ai-section1"
+        }) }}
+      </div>
+
+</div>
+
+</div>
+{% endblock %}
