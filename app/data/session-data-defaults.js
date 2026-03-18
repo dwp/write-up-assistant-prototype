@@ -8,6 +8,27 @@ module.exports = {
   reportHCP: "Dr. Smith",
   ConsultationDate: "20th March 2026",
 
+
+
+
+  ai_ack_condition_history: false,
+  ai_ack_medication: false,
+  ai_ack_soh: false,
+  ai_ack_section1: false,
+  ai_ack_section2: false,
+  ai_ack_section3: false,
+  ai_ack_section4: false,
+  ai_ack_section5: false,
+  ai_ack_section6: false,
+  ai_ack_section7: false,
+  ai_ack_section8: false,
+  ai_ack_section9: false,
+  ai_ack_section10: false,
+  ai_ack_section11: false,
+  ai_ack_section12: false,
+  ai_ack_observations: false,
+
+
  crisplist:
   "HOC\n"
   + "Diagnosis:\n\n"

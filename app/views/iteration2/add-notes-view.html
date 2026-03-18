@@ -14,7 +14,6 @@
 {% block content %}
 {% set case = data.cases[0] %}
 
-<a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
 
 <div class="govuk-grid-row">
 
@@ -24,8 +23,8 @@
   <!-- LEFT COLUMN: FORM -->
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Add your consultation notes</h1>
-    <p class="govuk-body">Your artificial intelligence assistant will review these notes and use them to produce an initial draft assessment report.</p>
+    <h1 class="govuk-heading-xl">Your consultation notes</h1>
+    <p class="govuk-body">Close this window after using it.</p>
 
     <form action="select-descriptors" method="post" novalidate>
 
@@ -37,7 +36,7 @@
         <div id="conditionHistory-hint" class="govuk-hint">
           Provide a clear summary of the claimant’s health conditions, including onset, duration, progression and any recent changes.
         </div>
-        <textarea class="govuk-textarea" id="conditionHistory" name="conditionHistory" rows="10" aria-describedby="conditionHistory-hint">
+        <textarea class="govuk-textarea" id="conditionHistory" name="conditionHistory" rows="10" disabled disabled aria-describedby="conditionHistory-hint">
 Condition 1:
 {{ case.report[0].content[0]["Condition or disability name"] }}
 {{ case.report[0].content[0]["Current treatments, specialist input and hospital stays"] }}
@@ -64,7 +63,7 @@ No suicidal thoughts. No self harm.
         <div id="medication-hint" class="govuk-hint">
           List all prescribed and over‑the‑counter medications, including dosage, frequency and any reported side effects.
         </div>
-        <textarea class="govuk-textarea" id="medication" name="medication" rows="10" aria-describedby="medication-hint">
+        <textarea class="govuk-textarea" id="medication" name="medication" rows="10" disabled aria-describedby="medication-hint">
 {% for med in case.report[2].content %}
 {{ med["Medication Name"] }}  {{ med.Dosage }}  {{ med.Frequency }}  {{ med["Effectiveness (optional)"] }} {{ med["Reason for taking"] }} {{ med["Side effects (optional)"] }}
 {% endfor %}
@@ -79,7 +78,7 @@ No suicidal thoughts. No self harm.
         <div id="socialHistory-hint" class="govuk-hint">
           Describe the claimant’s living situation, daily routines, work history and any social or environmental factors that affect their functioning.
         </div>
-        <textarea class="govuk-textarea" id="socialHistory" name="socialHistory" rows="10" aria-describedby="socialHistory-hint">{{ case.report[3].content.description }}</textarea>
+        <textarea class="govuk-textarea" id="socialHistory" name="socialHistory" rows="10" disabled aria-describedby="socialHistory-hint">{{ case.report[3].content.description }}</textarea>
       </div>
 
       <!-- PREPARING FOOD -->
@@ -90,7 +89,7 @@ No suicidal thoughts. No self harm.
         <div id="preparingFood-hint" class="govuk-hint">
           Record any difficulties with planning, preparing, or safely cooking meals.
         </div>
-        <textarea class="govuk-textarea" id="preparingFood" name="preparingFood" rows="10" aria-describedby="preparingFood-hint">{{ case.report[3].content.description }}</textarea>
+        <textarea class="govuk-textarea" id="preparingFood" name="preparingFood" rows="10" disabled aria-describedby="preparingFood-hint">{{ case.report[3].content.description }}</textarea>
       </div>
 
       <!-- TAKING NUTRITION -->
@@ -101,7 +100,7 @@ No suicidal thoughts. No self harm.
         <div id="takingNutrition-hint" class="govuk-hint">
           Describe issues with eating, drinking, or managing nutritional needs independently.
         </div>
-        <textarea class="govuk-textarea" id="takingNutrition" name="takingNutrition" rows="10" aria-describedby="takingNutrition-hint">{{ case.report[4].content.description }}</textarea>
+        <textarea class="govuk-textarea" id="takingNutrition" name="takingNutrition" rows="10" disabled aria-describedby="takingNutrition-hint">{{ case.report[4].content.description }}</textarea>
       </div>
 
       <!-- MANAGING THERAPY -->
@@ -112,7 +111,7 @@ No suicidal thoughts. No self harm.
         <div id="managingTherapy-hint" class="govuk-hint">
           Note the claimant’s ability to follow treatment plans, manage therapy routines, or carry out medical interventions.
         </div>
-        <textarea class="govuk-textarea" id="managingTherapy" name="managingTherapy" rows="10" aria-describedby="managingTherapy-hint">{{ case.report[5].content.description }}</textarea>
+        <textarea class="govuk-textarea" id="managingTherapy" name="managingTherapy" rows="10" disabled aria-describedby="managingTherapy-hint">{{ case.report[5].content.description }}</textarea>
       </div>
 
       <!-- WASHING & BATHING -->
@@ -123,7 +122,7 @@ No suicidal thoughts. No self harm.
         <div id="washingBathing-hint" class="govuk-hint">
           Document any challenges with personal hygiene tasks.
         </div>
-        <textarea class="govuk-textarea" id="washingBathing" name="washingBathing" rows="10" aria-describedby="washingBathing-hint">{{ case.report[6].content.description }}</textarea>
+        <textarea class="govuk-textarea" id="washingBathing" name="washingBathing" rows="10" disabled aria-describedby="washingBathing-hint">{{ case.report[6].content.description }}</textarea>
       </div>
 
       <!-- TOILET NEEDS -->
@@ -134,7 +133,7 @@ No suicidal thoughts. No self harm.
         <div id="toiletNeeds-hint" class="govuk-hint">
           Describe continence issues or difficulties accessing, using, or managing toilet needs.
         </div>
-        <textarea class="govuk-textarea" id="toiletNeeds" name="toiletNeeds" rows="10" aria-describedby="toiletNeeds-hint">{{ case.report[7].content.description }}</textarea>
+        <textarea class="govuk-textarea" id="toiletNeeds" name="toiletNeeds" rows="10" disabled aria-describedby="toiletNeeds-hint">{{ case.report[7].content.description }}</textarea>
       </div>
 
       <!-- DRESSING -->
@@ -145,7 +144,7 @@ No suicidal thoughts. No self harm.
         <div id="dressingUndressing-hint" class="govuk-hint">
           Record problems with selecting clothing or dressing independently.
         </div>
-        <textarea class="govuk-textarea" id="dressingUndressing" name="dressingUndressing" rows="10" aria-describedby="dressingUndressing-hint">{{ case.report[8].content.description }}</textarea>
+        <textarea class="govuk-textarea" id="dressingUndressing" name="dressingUndressing" rows="10" disabled aria-describedby="dressingUndressing-hint">{{ case.report[8].content.description }}</textarea>
       </div>
 
       <!-- COMMUNICATION -->
@@ -156,7 +155,7 @@ No suicidal thoughts. No self harm.
         <div id="communicatingVerbally-hint" class="govuk-hint">
           Note any communication difficulties observed during the consultation.
         </div>
-        <textarea class="govuk-textarea" id="communicatingVerbally" name="communicatingVerbally" rows="10" aria-describedby="communicatingVerbally-hint">{{ case.report[9].content.description }}</textarea>
+        <textarea class="govuk-textarea" id="communicatingVerbally" name="communicatingVerbally" rows="10" disabled aria-describedby="communicatingVerbally-hint">{{ case.report[9].content.description }}</textarea>
       </div>
 
       <!-- READING -->
@@ -167,7 +166,7 @@ No suicidal thoughts. No self harm.
         <div id="readingUnderstanding-hint" class="govuk-hint">
           Describe challenges with reading or processing written information.
         </div>
-        <textarea class="govuk-textarea" id="readingUnderstanding" name="readingUnderstanding" rows="10" aria-describedby="readingUnderstanding-hint">{{ case.report[10].content.description }}</textarea>
+        <textarea class="govuk-textarea" id="readingUnderstanding" name="readingUnderstanding" rows="10" disabled aria-describedby="readingUnderstanding-hint">{{ case.report[10].content.description }}</textarea>
       </div>
 
       <!-- ENGAGING FACE TO FACE -->
@@ -178,7 +177,7 @@ No suicidal thoughts. No self harm.
         <div id="engagingFaceToFace-hint" class="govuk-hint">
           Record how the claimant engaged in interactions.
         </div>
-        <textarea class="govuk-textarea" id="engagingFaceToFace" name="engagingFaceToFace" rows="10" aria-describedby="engagingFaceToFace-hint">{{ case.report[11].content.description }}</textarea>
+        <textarea class="govuk-textarea" id="engagingFaceToFace" name="engagingFaceToFace" rows="10" disabled aria-describedby="engagingFaceToFace-hint">{{ case.report[11].content.description }}</textarea>
       </div>
 
       <!-- BUDGETING -->
@@ -189,7 +188,7 @@ No suicidal thoughts. No self harm.
         <div id="budgeting-hint" class="govuk-hint">
           Note any limitations in managing money or budgeting tasks.
         </div>
-        <textarea class="govuk-textarea" id="budgeting" name="budgeting" rows="10" aria-describedby="budgeting-hint">{{ case.report[12].content.description }}</textarea>
+        <textarea class="govuk-textarea" id="budgeting" name="budgeting" rows="10" disabled aria-describedby="budgeting-hint">{{ case.report[12].content.description }}</textarea>
       </div>
 
       <!-- JOURNEYS -->
@@ -200,7 +199,7 @@ No suicidal thoughts. No self harm.
         <div id="planningJourneys-hint" class="govuk-hint">
           Describe difficulties with route planning or navigation.
         </div>
-        <textarea class="govuk-textarea" id="planningJourneys" name="planningJourneys" rows="10" aria-describedby="planningJourneys-hint">{{ case.report[13].content.description }}</textarea>
+        <textarea class="govuk-textarea" id="planningJourneys" name="planningJourneys" rows="10" disabled aria-describedby="planningJourneys-hint">{{ case.report[13].content.description }}</textarea>
       </div>
 
       <!-- MOVING AROUND -->
@@ -211,7 +210,7 @@ No suicidal thoughts. No self harm.
         <div id="movingAround-hint" class="govuk-hint">
           Record mobility issues, stability, pain or the use of mobility aids.
         </div>
-        <textarea class="govuk-textarea" id="movingAround" name="movingAround" rows="10" aria-describedby="movingAround-hint">{{ case.report[14].content.description }}</textarea>
+        <textarea class="govuk-textarea" id="movingAround" name="movingAround" rows="10" disabled aria-describedby="movingAround-hint">{{ case.report[14].content.description }}</textarea>
       </div>
 
       <!-- MENTAL STATE -->
@@ -222,7 +221,7 @@ No suicidal thoughts. No self harm.
         <div id="mentalStateObservations-hint" class="govuk-hint">
           Observations about the claimant’s behaviour and interaction.
         </div>
-        <textarea class="govuk-textarea" id="mentalStateObservations" name="mentalStateObservations" rows="10" aria-describedby="mentalStateObservations-hint">{{ case.report[1].content[1].text }}</textarea>
+        <textarea class="govuk-textarea" id="mentalStateObservations" name="mentalStateObservations" rows="10" disabled aria-describedby="mentalStateObservations-hint">{{ case.report[1].content[1].text }}</textarea>
       </div>
 
       <!-- INFORMAL OBSERVATIONS -->
@@ -233,19 +232,7 @@ No suicidal thoughts. No self harm.
         <div id="informalObservations-hint" class="govuk-hint">
           Record informal observations not captured elsewhere.
         </div>
-        <textarea class="govuk-textarea" id="informalObservations" name="informalObservations" rows="10" aria-describedby="informalObservations-hint">{{ case.report[1].content[2].text }}</textarea>
-      </div>
-
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Save and continue"
-        }) }}
-
-        {{ govukButton({
-          text: "Save and exit",
-          href: "select-case",
-          classes: "govuk-button--secondary"
-        }) }}
+        <textarea class="govuk-textarea" id="informalObservations" name="informalObservations" rows="10" disabled aria-describedby="informalObservations-hint">{{ case.report[1].content[2].text }}</textarea>
       </div>
 
     </form>
@@ -259,29 +246,7 @@ No suicidal thoughts. No self harm.
 
   <!-- RIGHT SIDEBAR -->
 <div class="govuk-grid-column-one-third sticky-container">
-  
-  <div class="">
 
-      <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
-      <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in a new tab</div>
-    <nav role="navigation" aria-labelledby="subsection-title">
-      <ul class="govuk-list">
-        <li>
-         <a href="my-crib-sheet" target="_blank">Crib-sheet</a>
-          </li>
-        <li>
-          <a class="govuk-link" href="review-evidence">Evidence list</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="files/view-pip2" target="_blank">PIP2.pdf</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="files/view-fe" target="_blank">FE.pdf</a>
-        </li>
-      </ul>
-    </nav>
-
-  </div>
 
     <div class="sticky-nav">
 

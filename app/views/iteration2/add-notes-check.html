@@ -14,7 +14,6 @@
 {% block content %}
 {% set case = data.cases[0] %}
 
-<a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
 
 <div class="govuk-grid-row">
 
@@ -24,8 +23,8 @@
   <!-- LEFT COLUMN: FORM -->
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Add your consultation notes</h1>
-    <p class="govuk-body">Your artificial intelligence assistant will review these notes and use them to produce an initial draft assessment report.</p>
+    <h1 class="govuk-heading-xl">My consultation notes</h1>
+    <p class="govuk-body">Close this window after you have finish reviewing your notes.</p>
 
     <form action="select-descriptors" method="post" novalidate>
 
@@ -236,7 +235,7 @@ No suicidal thoughts. No self harm.
         <textarea class="govuk-textarea" id="informalObservations" name="informalObservations" rows="10" aria-describedby="informalObservations-hint">{{ case.report[1].content[2].text }}</textarea>
       </div>
 
-      <div class="govuk-button-group">
+      <div class="govuk-button-group" style="display: none;">
         {{ govukButton({
           text: "Save and continue"
         }) }}
@@ -262,8 +261,8 @@ No suicidal thoughts. No self harm.
   
   <div class="">
 
-      <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
-      <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in a new tab</div>
+              <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
+      <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in new tab</div>
     <nav role="navigation" aria-labelledby="subsection-title">
       <ul class="govuk-list">
         <li>

@@ -29,8 +29,8 @@
         <strong class="govuk-tag govuk-tag--grey" id="{{ id }}">Not started</strong>
       {% endif %}
     {%- endmacro %}
- 
-    <h2 class="govuk-heading-l">Activities</h2>
+
+    <h2 class="govuk-heading-l">Activities descriptors</h2>
 
     <ol class="govuk-task-list" data-module="govuk-task-list">
 
@@ -40,6 +40,11 @@
           <a href="descriptor-1" class="govuk-task-list__link" aria-describedby="task-1-status">
             How well can the claimant cook food?
           </a>
+          {% if data['descriptor1'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor1'] }}
+            </p>
+          {% endif %}
         </div>
         <div class="govuk-task-list__status">
           {{ statusTag(data['descriptor1'], 'task-1-status') }}
@@ -52,6 +57,11 @@
           <a href="descriptor-2" class="govuk-task-list__link" aria-describedby="task-2-status">
             How does the claimant take nutrition?
           </a>
+          {% if data['descriptor2'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor2'] }}
+            </p>
+          {% endif %}
         </div>
         <div class="govuk-task-list__status">
           {{ statusTag(data['descriptor2'], 'task-2-status') }}
@@ -64,6 +74,11 @@
           <a href="descriptor-3" class="govuk-task-list__link" aria-describedby="task-3-status">
             How does the claimant manage therapy or monitor a health condition?
           </a>
+          {% if data['descriptor3'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor3'] }}
+            </p>
+          {% endif %}
         </div>
         <div class="govuk-task-list__status">
           {{ statusTag(data['descriptor3'], 'task-3-status') }}
@@ -76,6 +91,11 @@
           <a href="descriptor-4" class="govuk-task-list__link" aria-describedby="task-4-status">
             How does the claimant wash and bathe?
           </a>
+          {% if data['descriptor4'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor4'] }}
+            </p>
+          {% endif %}
         </div>
         <div class="govuk-task-list__status">
           {{ statusTag(data['descriptor4'], 'task-4-status') }}
@@ -88,6 +108,11 @@
           <a href="descriptor-5" class="govuk-task-list__link" aria-describedby="task-5-status">
             How does the claimant manage toilet needs?
           </a>
+          {% if data['descriptor5'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor5'] }}
+            </p>
+          {% endif %}
         </div>
         <div class="govuk-task-list__status">
           {{ statusTag(data['descriptor5'], 'task-5-status') }}
@@ -100,6 +125,11 @@
           <a href="descriptor-6" class="govuk-task-list__link" aria-describedby="task-6-status">
             How does the claimant dress and undress?
           </a>
+          {% if data['descriptor6'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor6'] }}
+            </p>
+          {% endif %}
         </div>
         <div class="govuk-task-list__status">
           {{ statusTag(data['descriptor6'], 'task-6-status') }}
@@ -109,9 +139,14 @@
       <li class="govuk-task-list__item">
         <div class="govuk-task-list__name-and-hint">
           <span class="govuk-!-display-block govuk-!-margin-bottom-1">Communicating verbally (7)</span>
-        <a href="descriptor-7" class="govuk-task-list__link" aria-describedby="task-7-status">
+          <a href="descriptor-7" class="govuk-task-list__link" aria-describedby="task-7-status">
             How does the claimant communicate verbally?
           </a>
+          {% if data['descriptor7'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor7'] }}
+            </p>
+          {% endif %}
         </div>
         <div class="govuk-task-list__status">
           {{ statusTag(data['descriptor7'], 'task-7-status') }}
@@ -124,6 +159,11 @@
           <a href="descriptor-8" class="govuk-task-list__link" aria-describedby="task-8-status">
             How well can the claimant read and understand signs, symbols and words?
           </a>
+          {% if data['descriptor8'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor8'] }}
+            </p>
+          {% endif %}
         </div>
         <div class="govuk-task-list__status">
           {{ statusTag(data['descriptor8'], 'task-8-status') }}
@@ -136,6 +176,11 @@
           <a href="descriptor-9" class="govuk-task-list__link" aria-describedby="task-9-status">
             How does the claimant engage face to face?
           </a>
+          {% if data['descriptor9'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor9'] }}
+            </p>
+          {% endif %}
         </div>
         <div class="govuk-task-list__status">
           {{ statusTag(data['descriptor9'], 'task-9-status') }}
@@ -148,6 +193,11 @@
           <a href="descriptor-10" class="govuk-task-list__link" aria-describedby="task-10-status">
             How does the claimant make budgeting decisions?
           </a>
+          {% if data['descriptor10'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor10'] }}
+            </p>
+          {% endif %}
         </div>
         <div class="govuk-task-list__status">
           {{ statusTag(data['descriptor10'], 'task-10-status') }}
@@ -160,6 +210,11 @@
           <a href="descriptor-11" class="govuk-task-list__link" aria-describedby="task-11-status">
             How does the claimant plan and follow journeys?
           </a>
+          {% if data['descriptor11'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor11'] }}
+            </p>
+          {% endif %}
         </div>
         <div class="govuk-task-list__status">
           {{ statusTag(data['descriptor11'], 'task-11-status') }}
@@ -172,6 +227,11 @@
           <a href="descriptor-12" class="govuk-task-list__link" aria-describedby="task-12-status">
             How far can the claimant move around?
           </a>
+          {% if data['descriptor12'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor12'] }}
+            </p>
+          {% endif %}
         </div>
         <div class="govuk-task-list__status">
           {{ statusTag(data['descriptor12'], 'task-12-status') }}
@@ -180,44 +240,39 @@
 
     </ol>
 
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Save and continue",
+        href: "check-your-answers",
+        classes: "govuk-button"
+      }) }}
 
-          <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Save and continue",
-          href: "check-your-answers",
-          classes: "govuk-button"
-        }) }}
-
-        {{ govukButton({
-          text: "Save and exit",
-          classes: "govuk-button govuk-button--secondary",
-          href: "/save-and-exit-consultation"
-        }) }}
-      </div>
+      {{ govukButton({
+        text: "Save and exit",
+        classes: "govuk-button govuk-button--secondary",
+        href: "/save-and-exit-consultation"
+      }) }}
+    </div>
 
   </div>
-  
-    <div class="govuk-grid-column-one-third">
 
-   <h2 class="govuk-heading-m" id="subsection-title">Quick access</h2>
+  <div class="govuk-grid-column-one-third">
+
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
+      <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in a new tab</div>
     <nav role="navigation" aria-labelledby="subsection-title">
       <ul class="govuk-list">
-        <li>
-         <a href="my-crib-sheet">Crib-sheet</a>
-          </li>
-        <li>
-          <a class="govuk-link" href="review-evidence">Evidence list</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="review-evidence">PIP2.pdf</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="review-evidence">FE.pdf</a>
-        </li>
+        <li><a href="add-notes-view" target="_blank">Consultation notes</a></li>
+        <li><a class="govuk-link" href="review-evidence" target="_blank">Evidence list</a></li>
+        <li><a class="govuk-link" href="files/view-pip2" target="_blank">PIP2.pdf</a></li>
+        <li><a class="govuk-link" href="files/view-pip2" target="_blank">FE.pdf</a></li>
       </ul>
     </nav>
 
+
+
   </div>
+
 </div>
 
 {% endblock %}

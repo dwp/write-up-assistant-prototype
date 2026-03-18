@@ -33,5 +33,29 @@ router.get('/save-and-exit-consultation', function (req, res) {
   res.redirect('/iteration2/select-case');
 })
 
+//
+// ---------- AI SECTION CHECKLIST LOGIC ----------
+//
+
+// 1) Condition history – save state from checkbox
+router.post('/iteration2/save-ai-condition-history', function (req, res) {
+  // Save "yes" when checked, empty string when unchecked
+  req.session.data['ai_ack_condition_history'] = req.body.ai_ack_condition_history || ""
+
+  // Return to list
+  return res.redirect('/iteration2/review-ai-report-start')
+})
+
+// 2) "Save and return to list" button from item page
+router.post('/iteration2/review-ai-report-start', function (req, res) {
+  req.session.data['ai_ack_condition_history'] = req.body.ai_ack_condition_history || ""
+  return res.redirect('/iteration2/review-ai-report-start')
+})
+
+// 3) "Save and continue" to next AI section
+router.post('/iteration2/ai-medication', function (req, res) {
+  req.session.data['ai_ack_condition_history'] = req.body.ai_ack_condition_history || ""
+  return res.redirect('/iteration2/ai-medication')
+})
 
 module.exports = router

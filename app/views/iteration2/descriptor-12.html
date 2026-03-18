@@ -19,6 +19,8 @@
 {% block content %}
  <div style="margin-top: -30px;"><a href="javascript:history.back()" class="govuk-back-link">Back</a></div> 
   <div class="govuk-grid-row">
+
+
     <div class="govuk-grid-column-two-thirds">
 
 <span class="govuk-caption-xl">Moving around (12)</span>
@@ -29,6 +31,7 @@
 {{ govukRadios({
     idPrefix: "descriptor-12",
     name: "descriptor12",
+    value: data['descriptor12'],
     fieldset: {
       legend: {
         text: "",
@@ -84,6 +87,22 @@
 </form>
 
     </div>
+
+
+   <div class="govuk-grid-column-one-third">
+
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
+      <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in a new tab</div>
+    <nav role="navigation" aria-labelledby="subsection-title">
+      <ul class="govuk-list">
+        <li><a href="add-notes-view" target="_blank">Consultation notes</a></li>
+        <li><a class="govuk-link" href="review-evidence" target="_blank">Evidence list</a></li>
+        <li><a class="govuk-link" href="files/view-pip2" target="_blank">PIP2.pdf</a></li>
+        <li><a class="govuk-link" href="files/view-pip2" target="_blank">FE.pdf</a></li>
+      </ul>
+    </nav>
+
+  </div>
 
   </div>
 
