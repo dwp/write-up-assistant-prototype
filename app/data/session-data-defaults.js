@@ -166,15 +166,15 @@ module.exports = {
               "Dosage": "1g",
               "Frequency": "Up to four times a day",
               "Reason for taking": "For back pain",
-              "Effectiveness (optional)": "NA",
-              "Side effects (optional)": "NA"
+              "Effectiveness (optional)": "",
+              "Side effects (optional)": ""
             },
             {
               "Medication Name": "Ibuprofen",
               "Dosage": "400mg",
               "Frequency": "Up to 6 times",
               "Reason for taking": "For pain",
-              "Effectiveness (optional)": "NA",
+              "Effectiveness (optional)": "",
               "Side effects (optional)": "Tummy pain and constipation"
             },
             {
@@ -182,7 +182,7 @@ module.exports = {
               "Dosage": "30-60mg",
               "Frequency": "Four times a day",
               "Reason for taking": "For pain",
-              "Effectiveness (optional)": "NA",
+              "Effectiveness (optional)": "",
               "Side effects (optional)": "Fatigue"
             },
             {
@@ -190,15 +190,15 @@ module.exports = {
               "Dosage": "6mg",
               "Frequency": "Once a day",
               "Reason for taking": "For nausea",
-              "Effectiveness (optional)": "NA",
+              "Effectiveness (optional)": "",
               "Side effects (optional)": "Dry mouth"
             },
             {
               "Medication Name": "Movicol sachet",
-              "Dosage": "NA",
+              "Dosage": "",
               "Frequency": "Three times a day",
               "Reason for taking": "For constipation",
-              "Effectiveness (optional)": "NA",
+              "Effectiveness (optional)": "",
               "Side effects (optional)": "Diarrhea"
             },
             {
@@ -206,24 +206,24 @@ module.exports = {
               "Dosage": "5ml",
               "Frequency": "Three times a day",
               "Reason for taking": "For constipation",
-              "Effectiveness (optional)": "NA",
-              "Side effects (optional)": "NA"
+              "Effectiveness (optional)": "",
+              "Side effects (optional)": ""
             },
             {
               "Medication Name": "Tadalafil",
               "Dosage": "20mg",
               "Frequency": "Once a week",
               "Reason for taking": "",
-              "Effectiveness (optional)": "NA",
-              "Side effects (optional)": "NA"
+              "Effectiveness (optional)": "",
+              "Side effects (optional)": ""
             },
             {
               "Medication Name": "Naproxen",
               "Dosage": "500mg",
               "Frequency": "Twice a day",
               "Reason for taking": "For pain",
-              "Effectiveness (optional)": "NA",
-              "Side effects (optional)": "NA"
+              "Effectiveness (optional)": "",
+              "Side effects (optional)": ""
             }
           ]
         },
