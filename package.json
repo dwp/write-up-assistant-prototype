@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "govuk-prototype-kit dev",
     "serve": "govuk-prototype-kit serve",
-    "start": "govuk-prototype-kit start"
+    "start": "govuk-prototype-kit start",
+    "preinstall": "npx --yes npm-force-resolutions"
   },
   "dependencies": {
     "@dwp/dwp-frontend": "3.4.0",
@@ -12,7 +13,9 @@
     "express": "5.2.1",
     "govuk-frontend": "5.14.0",
     "govuk-prototype-kit": "^13.19.1",
-    "qs": "6.14.1"
+    "qs": "6.14.1",
+    "socket.io-client": "^4.8.3",
+    "socket.io-parser": "^4.2.6"
   },
   "overrides": {
     "qs": "6.14.1",
@@ -23,8 +26,15 @@
       "qs": "6.14.1"
     },
     "minimatch": "^10.2.1",
-
-    "socket.io": "4.8.6",
+    "socket.io": {
+      "socket.io-parser": "4.2.6"
+    },
+    "socket.io-client": {
+      "socket.io-parser": "4.2.6"
+    },
+    "socket.io-parser": "4.2.6"
+  },
+  "resolutions": {
     "socket.io-parser": "4.2.6"
   }
 }
