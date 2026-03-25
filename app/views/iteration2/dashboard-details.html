@@ -1,7 +1,7 @@
 {% extends "layouts/main-wua.html" %}
 
 {% block pageTitle %}
-{{ serviceName }} – Add the consultation details
+{{ serviceName }} – Add consultation notes (free‑form)
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,19 +13,64 @@
 
 {% block content %}
 
-<a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
+
 
 <div class="govuk-grid-row">
+<!-- main layout-->
+   <div class="govuk-grid-column-one-quarter">
+    <!-- left side menu -->
+     <nav data-module="dwp-side-navigation-panel" class="dwp-side-navigation dwp-side-navigation--mobile" aria-label="Side" role="navigation">
+  
+  <ul class="dwp-side-navigation__list">
+    <li class="dwp-side-navigation__item ">
+      <a id="s-item-2" href="dashboard" class="dwp-side-navigation__link" aria-current="true">
+        Review evidence documents
+      </a>
+    </li>
 
-  <div class="govuk-grid-column-two-thirds">
+    <li class="dwp-side-navigation__item dwp-side-navigation__item--selected">
+       <a id="s-item-2" href="dashboard" class="dwp-side-navigation__link dwp-side-navigation__link--selected" aria-current="true">
+        Consultation details
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="dashboard-notes" class="dwp-side-navigation__link">
+       Consultation notes
+      </a>
+    </li>
+  </ul>
+    </nav>
+  </div>   
+  <!-- body and right side row-->
+    <div class="govuk-grid-column-three-quarters">
+    
 
-      <h1 class="govuk-heading-xl">Add the consultation details</h1>
+
+
+
+
+
+      <h1 class="govuk-heading-xl">Confirm consultation details</h1>
 
       <p>Provide the details from the consultation. These will be used to help prepare the assessment report.</p>
 
   <div class="govuk-summary-card">
  <div class="govuk-summary-card__content">
 <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__value govuk-!-font-weight-bold">
+      HCP
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Your name
+    </dd>
+        <dt class="govuk-summary-list__value govuk-!-font-weight-bold">
+     HCP location
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Tresco house
+    </dd>
+  </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__value govuk-!-font-weight-bold">
       Claimant
@@ -59,7 +104,7 @@
 </div>
 </div>
 
-      <form action="add-notes" method="post" novalidate>
+      <form action="dashboard-notes" method="post" novalidate>
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="consultation-date-hint">
@@ -164,10 +209,10 @@
             },
             {
               value: "consent-given",
-              text: "Yes, the claimant gave consent",
+              text: "Yes, the claimant understands the purpose of the consultation, and consent to continue.",
               checked: true,
               hint: {
-                text: "Make sure the claimant understands the purpose of the consultation, and they consent to continue."
+                text: ""
               }
             }
           ]
@@ -195,36 +240,15 @@
 
       </form>
 
-  </div>
 
-  <!-- RIGHT COLUMN NAV -->
-  <div class="govuk-grid-column-one-third">
 
-      <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
-      <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in a new tab</div>
 
-      <nav role="navigation" aria-labelledby="subsection-title">
-        <ul class="govuk-list">
-          <li style="display: none;">
-            <a href="my-crib-sheet">Crib-sheet</a>
-          </li>
-            <li style="display: none;">
-            <a href="consultation-details">Consultation details</a>
-          </li>
-          <li>
-            <a href="review-case-evidence">Evidence list</a>
-          </li>
-          <li>
-            <a href="files/view-pip2" target="_blank">PIP2.pdf</a>
-          </li>
-          <li>
-            <a href="files/view-fe" target="_blank">FE.pdf</a>
-          </li>
-        </ul>
-      </nav>
 
   </div>
+</div>    
 
-</div>
+
+
+
 
 {% endblock %}

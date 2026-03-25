@@ -10,6 +10,152 @@ module.exports = {
 
 
 
+  // CONDITION HISTORY
+  conditionHeadings: `
+• Summary of main conditions
+• Onset and duration
+• Progression over time
+• Current symptoms
+• Variability and fluctuation
+• Recent clinical changes
+`,
+
+  // MEDICATION
+  medicationHeadings: `
+• Medication name
+• Dosage
+• Frequency
+• Purpose / indication
+• Reported effectiveness
+• Reported side effects
+`,
+
+  // SOCIAL HISTORY
+  socialHistoryHeadings: `
+• Living situation
+• Daily routine
+• Work history
+• Social support / environment
+• Impact on functioning
+`,
+
+  // PREPARING FOOD
+  preparingFoodHeadings: `
+• Planning meals
+• Preparing ingredients
+• Use of kitchen tools
+• Cooking safely
+• Fatigue or pain when cooking
+`,
+
+  // TAKING NUTRITION
+  takingNutritionHeadings: `
+• Eating difficulties
+• Drinking concerns
+• Appetite or nausea issues
+• Safety concerns when eating
+• Independent vs supported eating
+`,
+
+  // MANAGING THERAPY
+  managingTherapyHeadings: `
+• Understanding of treatment
+• Following therapy routines
+• Ability to self-manage treatments
+• Any assistance required
+• Compliance / barriers
+`,
+
+  // WASHING & BATHING
+  washingBathingHeadings: `
+• Accessing bathroom
+• Standing / balance issues
+• Using aids
+• Washing upper/lower body
+• Risk or safety concerns
+`,
+
+  // TOILET NEEDS
+  toiletNeedsHeadings: `
+• Continence
+• Getting to the toilet
+• Using toilet aids
+• Cleaning / hygiene challenges
+• Assistance required
+`,
+
+  // DRESSING
+  dressingHeadings: `
+• Selecting clothes
+• Putting on clothing
+• Fastenings (zips/buttons)
+• Removing clothing
+• Pain, stiffness or fatigue
+`,
+
+  // COMMUNICATING VERBALLY
+  communicationHeadings: `
+• Speech clarity
+• Ability to express needs
+• Understanding spoken information
+• Conversational engagement
+`,
+
+  // READING & UNDERSTANDING
+  readingHeadings: `
+• Reading printed text
+• Understanding written instructions
+• Visual or cognitive difficulties
+`,
+
+  // ENGAGING FACE TO FACE
+  engagingHeadings: `
+• Eye contact
+• Interaction style
+• Social engagement
+• Responding to questions
+`,
+
+  // BUDGETING
+  budgetingHeadings: `
+• Managing money
+• Paying bills
+• Budgeting tasks
+• Understanding financial information
+`,
+
+  // JOURNEYS
+  journeysHeadings: `
+• Planning routes
+• Following directions
+• Using public transport
+• Anxiety or safety concerns
+`,
+
+  // MOVING AROUND
+  movingHeadings: `
+• Standing and walking
+• Balance and stability
+• Mobility aids used
+• Pain or fatigue when moving
+`,
+
+  // MENTAL STATE
+  mentalStateHeadings: `
+• Behavioural observations
+• Cognitive function
+• Interaction during consultation
+• Attention, memory, insight
+`,
+
+  // INFORMAL OBSERVATIONS
+  informalHeadings: `
+• General appearance
+• Unstructured behaviours
+• Movements, mannerisms
+• Notable comments or actions
+  `
+,
 
   ai_ack_condition_history: false,
   ai_ack_medication: false,
@@ -408,3 +554,15 @@ module.exports = {
     }
   ]
 };
+
+
+
+
+
+
+
+
+
+
+
+  

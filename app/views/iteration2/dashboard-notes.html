@@ -1,28 +1,81 @@
 {% extends "layouts/main-wua.html" %}
 
 {% block pageTitle %}
-{{ serviceName }} – Review documents
+{{ serviceName }} – Add consultation notes (free‑form)
 {% endblock %}
 
 {% block beforeContent %}
   {{ govukPhaseBanner({
     tag: { text: "Prototype" },
-    html: 'This is a not a service, it is a prototype created for user testing'
+    html: 'This is not a service, it is a prototype created for user testing'
   }) }}
 {% endblock %}
 
 {% block content %}
-{% set case = data.cases[0] %}
 
-<a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
+
 
 <div class="govuk-grid-row">
+<!-- main layout-->
+   <div class="govuk-grid-column-one-quarter sticky-container">
+    <!-- left side menu -->
 
 
 
+    <div class="sticky-nav">
 
-  <!-- LEFT COLUMN: FORM -->
-  <div class="govuk-grid-column-two-thirds">
+    <nav data-module="dwp-side-navigation-panel" class="dwp-side-navigation dwp-side-navigation--mobile" aria-label="Side" role="navigation">
+  
+  <ul class="dwp-side-navigation__list">
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-2" href="dashboard" class="dwp-side-navigation__link " aria-current="true">
+        Review evidence documents
+      </a>
+    </li>
+
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="dashboard-details" class="dwp-side-navigation__link">
+        Consultation details
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item dwp-side-navigation__item--selected">
+       <a id="s-item-2" href="dashboard" class="dwp-side-navigation__link dwp-side-navigation__link--selected" aria-current="true">
+       Consultation notes
+      </a>
+    </li>
+  </ul>
+    </nav>
+
+    <h2 class="govuk-heading-m" id="subsection-title">Jump to section</h2>
+    <nav role="navigation" class="border" aria-labelledby="subsection-title">
+      <ul class="govuk-list">
+        <li><a class="govuk-link" href="#condition-history">Condition history</a></li>
+        <li><a class="govuk-link" href="#medication-section">Medication</a></li>
+        <li><a class="govuk-link" href="#social-history">Social & occupational history</a></li>
+        <li><a class="govuk-link" href="#preparing-food">Preparing food</a></li>
+        <li><a class="govuk-link" href="#taking-nutrition">Taking nutrition</a></li>
+        <li><a class="govuk-link" href="#managing-therapy">Managing therapy</a></li>
+        <li><a class="govuk-link" href="#washing-bathing">Washing & bathing</a></li>
+        <li><a class="govuk-link" href="#toilet-needs">Managing toilet needs</a></li>
+        <li><a class="govuk-link" href="#dressing-undressing">Dressing & undressing</a></li>
+        <li><a class="govuk-link" href="#communicating-verbally">Communicating verbally</a></li>
+        <li><a class="govuk-link" href="#reading-understanding">Reading & understanding</a></li>
+        <li><a class="govuk-link" href="#engaging-face-to-face">Engaging face to face</a></li>
+        <li><a class="govuk-link" href="#budgeting-section">Budgeting</a></li>
+        <li><a class="govuk-link" href="#planning-journeys">Planning & following journeys</a></li>
+        <li><a class="govuk-link" href="#moving-around">Moving around</a></li>
+        <li><a class="govuk-link" href="#mental-state">Mental state observations</a></li>
+        <li><a class="govuk-link" href="#informal-observations">Informal observations</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  </div>   
+  <!-- body and right side row-->
+    <div class="govuk-grid-column-three-quarters">
+    
+
 
     <h1 class="govuk-heading-xl">Add your consultation notes</h1>
     <p class="govuk-body">Your artificial intelligence assistant will review these notes and use them to produce an initial draft assessment report.</p>
@@ -62,7 +115,7 @@
 </div>
   </div>
 
-<form action="select-descriptors" method="post" novalidate>
+<form action="dashboard-select-descriptors" method="post" novalidate>
 
   <!-- CONDITION HISTORY -->
   <div id="condition-history" class="govuk-form-group">
@@ -373,67 +426,13 @@ document.addEventListener("DOMContentLoaded", function () {
 </form>
 
 
-  </div>
 
-
-
-
-
-  <!-- RIGHT SIDEBAR -->
-<div class="govuk-grid-column-one-third sticky-container">
-  
-  <div class="">
-
-      <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
-      <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in a new tab</div>
-    <nav role="navigation" aria-labelledby="subsection-title">
-      <ul class="govuk-list">
-        <li style="display: none;">
-         <a href="my-crib-sheet" target="_blank">Crib-sheet</a>
-          </li>
-        <li>
-          <a class="govuk-link" href="review-case-evidence">Evidence list</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="files/view-pip2" target="_blank">PIP2.pdf</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="files/view-fe" target="_blank">FE.pdf</a>
-        </li>
-      </ul>
-    </nav>
 
   </div>
+</div>    
 
-    <div class="sticky-nav">
 
-    <h2 class="govuk-heading-m" id="subsection-title">On this page</h2>
-    <nav role="navigation" class="border" aria-labelledby="subsection-title">
-      <ul class="govuk-list">
-        <li><a class="govuk-link" href="#condition-history">Condition history</a></li>
-        <li><a class="govuk-link" href="#medication-section">Medication</a></li>
-        <li><a class="govuk-link" href="#social-history">Social & occupational history</a></li>
-        <li><a class="govuk-link" href="#preparing-food">Preparing food</a></li>
-        <li><a class="govuk-link" href="#taking-nutrition">Taking nutrition</a></li>
-        <li><a class="govuk-link" href="#managing-therapy">Managing therapy</a></li>
-        <li><a class="govuk-link" href="#washing-bathing">Washing & bathing</a></li>
-        <li><a class="govuk-link" href="#toilet-needs">Managing toilet needs</a></li>
-        <li><a class="govuk-link" href="#dressing-undressing">Dressing & undressing</a></li>
-        <li><a class="govuk-link" href="#communicating-verbally">Communicating verbally</a></li>
-        <li><a class="govuk-link" href="#reading-understanding">Reading & understanding</a></li>
-        <li><a class="govuk-link" href="#engaging-face-to-face">Engaging face to face</a></li>
-        <li><a class="govuk-link" href="#budgeting-section">Budgeting</a></li>
-        <li><a class="govuk-link" href="#planning-journeys">Planning & following journeys</a></li>
-        <li><a class="govuk-link" href="#moving-around">Moving around</a></li>
-        <li><a class="govuk-link" href="#mental-state">Mental state observations</a></li>
-        <li><a class="govuk-link" href="#informal-observations">Informal observations</a></li>
-      </ul>
-    </nav>
 
-  </div>
-
-</div>
-</div>
 
 
 {% endblock %}
