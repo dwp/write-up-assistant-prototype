@@ -2,8 +2,7 @@
   "scripts": {
     "dev": "govuk-prototype-kit dev",
     "serve": "govuk-prototype-kit serve",
-    "start": "govuk-prototype-kit start",
-    "preinstall": "npx --yes npm-force-resolutions"
+    "start": "govuk-prototype-kit start"
   },
     "engines": {
     "node": "22",
@@ -21,25 +20,5 @@
     "qs": "6.14.1",
     "socket.io-client": "^4.8.3",
     "socket.io-parser": "^4.2.6"
-  },
-  "overrides": {
-    "qs": "6.14.1",
-    "express": {
-      "qs": "6.14.1"
-    },
-    "body-parser": {
-      "qs": "6.14.1"
-    },
-    "minimatch": "^10.2.1",
-    "socket.io": {
-      "socket.io-parser": "4.2.6"
-    },
-    "socket.io-client": {
-      "socket.io-parser": "4.2.6"
-    },
-    "socket.io-parser": "4.2.6"
-  },
-  "resolutions": {
-    "socket.io-parser": "4.2.6"
   }
 }
