@@ -1,0 +1,117 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Add condition
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div class="govuk-summary-card govuk-!-margin-bottom-1">
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                <strong>Claimant:</strong> John Smith
+                <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+                <strong class="govuk-!-padding-left-2">Date of birth:</strong> 5 January 1999
+                <strong class="govuk-!-padding-left-2">Postcode:</strong> N2 1XX
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-top:-30px;">Back</a>
+
+<div class="govuk-grid-row">
+ <div class="govuk-grid-column-three-quarters">
+
+  <h1 class="govuk-heading-xl">Add new medication</h1>
+
+  <form action="/iteration2/new-medication" method="post" novalidate>
+
+    <input type="hidden" name="medicationIndex" value="{{ medicationIndex }}">
+
+    <div class="govuk-form-group">
+
+      <h3 class="govuk-heading-m">Medication name</h3>
+      <textarea class="govuk-textarea"
+                id="medication-name"
+                name="medication-name"
+                rows="1">{{ medication.name }}</textarea>
+
+      <h3 class="govuk-heading-m">Dosage</h3>
+      <textarea class="govuk-textarea"
+                id="medication-dosage"
+                name="medication-dosage"
+                rows="1">{{ medication.dosage }}</textarea>
+
+      <h3 class="govuk-heading-m">Frequency</h3>
+      <textarea class="govuk-textarea"
+                id="medication-frequency"
+                name="medication-frequency"
+                rows="1">{{ medication.frequency }}</textarea>
+
+      <h3 class="govuk-heading-m">Reason for taking</h3>
+      <textarea class="govuk-textarea"
+                id="medication-reason"
+                name="medication-reason"
+                rows="3">{{ medication.reason }}</textarea>
+
+      <h3 class="govuk-heading-m">Effectiveness (optional)</h3>
+      <textarea class="govuk-textarea"
+                id="medication-effectiveness"
+                name="medication-effectiveness"
+                rows="3">{{ medication.effectiveness }}</textarea>
+
+      <h3 class="govuk-heading-m">Side effects (optional)</h3>
+      <textarea class="govuk-textarea"
+                id="medication-sideeffects"
+                name="medication-sideeffects"
+                rows="3">{{ medication.sideeffects }}</textarea>
+
+    </div>
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        type: "submit",
+        text: "Save medication"
+      }) }}
+
+      {{ govukButton({
+        text: "Cancel",
+        classes: "govuk-button--secondary",
+        href: "/iteration2/dashboard-notes.html#add-medicationTab"
+      }) }}
+    </div>
+
+  </form>
+
+</div>
+
+  <div class="govuk-grid-column-one-quarter">
+
+    <h2 class="govuk-heading-m" id="subsection-title">Quick access</h2>
+    <nav role="navigation" aria-labelledby="subsection-title">
+      <ul class="govuk-list">
+        <li><a class="govuk-link" href="review-evidence">Evidence list</a></li>
+        <li><a class="govuk-link" href="review-evidence">PIP2.pdf</a></li>
+        <li><a class="govuk-link" href="review-evidence">FE.pdf</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</div>
+
+{% endblock %}

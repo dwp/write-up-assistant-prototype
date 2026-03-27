@@ -9,6 +9,25 @@
     tag: { text: "Prototype" },
     html: 'This is not a service, it is a prototype created for user testing'
   }) }}
+    <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card govuk-!-margin-bottom-1">
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          <strong>Claimant:</strong> John Smith
+         <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+         <strong class="govuk-!-padding-left-2">Date of birth:</strong> 5 January 1999
+        <strong class="govuk-!-padding-left-2"> Postcode:</strong>  N2 1XX
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</div>
+  </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -19,8 +38,6 @@
 <!-- main layout-->
    <div class="govuk-grid-column-one-quarter sticky-container">
     <!-- left side menu -->
-
-
 
     <div class="sticky-nav">
 
@@ -35,12 +52,12 @@
 
     <li class="dwp-side-navigation__item">
       <a id="s-item-3" href="dashboard-details" class="dwp-side-navigation__link">
-        Consultation details
+        Confirm consultation details
       </a>
     </li>
     <li class="dwp-side-navigation__item dwp-side-navigation__item--selected">
        <a id="s-item-2" href="dashboard" class="dwp-side-navigation__link dwp-side-navigation__link--selected" aria-current="true">
-       Consultation notes
+       Add assessment and report notes
       </a>
     </li>
   </ul>
@@ -79,71 +96,168 @@
 
     <h1 class="govuk-heading-xl">Add your consultation notes</h1>
     <p class="govuk-body">Your artificial intelligence assistant will review these notes and use them to produce an initial draft assessment report.</p>
-  <div class="govuk-summary-card">
- <div class="govuk-summary-card__content">
-<dl class="govuk-summary-list">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__value govuk-!-font-weight-bold">
-      Claimant
-    </dt>
-    <dd class="govuk-summary-list__value">
-      Jonh Smith
-    </dd>
-        <dt class="govuk-summary-list__value govuk-!-font-weight-bold">
-      NINO
-    </dt>
-    <dd class="govuk-summary-list__value">
-      QQ 12 34 56 C
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__value govuk-!-font-weight-bold">
-      Date of birth
-    </dt>
-    <dd class="govuk-summary-list__value">
-      5 January 1999
-    </dd>
-      <dt class="govuk-summary-list__value govuk-!-font-weight-bold">
-      Postcode
-    </dt>
-    <dd class="govuk-summary-list__value">
-      N2 1XX
-    </dd>
-  </div>
-
-</dl>
-</div>
-  </div>
 
 <form action="dashboard-select-descriptors" method="post" novalidate>
 
-  <!-- CONDITION HISTORY -->
-  <div id="condition-history" class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="conditionHistory">Condition history</label>
-    </h1>
-    <div id="conditionHistory-hint" class="govuk-hint">
-      Provide a clear summary of the claimant’s health conditions, including onset, duration, progression and any recent changes.
-    </div>
-    <p class="govuk-!-margin-bottom-1">
-      <a href="#" class="govuk-link load-headings" data-target="conditionHistory" data-heading="conditionHeadings">Add headings</a>
-    </p>
-    <textarea class="govuk-textarea" id="conditionHistory" name="conditionHistory" rows="10"></textarea>
+
+ <!-- Condition history -->
+<div id="condition-history" class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="conditionHistory">Condition history</label>
+  </h1>
+
+  <div id="conditionHistory-hint" class="govuk-hint">
+    Provide a clear summary of the claimant’s health conditions, including onset, duration, progression and any recent changes.
   </div>
 
-  <!-- MEDICATION -->
-  <div id="medication-section" class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="medication">Medication</label>
-    </h1>
-    <div id="medication-hint" class="govuk-hint">
-      List all prescribed and over‑the‑counter medications, including dosage, frequency, reason for taking, and any reported side effects.
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Section content</h2>
+
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#addConditions-conditionHistory">Add conditions</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#notes-conditionHistory">Notes</a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="addConditions-conditionHistory">
+
+      {% if data.addedConditions and data.addedConditions.length > 0 %}
+
+        <h3 class="govuk-heading-m govuk-!-margin-top-2">Added conditions</h3>
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Condition</th>
+              <th scope="col" class="govuk-table__header">Start date</th>
+              <th scope="col" class="govuk-table__header">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody class="govuk-table__body">
+            {% for cond in data.addedConditions %}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">{{ cond.name }}</td>
+                <td class="govuk-table__cell">{{ cond.start }}</td>
+                <td class="govuk-table__cell">
+                  <a class="govuk-link" href="/iteration2/remove-condition?id={{ loop.index0 }}">Remove</a>
+                  &nbsp;|&nbsp;
+                  <a class="govuk-link" href="/iteration2/new-condition?id={{ loop.index0 }}">View</a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <a href="/iteration2/new-condition" class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">
+          Add new condition
+        </a>
+
+      {% else %}
+
+        <a href="/iteration2/new-condition" class="govuk-button" data-module="govuk-button">
+          Add new condition
+        </a>
+
+      {% endif %}
+
     </div>
-    <p class="govuk-!-margin-bottom-1">
-      <a href="#" class="govuk-link load-headings" data-target="medication" data-heading="medicationHeadings">Add headings</a>
-    </p>
-    <textarea class="govuk-textarea" id="medication" name="medication" rows="10"></textarea>
+
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="notes-conditionHistory">
+      <p class="govuk-!-margin-bottom-1">
+        <a href="#" class="govuk-link load-headings"
+           data-target="conditionHistory"
+           data-heading="conditionHeadings">Add headings</a>
+      </p>
+      <textarea class="govuk-textarea" id="conditionHistory" name="conditionHistory" rows="10"></textarea>
+    </div>
+
   </div>
+</div>
+
+
+  <!-- MEDICATION -->
+<div id="medication-section" class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="medication">Medication</label>
+  </h1>
+
+  <div id="medication-hint" class="govuk-hint">
+    List all prescribed and over‑the‑counter medications, including dosage, frequency, reason for taking, and any reported side effects.
+  </div>
+
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Section content</h2>
+
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#add-medicationTab">Add medications</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#notes-medicationTab">Notes</a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="add-medicationTab">
+
+      {% if data.addedMedications and data.addedMedications.length > 0 %}
+
+        <h3 class="govuk-heading-m govuk-!-margin-top-2">Added medications</h3>
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Medication</th>
+              <th scope="col" class="govuk-table__header">Dosage</th>
+              <th scope="col" class="govuk-table__header">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody class="govuk-table__body">
+            {% for med in data.addedMedications %}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">{{ med.name }}</td>
+                <td class="govuk-table__cell">{{ med.dosage }}</td>
+                <td class="govuk-table__cell">
+                  <a class="govuk-link" href="/iteration2/remove-medication?id={{ loop.index0 }}">Remove</a>
+                  &nbsp;|&nbsp;
+                  <a class="govuk-link" href="/iteration2/new-medication?id={{ loop.index0 }}">View</a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <a href="/iteration2/new-medication" class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">
+          Add new medication
+        </a>
+
+      {% else %}
+
+        <a href="/iteration2/new-medication" class="govuk-button" data-module="govuk-button">
+          Add new medication
+        </a>
+
+      {% endif %}
+
+    </div>
+
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="notes-medicationTab">
+      <p class="govuk-!-margin-bottom-1">
+        <a href="#" class="govuk-link load-headings"
+           data-target="medication"
+           data-heading="medicationHeadings">Add headings</a>
+      </p>
+
+      <textarea class="govuk-textarea" id="medication" name="medication" rows="10"></textarea>
+    </div>
+
+  </div>
+</div>
+
 
   <!-- SOCIAL HISTORY -->
   <div id="social-history" class="govuk-form-group">
@@ -159,92 +273,345 @@
     <textarea class="govuk-textarea" id="socialHistory" name="socialHistory" rows="10"></textarea>
   </div>
 
-  <!-- PREPARING FOOD -->
-  <div id="preparing-food" class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="preparingFood">Preparing food</label>
-    </h1>
-    <div id="preparingFood-hint" class="govuk-hint">
-      Record any difficulties with planning, preparing, or safely cooking meals.
-    </div>
-    <p class="govuk-!-margin-bottom-1">
-      <a href="#" class="govuk-link load-headings" data-target="preparingFood" data-heading="preparingFoodHeadings">Add headings</a>
-    </p>
-    <textarea class="govuk-textarea" id="preparingFood" name="preparingFood" rows="10"></textarea>
+
+
+
+ <!-- Pereparing food -->
+
+<div id="preparing-food" class="govuk-form-group">
+
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="preparingFood">Preparing food</label>
+  </h1>
+
+  <div id="preparingFood-hint" class="govuk-hint">
+    Record any difficulties with planning, preparing, or safely cooking meals.
   </div>
 
-  <!-- TAKING NUTRITION -->
-  <div id="taking-nutrition" class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="takingNutrition">Taking nutrition</label>
-    </h1>
-    <div id="takingNutrition-hint" class="govuk-hint">
-      Describe issues with eating, drinking, or managing nutritional needs independently.
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Section content</h2>
+
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#notes-preparingFood">Notes</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#descriptors-preparingFood">Descriptors</a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="notes-preparingFood">
+      <p class="govuk-!-margin-bottom-1">
+        <a href="#" 
+           class="govuk-link load-headings"
+           data-target="preparingFood"
+           data-heading="preparingFoodHeadings">
+           Add headings
+        </a>
+      </p>
+
+      <textarea class="govuk-textarea" id="preparingFood" name="preparingFood" rows="10"></textarea>
     </div>
-    <p class="govuk-!-margin-bottom-1">
-      <a href="#" class="govuk-link load-headings" data-target="takingNutrition" data-heading="takingNutritionHeadings">Add headings</a>
-    </p>
-    <textarea class="govuk-textarea" id="takingNutrition" name="takingNutrition" rows="10"></textarea>
+
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-preparingFood">
+      <h3 class="govuk-heading-m">Preparing food descriptors</h3>
+
+      <ul class="govuk-list">
+        <li>(1a) Can prepare and cook a simple meal unaided</li>
+          <li>(1b) Needs to use an aid or appliance to be able to either prepare or cook a simple meal</li>
+          <li>(1c) Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave</li>
+          <li>(1d) Needs prompting to be able to either prepare or cook a simple meal</li>
+          <li>(1e) Needs supervision or assistance to either prepare or cook a simple meal</li>
+          <li>(1f) Cannot prepare and cook food</li>
+      </ul>
+  
+    </div>
+
   </div>
 
-  <!-- MANAGING THERAPY -->
-  <div id="managing-therapy" class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="managingTherapy">Managing therapy</label>
-    </h1>
-    <div id="managingTherapy-hint" class="govuk-hint">
-      Note the claimant’s ability to follow treatment plans, manage therapy routines, or carry out medical interventions.
-    </div>
-    <p class="govuk-!-margin-bottom-1">
-      <a href="#" class="govuk-link load-headings" data-target="managingTherapy" data-heading="managingTherapyHeadings">Add headings</a>
-    </p>
-    <textarea class="govuk-textarea" id="managingTherapy" name="managingTherapy" rows="10"></textarea>
+</div>
+
+
+<!-- Taking nutrition -->
+
+<div id="taking-nutrition" class="govuk-form-group">
+
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="takingNutrition">Taking nutrition</label>
+  </h1>
+
+  <div id="takingNutrition-hint" class="govuk-hint">
+    Describe issues with eating, drinking, or managing nutritional needs independently.
   </div>
 
-  <!-- WASHING & BATHING -->
-  <div id="washing-bathing" class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="washingBathing">Washing and bathing</label>
-    </h1>
-    <div id="washingBathing-hint" class="govuk-hint">
-      Document any challenges with personal hygiene tasks.
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Section content</h2>
+
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#notes-takingNutrition">Notes</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#descriptors-takingNutrition">Descriptors</a>
+      </li>
+    </ul>
+
+    <!-- NOTES TAB -->
+    <div class="govuk-tabs__panel" id="notes-takingNutrition">
+
+      <p class="govuk-!-margin-bottom-1">
+        <a href="#"
+           class="govuk-link load-headings"
+           data-target="takingNutrition"
+           data-heading="takingNutritionHeadings">
+           Add headings
+        </a>
+      </p>
+
+      <textarea class="govuk-textarea"
+                id="takingNutrition"
+                name="takingNutrition"
+                rows="10"></textarea>
     </div>
-    <p class="govuk-!-margin-bottom-1">
-      <a href="#" class="govuk-link load-headings" data-target="washingBathing" data-heading="washingBathingHeadings">Add headings</a>
-    </p>
-    <textarea class="govuk-textarea" id="washingBathing" name="washingBathing" rows="10"></textarea>
+
+    <!-- DESCRIPTORS TAB -->
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-takingNutrition">
+      <h3 class="govuk-heading-m">Taking nutrition descriptors</h3>
+
+      <ul class="govuk-list">
+        <li>(2a) Can take nutrition unaided</li>
+        <li>(2b) Needs – to take nutrition – the use of an aid or appliance</li>
+        <li>(2c) Needs prompting to take nutrition</li>
+        <li>(2d) Needs assistance to take nutrition</li>
+        <li>(2e) Cannot convey food and drink to the mouth</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- managing therapy -->
+<div id="managing-therapy" class="govuk-form-group">
+
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="managingTherapy">Managing therapy</label>
+  </h1>
+
+  <div id="managingTherapy-hint" class="govuk-hint">
+    Note the claimant’s ability to follow treatment plans, manage therapy routines, or carry out medical interventions.
   </div>
 
-  <!-- TOILET NEEDS -->
-  <div id="toilet-needs" class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="toiletNeeds">Managing toilet needs</label>
-    </h1>
-    <div id="toiletNeeds-hint" class="govuk-hint">
-      Describe continence issues or difficulties accessing, using, or managing toilet needs.
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Section content</h2>
+
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#notes-managingTherapy">Notes</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#descriptors-managingTherapy">Descriptors</a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="notes-managingTherapy">
+      <p class="govuk-!-margin-bottom-1">
+        <a href="#"
+           class="govuk-link load-headings"
+           data-target="managingTherapy"
+           data-heading="managingTherapyHeadings">
+          Add headings
+        </a>
+      </p>
+
+      <textarea class="govuk-textarea"
+                id="managingTherapy"
+                name="managingTherapy"
+                rows="10"></textarea>
     </div>
-    <p class="govuk-!-margin-bottom-1">
-      <a href="#" class="govuk-link load-headings" data-target="toiletNeeds" data-heading="toiletNeedsHeadings">Add headings</a>
-    </p>
-    <textarea class="govuk-textarea" id="toiletNeeds" name="toiletNeeds" rows="10"></textarea>
+
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-managingTherapy">
+      <h3 class="govuk-heading-m">Managing therapy descriptors</h3>
+
+      <ul class="govuk-list">
+        <li>(3a) Can manage therapy or monitor a health condition unaided</li>
+        <li>(3b) Needs the use of an aid or appliance to be able to manage therapy</li>
+        <li>(3c) Needs supervision, prompting, or assistance to manage therapy</li>
+        <li>(3d) Needs supervision, prompting, or assistance to monitor a health condition</li>
+        <li>(3e) Cannot manage therapy or monitor health conditions at all</li>
+      </ul>
+    </div>
+
   </div>
 
-  <!-- DRESSING -->
-  <div id="dressing-undressing" class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="dressingUndressing">Dressing and undressing</label>
-    </h1>
-    <div id="dressingUndressing-hint" class="govuk-hint">
-      Record problems with selecting clothing or dressing independently.
-    </div>
-    <p class="govuk-!-margin-bottom-1">
-      <a href="#" class="govuk-link load-headings" data-target="dressingUndressing" data-heading="dressingHeadings">Add headings</a>
-    </p>
-    <textarea class="govuk-textarea" id="dressingUndressing" name="dressingUndressing" rows="10"></textarea>
+</div>
+
+
+<!-- WASHING & BATHING -->
+<div id="washing-bathing" class="govuk-form-group">
+
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="washingBathing">Washing and bathing</label>
+  </h1>
+
+  <div id="washingBathing-hint" class="govuk-hint">
+    Document any challenges with personal hygiene tasks.
   </div>
+
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Section content</h2>
+
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#notes-washingBathing">Notes</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#descriptors-washingBathing">Descriptors</a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="notes-washingBathing">
+      <p class="govuk-!-margin-bottom-1">
+        <a href="#"
+           class="govuk-link load-headings"
+           data-target="washingBathing"
+           data-heading="washingBathingHeadings">
+           Add headings
+        </a>
+      </p>
+
+      <textarea class="govuk-textarea"
+                id="washingBathing"
+                name="washingBathing"
+                rows="10"></textarea>
+    </div>
+
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-washingBathing">
+      <h3 class="govuk-heading-m">Washing and bathing descriptors</h3>
+
+      <ul class="govuk-list">
+        <li>(4a) Can wash and bathe unaided</li>
+        <li>(4b) Needs to use an aid or appliance to wash or bathe</li>
+        <li>(4c) Needs prompting to wash or bathe</li>
+        <li>(4d) Needs supervision or assistance to wash or bathe</li>
+        <li>(4e) Cannot wash or bathe at all</li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- TOILET NEEDS -->
+<div id="toilet-needs" class="govuk-form-group">
+
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="toiletNeeds">Managing toilet needs</label>
+  </h1>
+
+  <div id="toiletNeeds-hint" class="govuk-hint">
+    Describe continence issues or difficulties accessing, using, or managing toilet needs.
+  </div>
+
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Section content</h2>
+
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#notes-toiletNeeds">Notes</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#descriptors-toiletNeeds">Descriptors</a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="notes-toiletNeeds">
+      <p class="govuk-!-margin-bottom-1">
+        <a href="#" 
+           class="govuk-link load-headings"
+           data-target="toiletNeeds"
+           data-heading="toiletNeedsHeadings">
+           Add headings
+        </a>
+      </p>
+
+      <textarea class="govuk-textarea"
+                id="toiletNeeds"
+                name="toiletNeeds"
+                rows="10"></textarea>
+    </div>
+
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-toiletNeeds">
+      <h3 class="govuk-heading-m">Managing toilet needs descriptors</h3>
+
+      <ul class="govuk-list">
+        <li>(5a) Can manage toilet needs unaided</li>
+        <li>(5b) Needs to use an aid or appliance to manage toilet needs</li>
+        <li>(5c) Needs prompting to manage toilet needs</li>
+        <li>(5d) Needs supervision or assistance to manage toilet needs</li>
+        <li>(5e) Cannot manage toilet needs at all</li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- DRESSING -->
+<div id="dressing-undressing" class="govuk-form-group">
+
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="dressingUndressing">Dressing and undressing</label>
+  </h1>
+
+  <div id="dressingUndressing-hint" class="govuk-hint">
+    Record problems with selecting clothing or dressing independently.
+  </div>
+
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Section content</h2>
+
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#notes-dressingUndressing">Notes</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#descriptors-dressingUndressing">Descriptors</a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="notes-dressingUndressing">
+      <p class="govuk-!-margin-bottom-1">
+        <a href="#" 
+           class="govuk-link load-headings"
+           data-target="dressingUndressing"
+           data-heading="dressingHeadings">
+           Add headings
+        </a>
+      </p>
+
+      <textarea class="govuk-textarea"
+                id="dressingUndressing"
+                name="dressingUndressing"
+                rows="10"></textarea>
+    </div>
+
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-dressingUndressing">
+      <h3 class="govuk-heading-m">Dressing and undressing descriptors</h3>
+
+      <ul class="govuk-list">
+        <li>(6a) Can dress and undress unaided</li>
+        <li>(6b) Needs to use an aid or appliance to dress or undress</li>
+        <li>(6c) Needs prompting to dress or undress</li>
+        <li>(6d) Needs supervision or assistance to dress or undress</li>
+        <li>(6e) Cannot dress or undress at all</li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
 
 <!-- COMMUNICATING VERBALLY -->
 <div id="communicating-verbally" class="govuk-form-group">
+
   <h1 class="govuk-label-wrapper">
     <label class="govuk-label govuk-label--l" for="communicatingVerbally">Communicating verbally</label>
   </h1>
@@ -253,17 +620,56 @@
     Note any communication difficulties observed during the consultation.
   </div>
 
-  <p class="govuk-!-margin-bottom-1">
-    <a href="#" class="govuk-link load-headings"
-       data-target="communicatingVerbally"
-       data-heading="communicationHeadings">Add headings</a>
-  </p>
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Section content</h2>
 
-  <textarea class="govuk-textarea" id="communicatingVerbally" name="communicatingVerbally" rows="10"></textarea>
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#notes-communicatingVerbally">Notes</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#descriptors-communicatingVerbally">Descriptors</a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="notes-communicatingVerbally">
+
+      <p class="govuk-!-margin-bottom-1">
+        <a href="#"
+           class="govuk-link load-headings"
+           data-target="communicatingVerbally"
+           data-heading="communicationHeadings">
+           Add headings
+        </a>
+      </p>
+
+      <textarea class="govuk-textarea"
+                id="communicatingVerbally"
+                name="communicatingVerbally"
+                rows="10"></textarea>
+    </div>
+
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-communicatingVerbally">
+
+      <h3 class="govuk-heading-m">Communicating verbally descriptors</h3>
+
+      <ul class="govuk-list">
+        <li>(7a) Can express and understand verbal information unaided</li>
+        <li>(7b) Needs to use an aid or appliance for communication</li>
+        <li>(7c) Needs prompting to express or understand verbal information</li>
+        <li>(7d) Needs assistance to express or understand verbal information</li>
+        <li>(7e) Cannot express or understand verbal information at all</li>
+      </ul>
+
+    </div>
+
+  </div>
+
 </div>
 
 <!-- READING -->
 <div id="reading-understanding" class="govuk-form-group">
+
   <h1 class="govuk-label-wrapper">
     <label class="govuk-label govuk-label--l" for="readingUnderstanding">
       Reading and understanding signs, symbols and words
@@ -274,71 +680,234 @@
     Describe challenges with reading or processing written information.
   </div>
 
-  <p class="govuk-!-margin-bottom-1">
-    <a href="#" class="govuk-link load-headings"
-       data-target="readingUnderstanding"
-       data-heading="readingHeadings">Add headings</a>
-  </p>
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Section content</h2>
 
-  <textarea class="govuk-textarea" id="readingUnderstanding" name="readingUnderstanding" rows="10"></textarea>
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#notes-readingUnderstanding">Notes</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#descriptors-readingUnderstanding">Descriptors</a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="notes-readingUnderstanding">
+
+      <p class="govuk-!-margin-bottom-1">
+        <a href="#"
+           class="govuk-link load-headings"
+           data-target="readingUnderstanding"
+           data-heading="readingHeadings">
+           Add headings
+        </a>
+      </p>
+
+      <textarea class="govuk-textarea"
+                id="readingUnderstanding"
+                name="readingUnderstanding"
+                rows="10"></textarea>
+    </div>
+
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-readingUnderstanding">
+
+      <h3 class="govuk-heading-m">Reading and understanding descriptors</h3>
+
+      <ul class="govuk-list">
+        <li>(8a) Can read and understand basic information unaided</li>
+        <li>(8b) Needs to use an aid or appliance to read or understand information</li>
+        <li>(8c) Needs prompting to read or understand information</li>
+        <li>(8d) Needs assistance to read or understand information</li>
+        <li>(8e) Cannot read or understand written information at all</li>
+      </ul>
+
+    </div>
+
+  </div>
+
 </div>
 
 <!-- face to face -->
 <div id="engaging-face-to-face" class="govuk-form-group">
+
   <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--l" for="readingUnderstanding">
+    <label class="govuk-label govuk-label--l" for="engagingFaceToFace">
       Engaging face to face
     </label>
   </h1>
 
-  <div id="readingUnderstanding-hint" class="govuk-hint">
+  <div id="engagingFaceToFace-hint" class="govuk-hint">
     Record how the claimant engages in face‑to‑face interactions, including cooperation, rapport, and social communication skills.
   </div>
 
-  <p class="govuk-!-margin-bottom-1">
-    <a href="#" class="govuk-link load-headings"
-       data-target="readingUnderstanding"
-       data-heading="readingHeadings">Add headings</a>
-  </p>
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Section content</h2>
 
-  <textarea class="govuk-textarea" id="engagingFaceToFace" name="engagingFaceToFace" rows="10"></textarea>
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#notes-engagingFaceToFace">Notes</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#descriptors-engagingFaceToFace">Descriptors</a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="notes-engagingFaceToFace">
+
+      <p class="govuk-!-margin-bottom-1">
+        <a href="#"
+           class="govuk-link load-headings"
+           data-target="engagingFaceToFace"
+           data-heading="engagingHeadings">
+           Add headings
+        </a>
+      </p>
+
+      <textarea class="govuk-textarea"
+                id="engagingFaceToFace"
+                name="engagingFaceToFace"
+                rows="10"></textarea>
+    </div>
+
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-engagingFaceToFace">
+
+      <h3 class="govuk-heading-m">Engaging face to face descriptors</h3>
+
+      <ul class="govuk-list">
+        <li>(9a) Can engage with other people unaided</li>
+        <li>(9b) Needs prompting to engage with other people</li>
+        <li>(9c) Needs social support to engage with other people</li>
+        <li>(9d) Cannot engage with other people due to distress</li>
+      </ul>
+
+    </div>
+
+  </div>
+
 </div>
 
-  <!-- BUDGETING -->
-  <div id="budgeting-section" class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="budgeting">Budgeting</label>
-    </h1>
-    <div id="budgeting-hint" class="govuk-hint">
-      Note any limitations in managing money or budgeting tasks.
-    </div>
-    <p class="govuk-!-margin-bottom-1">
-      <a href="#" class="govuk-link load-headings" data-target="budgeting" data-heading="budgetingHeadings">Add headings</a>
-    </p>
-    <textarea class="govuk-textarea" id="budgeting" name="budgeting" rows="10"></textarea>
+<!-- BUDGETING -->
+<div id="budgeting-section" class="govuk-form-group">
+
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="budgeting">
+      Budgeting
+    </label>
+  </h1>
+
+  <div id="budgeting-hint" class="govuk-hint">
+    Note any limitations in managing money or budgeting tasks.
   </div>
+
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Section content</h2>
+
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#notes-budgeting">Notes</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#descriptors-budgeting">Descriptors</a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="notes-budgeting">
+
+      <p class="govuk-!-margin-bottom-1">
+        <a href="#"
+           class="govuk-link load-headings"
+           data-target="budgeting"
+           data-heading="budgetingHeadings">
+           Add headings
+        </a>
+      </p>
+
+      <textarea class="govuk-textarea"
+                id="budgeting"
+                name="budgeting"
+                rows="10"></textarea>
+    </div>
+
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-budgeting">
+
+      <h3 class="govuk-heading-m">Budgeting descriptors</h3>
+
+      <ul class="govuk-list">
+        <li>(10a) Can manage complex budgeting decisions unaided</li>
+        <li>(10b) Needs prompting to make budgeting decisions</li>
+        <li>(10c) Needs assistance to make budgeting decisions</li>
+        <li>(10d) Cannot manage budgeting decisions at all</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>
 
 <!-- JOURNEYS -->
 <div id="planning-journeys" class="govuk-form-group">
+
   <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--l" for="planningJourneys">Planning and following journeys</label>
+    <label class="govuk-label govuk-label--l" for="planningJourneys">
+      Planning and following journeys
+    </label>
   </h1>
 
   <div id="planningJourneys-hint" class="govuk-hint">
     Describe difficulties with route planning or navigation.
   </div>
 
-  <p class="govuk-!-margin-bottom-1">
-    <a href="#" class="govuk-link load-headings"
-       data-target="planningJourneys"
-       data-heading="journeysHeadings">Add headings</a>
-  </p>
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Section content</h2>
 
-  <textarea class="govuk-textarea" id="planningJourneys" name="planningJourneys" rows="10"></textarea>
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#notes-planningJourneys">Notes</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#descriptors-planningJourneys">Descriptors</a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="notes-planningJourneys">
+
+      <p class="govuk-!-margin-bottom-1">
+        <a href="#"
+           class="govuk-link load-headings"
+           data-target="planningJourneys"
+           data-heading="journeysHeadings">
+           Add headings
+        </a>
+      </p>
+
+      <textarea class="govuk-textarea"
+                id="planningJourneys"
+                name="planningJourneys"
+                rows="10"></textarea>
+    </div>
+
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-planningJourneys">
+
+      <h3 class="govuk-heading-m">Planning and following journeys descriptors</h3>
+
+      <ul class="govuk-list">
+        <li>(11a) Can plan and follow the route of a journey unaided</li>
+        <li>(11b) Needs prompting to undertake any journey</li>
+        <li>(11c) Cannot plan the route of a journey</li>
+        <li>(11d) Cannot follow the route of a familiar journey without another person</li>
+        <li>(11e) Cannot undertake any journey due to overwhelming psychological distress</li>
+      </ul>
+
+    </div>
+
+  </div>
+
 </div>
 
 <!-- MOVING AROUND -->
 <div id="moving-around" class="govuk-form-group">
+
   <h1 class="govuk-label-wrapper">
     <label class="govuk-label govuk-label--l" for="movingAround">Moving around</label>
   </h1>
@@ -347,14 +916,54 @@
     Record mobility issues, stability, pain or the use of mobility aids.
   </div>
 
-  <p class="govuk-!-margin-bottom-1">
-    <a href="#" class="govuk-link load-headings"
-       data-target="movingAround"
-       data-heading="movingHeadings">Add headings</a>
-  </p>
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">Section content</h2>
 
-  <textarea class="govuk-textarea" id="movingAround" name="movingAround" rows="10"></textarea>
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#notes-movingAround">Notes</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#descriptors-movingAround">Descriptors</a>
+      </li>
+    </ul>
+
+    <div class="govuk-tabs__panel" id="notes-movingAround">
+
+      <p class="govuk-!-margin-bottom-1">
+        <a href="#"
+           class="govuk-link load-headings"
+           data-target="movingAround"
+           data-heading="movingHeadings">
+           Add headings
+        </a>
+      </p>
+
+      <textarea class="govuk-textarea"
+                id="movingAround"
+                name="movingAround"
+                rows="10"></textarea>
+
+    </div>
+
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-movingAround">
+
+      <h3 class="govuk-heading-m">Moving around descriptors</h3>
+
+      <ul class="govuk-list">
+        <li>(12a) Can move more than 200 metres on level ground unaided</li>
+        <li>(12b) Can move between 50 and 200 metres unaided</li>
+        <li>(12c) Can move between 20 and 50 metres unaided</li>
+        <li>(12d) Can move less than 20 metres unaided</li>
+        <li>(12e) Cannot move around at all</li>
+      </ul>
+
+    </div>
+
+  </div>
+
 </div>
+
 
   <!-- MENTAL STATE -->
   <div id="mental-state" class="govuk-form-group">

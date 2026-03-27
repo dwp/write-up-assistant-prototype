@@ -204,6 +204,12 @@ module.exports = {
     + "Although the claimant has not applied under the terminal illness provisions, in my opinion they are not terminally ill under the prescribed definition: No.\n\n"
     + "I can confirm that there is no harmful information in this report.",
 
+
+addedConditions: [],
+
+addedMedications: [],
+
+
   caseStatus: "New",
   cases: [
     {
