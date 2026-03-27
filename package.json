@@ -5,6 +5,11 @@
     "start": "govuk-prototype-kit start",
     "preinstall": "npx --yes npm-force-resolutions"
   },
+    "engines": {
+    "node": "22",
+    "npm": "10"
+  },
+
   "dependencies": {
     "@dwp/dwp-frontend": "3.4.0",
     "@govuk-prototype-kit/common-templates": "2.0.1",
