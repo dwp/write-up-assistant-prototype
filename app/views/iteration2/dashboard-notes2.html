@@ -168,7 +168,7 @@
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="notes-conditionHistory">
             <p class="govuk-!-margin-bottom-1">
               <a href="#" class="govuk-link load-headings" data-target="conditionHistory"
-                data-heading="conditionHeadings">Add headings</a>
+                data-heading="conditionHeadings">Add prompts</a>
             </p>
             <textarea class="govuk-textarea" id="conditionHistory" name="conditionHistory" rows="10"></textarea>
           </div>
@@ -246,8 +246,7 @@
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="notes-medicationTab">
             <p class="govuk-!-margin-bottom-1">
-              <a href="#" class="govuk-link load-headings" data-target="medication" data-heading="medicationHeadings">Add
-                headings</a>
+              <a href="#" class="govuk-link load-headings" data-target="medication" data-heading="medicationHeadings">Add prompts</a>
             </p>
     
             <textarea class="govuk-textarea" id="medication" name="medication" rows="10"></textarea>
@@ -267,8 +266,7 @@
           that affect their functioning.
         </div>
         <p class="govuk-!-margin-bottom-1">
-          <a href="#" class="govuk-link load-headings" data-target="socialHistory" data-heading="socialHistoryHeadings">Add
-            headings</a>
+          <a href="#" class="govuk-link load-headings" data-target="socialHistory" data-heading="socialHistoryHeadings">Add prompts</a>
         </p>
         <textarea class="govuk-textarea" id="socialHistory" name="socialHistory" rows="15"></textarea>
       </div>
@@ -303,7 +301,7 @@
           <div class="govuk-tabs__panel" id="notes-preparingFood">
             <p class="govuk-!-margin-bottom-1">
               <a href="#" class="govuk-link load-headings" data-target="preparingFood" data-heading="preparingFoodHeadings">
-                Add headings
+                Add prompts
               </a>
             </p>
     
@@ -312,15 +310,44 @@
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-preparingFood">
             <h3 class="govuk-heading-m">Preparing food descriptors</h3>
-            <p>You’ll select the descriptors on the next pages.</p>
-            <ul class="govuk-list">
-              <li>(1a) Can prepare and cook a simple meal unaided</li>
-              <li>(1b) Needs to use an aid or appliance to be able to either prepare or cook a simple meal</li>
-              <li>(1c) Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave</li>
-              <li>(1d) Needs prompting to be able to either prepare or cook a simple meal</li>
-              <li>(1e) Needs supervision or assistance to either prepare or cook a simple meal</li>
-              <li>(1f) Cannot prepare and cook food</li>
-            </ul>
+      {{ govukRadios({
+        idPrefix: "descriptor-1",
+        name: "descriptor1",
+        value: data['descriptor1'],
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "(1a) Can prepare and cook a simple meal unaided",
+            text: "(1a) Can prepare and cook a simple meal unaided"
+          },
+          {
+            value: "(1b) Needs to use an aid or appliance to be able to either prepare or cook a simple meal",
+            text: "(1b) Needs to use an aid or appliance to be able to either prepare or cook a simple meal"
+          },
+          {
+            value: "(1c) Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave",
+            text: "(1c) Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave"
+          },
+          {
+            value: "(1d) Needs prompting to be able to either prepare or cook a simple meal",
+            text: "(1d) Needs prompting to be able to either prepare or cook a simple meal"
+          },
+          {
+            value: "(1e) Needs supervision or assistance to either prepare or cook a simple meal",
+            text: "(1e) Needs supervision or assistance to either prepare or cook a simple meal"
+          },
+          {
+            value: "(1f) Cannot prepare and cook food",
+            text: "(1f) Cannot prepare and cook food"
+          }
+        ]
+      }) }}
     
           </div>
     
@@ -359,7 +386,7 @@
             <p class="govuk-!-margin-bottom-1">
               <a href="#" class="govuk-link load-headings" data-target="takingNutrition"
                 data-heading="takingNutritionHeadings">
-                Add headings
+                Add prompts
               </a>
             </p>
     
@@ -369,16 +396,74 @@
           <!-- DESCRIPTORS TAB -->
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-takingNutrition">
             <h3 class="govuk-heading-m">Taking nutrition descriptors</h3>
-            <p>You’ll select the descriptors on the next pages.</p>
-            <ul class="govuk-list">
-              <li>(2a) Can take nutrition unaided</li>
-              <li>(2b) Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take
-                nutrition, or assistance to be able to cut up food</li>
-              <li>(2c) Needs a therapeutic source to be able to take nutrition</li>
-              <li>(2d) Needs prompting to be able to take nutrition</li>
-              <li>(2e) Needs assistance to be able to manage a therapeutic source to take nutrition</li>
-              <li>(2f) Cannot convey food and drink to their mouth and needs another person to do so</li>
-            </ul>
+            
+
+  <form action="descriptor-3" method="post" novalidate="">
+
+{{ govukRadios({
+    idPrefix: "descriptor-2",
+    name: "descriptor2",
+    value: data['descriptor2'],
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+
+    items: [
+      {
+        value: "(2a) Can take nutrition unaided",
+        text: "(2a) Can take nutrition unaided",
+        checked: true
+      },
+      {
+        value: "(2b) Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take nutrition, or assistance to be able to cut up food",
+        text: "(2b) Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take nutrition, or assistance to be able to cut up food"
+      },
+      {
+        value: "(2c) Needs a therapeutic source to be able to take nutrition",
+        text: "(2c) Needs a therapeutic source to be able to take nutrition"
+      },
+      {
+        value: "(2d) Needs prompting to be able to take nutrition",
+        text: "(2d) Needs prompting to be able to take nutrition"
+      },
+      {
+        value: "(2e) Needs assistance to be able to manage a therapeutic source to take nutrition",
+        text: "(2e) Needs assistance to be able to manage a therapeutic source to take nutrition"
+      },
+      {
+        value: "(2f) Cannot convey food and drink to their mouth and needs another person to do so",
+        text: "(2f) Cannot convey food and drink to their mouth and needs another person to do so"
+      }
+    ]
+  }) }}
+
+
+
+
+
+<!-- place it in a form if will use it-->
+
+
+
+<div class="govuk-button-group">
+      {{ govukButton({
+        text: "Save and continue",
+        isStartButton: false
+      }) }}
+
+        {{ govukButton({
+          text: "Save and return to list",
+          href: "select-descriptors?descriptor2=(2a) Can take nutrition unaided",
+          classes: "govuk-button--secondary"
+        }) }}
+</div>
+</form>
+
+
           </div>
         </div>
       </div>
@@ -410,7 +495,7 @@
             <p class="govuk-!-margin-bottom-1">
               <a href="#" class="govuk-link load-headings" data-target="managingTherapy"
                 data-heading="managingTherapyHeadings">
-                Add headings
+                Add prompts
               </a>
             </p>
     
@@ -419,21 +504,67 @@
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-managingTherapy">
             <h3 class="govuk-heading-m">Managing therapy descriptors</h3>
-            <p>You’ll select the descriptors on the next pages.</p>
-            <ul class="govuk-list">
-              <li>(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage
-                medication or therapy or monitor a health condition unaided</li>
-              <li>(3b) Needs to use an aid or appliance to be able to manage medication, or needs supervision, prompting or
-                assistance to be able to manage medication, or needs</li>
-              <li>(3c) Needs supervision, prompting or assistance to be able to manage therapy that takes no more than 3.5
-                hours a week</li>
-              <li>(3d) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 3.5 but
-                no more than 7 hours a week</li>
-              <li>(3e) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 7 but no
-                more than 14 hours a week</li>
-              <li>(3f) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 14 hours
-                a week</li>
-            </ul>
+ <form action="descriptor-4" method="post" novalidate="">
+
+{{ govukRadios({
+    idPrefix: "descriptor-3",
+    name: "descriptor3",
+    value: data['descriptor3'],
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+
+    items: [
+      {
+        value: "(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided",
+        text: "(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided",
+        checked: true
+      },
+      {
+        value: "(3b) Needs to use an aid or appliance to be able to manage medication, or needs supervision, prompting or assistance to be able to manage medication, or needs ",
+        text: "(3b) Needs to use an aid or appliance to be able to manage medication, or needs supervision, prompting or assistance to be able to manage medication, or needs "
+      },
+      {
+        value: "(3c) Needs supervision, prompting or assistance to be able to manage therapy that takes no more than 3.5 hours a week",
+        text: "(3c) Needs supervision, prompting or assistance to be able to manage therapy that takes no more than 3.5 hours a week"
+      },
+      {
+        value: "(3d) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 3.5 but no more than 7 hours a week",
+        text: "(3d) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 3.5 but no more than 7 hours a week"
+      },
+      {
+        value: "(3e) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 7 but no more than 14 hours a week",
+        text: "(3e) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 7 but no more than 14 hours a week"
+      },
+      {
+        value: "(3f) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 14 hours a week",
+        text: "(3f) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 14 hours a week"
+      }
+    ]
+  }) }}
+
+
+
+<!-- place it in a form if will use it-->
+
+<div class="govuk-button-group">
+      {{ govukButton({
+        text: "Save and continue",
+        isStartButton: false
+      }) }}
+
+        {{ govukButton({
+          text: "Save and return to list",
+            href: "select-descriptors?descriptor3=(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided",
+          classes: "govuk-button--secondary"
+        }) }}
+</div>
+
+  </form>
           </div>
     
         </div>
@@ -468,7 +599,7 @@
             <p class="govuk-!-margin-bottom-1">
               <a href="#" class="govuk-link load-headings" data-target="washingBathing"
                 data-heading="washingBathingHeadings">
-                Add headings
+                Add prompts
               </a>
             </p>
     
@@ -519,7 +650,7 @@
           <div class="govuk-tabs__panel" id="notes-toiletNeeds">
             <p class="govuk-!-margin-bottom-1">
               <a href="#" class="govuk-link load-headings" data-target="toiletNeeds" data-heading="toiletNeedsHeadings">
-                Add headings
+                Add prompts
               </a>
             </p>
     
@@ -569,7 +700,7 @@
           <div class="govuk-tabs__panel" id="notes-dressingUndressing">
             <p class="govuk-!-margin-bottom-1">
               <a href="#" class="govuk-link load-headings" data-target="dressingUndressing" data-heading="dressingHeadings">
-                Add headings
+                Add prompts
               </a>
             </p>
     
@@ -622,7 +753,7 @@
             <p class="govuk-!-margin-bottom-1">
               <a href="#" class="govuk-link load-headings" data-target="communicatingVerbally"
                 data-heading="communicationHeadings">
-                Add headings
+                Add prompts
               </a>
             </p>
     
@@ -677,7 +808,7 @@
             <p class="govuk-!-margin-bottom-1">
               <a href="#" class="govuk-link load-headings" data-target="readingUnderstanding"
                 data-heading="readingHeadings">
-                Add headings
+                Add prompts
               </a>
             </p>
     
@@ -734,7 +865,7 @@
     
             <p class="govuk-!-margin-bottom-1">
               <a href="#" class="govuk-link load-headings" data-target="engagingFaceToFace" data-heading="engagingHeadings">
-                Add headings
+                Add prompts
               </a>
             </p>
     
@@ -789,7 +920,7 @@
     
             <p class="govuk-!-margin-bottom-1">
               <a href="#" class="govuk-link load-headings" data-target="budgeting" data-heading="budgetingHeadings">
-                Add headings
+                Add prompts
               </a>
             </p>
     
@@ -842,7 +973,7 @@
     
             <p class="govuk-!-margin-bottom-1">
               <a href="#" class="govuk-link load-headings" data-target="planningJourneys" data-heading="journeysHeadings">
-                Add headings
+                Add prompts
               </a>
             </p>
     
@@ -900,7 +1031,7 @@
     
             <p class="govuk-!-margin-bottom-1">
               <a href="#" class="govuk-link load-headings" data-target="movingAround" data-heading="movingHeadings">
-                Add headings
+                Add prompts
               </a>
             </p>
     
@@ -940,7 +1071,7 @@
         </div>
         <p class="govuk-!-margin-bottom-1">
           <a href="#" class="govuk-link load-headings" data-target="mentalStateObservations"
-            data-heading="mentalStateHeadings">Add headings</a>
+            data-heading="mentalStateHeadings">Add prompts</a>
         </p>
         <textarea class="govuk-textarea" id="mentalStateObservations" name="mentalStateObservations" rows="10"></textarea>
       </div>
@@ -955,7 +1086,7 @@
         </div>
         <p class="govuk-!-margin-bottom-1">
           <a href="#" class="govuk-link load-headings" data-target="informalObservations"
-            data-heading="informalHeadings">Add headings</a>
+            data-heading="informalHeadings">Add prompts</a>
         </p>
         <textarea class="govuk-textarea" id="informalObservations" name="informalObservations" rows="10"></textarea>
       </div>

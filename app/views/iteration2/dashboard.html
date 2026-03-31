@@ -78,179 +78,210 @@
       <form method="post" novalidate>
       <!--tab1-->
 
-        <table class="govuk-table">
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Select</th>
-              <th scope="col" class="govuk-table__header">File name</th>
-              <th scope="col" class="govuk-table__header">Date of document</th>
-              <th scope="col" class="govuk-table__header">Date received</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
+<!--table-->
 
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <div class="govuk-checkboxes govuk-checkboxes--small">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="file-1" name="selected-files" type="checkbox" value="PIP.pdf" checked>
-                    <label class="govuk-label govuk-checkboxes__label" for="file-1"></label>
-                  </div>
-                </div>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="files/view-pip2" target="_blank">PIP2.pdf</a>
-              </td>
-              <td class="govuk-table__cell">1 December 2025</td>
-              <td class="govuk-table__cell">18 February 2026</td>
-            </tr>
+<table class="govuk-table" data-module="moj-sortable-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header" aria-sort="none">Select</th>
+      <th scope="col" class="govuk-table__header" aria-sort="none">File name</th>
+      <th scope="col" class="govuk-table__header" aria-sort="none">Date of document</th>
+      <th scope="col" class="govuk-table__header" aria-sort="descending">Date received</th>
+    </tr>
+  </thead>
 
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <div class="govuk-checkboxes govuk-checkboxes--small">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="file-2" name="selected-files" type="checkbox" value="evidence_2.pdf" checked>
-                    <label class="govuk-label govuk-checkboxes__label" for="file-2"></label>
-                  </div>
-                </div>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="files/view-fe" target="_blank">Questionnaire.pdf</a>
-              </td>
-              <td class="govuk-table__cell">15 January 2026</td>
-              <td class="govuk-table__cell">18 February 2026</td>
-            </tr>
+  <tbody class="govuk-table__body">
 
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <div class="govuk-checkboxes govuk-checkboxes--small">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="file-3" name="selected-files" type="checkbox" value="MedicationReview.pdf">
-                    <label class="govuk-label govuk-checkboxes__label" for="file-3"></label>
-                  </div>
-                </div>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">MedicationReview.pdf</a>
-              </td>
-              <td class="govuk-table__cell">10 February 2026</td>
-              <td class="govuk-table__cell">12 February 2026</td>
-            </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-1" name="selected-files" type="checkbox" value="PIP.pdf" checked>
+            <label class="govuk-label govuk-checkboxes__label" for="file-1"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="PIP2.pdf">
+        <a class="govuk-link" href="files/view-pip2" target="_blank">PIP2.pdf</a>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="2025-12-01">1 December 2025</td>
+      <td class="govuk-table__cell" data-sort-value="2026-02-18">18 February 2026</td>
+    </tr>
 
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <div class="govuk-checkboxes govuk-checkboxes--small">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="file-4" name="selected-files" type="checkbox" value="GP_Letter.pdf">
-                    <label class="govuk-label govuk-checkboxes__label" for="file-4"></label>
-                  </div>
-                </div>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">GP_Letter.pdf</a>
-              </td>
-              <td class="govuk-table__cell">8 February 2026</td>
-              <td class="govuk-table__cell">10 February 2026</td>
-            </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-2" name="selected-files" type="checkbox" value="evidence_2.pdf" checked>
+            <label class="govuk-label govuk-checkboxes__label" for="file-2"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="Questionnaire.pdf">
+        <a class="govuk-link" href="files/view-fe" target="_blank">Questionnaire.pdf</a>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="2026-01-15">15 January 2026</td>
+      <td class="govuk-table__cell" data-sort-value="2026-02-18">18 February 2026</td>
+    </tr>
 
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <div class="govuk-checkboxes govuk-checkboxes--small">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="file-5" name="selected-files" type="checkbox" value="MRI_Result.pdf">
-                    <label class="govuk-label govuk-checkboxes__label" for="file-5"></label>
-                  </div>
-                </div>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">MRI_Result.pdf</a>
-              </td>
-              <td class="govuk-table__cell">6 February 2026</td>
-              <td class="govuk-table__cell">8 February 2026</td>
-            </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-3" name="selected-files" type="checkbox" value="MedicationReview.pdf">
+            <label class="govuk-label govuk-checkboxes__label" for="file-3"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="MedicationReview.pdf">
+        <a class="govuk-link" href="#">MedicationReview.pdf</a>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="2026-02-10">10 February 2026</td>
+      <td class="govuk-table__cell" data-sort-value="2026-02-12">12 February 2026</td>
+    </tr>
 
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <div class="govuk-checkboxes govuk-checkboxes--small">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="file-6" name="selected-files" type="checkbox" value="BloodTest.pdf">
-                    <label class="govuk-label govuk-checkboxes__label" for="file-6"></label>
-                  </div>
-                </div>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">BloodTest.pdf</a>
-              </td>
-              <td class="govuk-table__cell">5 February 2026</td>
-              <td class="govuk-table__cell">7 February 2026</td>
-            </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-4" name="selected-files" type="checkbox" value="GP_Letter.pdf">
+            <label class="govuk-label govuk-checkboxes__label" for="file-4"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="GP_Letter.pdf">
+        <a class="govuk-link" href="#">GP_Letter.pdf</a>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="2026-02-08">8 February 2026</td>
+      <td class="govuk-table__cell" data-sort-value="2026-02-10">10 February 2026</td>
+    </tr>
 
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <div class="govuk-checkboxes govuk-checkboxes--small">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="file-7" name="selected-files" type="checkbox" value="CarePlan.pdf">
-                    <label class="govuk-label govuk-checkboxes__label" for="file-7"></label>
-                  </div>
-                </div>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">CarePlan.pdf</a>
-              </td>
-              <td class="govuk-table__cell">3 February 2026</td>
-              <td class="govuk-table__cell">5 February 2026</td>
-            </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-5" name="selected-files" type="checkbox" value="MRI_Result.pdf">
+            <label class="govuk-label govuk-checkboxes__label" for="file-5"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="MRI_Result.pdf">
+        <a class="govuk-link" href="#">MRI_Result.pdf</a>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="2026-02-06">6 February 2026</td>
+      <td class="govuk-table__cell" data-sort-value="2026-02-08">8 February 2026</td>
+    </tr>
 
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <div class="govuk-checkboxes govuk-checkboxes--small">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="file-8" name="selected-files" type="checkbox" value="XrayReport.pdf">
-                    <label class="govuk-label govuk-checkboxes__label" for="file-8"></label>
-                  </div>
-                </div>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">XrayReport.pdf</a>
-              </td>
-              <td class="govuk-table__cell">1 February 2026</td>
-              <td class="govuk-table__cell">3 February 2026</td>
-            </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-6" name="selected-files" type="checkbox" value="BloodTest.pdf">
+            <label class="govuk-label govuk-checkboxes__label" for="file-6"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="BloodTest.pdf">
+        <a class="govuk-link" href="#">BloodTest.pdf</a>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="2026-02-05">5 February 2026</td>
+      <td class="govuk-table__cell" data-sort-value="2026-02-07">7 February 2026</td>
+    </tr>
 
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <div class="govuk-checkboxes govuk-checkboxes--small">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="file-9" name="selected-files" type="checkbox" value="HospitalDischarge.pdf">
-                    <label class="govuk-label govuk-checkboxes__label" for="file-9"></label>
-                  </div>
-                </div>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">HospitalDischarge.pdf</a>
-              </td>
-              <td class="govuk-table__cell">29 January 2026</td>
-              <td class="govuk-table__cell">1 February 2026</td>
-            </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-7" name="selected-files" type="checkbox" value="CarePlan.pdf">
+            <label class="govuk-label govuk-checkboxes__label" for="file-7"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="CarePlan.pdf">
+        <a class="govuk-link" href="#">CarePlan.pdf</a>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="2026-02-03">3 February 2026</td>
+      <td class="govuk-table__cell" data-sort-value="2026-02-05">5 February 2026</td>
+    </tr>
 
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <div class="govuk-checkboxes govuk-checkboxes--small">
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="file-10" name="selected-files" type="checkbox" value="ConsultationNotes.pdf">
-                    <label class="govuk-label govuk-checkboxes__label" for="file-10"></label>
-                  </div>
-                </div>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="#">ConsultationNotes.pdf</a>
-              </td>
-              <td class="govuk-table__cell">28 January 2026</td>
-              <td class="govuk-table__cell">30 January 2026</td>
-            </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-8" name="selected-files" type="checkbox" value="XrayReport.pdf">
+            <label class="govuk-label govuk-checkboxes__label" for="file-8"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="XrayReport.pdf">
+        <a class="govuk-link" href="#">XrayReport.pdf</a>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="2026-02-01">1 February 2026</td>
+      <td class="govuk-table__cell" data-sort-value="2026-02-03">3 February 2026</td>
+    </tr>
 
-          </tbody>
-        </table>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-9" name="selected-files" type="checkbox" value="HospitalDischarge.pdf">
+            <label class="govuk-label govuk-checkboxes__label" for="file-9"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="HospitalDischarge.pdf">
+        <a class="govuk-link" href="#">HospitalDischarge.pdf</a>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="2026-01-29">29 January 2026</td>
+      <td class="govuk-table__cell" data-sort-value="2026-02-01">1 February 2026</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-10" name="selected-files" type="checkbox" value="ConsultationNotes.pdf">
+            <label class="govuk-label govuk-checkboxes__label" for="file-10"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="ConsultationNotes.pdf">
+        <a class="govuk-link" href="#">ConsultationNotes.pdf</a>
+      </td>
+      <td class="govuk-table__cell" data-sort-value="2026-01-28">28 January 2026</td>
+      <td class="govuk-table__cell" data-sort-value="2026-01-30">30 January 2026</td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+<nav class="govuk-pagination" role="navigation" aria-label="results">
+  <ul class="govuk-pagination__list">
+
+    <li class="govuk-pagination__item govuk-pagination__item--current">
+      <a class="govuk-pagination__link" href="#" aria-current="page">1</a>
+    </li>
+
+    <li class="govuk-pagination__item">
+      <a class="govuk-pagination__link" href="#">2</a>
+    </li>
+
+    <li class="govuk-pagination__item">
+      <a class="govuk-pagination__link" href="#">3</a>
+    </li>
+
+  </ul>
+</nav>
+
+
+<!--table 2-->
+
+
+
+
+
            <div>
    {{ govukCheckboxes({
   name: "waste",

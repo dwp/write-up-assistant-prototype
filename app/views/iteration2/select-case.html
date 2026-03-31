@@ -15,38 +15,39 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
+
     <span class="govuk-caption-l">Healthcare professional home</span>
-    <h1 class="govuk-heading-xl">Your booked appointments</h1>
+    <h1 class="govuk-heading-xl">Your scheduled telephone assessments</h1>
     <p>Review the claimant’s documents, type your assessment notes and generate a draft PIP report using AI. You can then check and edit the draft before completing your report.</p>
 
     <h2 class="govuk-heading-m">Select a claimant from the list</h2>
 
-    <table class="govuk-table">
-
+    <table class="govuk-table" data-module="moj-sortable-table">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Claimant name</th>
-          <th scope="col" class="govuk-table__header">Benefit</th>
-          <th scope="col" class="govuk-table__header">Type</th>
-          <th scope="col" class="govuk-table__header">Date and time</th>
-          <th scope="col" class="govuk-table__header">Status</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Claimant name</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Benefit</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Type</th>
+          <th scope="col" class="govuk-table__header" aria-sort="descending">Date and time</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
         </tr>
       </thead>
 
       <tbody class="govuk-table__body">
 
         {% set status = data['caseStatus'] or "New" %}
-        
+
+        <!-- ROW 1 -->
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">
-            <a class="govuk-link" href="review-case-evidence.html">
+          <th scope="row" class="govuk-table__header" data-sort-value="2026-03-20T09:00">
+             <a class="govuk-link" href="dashboard.html">
               {{ data['userName'] or "Not captured" }}
             </a>
           </th>
 
           <td class="govuk-table__cell">PIP</td>
           <td class="govuk-table__cell">Telephone</td>
-          <td class="govuk-table__cell">20 March 2026, 9am</td>
+          <td class="govuk-table__cell" data-sort-value="2026-03-20T09:00">20 March 2026, 9am</td>
 
           <td class="govuk-table__cell">
             {% if status == "New" %}
@@ -59,19 +60,19 @@
               <strong class="govuk-tag govuk-tag--grey">{{ status }}</strong>
             {% endif %}
           </td>
-
         </tr>
 
-                <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">
-            <a class="govuk-link" href="dashboard.html">
+        <!-- ROW 2 -->
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header" data-sort-value="2026-03-20T09:00">
+           <a class="govuk-link" href="review-case-evidence.html">
               {{ data['userName'] or "Not captured" }} 2
             </a>
           </th>
 
           <td class="govuk-table__cell">PIP</td>
           <td class="govuk-table__cell">Telephone</td>
-          <td class="govuk-table__cell">20 March 2026, 9am</td>
+          <td class="govuk-table__cell" data-sort-value="2026-03-20T09:00">20 March 2026, 9am</td>
 
           <td class="govuk-table__cell">
             {% if status == "New" %}
@@ -84,29 +85,64 @@
               <strong class="govuk-tag govuk-tag--grey">{{ status }}</strong>
             {% endif %}
           </td>
+        </tr>
 
+        <!-- ROW 3 -->
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header" data-sort-value="2026-03-19T14:30">
+            <a class="govuk-link" href="#">
+              Sarah Thompson
+            </a>
+          </th>
+
+          <td class="govuk-table__cell">ESA</td>
+          <td class="govuk-table__cell">Video</td>
+          <td class="govuk-table__cell" data-sort-value="2026-03-19T14:30">19 March 2026, 2:30pm</td>
+
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--green">Complete</strong>
+          </td>
+        </tr>
+
+        <!-- ROW 4 -->
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header" data-sort-value="2026-03-18T11:15">
+            <a class="govuk-link" href="#">
+              James Walker
+            </a>
+          </th>
+
+          <td class="govuk-table__cell">UC</td>
+          <td class="govuk-table__cell">Paper</td>
+          <td class="govuk-table__cell" data-sort-value="2026-03-18T11:15">18 March 2026, 11:15am</td>
+
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--green">Complete</strong>
+          </td>
         </tr>
 
       </tbody>
-
     </table>
 
   </div>
 
+  <!-- Right-hand column (hidden) -->
   <div class="govuk-grid-column-one-quarter" style="display: none;">
 
-           <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
-      <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in new tab</div>
-      <nav role="navigation" aria-labelledby="subsection-title">
-        <ul class="govuk-list govuk-!-font-size-16">
-          <li>
-         <p class="govuk-body"><a href="my-crib-sheet" target="_blank">Crib-sheet</a></p>
-          </li>
-        </ul>
-      </nav>
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
+    <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in new tab</div>
+
+    <nav role="navigation" aria-labelledby="subsection-title">
+      <ul class="govuk-list govuk-!-font-size-16">
+        <li>
+          <p class="govuk-body"><a href="my-crib-sheet" target="_blank">Crib-sheet</a></p>
+        </li>
+      </ul>
+    </nav>
 
   </div>
 
 </div>
 
 {% endblock %}
+
