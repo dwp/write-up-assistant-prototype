@@ -1,0 +1,91 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Add consultation notes (free‑form)
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: 'This is not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" action="" novalidate>
+
+      <input type="hidden" name="returnUrl" value="{{ request.headers.referer }}">
+
+      {{ govukCharacterCount({
+        id: "freeFormNotes",
+        name: "freeFormNotes",
+        rows: 24,
+        maxwords: 4000,
+        label: {
+          text: "Crib-sheet",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        hint: {
+          text: "Write one clear narrative covering the consultation. You can refine or structure this later."
+        },
+        value: data.crisplist
+      }) }}
+
+      <div class="govuk-button-group">
+
+        {{ govukButton({
+          text: "Save",
+          classes: "govuk-button",
+          name: "action",
+          value: "save"
+        }) }}
+
+        {{ govukButton({
+          text: "Copy",
+          classes: "govuk-button govuk-button--secondary",
+          name: "action",
+          value: "copy-return",
+          attributes: {
+            id: "copy-return-btn"
+          }
+        }) }}
+
+      </div>
+    </form>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third" style="display: none;">
+      <h2 class="govuk-heading-m">Abbreviations list</h2>
+      <p class="govuk-body"><b>Abbreviations used in this report:</b> CH: Condition history, FE: Further evidence, FH:	Functional history, IO: Informal observations, MSO:Mental state observations, SOH:Social and occupational history.</p>
+      {{ govukButton({
+        text: "Copy abbreviations",
+        classes: "govuk-button--secondary"
+      }) }}
+  </div>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('copy-return-btn');
+  if (!btn) return;
+
+  btn.addEventListener('click', function(e) {
+    const text = document.getElementById('freeFormNotes').value;
+
+    // Copy to clipboard
+    navigator.clipboard.writeText(text).then(() => {
+      console.log("Copied before returning");
+    });
+  });
+});
+</script>
+
+{% endblock %}

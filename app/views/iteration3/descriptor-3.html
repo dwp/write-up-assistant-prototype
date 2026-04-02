@@ -1,0 +1,128 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+   <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card govuk-!-margin-bottom-1">
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          <strong>Claimant:</strong> John Smith
+         <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+         <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+        <strong class="govuk-!-padding-left-2"> Postcode:</strong>  N2 1XX
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</div>
+  </div>
+</div>
+ 
+{% endblock %}
+
+{% block content %}
+ <div style="margin-top: -30px;"><a href="javascript:history.back()" class="govuk-back-link">Back</a></div> 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<span class="govuk-caption-xl">Managing therapy (3)</span>
+<h1 class="govuk-heading-xl">How well the claimant can manage therapy or monitor a health condition?</h1>
+
+
+ <form action="descriptor-4" method="post" novalidate="">
+
+{{ govukRadios({
+    idPrefix: "descriptor-3",
+    name: "descriptor3",
+    value: data['descriptor3'],
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+
+    items: [
+      {
+        value: "(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided",
+        text: "(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided",
+        checked: true
+      },
+      {
+        value: "(3b) Needs to use an aid or appliance to be able to manage medication, or needs supervision, prompting or assistance to be able to manage medication, or needs ",
+        text: "(3b) Needs to use an aid or appliance to be able to manage medication, or needs supervision, prompting or assistance to be able to manage medication, or needs "
+      },
+      {
+        value: "(3c) Needs supervision, prompting or assistance to be able to manage therapy that takes no more than 3.5 hours a week",
+        text: "(3c) Needs supervision, prompting or assistance to be able to manage therapy that takes no more than 3.5 hours a week"
+      },
+      {
+        value: "(3d) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 3.5 but no more than 7 hours a week",
+        text: "(3d) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 3.5 but no more than 7 hours a week"
+      },
+      {
+        value: "(3e) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 7 but no more than 14 hours a week",
+        text: "(3e) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 7 but no more than 14 hours a week"
+      },
+      {
+        value: "(3f) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 14 hours a week",
+        text: "(3f) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 14 hours a week"
+      }
+    ]
+  }) }}
+
+
+
+<!-- place it in a form if will use it-->
+
+<div class="govuk-button-group">
+      {{ govukButton({
+        text: "Save and continue",
+        isStartButton: false
+      }) }}
+
+        {{ govukButton({
+          text: "Save and return to list",
+            href: "select-descriptors?descriptor3=(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided",
+          classes: "govuk-button--secondary"
+        }) }}
+</div>
+
+  </form>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
+      <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in a new tab</div>
+    <nav role="navigation" aria-labelledby="subsection-title">
+      <ul class="govuk-list">
+        <li><a href="add-notes-view" target="_blank">Consultation notes</a></li>
+        <li><a class="govuk-link" href="review-evidence" target="_blank">Evidence list</a></li>
+        <li><a class="govuk-link" href="files/view-pip2" target="_blank">PIP2.pdf</a></li>
+        <li><a class="govuk-link" href="files/view-pip2" target="_blank">FE.pdf</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  </div>
+
+{% endblock %}

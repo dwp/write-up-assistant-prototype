@@ -1,0 +1,62 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Start page
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+
+     <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card govuk-!-margin-bottom-1">
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          <strong>Claimant:</strong> John Smith
+         <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+         <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+        <strong class="govuk-!-padding-left-2"> Postcode:</strong>  N2 1XX
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        You can now view the full report
+      </h1>
+<p class="govuk-body govuk-">You have reviewed the AI created report sections and can now view the full first assessment report draft.</p>
+
+
+<div class="govuk-!-margin-top-8">
+
+      {{ govukButton({
+        text: "View the full report",
+        href: "report-final-preview",
+        isStartButton: false
+      }) }}
+</div>
+
+    </div>
+
+  </div>
+
+{% endblock %}

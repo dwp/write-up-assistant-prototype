@@ -1,0 +1,320 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Add consultation notes (free‑form)
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: 'This is not a service, it is a prototype created for user testing'
+  }) }}
+    <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card govuk-!-margin-bottom-1">
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          <strong>Claimant:</strong> John Smith
+         <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+         <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+        <strong class="govuk-!-padding-left-2"> Postcode:</strong>  N2 1XX
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+<!-- main layout-->
+   <div class="govuk-grid-column-one-quarter">
+    <!-- left side menu -->
+     <nav data-module="dwp-side-navigation-panel" class="dwp-side-navigation dwp-side-navigation--mobile" aria-label="Side" role="navigation">
+  
+  <ul class="dwp-side-navigation__list">
+    <li class="dwp-side-navigation__item dwp-side-navigation__item--selected">
+       <a id="s-item-2" href="dashboard" class="dwp-side-navigation__link dwp-side-navigation__link--selected" aria-current="true">
+        Activities descriptors
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item ">
+      <a id="s-item-2" href="dashboard" class="dwp-side-navigation__link" aria-current="true">
+        Evidence documents
+      </a>
+    </li>
+
+    <li class="dwp-side-navigation__item ">
+      <a id="s-item-2" href="dashboard" class="dwp-side-navigation__link" aria-current="true">
+        View consultation details
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="dashboard-notes" class="dwp-side-navigation__link">
+       View consultation notes
+      </a>
+    </li>
+  </ul>
+    </nav>
+  </div>   
+  <!-- body and right side row-->
+
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-xl">Choose the option that best describes the claimant’s condition</h1>
+    <p>These will be used to build the assessment report and explain how their condition affects them.</p>
+
+    {# Helper to show a status tag based on whether a descriptor value exists in session data #}
+    {% macro statusTag(selected, id) -%}
+      {% if selected %}
+        <strong class="govuk-tag govuk-tag--green" id="{{ id }}">Completed</strong>
+      {% else %}
+        <strong class="govuk-tag govuk-tag--grey" id="{{ id }}">Not started</strong>
+      {% endif %}
+    {%- endmacro %}
+
+    <h2 class="govuk-heading-l">Activities descriptors</h2>
+
+    <ol class="govuk-task-list" data-module="govuk-task-list">
+
+      <li class="govuk-task-list__item">
+        <div class="govuk-task-list__name-and-hint">
+          <span class="govuk-!-display-block govuk-!-margin-bottom-1">Preparing food (1)</span>
+          <a href="descriptor-1" class="govuk-task-list__link" aria-describedby="task-1-status">
+            How well can the claimant cook food?
+          </a>
+          {% if data['descriptor1'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor1'] }}
+            </p>
+          {% endif %}
+        </div>
+        <div class="govuk-task-list__status">
+          {{ statusTag(data['descriptor1'], 'task-1-status') }}
+        </div>
+      </li>
+
+      <li class="govuk-task-list__item">
+        <div class="govuk-task-list__name-and-hint">
+          <span class="govuk-!-display-block govuk-!-margin-bottom-1">Taking nutrition (2)</span>
+          <a href="descriptor-2" class="govuk-task-list__link" aria-describedby="task-2-status">
+            How does the claimant take nutrition?
+          </a>
+          {% if data['descriptor2'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor2'] }}
+            </p>
+          {% endif %}
+        </div>
+        <div class="govuk-task-list__status">
+          {{ statusTag(data['descriptor2'], 'task-2-status') }}
+        </div>
+      </li>
+
+      <li class="govuk-task-list__item">
+        <div class="govuk-task-list__name-and-hint">
+          <span class="govuk-!-display-block govuk-!-margin-bottom-1">Managing therapy (3)</span>
+          <a href="descriptor-3" class="govuk-task-list__link" aria-describedby="task-3-status">
+            How does the claimant manage therapy or monitor a health condition?
+          </a>
+          {% if data['descriptor3'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor3'] }}
+            </p>
+          {% endif %}
+        </div>
+        <div class="govuk-task-list__status">
+          {{ statusTag(data['descriptor3'], 'task-3-status') }}
+        </div>
+      </li>
+
+      <li class="govuk-task-list__item">
+        <div class="govuk-task-list__name-and-hint">
+          <span class="govuk-!-display-block govuk-!-margin-bottom-1">Washing and bathing (4)</span>
+          <a href="descriptor-4" class="govuk-task-list__link" aria-describedby="task-4-status">
+            How does the claimant wash and bathe?
+          </a>
+          {% if data['descriptor4'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor4'] }}
+            </p>
+          {% endif %}
+        </div>
+        <div class="govuk-task-list__status">
+          {{ statusTag(data['descriptor4'], 'task-4-status') }}
+        </div>
+      </li>
+
+      <li class="govuk-task-list__item">
+        <div class="govuk-task-list__name-and-hint">
+          <span class="govuk-!-display-block govuk-!-margin-bottom-1">Managing toilet needs (5)</span>
+          <a href="descriptor-5" class="govuk-task-list__link" aria-describedby="task-5-status">
+            How does the claimant manage toilet needs?
+          </a>
+          {% if data['descriptor5'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor5'] }}
+            </p>
+          {% endif %}
+        </div>
+        <div class="govuk-task-list__status">
+          {{ statusTag(data['descriptor5'], 'task-5-status') }}
+        </div>
+      </li>
+
+      <li class="govuk-task-list__item">
+        <div class="govuk-task-list__name-and-hint">
+          <span class="govuk-!-display-block govuk-!-margin-bottom-1">Dressing and undressing (6)</span>
+          <a href="descriptor-6" class="govuk-task-list__link" aria-describedby="task-6-status">
+            How does the claimant dress and undress?
+          </a>
+          {% if data['descriptor6'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor6'] }}
+            </p>
+          {% endif %}
+        </div>
+        <div class="govuk-task-list__status">
+          {{ statusTag(data['descriptor6'], 'task-6-status') }}
+        </div>
+      </li>
+
+      <li class="govuk-task-list__item">
+        <div class="govuk-task-list__name-and-hint">
+          <span class="govuk-!-display-block govuk-!-margin-bottom-1">Communicating verbally (7)</span>
+          <a href="descriptor-7" class="govuk-task-list__link" aria-describedby="task-7-status">
+            How does the claimant communicate verbally?
+          </a>
+          {% if data['descriptor7'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor7'] }}
+            </p>
+          {% endif %}
+        </div>
+        <div class="govuk-task-list__status">
+          {{ statusTag(data['descriptor7'], 'task-7-status') }}
+        </div>
+      </li>
+
+      <li class="govuk-task-list__item">
+        <div class="govuk-task-list__name-and-hint">
+          <span class="govuk-!-display-block govuk-!-margin-bottom-1">Reading and understanding signs, symbols and words (8)</span>
+          <a href="descriptor-8" class="govuk-task-list__link" aria-describedby="task-8-status">
+            How well can the claimant read and understand signs, symbols and words?
+          </a>
+          {% if data['descriptor8'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor8'] }}
+            </p>
+          {% endif %}
+        </div>
+        <div class="govuk-task-list__status">
+          {{ statusTag(data['descriptor8'], 'task-8-status') }}
+        </div>
+      </li>
+
+      <li class="govuk-task-list__item">
+        <div class="govuk-task-list__name-and-hint">
+          <span class="govuk-!-display-block govuk-!-margin-bottom-1">Engaging face to face (9)</span>
+          <a href="descriptor-9" class="govuk-task-list__link" aria-describedby="task-9-status">
+            How does the claimant engage face to face?
+          </a>
+          {% if data['descriptor9'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor9'] }}
+            </p>
+          {% endif %}
+        </div>
+        <div class="govuk-task-list__status">
+          {{ statusTag(data['descriptor9'], 'task-9-status') }}
+        </div>
+      </li>
+
+      <li class="govuk-task-list__item">
+        <div class="govuk-task-list__name-and-hint">
+          <span class="govuk-!-display-block govuk-!-margin-bottom-1">Budgeting (10)</span>
+          <a href="descriptor-10" class="govuk-task-list__link" aria-describedby="task-10-status">
+            How does the claimant make budgeting decisions?
+          </a>
+          {% if data['descriptor10'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor10'] }}
+            </p>
+          {% endif %}
+        </div>
+        <div class="govuk-task-list__status">
+          {{ statusTag(data['descriptor10'], 'task-10-status') }}
+        </div>
+      </li>
+
+      <li class="govuk-task-list__item">
+        <div class="govuk-task-list__name-and-hint">
+          <span class="govuk-!-display-block govuk-!-margin-bottom-1">Planning and following journeys (11)</span>
+          <a href="descriptor-11" class="govuk-task-list__link" aria-describedby="task-11-status">
+            How does the claimant plan and follow journeys?
+          </a>
+          {% if data['descriptor11'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor11'] }}
+            </p>
+          {% endif %}
+        </div>
+        <div class="govuk-task-list__status">
+          {{ statusTag(data['descriptor11'], 'task-11-status') }}
+        </div>
+      </li>
+
+      <li class="govuk-task-list__item">
+        <div class="govuk-task-list__name-and-hint">
+          <span class="govuk-!-display-block govuk-!-margin-bottom-1">Moving around (12)</span>
+          <a href="descriptor-12" class="govuk-task-list__link" aria-describedby="task-12-status">
+            How far can the claimant move around?
+          </a>
+          {% if data['descriptor12'] %}
+            <p class="govuk-body govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+              {{ data['descriptor12'] }}
+            </p>
+          {% endif %}
+        </div>
+        <div class="govuk-task-list__status">
+          {{ statusTag(data['descriptor12'], 'task-12-status') }}
+        </div>
+      </li>
+
+    </ol>
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Save and continue",
+        href: "check-your-answers",
+        classes: "govuk-button"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and exit",
+        classes: "govuk-button govuk-button--secondary",
+        href: "/save-and-exit-consultation"
+      }) }}
+    </div>
+
+  </div>
+
+
+
+
+</div>    
+
+
+
+
+
+{% endblock %}

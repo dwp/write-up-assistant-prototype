@@ -1,0 +1,137 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+
+   <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card govuk-!-margin-bottom-1">
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          <strong>Claimant:</strong> John Smith
+         <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+         <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+        <strong class="govuk-!-padding-left-2"> Postcode:</strong>  N2 1XX
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</div>
+  </div>
+</div>
+ 
+{% endblock %}
+
+{% block content %}
+ <div style="margin-top: -30px;"><a href="javascript:history.back()" class="govuk-back-link">Back</a></div> 
+  <div class="govuk-grid-row">
+
+
+    <div class="govuk-grid-column-two-thirds">
+
+<span class="govuk-caption-xl">Washing and bathing (4)</span>
+<h1 class="govuk-heading-xl">How well the claimant can wash and bathe?</h1>
+
+
+
+ <form action="descriptor-5" method="post" novalidate="">
+
+{{ govukRadios({
+    idPrefix: "descriptor-4",
+    name: "descriptor4",
+    value: data['descriptor4'],
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+
+    items: [
+      {
+        value: "(4a) Can wash and bathe unaided",
+        text: "(4a) Can wash and bathe unaided"
+      },
+      {
+        value: "(4b) Needs to use an aid or appliance to be able to wash or bathe",
+        text: "(4b) Needs to use an aid or appliance to be able to wash or bathe"
+      },
+      {
+        value: "(4c) Needs supervision or prompting to be able to wash or bathe",
+        text: "(4c) Needs supervision or prompting to be able to wash or bathe"
+      },
+      {
+        value: "(4d) Needs assistance to be able to wash either their hair or body below the waist",
+        text: "(4d) Needs assistance to be able to wash either their hair or body below the waist"
+      },
+      {
+        value: "(4e) Needs assistance to be able to get in or out of a bath or shower",
+        text: "(4e) Needs assistance to be able to get in or out of a bath or shower",
+        checked: true
+      },
+      {
+        value: "(4f) Needs assistance to be able to wash their body between the shoulders and waist",
+        text: "(4f) Needs assistance to be able to wash their body between the shoulders and waist"
+      }
+      ,
+      {
+        value: "(4g) Cannot wash and bathe at all and needs another person to wash their entire body",
+        text: "(4g) Cannot wash and bathe at all and needs another person to wash their entire body"
+      }
+    ]
+  }) }}
+
+
+<!-- place it in a form if will use it-->
+
+<div class="govuk-button-group">
+      {{ govukButton({
+        text: "Save and continue",
+        isStartButton: false
+      }) }}
+
+        {{ govukButton({
+          text: "Save and return to list",
+            href: "select-descriptors?descriptor4=(4e) Needs assistance to be able to get in or out of a bath or shower",
+          classes: "govuk-button--secondary"
+        }) }}
+</div>
+
+</form>
+  
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
+      <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in a new tab</div>
+    <nav role="navigation" aria-labelledby="subsection-title">
+      <ul class="govuk-list">
+        <li><a href="add-notes-view" target="_blank">Consultation notes</a></li>
+        <li><a class="govuk-link" href="review-evidence" target="_blank">Evidence list</a></li>
+        <li><a class="govuk-link" href="files/view-pip2" target="_blank">PIP2.pdf</a></li>
+        <li><a class="govuk-link" href="files/view-pip2" target="_blank">FE.pdf</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  </div>
+
+{% endblock %}

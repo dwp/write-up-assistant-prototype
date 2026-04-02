@@ -1,0 +1,181 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+  
+{% endblock %}
+
+{% block content %}
+  <a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+  
+      <h1 class="govuk-heading-xl">
+        Review period for PIP
+      </h1>
+
+      <p>Your artificial intelligence assistant will review the documents and extract the relevant information to produce an initial draft assessment report. </p>
+   <!--consultation date--> 
+<div>
+
+<!-- Review period for PIP -->
+<form action="preview-report" method="post" novalidate="">
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      When should this claim be reviewed?
+    </legend>
+
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="review-18-months" name="review-period" type="radio" value="18 months" checked>
+        <label class="govuk-label govuk-radios__label" for="review-18-months">18 months</label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="review-3-years" name="review-period" type="radio" value="3 years" >
+        <label class="govuk-label govuk-radios__label" for="review-3-years">3 years</label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="review-5-years" name="review-period" type="radio" value="5 years">
+        <label class="govuk-label govuk-radios__label" for="review-5-years">5 years</label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="review-none" name="review-period" type="radio" value="no future assessments required">
+        <label class="govuk-label govuk-radios__label" for="review-none">No future assessments required</label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="review-other" name="review-period" type="radio" value="other">
+        <label class="govuk-label govuk-radios__label" for="review-other">Other</label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--m" for="review-reason">
+    Why do you recommend this review period?
+  </label>
+  <textarea class="govuk-textarea" id="review-reason" name="review-reason" rows="5">
+{{ data['RecommendedReviewPeriod']  or "not captured" }}
+  </textarea>
+</div>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      Is it likely that the functional restriction identified in this report will still be present when the claim is reviewed?
+    </legend>
+
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="restriction-yes" name="restriction-present" type="radio" value="Yes" checked>
+        <label class="govuk-label govuk-radios__label" for="restriction-yes">Yes</label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="restriction-no" name="restriction-present" type="radio" value="No">
+        <label class="govuk-label govuk-radios__label" for="restriction-no">No</label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="restriction-na" name="restriction-present" type="radio" value="Not applicable">
+        <label class="govuk-label govuk-radios__label" for="restriction-na">Not applicable</label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      Is the claimant likely to need additional support for future claim processes?
+    </legend>
+
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="future-support-yes" name="future-support" type="radio" value="Yes">
+        <label class="govuk-label govuk-radios__label" for="future-support-yes">Yes</label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="future-support-no" name="future-support" type="radio" value="No" checked>
+        <label class="govuk-label govuk-radios__label" for="future-support-no">No</label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      Although they have not claimed under special rules, in your opinion, does the claimant meet the criteria for special rules?
+    </legend>
+
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="special-rules-yes" name="special-rules" type="radio" value="Yes" checked>
+        <label class="govuk-label govuk-radios__label" for="special-rules-yes">Yes</label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="special-rules-no" name="special-rules" type="radio" value="No">
+        <label class="govuk-label govuk-radios__label" for="special-rules-no">No</label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="govuk-form-group">
+  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="harmful-info" name="harmful-info" type="checkbox" value="No harmful information">
+      <label class="govuk-label govuk-checkboxes__label" for="harmful-info">
+        No harmful information has been included in this report.
+      </label>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+<div class="govuk-!-margin-top-8">
+
+ <div class="govuk-button-group">
+    {{ govukButton({
+        text: "Save and continue",
+        isStartButton: false
+      }) }}
+
+          {{ govukButton({
+          text: "Save and return home",
+          classes: "govuk-button--secondary",
+          href: "select-case"
+        }) }}
+      </div>
+</div>
+
+</form>
+    
+
+    </div>
+
+  </div>
+
+{% endblock %}

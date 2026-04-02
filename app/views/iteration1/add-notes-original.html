@@ -35,48 +35,20 @@
   <div id="more-detail-hint" class="govuk-hint">
     Provide a clear summary of the claimant’s health conditions, including onset, duration, progression and any recent changes.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="15" aria-describedby="more-detail-hint">
-Condition & History
- Condition
- Start date
- Relapses
- Recent treatment
-
-Current Status
- Current state
- Symptoms
- Symptom detail
-
-Functional Impact
- Restrictions
- Activities affected
- Coping
- Good/bad days
-
-Treatment & Support
- Current treatment
- Effectiveness
- Seeing a GP/nurse/consultant
- Frequency
- Last review
- Ongoing/finished
- Admissions
- Duration/outcome
-
-Future Care
- Upcoming appointments
- Pending treatment
- Aids/equipment
-
-Other Conditions
- Additional conditions
- Restrictions
-
-Mental Health
- MH discussion
- MH conditions
- MH restrictions
- MH daily impact
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
+Condition 1:
+{{ case.report[0].content[0]["Condition or disability name"] }}
+{{ case.report[0].content[0]["Current treatments, specialist input and hospital stays"] }}
+{{ case.report[0].content[0]["Diagnosis, impact and variability"] }}
+{{ case.report[0].content[0]["Home therapies (optional)"] }}
+Started in {{ case.report[0].content[0]["When did the condition or disability start?"] }}
+Condition 2
+{{ case.report[0].content[1]["Condition or disability name"] }}
+{{ case.report[0].content[1]["Current treatments, specialist input and hospital stays"] }}
+{{ case.report[0].content[1]["Diagnosis, impact and variability"] }}
+{{ case.report[0].content[1]["Home therapies (optional)"] }}
+Started in {{ case.report[0].content[0]["When did the condition or disability start?"] }}
+No Suicidal thoughts no self harm 
 </textarea>
 </div>
 
@@ -90,20 +62,9 @@ Mental Health
     List all prescribed and over‑the‑counter medications, including dosage, frequency, reason for taking, and any reported side effects.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
-Medication Checklist 
-For Each Condition
- Medication
- Name
- Dose
- Helpful?
-Other Medications
- Other drugs
- Purpose
- Dose
- Frequency
- Effective?
- Home therapy
- Anything else
+    {% for med in case.report[2].content %}
+    {{ med["Medication Name"] }}  {{ med.Dosage }}  {{ med.Frequency }}  {{ med["Effectiveness (optional)"] }} {{ med["Reason for taking"] }} {{ med["Side effects (optional)"] }}
+    {% endfor %}
   </textarea>
 </div>
 
@@ -116,128 +77,7 @@ Other Medications
   <div id="more-detail-hint" class="govuk-hint">
     Describe the claimant’s living situation, daily routines, work history and any social or environmental factors that affect their functioning.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="15" aria-describedby="more-detail-hint">
-Home & Living
- Home type
- Floor level
- Stairs
- Stair management
- Who lives with
- Falls history
- Fall injuries
-
-Aids / Adaptations
- Home aids
- Prescribed?
- Usage frequency
- Walking aids
- Hand splints
- Splint purpose
- Splint use
- Prescriber
- Home adaptations
- Bathroom aids
- Toilet location
-
-Bathing / Dressing
-
- Bath/shower method
- Assistance
- After‑care
- Dressing process
- Independent?
-
-Pets / Children / Caring
- Children
- Pets
- Pet care
- Dog walking
- Route
- Caring duties
-
-Driving
- Manual/auto
- Frequency
- Destinations
- Seatbelt
- Blue badge
-
-Work / Education
- Work type
- Hours
- Role
- Interactions
- Sick leave
- Stopped work—why
- School type
- Coursework support
- Travel to school
-Housework
- Tasks managed
- Frequency
- Help given
- Hanging clothes
- Who does it
- Why not
-Shopping
- Frequency
- Online?
- Local shop
- Travel to shop
- Taxi use
- Trolley/basket
- Card use
- Ask staff?
- Who shops?
- Why not?
-Cooking
- Meals made
- Duration
- Chop/peel
- Lift pans
- Stand at cooker
- Cooking aids
- Assistance
- Supervision
- Accidents
-
-Correspondence
- Open letters
- Read letters
- Manage appointments
- Past ability
- Reason stopped
-
-Hobbies / Weekends
- Hobbies
- Frequency
- Duration
-
-Going Out / Socialising
- Go out?
- Reasons
- Garden access
- Family events
- Stopped—why
- Park visits
- Travel to park
-
-Daily Routine
- Typical day
- After lunch
- Rest time
- Questionnaire filled by
-
-Sleep
- Sleep pattern
- Hours
-Standing
- Standing tolerance
-
-
- Internet
-
-  </textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">{{ case.report[3].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -249,18 +89,7 @@ Standing
   <div id="more-detail-hint" class="govuk-hint">
     Record any difficulties with planning, preparing, or safely cooking meals.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
-Meals made
-Frequency
-Chopping
-Opening
-Lifting pans
-Aids
-Help
-Supervision
-Accidents
-Standing
-  </textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">{{ case.report[3].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -272,16 +101,7 @@ Standing
   <div id="more-detail-hint" class="govuk-hint">
     Describe issues with eating, drinking, or managing nutritional needs independently.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
-Meal count
-Eating issues
-Choking
-Cutlery
-Weight loss
-Eating disorder
-Weight/height
-Prompting
-  </textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">{{ case.report[4].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -293,14 +113,7 @@ Prompting
   <div id="more-detail-hint" class="govuk-hint">
     Note the claimant’s ability to follow treatment plans, manage therapy routines, or carry out medical interventions.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
-Medication routine
-Prompting
-Supervision
-Dosette use
-Packaging
-Home therapy
-  </textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">{{ case.report[5].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -312,19 +125,7 @@ Home therapy
   <div id="more-detail-hint" class="govuk-hint">
     Document any challenges with personal hygiene tasks, including washing, bathing or using facilities safely.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
-Wash method
-Bath/shower
-Aids
-Access in/out
-Standing
-Breaks
-Duration
-Aftercare
-Falls
-Prompting
-Sequencing
-  </textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">{{ case.report[6].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -336,14 +137,7 @@ Sequencing
   <div id="more-detail-hint" class="govuk-hint">
     Describe continence issues or difficulties accessing, using, or managing toilet needs.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
-Toilet transfer
-Cleaning
-Incontinence
-Accidents
-Pads/wet pants
-Adaptations
-  </textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">{{ case.report[7].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -355,15 +149,7 @@ Adaptations
   <div id="more-detail-hint" class="govuk-hint">
     Record problems with selecting clothing, dressing independently, or removing garments.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
-Frequency
-Method
-Fastenings
-Footwear
-Duration
-Breaks
-Weather choice
-  </textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">{{ case.report[8].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -375,13 +161,7 @@ Weather choice
   <div id="more-detail-hint" class="govuk-hint">
     Note speech, comprehension, articulation or communication difficulties observed during the consultation.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
-Hearing diagnosis
-Speech issues
-Hearing aids
-Sight impairment
-Reading aids
-  </textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">{{ case.report[9].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -393,10 +173,7 @@ Reading aids
   <div id="more-detail-hint" class="govuk-hint">
     Describe any challenges with reading, processing written information or understanding visual prompts.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
-Reading
-Texting
-  </textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">{{ case.report[10].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -408,14 +185,7 @@ Texting
   <div id="more-detail-hint" class="govuk-hint">
     Record how the claimant engages in face‑to‑face interactions, including cooperation, rapport, and social communication skills.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
-Social contacts
-Asking help
-Ordering food
-Speaking to drivers
-Prompting/support
-Unfamiliar people
-  </textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">{{ case.report[11].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -427,14 +197,7 @@ Unfamiliar people
   <div id="more-detail-hint" class="govuk-hint">
     Describe any limitations in managing money, budgeting tasks or making financial decisions.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
-Paying bills
-Direct debits
-Online banking
-Transfers
-Giving change
-Quick test
-  </textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">{{ case.report[12].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -446,19 +209,7 @@ Quick test
   <div id="more-detail-hint" class="govuk-hint">
     Document difficulties with route planning, navigation, or travelling independently.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
-Frequency
-Destinations
-Alone
-Appointments travel
-Transport
-Unfamiliar routes
-Independence
-Outdoor accidents
-Barriers
-Feelings
-Symptoms
-  </textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">{{ case.report[13].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -470,18 +221,7 @@ Symptoms
   <div id="more-detail-hint" class="govuk-hint">
     Record mobility issues, including walking distances, balance, pain, stability or the use of mobility aids.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
-Walking habits
-Frequency
-Pace
-Distance
-Aids
-Indoor walking
-Garden access
-Bus stop distance
-Shop/GP distance
-Hospital distance
-  </textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">{{ case.report[14].content.description }}</textarea>
 </div>
 
 <div class="govuk-form-group">

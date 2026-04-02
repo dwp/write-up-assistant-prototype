@@ -1,0 +1,55 @@
+{% extends "layouts/main-wua-nomenu.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Start page
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Sign in
+      </h1>
+      <p> Enter your WDP account details </p>
+
+        {{ govukInput({
+          label: {
+            text: "Username"
+          },
+          id: "event-name",
+          name: "eventName"
+        }) }}
+      {{ govukPasswordInput({
+        label: {
+          text: "Password"
+        },
+        id: "password-input",
+        name: "password"
+      }) }}
+
+
+      {{ govukButton({
+        text: "Continue",
+        href: "intro-page",
+        isStartButton: false
+      }) }}
+
+
+    </div>
+
+  </div>
+
+{% endblock %}

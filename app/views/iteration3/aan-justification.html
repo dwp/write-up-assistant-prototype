@@ -1,0 +1,176 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+      <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card govuk-!-margin-bottom-1">
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          <strong>Claimant:</strong> John Smith
+         <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+         <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+        <strong class="govuk-!-padding-left-2"> Postcode:</strong>  N2 1XX
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{% set case = data.cases[0] %}
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
+
+<div class="govuk-grid-row">
+
+
+
+
+  <!-- LEFT COLUMN: FORM -->
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Add your consultation notes</h1>
+    <p class="govuk-body">Your artificial intelligence assistant will review these notes and use them to produce an initial draft assessment report.</p>
+
+<form action="aa-soh" method="post" novalidate>
+
+  <!-- justufy -->
+  <div id="mental-state" class="govuk-form-group">
+    <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--l" for="mentalStateObservations">Justification summary</label>
+    </h1>
+    <div id="mentalStateObservations-hint" class="govuk-hint">
+      Observations about the claimant’s behaviour and interaction.
+    </div>
+    <p class="govuk-!-margin-bottom-1">
+      <a href="#" class="govuk-link load-headings" data-target="mentalStateObservations" data-heading="mentalStateHeadings">Add prompts</a>
+    </p>
+    <textarea class="govuk-textarea" id="mentalStateObservations" name="mentalStateObservations" rows="10"></textarea>
+  </div>
+
+
+
+
+  <div class="govuk-button-group">
+    {{ govukButton({ text: "Save and continue" }) }}
+
+    {{ govukButton({
+      text: "Save and exit",
+      href: "select-case",
+      classes: "govuk-button--secondary"
+    }) }}
+  </div>
+
+
+  {% block pageScripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  document.querySelectorAll(".load-headings").forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const targetId = this.dataset.target;      // textarea ID
+      const headingKey = this.dataset.heading;   // session variable name
+
+      // read from session data
+      const headingText = {{ data | dump | safe }}[headingKey];
+
+      if (!headingText) return;
+
+      const textarea = document.getElementById(targetId);
+      if (!textarea) return;
+
+      // Insert headings into the textarea
+      textarea.value = headingText.trim();
+    });
+  });
+
+});
+</script>
+{% endblock %}
+
+</form>
+
+
+  </div>
+
+
+
+
+
+  <!-- RIGHT SIDEBAR -->
+  <!-- RIGHT SIDEBAR -->
+<div class="govuk-grid-column-one-third sticky-container">
+  
+  <div class="">
+
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
+      <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in a new tab</div>
+    <nav role="navigation" aria-labelledby="subsection-title">
+      <ul class="govuk-list">
+        <li style="display: none;">
+         <a href="my-crib-sheet" target="_blank">Crib-sheet</a>
+          </li>
+        <li>
+          <a class="govuk-link" href="review-case-evidence">Evidence list</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="files/view-pip2" target="_blank">PIP2.pdf</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="files/view-fe" target="_blank">FE.pdf</a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+
+    <div class="sticky-nav">
+
+    <h2 class="govuk-heading-m" id="subsection-title">Navigate</h2>
+    <nav role="navigation" class="border" aria-labelledby="subsection-title">
+      <ul class="govuk-list">
+        <li><a class="govuk-link" href="aan-conditions-and-medication">Condition history and medication</a></li>
+        <li><a class="govuk-link" href="aa-soh">Social & occupational history</a></li>
+        <li>Activities</li>
+        <li><a class="govuk-link" href="aa-other-sections#preparing-food">Preparing food</a></li>
+        <li><a class="govuk-link" href="aa-other-sections#taking-nutrition">Taking nutrition</a></li>
+        <li><a class="govuk-link" href="aa-other-sections#managing-therapy">Managing therapy</a></li>
+        <li><a class="govuk-link" href="aa-other-sections#washing-bathing">Washing & bathing</a></li>
+        <li><a class="govuk-link" href="aa-other-sections#toilet-needs">Managing toilet needs</a></li>
+        <li><a class="govuk-link" href="aa-other-sections#dressing-undressing">Dressing & undressing</a></li>
+        <li><a class="govuk-link" href="aa-other-sections#communicating-verbally">Communicating verbally</a></li>
+        <li><a class="govuk-link" href="aa-other-sections#reading-understanding">Reading & understanding</a></li>
+        <li><a class="govuk-link" href="aa-other-sections#engaging-face-to-face">Engaging face to face</a></li>
+        <li><a class="govuk-link" href="aa-other-sections#budgeting-section">Budgeting</a></li>
+        <li><a class="govuk-link" href="aa-other-sections#planning-journeys">Planning & following journeys</a></li>
+        <li><a class="govuk-link" href="aa-other-sections#moving-around">Moving around</a></li>
+        <li><a class="govuk-link" href="aan-observations">Mental and informal observations</a></li>
+         <li><a class="govuk-link" href="aan-observations">Justification summary</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+</div>
+
+
+</div>
+
+
+{% endblock %}

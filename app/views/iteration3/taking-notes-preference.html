@@ -1,0 +1,63 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Add consultation notes
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: 'This is not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" action="/iteration2/notes-entry-choice" novalidate>
+      {{ govukRadios({
+        name: "notes-entry-method",
+        fieldset: {
+          legend: {
+            text: "How do you want to add your consultation notes?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Choose the format that best matches how you usually capture information during the PIP consultation."
+        },
+        items: [
+          {
+            value: "structured",
+            text: "Use structured text areas",
+            hint: {
+              text: "Follow the PIP activities and descriptors. Good for detailed structured evidence."
+            }
+          },
+          {
+            value: "freeform",
+            text: "Use a blank free‑form text box",
+            hint: {
+              text: "Useful if you prefer writing a single narrative covering all functional areas or just copy and paste."
+            }
+          }
+        ]
+      }) }}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue",
+          classes: "govuk-button"
+        }) }}
+      </div>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

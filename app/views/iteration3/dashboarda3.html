@@ -1,0 +1,297 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Add consultation notes (free‑form)
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: 'This is not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-margin-top--3">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card">
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+        Jonh Smith
+        </dt>
+        <dd class="govuk-summary-list__value">
+          AB CB 12 13
+        </dd>
+        <dd class="govuk-summary-list__actions">
+         Postocode: N2 1XX
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</div>
+  </div>
+</div>
+
+  <!-- 1/3 column on the right: prompts -->
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-third">
+
+<button class="dwp-side-navigation__button" data-module="dwp-side-navigation"
+  data-target="dwp-side-navigation-panel"
+  data-label-hide="Hide navigation"
+  data-label-show="Show navigation"
+  aria-expanded="false">
+  <span class="dwp-side-navigation__section-toggle-focus">
+    <span class="dwp-side-navigation__chevron dwp-side-navigation__chevron--down"></span>
+    <span class="dwp-side-navigation__section-toggle-text">Show navigation</span>
+  </span>
+</button>
+<nav data-module="dwp-side-navigation-panel" class="dwp-side-navigation dwp-side-navigation--mobile" aria-label="Side" role="navigation">
+  
+  <ul class="dwp-side-navigation__list">
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="assessment-dashboard" class="dwp-side-navigation__link">
+        Review documents
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item dwp-side-navigation__item--selected">
+      <a id="s-item-2" href="assessment-dashboard2" class="dwp-side-navigation__link dwp-side-navigation__link--selected" aria-current="true">
+        Consultation details
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="#s-item-3" class="dwp-side-navigation__link">
+       Condition history
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-4" href="assessment-dashboard3" class="dwp-side-navigation__link">
+        Medication
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-5" href="assessment-dashboard4" class="dwp-side-navigation__link">
+        Social and occupational history
+      </a>
+    </li>
+        <li class="dwp-side-navigation__item">
+      <a id="s-item-5" href="assessment-dashboard5" class="dwp-side-navigation__link">
+        Preparing food
+      </a>
+    </li>
+     <li class="dwp-side-navigation__item">
+      <a id="s-item-5" href="assessment-dashboar6" class="dwp-side-navigation__link">
+        Taking nutrition
+      </a>
+        <li class="dwp-side-navigation__item">
+      <a id="s-item-5" href="#s-item-5" class="dwp-side-navigation__link">
+        Managing therapy
+      </a>
+    </li>
+        <li class="dwp-side-navigation__item">
+      <a id="s-item-5" href="#s-item-5" class="dwp-side-navigation__link">
+        Washing and bathing
+      </a>
+    </li>
+        <li class="dwp-side-navigation__item">
+      <a id="s-item-5" href="#s-item-5" class="dwp-side-navigation__link">
+        Managing toilet needs
+      </a>
+    </li>
+        <li class="dwp-side-navigation__item">
+      <a id="s-item-5" href="#s-item-5" class="dwp-side-navigation__link">
+        Dressing and undressing
+      </a>
+    </li>
+        <li class="dwp-side-navigation__item">
+      <a id="s-item-5" href="#s-item-5" class="dwp-side-navigation__link">
+        Communicating verbally
+      </a>
+    </li>
+        <li class="dwp-side-navigation__item">
+      <a id="s-item-5" href="#s-item-5" class="dwp-side-navigation__link">
+        Reading and understanding signs, symbols and words
+      </a>
+    </li>
+        <li class="dwp-side-navigation__item">
+      <a id="s-item-5" href="#s-item-5" class="dwp-side-navigation__link">
+        Engaging face to face
+      </a>
+    </li>
+        <li class="dwp-side-navigation__item">
+      <a id="s-item-5" href="#s-item-5" class="dwp-side-navigation__link">
+        Budgeting
+      </a>
+    </li>
+        </li>
+        <li class="dwp-side-navigation__item">
+      <a id="s-item-5" href="#s-item-5" class="dwp-side-navigation__link">
+        Planning and following journeys
+      </a>
+    </li>
+        </li>
+        <li class="dwp-side-navigation__item">
+      <a id="s-item-5" href="#s-item-5" class="dwp-side-navigation__link">
+        Moving around
+      </a>
+    </li>
+        </li>
+        <li class="dwp-side-navigation__item">
+      <a id="s-item-5" href="#s-item-5" class="dwp-side-navigation__link">
+        Mental state observations
+      </a>
+    </li>
+     </li>
+     <li class="dwp-side-navigation__item">
+      <a id="s-item-5" href="#s-item-5" class="dwp-side-navigation__link">
+        Informal observations
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-5" href="#s-item-5" class="dwp-side-navigation__link">
+        Review period
+      </a>
+    </li>
+  </ul>
+
+</nav>
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Generate AI report",
+          classes: "govuk-button"
+        }) }}
+        {{ govukButton({
+          text: "Save and exit",
+          classes: "govuk-button govuk-button--secondary",
+          href: "/save-and-exit-consultation"
+        }) }}
+      </div>
+</div>
+
+
+  <!-- 2/3 column: large free-form text area -->
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Add the consultation details</h1>
+
+    <p>Provide the details from the consultation. These will be used to help prepare the assessment report.</p>
+
+    <form action="taking-notes-preference" method="post" novalidate>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="consultation-date-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">What is the consultation date?</h1>
+          </legend>
+          <div id="consultation-date-hint" class="govuk-hint">For example, 31 3 2025</div>
+
+          <div class="govuk-date-input" id="consultation-date">
+
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="date-day">Day</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-day" name="date-day" type="text" value="20">
+              </div>
+            </div>
+
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="date-month">Month</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-month" name="date-month" type="text" value="04">
+              </div>
+            </div>
+
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="date-year">Year</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-year" name="date-year" type="text" value="2026">
+              </div>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+{# --- Conditional content shown when "identity confirmed" is checked --- #}
+{% set identityCheck %}
+  {{ govukCheckboxes({
+    id: "id-docs",
+    name: "id-docs",
+    fieldset: {
+      legend: {
+        text: "How did you confirm their identity?",
+        classes: "govuk-fieldset__legend--s"
+      }
+    },
+    items: [
+      { value: "Full name", text: "Full name", checked: true },
+      { value: "Date of Birth", text: "Date of birth", checked: true },
+      { value: "Address", text: "Address (first line and postcode)", checked: true },
+      { value: "NINO", text: "National Insurance number (NINO)", checked: true },
+      { value: "security Questions", text: "DWP security questions (case details)" }
+    ]
+  }) }}
+{% endset -%}
+
+{# --- Single checkbox group combining both previous questions --- #}
+{{ govukCheckboxes({
+  idPrefix: "identity-consent",
+  name: "identity-consent",
+  fieldset: {
+    legend: {
+      text: "Identity and consent",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "identity-confirmed",
+      text: "Yes, I confirmed the claimant’s identity",
+      checked: true,
+      conditional: { html: identityCheck }
+    },
+    {
+      value: "consent-given",
+      text: "Yes, the claimant gave consent",
+      checked: true,
+      hint: {
+        text: "Make sure the claimant understands the purpose of the consultation, and they consent to continue."
+      }
+    }
+  ]
+}) }}
+
+      <h2 class="govuk-heading-m">Additional attendees</h2>
+      <p class="govuk-body">
+        No additional attendees have been added.
+        <a class="govuk-link" href="#">Add an attendee</a>
+      </p>
+
+      <div class="govuk-button-group govuk-!-margin-top-8">
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-button"
+        }) }}
+
+        {{ govukButton({
+          text: "Save and exit",
+          classes: "govuk-button govuk-button--secondary",
+          href: "/save-and-exit-consultation"
+        }) }}
+
+      </div>
+
+    </form>
+
+  </div>
+
+
+</div>
+
+{% endblock %}

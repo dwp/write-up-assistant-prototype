@@ -1,0 +1,117 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Add consultation notes (free‑form)
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: 'This is not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+<div class="govuk-grid-row">
+  <!-- 2/3 column: large free-form text area -->
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" action="select-descriptors" novalidate>
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--l" for="freeFormNotes">
+    Write your consultation notes
+  </label>
+
+  <div id="freeFormNotes-hint" class="govuk-hint">
+    Write one clear narrative covering the consultation. You can refine or structure this later.
+  </div>
+        {{ govukButton({
+          text: "Import crib-sheet",
+          classes: "govuk-button govuk-button--secondary",
+          href: "#"
+        }) }}
+  <textarea class="govuk-textarea govuk-js-character-count" 
+            id="freeFormNotes" 
+            name="freeFormNotes" 
+            rows="24" 
+            aria-describedby="freeFormNotes-info freeFormNotes-hint" 
+            data-maxwords="4000">{{ data.freeFormNotes }}</textarea>
+
+  <div id="freeFormNotes-info" 
+       class="govuk-hint govuk-character-count__message"
+       aria-live="polite">
+    You can enter up to 4000 words
+  </div>
+</div>
+
+    <div class="govuk-inset-text">
+      Keep notes factual and clinically justified, linked to functional impact. Summarise evidence rather than copying large passages.
+    </div>
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-button"
+        }) }}
+       {{ govukButton({
+          text: "Run AI check",
+          classes: "govuk-button govuk-button--secondary",
+          href: "#"
+        }) }}
+        {{ govukButton({
+          text: "Save and exit",
+          classes: "govuk-button govuk-button--secondary",
+          href: "/save-and-exit-consultation"
+        }) }}
+      </div>
+
+    </form>
+
+  </div>
+
+  <!-- 1/3 column on the right: prompts -->
+  <div class="govuk-grid-column-one-third">
+
+     <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
+      <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in new tab</div>
+
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list">
+          <li>
+            <p class="govuk-body"><a href="my-crib-sheet">Crib-sheet</a></p>
+          </li>
+          <li>
+            <p class="govuk-body"><a href="review-evidence">Evidence list</a></p>
+          </li>
+          <li>
+            <p class="govuk-body"><a href="files/view-pip2" target="_blank">PIP2.pdf</a></p>
+          </li>
+          <li>
+            <p class="govuk-body"><a href="files/view-fe" target="_blank">FE.pdf</a></p>
+          </li>
+        </ul>
+      </nav>
+
+
+    <h2 class="govuk-heading-m">What to include</h2>
+    <p class="govuk-body">Use these prompts to make sure you cover the information needed for the assessment report:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li><strong>Condition history</strong> – onset, duration, progression, variability, recent changes</li>
+      <li><strong>Medication</strong> – names, doses, frequency, effectiveness, side effects</li>
+      <li><strong>Social & occupational history</strong> – living situation, routines, work/education, support</li>
+      <li><strong>Daily living</strong> – Preparing food; Taking nutrition; Managing therapy; Washing & bathing; Managing toilet needs; Dressing & undressing; Communicating verbally; Reading & understanding; Engaging face to face; Budgeting</li>
+      <li><strong>Mobility</strong> – Planning & following journeys; Moving around (distances, aids, stability, pain)</li>
+      <li><strong>Mental state observations</strong> – mood, behaviour, cognition, communication, engagement</li>
+      <li><strong>Informal observations</strong> – anything noted before/during/after the call not captured elsewhere</li>
+      <li><strong>Reliability</strong> – can activities be done safely, to an acceptable standard, repeatedly, and in a reasonable time</li>
+      <li><strong>Fluctuation</strong> – typical day, better/worse days, frequency and impact</li>
+      <li><strong>Collateral evidence</strong> – key points from documents or third‑party input</li>
+    </ul>
+
+  </div>
+</div>
+
+{% endblock %}

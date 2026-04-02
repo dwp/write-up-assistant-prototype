@@ -1,0 +1,117 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Add condition
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div class="govuk-summary-card govuk-!-margin-bottom-1">
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                <strong>Claimant:</strong> John Smith
+                <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+                <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+                <strong class="govuk-!-padding-left-2">Postcode:</strong> N2 1XX
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-top:-30px;">Back</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-xl">Add new condition</h1>
+
+    <form action="/iteration2/new-condition" method="post" novalidate>
+
+      <input type="hidden" name="conditionIndex" value="{{ conditionIndex }}">
+
+      <div class="govuk-form-group">
+
+        <h3 class="govuk-heading-m">Condition name</h3>
+        <textarea class="govuk-textarea"
+                  id="condition-name"
+                  name="condition-name"
+                  rows="2">{{ condition.name }}</textarea>
+
+        <h3 class="govuk-heading-m">When did the condition or disability start?</h3>
+        <textarea class="govuk-textarea"
+                  id="condition-start"
+                  name="condition-start"
+                  rows="1">{{ condition.start }}</textarea>
+
+        <h3 class="govuk-heading-m">Diagnosis, impact and variability</h3>
+        <textarea class="govuk-textarea"
+                  id="condition-diagnosis"
+                  name="condition-diagnosis"
+                  rows="7">{{ condition.diagnosis }}</textarea>
+
+        <h3 class="govuk-heading-m">Current treatments, specialist input and hospital stays</h3>
+        <textarea class="govuk-textarea"
+                  id="condition-treatments"
+                  name="condition-treatments"
+                  rows="7">{{ condition.treatments }}</textarea>
+
+        <h3 class="govuk-heading-m">Home therapies (optional)</h3>
+        <textarea class="govuk-textarea"
+                  id="condition-home-therapies"
+                  name="condition-home-therapies"
+                  rows="7">{{ condition.therapies }}</textarea>
+
+        <h3 class="govuk-heading-m">Suicidal thoughts and self harm (optional)</h3>
+        <textarea class="govuk-textarea"
+                  id="condition-risk"
+                  name="condition-risk"
+                  rows="7">{{ condition.risk }}</textarea>
+
+      </div>
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          type: "submit",
+          text: "Save condition"
+        }) }}
+
+        {{ govukButton({
+          text: "Cancel",
+          classes: "govuk-button--secondary",
+          href: "/iteration2/dashboard-notes#addConditions-conditionHistory"
+        }) }}
+      </div>
+
+    </form>
+
+  </div>
+
+  <div class="govuk-grid-column-one-quarter">
+
+    <h2 class="govuk-heading-m" id="subsection-title">Quick access</h2>
+    <nav role="navigation" aria-labelledby="subsection-title">
+      <ul class="govuk-list">
+        <li><a class="govuk-link" href="review-evidence">Evidence list</a></li>
+        <li><a class="govuk-link" href="review-evidence">PIP2.pdf</a></li>
+        <li><a class="govuk-link" href="review-evidence">FE.pdf</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -9,8 +9,7 @@
     tag: { text: "Prototype" },
     html: 'This is a not a service, it is a prototype created for user testing'
   }) }}
-
-<div class="govuk-grid-row">
+      <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <div class="govuk-summary-card govuk-!-margin-bottom-1">
   <div class="govuk-summary-card__content">
@@ -29,7 +28,6 @@
 </div>
   </div>
 </div>
-
 {% endblock %}
 
 {% block content %}
@@ -48,53 +46,21 @@
     <h1 class="govuk-heading-xl">Add your consultation notes</h1>
     <p class="govuk-body">Your artificial intelligence assistant will review these notes and use them to produce an initial draft assessment report.</p>
 
-
 <form action="select-descriptors" method="post" novalidate>
 
-<!-- CONDITION HISTORY -->
-<div id="condition-history" class="govuk-form-group">
-  <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--l" for="conditionHistory">
-      Condition history
-    </label>
-  </h1>
-
-  <div id="conditionHistory-hint" class="govuk-hint">
-    Provide a clear summary of the claimant’s health conditions, including onset, duration, progression and any recent changes.
-  </div>
-
-  <p class="govuk-!-margin-bottom-1">
-    <a
-      href="#"
-      id="toggle-condition-prompts"
-      class="govuk-link"
-      aria-expanded="true"
-    >
-      Hide prompts
-    </a>
-  </p>
-
-  <textarea
-    class="govuk-textarea"
-    id="conditionHistory"
-    name="conditionHistory"
-    rows="10"
-    aria-describedby="conditionHistory-hint">
-    Meals made
-    Frequency
-    Chopping
-    Opening
-    Lifting pans
-    Aids
-    Help
-    Supervision
-    Accidents
-    Standing
-    </textarea>
+  <!-- CONDITION HISTORY -->
+  <div id="condition-history" class="govuk-form-group">
+    <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--l" for="conditionHistory">Condition history</label>
+    </h1>
+    <div id="conditionHistory-hint" class="govuk-hint">
+      Provide a clear summary of the claimant’s health conditions, including onset, duration, progression and any recent changes.
     </div>
-
-
-
+    <p class="govuk-!-margin-bottom-1">
+      <a href="#" class="govuk-link load-headings" data-target="conditionHistory" data-heading="conditionHeadings">Add prompts</a>
+    </p>
+    <textarea class="govuk-textarea" id="conditionHistory" name="conditionHistory" rows="10"></textarea>
+  </div>
 
   <!-- MEDICATION -->
   <div id="medication-section" class="govuk-form-group">
@@ -404,7 +370,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
       <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in a new tab</div>
-     <nav role="navigation" class="border" aria-labelledby="subsection-title">
+    <nav role="navigation" aria-labelledby="subsection-title">
       <ul class="govuk-list">
         <li style="display: none;">
          <a href="my-crib-sheet" target="_blank">Crib-sheet</a>
@@ -425,7 +391,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <div class="sticky-nav">
 
-    <h2 class="govuk-heading-m" id="subsection-title">Jump to section</h2>
+    <h2 class="govuk-heading-m" id="subsection-title">On this page</h2>
     <nav role="navigation" class="border" aria-labelledby="subsection-title">
       <ul class="govuk-list">
         <li><a class="govuk-link" href="#condition-history">Condition history</a></li>

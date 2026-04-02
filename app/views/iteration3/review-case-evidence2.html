@@ -1,0 +1,385 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+  <a href="javascript:history.back()" class="govuk-back-link" >Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Review application documents</h1>
+    <p class="govuk-!-padding-bottom-7">Select the documents you want to include in the assessment. Choose only the
+      files that are relevant and provide useful information about the claimant’s health condition and daily living
+      needs.</p>
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value govuk-!-font-weight-bold">
+              Claimant
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Jonh Smith
+            </dd>
+            <dt class="govuk-summary-list__value govuk-!-font-weight-bold">
+              NINO
+            </dt>
+            <dd class="govuk-summary-list__value">
+              QQ 12 34 56 C
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value govuk-!-font-weight-bold">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              31 December 1999
+            </dd>
+            <dt class="govuk-summary-list__value govuk-!-font-weight-bold">
+              Postcode
+            </dt>
+            <dd class="govuk-summary-list__value">
+              N2 1XX
+            </dd>
+          </div>
+
+        </dl>
+      </div>
+    </div>
+
+    <p>All name links open in a new tab.</p>
+
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Evidence files and notes
+      </h2>
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#past-day">
+            Files
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#past-week">
+            Prep notes
+          </a>
+        </li>
+      </ul>
+      <form method="post" novalidate>
+      <!--tab1-->
+      <div class="govuk-tabs__panel" id="past-day">
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Select</th>
+      <th scope="col" class="govuk-table__header">File name</th>
+      <th scope="col" class="govuk-table__header">Date of document</th>
+      <th scope="col" class="govuk-table__header">Date received</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-1" name="selected-files" type="checkbox" value="PIP.pdf" checked>
+            <label class="govuk-label govuk-checkboxes__label" for="file-1"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="files/view-pip2" target="_blank">PIP2.pdf</a>
+      </td>
+      <td class="govuk-table__cell">1 December 2025</td>
+      <td class="govuk-table__cell">18 February 2026</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-2" name="selected-files" type="checkbox" value="evidence_2.pdf" checked>
+            <label class="govuk-label govuk-checkboxes__label" for="file-2"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="files/view-fe" target="_blank">Questionnaire.pdf</a>
+      </td>
+      <td class="govuk-table__cell">15 January 2026</td>
+      <td class="govuk-table__cell">18 February 2026</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-3" name="selected-files" type="checkbox" value="MedicationReview.pdf">
+            <label class="govuk-label govuk-checkboxes__label" for="file-3"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="#">MedicationReview.pdf</a>
+      </td>
+      <td class="govuk-table__cell">10 February 2026</td>
+      <td class="govuk-table__cell">12 February 2026</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-4" name="selected-files" type="checkbox" value="GP_Letter.pdf">
+            <label class="govuk-label govuk-checkboxes__label" for="file-4"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="#">GP_Letter.pdf</a>
+      </td>
+      <td class="govuk-table__cell">8 February 2026</td>
+      <td class="govuk-table__cell">10 February 2026</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-5" name="selected-files" type="checkbox" value="MRI_Result.pdf">
+            <label class="govuk-label govuk-checkboxes__label" for="file-5"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="#">MRI_Result.pdf</a>
+      </td>
+      <td class="govuk-table__cell">6 February 2026</td>
+      <td class="govuk-table__cell">8 February 2026</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-6" name="selected-files" type="checkbox" value="BloodTest.pdf">
+            <label class="govuk-label govuk-checkboxes__label" for="file-6"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="#">BloodTest.pdf</a>
+      </td>
+      <td class="govuk-table__cell">5 February 2026</td>
+      <td class="govuk-table__cell">7 February 2026</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-7" name="selected-files" type="checkbox" value="CarePlan.pdf">
+            <label class="govuk-label govuk-checkboxes__label" for="file-7"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="#">CarePlan.pdf</a>
+      </td>
+      <td class="govuk-table__cell">3 February 2026</td>
+      <td class="govuk-table__cell">5 February 2026</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-8" name="selected-files" type="checkbox" value="XrayReport.pdf">
+            <label class="govuk-label govuk-checkboxes__label" for="file-8"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="#">XrayReport.pdf</a>
+      </td>
+      <td class="govuk-table__cell">1 February 2026</td>
+      <td class="govuk-table__cell">3 February 2026</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-9" name="selected-files" type="checkbox" value="HospitalDischarge.pdf">
+            <label class="govuk-label govuk-checkboxes__label" for="file-9"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="#">HospitalDischarge.pdf</a>
+      </td>
+      <td class="govuk-table__cell">29 January 2026</td>
+      <td class="govuk-table__cell">1 February 2026</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="file-10" name="selected-files" type="checkbox" value="ConsultationNotes.pdf">
+            <label class="govuk-label govuk-checkboxes__label" for="file-10"></label>
+          </div>
+        </div>
+      </td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="#">ConsultationNotes.pdf</a>
+      </td>
+      <td class="govuk-table__cell">28 January 2026</td>
+      <td class="govuk-table__cell">30 January 2026</td>
+    </tr>
+
+  </tbody>
+</table>
+          <div class="">
+            {{ govukPagination({
+            next: {
+            href: "#"
+            },
+            items: [
+            {
+            number: 1,
+            current: true,
+            href: "#"
+            },
+            {
+            number: 2,
+            href: "#"
+            },
+            {
+            number: 3,
+            href: "#"
+            }
+            ]
+            }) }}
+            <p>Showing 1 to 10 of 28 results</p>
+          </div>
+      </div>
+      <!--tab2-->
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+        <!-- CONDITION HISTORY -->
+        <div id="condition-history" class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="conditionHistory">Conditions</label>
+          </h1>
+          <textarea class="govuk-textarea" id="conditionHistory" name="conditionHistory" rows="10"
+            aria-describedby="conditionHistory-hint">
+        </textarea>
+        </div>
+        <!-- MEDICATION -->
+        <div id="medication-section" class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="medication">Medication</label>
+          </h1>
+          <textarea class="govuk-textarea" id="medication" name="medication" rows="10"
+            aria-describedby="medication-hint">
+        </textarea>
+        </div>
+        <!-- SOCIAL HISTORY -->
+        <div id="social-history" class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="socialHistory">Other prep notes</label>
+          </h1>
+          <textarea class="govuk-textarea" id="socialHistory" name="socialHistory" rows="10"
+            aria-describedby="socialHistory-hint">{{ case.report[3].content.description }}</textarea>
+        </div>
+      </div>
+
+                <div>
+            {{ govukCheckboxes({
+            name: "waste",
+            fieldset: {
+            legend: {
+            text: "",
+            isPageHeading: fasle,
+            classes: "govuk-fieldset__legend--l"
+            }
+            },
+            hint: {
+            text: ""
+            },
+            items: [
+            {
+            value: "evidence-was-reviewed",
+            text: "All evidence available on the day of the assessment report has been reviewed."
+            }
+            ]
+            }) }}
+          </div>
+          <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save and continue",
+            href: "consultation-details"
+            }) }}
+            {{ govukButton({
+            text: "Save and exit",
+            classes: "govuk-button govuk-button--secondary",
+            href: "/save-and-exit-consultation"
+            }) }}
+            
+            {{ govukButton({
+              text: "Run AI check",
+              classes: "govuk-button govuk-button--secondary",
+              disabled: true
+            }) }}
+
+
+          </div>
+        </form>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third ">
+
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Prep notes</h2>
+    <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in new tab</div>
+    <nav role="navigation" aria-labelledby="subsection-title">
+      <ul class="govuk-list">
+        <li>
+          <a href="add-notes">Consultation notes</a>
+        </li>
+        <li>
+          <a href="my-crib-sheet" target="_blank">Crib-sheet</a>
+        </li>
+
+      </ul>
+    </nav>
+
+  </div>
+
+</div>
+{% endblock %}

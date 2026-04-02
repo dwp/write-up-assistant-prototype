@@ -1,0 +1,259 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Start page
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+
+   <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card govuk-!-margin-bottom-1">
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          <strong>Claimant:</strong> John Smith
+         <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+         <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+        <strong class="govuk-!-padding-left-2"> Postcode:</strong>  N2 1XX
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+ <div style="margin-top: -30px;"><a href="javascript:history.back()" class="govuk-back-link">Back</a></div> 
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Check your answers</h1>
+    <p class="govuk-">These are the options you have selected</p>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Preparing food (1)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['descriptor1']  or "(1b) Needs to use an aid or appliance to be able to either prepare or cook a simple meal" }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="descriptor-1">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Taking nutrition (2)
+        </dt>
+        <dd class="govuk-summary-list__value">
+           {{ data['descriptor2']  or "(2a) Can take nutrition unaided" }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="descriptor-2">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Managing therapy (3)
+        </dt>
+        <dd class="govuk-summary-list__value">
+           {{ data['descriptor3']  or "(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided" }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="descriptor-3">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Washing and bathing (4)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['descriptor4']  or "(4e) Needs assistance to be able to get in or out of a bath or showe" }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="descriptor-4">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Managing toilet needs (5)
+        </dt>
+        <dd class="govuk-summary-list__value">
+           {{ data['descriptor5']  or "(5b) Needs to use an aid or appliance to be able to manage toilet needs or incontinence" }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="descriptor-5">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Dressing and undressing (6)
+        </dt>
+        <dd class="govuk-summary-list__value">
+           {{ data['descriptor6']  or "(6b) Needs to use an aid or appliance to be able to dress or undress" }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="descriptor-6">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Communicating verbally (7)
+        </dt>
+        <dd class="govuk-summary-list__value">
+           {{ data['descriptor7']  or "(7a) Can express and understand verbal information unaided" }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="descriptor-7">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Reading and understanding signs, symbols and words (8)
+        </dt>
+        <dd class="govuk-summary-list__value">
+           {{ data['descriptor8']  or "(8a) Can read and understand basic and complex written information either unaided or using spectacles or contact lenses" }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="descriptor-8">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Engaging face to face (9)
+        </dt>
+        <dd class="govuk-summary-list__value">
+           {{ data['descriptor9']  or "(9a) Can engage with other people unaided" }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="descriptor-9">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Budgeting (10)
+        </dt>
+        <dd class="govuk-summary-list__value">
+           {{ data['descriptor10']  or "(10a) Can manage complex budgeting decisions unaided" }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="descriptor-10">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Planning and following journeys (11)
+        </dt>
+        <dd class="govuk-summary-list__value">
+           {{ data['descriptor11']  or "(11a) Can plan and follow the route of a journey unaided" }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="descriptor-11">
+            Change
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Moving around (12)
+        </dt>
+        <dd class="govuk-summary-list__value">
+           {{ data['descriptor12']  or "(12c) Can stand and then move unaided more than 20 metres but no more than 50 metres" }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="descriptor-12">
+            Change
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Save and continue",
+          href: "generating-report",
+          classes: "govuk-button"
+        }) }}
+
+        {{ govukButton({
+          text: "Save and exit",
+          classes: "govuk-button govuk-button--secondary",
+          href: "/save-and-exit-consultation"
+        }) }}
+      </div>
+
+  </div>
+
+    <div class="govuk-grid-column-one-third">
+
+   <h2 class="govuk-heading-m" id="subsection-title">Quick access</h2>
+    <nav role="navigation" aria-labelledby="subsection-title">
+      <ul class="govuk-list">
+        <li>
+         <a href="add-notes">My assessment notes</a>
+          </li>
+        <li>
+          <a class="govuk-link" href="review-evidence">Evidence list</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="review-evidence">PIP2.pdf</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="review-evidence">FE.pdf</a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+  
+</div>
+
+
+{% endblock %}

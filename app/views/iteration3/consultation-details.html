@@ -42,7 +42,7 @@
 
       <p>Provide the details from the consultation. These will be used to help prepare the assessment report.</p>
 
-      <form action="add-notes" method="post" novalidate>
+      <form action="aan-conditions-and-medication" method="post" novalidate>
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="consultation-date-hint">
@@ -70,7 +70,7 @@
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-date-input__label" for="date-month">Month</label>
                   <input class="govuk-input govuk-date-input__input govuk-input--width-2"
-                         id="date-month" name="date-month" type="text" value="04">
+                         id="date-month" name="date-month" type="text" value="05">
                 </div>
               </div>
 
@@ -82,13 +82,9 @@
                          id="date-year" name="date-year" type="text" value="2026">
                 </div>
               </div>
-
-
-
             </div>
           </fieldset>
         </div>
-
                 <h2 class="govuk-heading-m">Identity and consent</h2>
 
           <div class="govuk-summary-card">
@@ -153,10 +149,10 @@
               }
             },
             items: [
-              { value: "Full name", text: "Full name", checked:true },
-              { value: "Date of Birth", text: "Date of birth", checked:true },
-              { value: "Address", text: "Address (first line and postcode)", checked:true },
-              { value: "NINO", text: "National Insurance number (NINO)", checked:true },
+              { value: "Full name", text: "Full name", checked:false },
+              { value: "Date of Birth", text: "Date of birth", checked:false },
+              { value: "Address", text: "Address (first line and postcode)", checked:false },
+              { value: "NINO", text: "National Insurance number (NINO)", checked:false },
               { value: "security Questions", text: "DWP security questions (case details)" }
             ]
           }) }}
@@ -175,13 +171,13 @@
             {
               value: "identity-confirmed",
               text: "Yes, I confirmed the claimant’s identity",
-              checked: true,
+              checked: false,
               conditional: { html: identityCheck }
             },
             {
               value: "consent-given",
               text: "Yes, the claimant gave consent",
-              checked: true,
+              checked: false,
               hint: {
                 text: "Make sure the claimant understands the purpose of the consultation, and they consent to continue."
               }

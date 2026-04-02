@@ -1,0 +1,223 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+     <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card govuk-!-margin-bottom-1">
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          <strong>Claimant:</strong> John Smith
+         <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+         <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+        <strong class="govuk-!-padding-left-2"> Postcode:</strong>  N2 1XX
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+  
+      <h1 class="govuk-heading-xl">
+        Daily living qualifying period and prospective test
+      </h1>
+     
+<form action="review-pip-period" method="post" novalidate="">
+   <!--3m?--> 
+
+<div class="govuk-!-mardin-bottom-8">
+  {{ govukRadios({
+  name: "func-restric-3m",
+  fieldset: {
+    legend: {
+      text: "Has the claimant had the functional restriction for at least 3 months?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      checked: true
+    },
+    {
+      value: "No",
+      text: "No"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "No daily living restriction found",
+      text: "No daily living restriction found"
+    }
+  ]
+}) }}
+</div>
+
+   <!--9m?--> 
+
+<div class="govuk-!-marging-bottom-8">
+  {{ govukRadios({
+  name: "func-restric-9m",
+  fieldset: {
+    legend: {
+      text: "Is the claimant likely to have the functional restriction in 9 months?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      checked: true
+    },
+    {
+      value: "No",
+      text: "No"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "No daily living restriction found",
+      text: "No daily living restriction found"
+    }
+  ]
+}) }}
+</div>
+
+<div class="govuk-body govuk-!-margin-top-8">
+
+<h1 class="govuk-heading-xl">
+  Mobility qualifying period and prospective test
+</h1>
+</div>     
+
+   <!--3m?--> 
+
+<div class="govuk-!-mardin-bottom-8">
+  {{ govukRadios({
+  name: "func-restric-mob-3m",
+  fieldset: {
+    legend: {
+      text: "Has the claimant had the functional restriction for at least 3 months?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      checked: true
+    },
+    {
+      value: "No",
+      text: "No"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "No daily living restriction found",
+      text: "No daily living restriction found"
+    }
+  ]
+}) }}
+</div>
+
+   <!--9m?--> 
+
+<div class="govuk-!-mardin-bottom-8">
+  {{ govukRadios({
+  name: "func-restric-mob-9m",
+  fieldset: {
+    legend: {
+      text: "Is the claimant likely to have the functional restriction in 9 months?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      checked: true
+    },
+    {
+      value: "No",
+      text: "No"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "No daily living restriction found",
+      text: "No daily living restriction found"
+    }
+  ]
+}) }}
+</div>
+
+
+<div class="govuk-!-margin-top-8">
+ <div class="govuk-button-group">
+    {{ govukButton({
+        text: "Save and continue",
+        isStartButton: false
+      }) }}
+
+          {{ govukButton({
+          text: "Save and return home",
+          classes: "govuk-button--secondary",
+          href: "select-case"
+        }) }}
+      </div>
+</div>
+
+ </form>   
+
+    </div>
+
+        <div class="govuk-grid-column-one-third">
+
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
+      <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in a new tab</div>
+    <nav role="navigation" aria-labelledby="subsection-title">
+      <ul class="govuk-list">
+        <li><a href="add-notes-view" target="_blank">Consultation notes</a></li>
+        <li><a class="govuk-link" href="review-evidence" target="_blank">Evidence list</a></li>
+        <li><a class="govuk-link" href="files/view-pip2" target="_blank">PIP2.pdf</a></li>
+        <li><a class="govuk-link" href="files/view-pip2" target="_blank">FE.pdf</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  </div>
+
+{% endblock %}
