@@ -1,0 +1,68 @@
+{#
+Full-width application layout
+Based on main-wua.html but WITHOUT govuk-width-container
+Suitable for caseworker / assessment tools
+#}
+
+{% from "internal-service-header/macro.njk" import dwpHeader %}
+{% from "internal-service-footer/macro.njk" import dwpFooter %}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{% block header %}
+
+{{ dwpHeader({
+  serviceName: serviceName,
+  serviceHref: "/",
+  container: false,
+  navigation: {
+    items: [
+      { href: "select-case", text: "Home" },
+      { href: "sign-in", text: "Logout" }
+    ]
+  }
+}) }}
+
+  {% block beforeContent %}{% endblock %}
+
+{% endblock %}
+
+{% block main %}
+
+<main id="main-content" class="govuk-main-wrapper govuk-!-top-0 govuk-!-bottom-2 govuk-!-padding-right-6 govuk-!-padding-left-6" role="main">
+
+
+
+  {% block content %}{% endblock %}
+
+</main>
+
+{% endblock %}
+
+{% block footer %}
+{{ dwpFooter({
+  meta: {
+    visuallyHiddenTitle: "About this website",
+    items: [
+      {
+        href: "https://www.gov.uk/help/accessibility-statement",
+        text: "Accessibility statement"
+      },
+      {
+        href: "https://www.gov.uk/government/publications/privacy-information-artificial-intelligence-ai-tools",
+        text: "AI notice"
+      },
+      {
+        href: "",
+        text: "Privacy"
+      },
+      {
+        href: "/manage-prototype/clear-data",
+        text: "Clear data"
+      }
+    ]
+  }
+}) }}
+{% endblock %}

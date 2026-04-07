@@ -493,7 +493,20 @@ Hospital distance
   <div id="more-detail-hint" class="govuk-hint">
    Describe any observations about the claimant’s mood, behaviour, communication, awareness, and interaction during the assessment.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">{{ case.report[1].content[1].text }}</textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
+Insight – none/poor/has insight  
+Cognition - adequate 
+Orientation – fully orientated/disorientated in time/place/person or completely disorientated  
+Prompting – did not require prompting/needed prompting/did not respond to prompt  
+General Memory – adequate/poor  
+Concentration – adequate/poor  
+Speech Amount – normal/spoke very little/talkative  
+Rate – normal/slow/rapid  
+Volume – normal/loud/quiet  
+Content – normal/monosyllabic/garbled/incongruous  
+Rapport – adequate/poor  
+Coping at interview – coped at interview/some difficulty coping/severe difficulty coping 
+  </textarea>
 </div>
 
 <div class="govuk-form-group">
@@ -505,7 +518,9 @@ Hospital distance
   <div id="more-detail-hint" class="govuk-hint">
    Record any informal observations you noticed before, during, or after the assessment, not captured elsewhere.
   </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">{{ case.report[1].content[2].text }}</textarea>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
+  
+  </textarea>
 </div>
 
    {{ govukButton({

@@ -1,15 +1,17 @@
-{% extends "layouts/main-wua.html" %}
+{% extends "layouts/main-wua-full.html" %}
 
 {% block pageTitle %}
 {{ serviceName }} – Review documents
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukPhaseBanner({
+<div class="govuk-grid-row"> <div class="govuk-grid-column-full govuk-!-padding-left-6">
+    {{ govukPhaseBanner({
     tag: { text: "Prototype" },
     html: 'This is a not a service, it is a prototype created for user testing'
   }) }}
-      <div class="govuk-grid-row">
+</div></div>
+  <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <div class="govuk-summary-card govuk-!-margin-bottom-1">
   <div class="govuk-summary-card__content">
@@ -25,12 +27,15 @@
 
     </dl>
   </div>
-</div>
+    </div>
   </div>
 </div>
 {% endblock %}
 
 {% block content %}
+
+
+
 {% set case = data.cases[0] %}
 
 <a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
@@ -38,403 +43,8 @@
 <div class="govuk-grid-row">
 
 
-
-
-  <!-- LEFT COLUMN: FORM -->
-  <div class="govuk-grid-column-two-thirds">
-
-    <h1 class="govuk-heading-xl">Add your consultation notes</h1>
-    <p class="govuk-body">Your artificial intelligence assistant will review these notes and use them to produce an initial draft assessment report.</p>
-
-<form action="aan-observations" method="post" novalidate>
-
-  <!-- PREPARING FOOD -->
-  <div id="preparing-food" class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="preparingFood">Preparing food</label>
-    </h1>
-    <div id="preparingFood-hint" class="govuk-hint">
-      Record any difficulties with planning, preparing, or safely cooking meals.
-    </div>
-    <p class="govuk-!-margin-bottom-1">
-      <a href="#" style="display: none"  class="govuk-link load-headings" data-target="preparingFood" data-heading="preparingFoodHeadings">Add prompts</a>
-    </p>
-    <textarea class="govuk-textarea" id="preparingFood" name="preparingFood" rows="10">
-
-Activity 1 – Preparing Food
-
-Meals made
-Frequency
-Chopping
-Opening
-Lifting pans
-Aids
-Help
-Supervision
-Accidents
-Standing
-    </textarea>
-  </div>
-
-  <!-- TAKING NUTRITION -->
-  <div id="taking-nutrition" class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="takingNutrition">Taking nutrition</label>
-    </h1>
-    <div id="takingNutrition-hint" class="govuk-hint">
-      Describe issues with eating, drinking, or managing nutritional needs independently.
-    </div>
-    <p class="govuk-!-margin-bottom-1">
-      <a href="#" style="display: none"  class="govuk-link load-headings"data-target="takingNutrition" data-heading="takingNutritionHeadings">Add prompts</a>
-    </p>
-    <textarea class="govuk-textarea" id="takingNutrition" name="takingNutrition" rows="10">
-
-Activity 2 – Taking Nutrition
-
-Meal count
-Eating issues
-Choking
-Cutlery
-Weight loss
-Eating disorder
-Weight/height
-Prompting
-    </textarea>
-  </div>
-
-  <!-- MANAGING THERAPY -->
-  <div id="managing-therapy" class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="managingTherapy">Managing therapy</label>
-    </h1>
-    <div id="managingTherapy-hint" class="govuk-hint">
-      Note the claimant’s ability to follow treatment plans, manage therapy routines, or carry out medical interventions.
-    </div>
-    <p class="govuk-!-margin-bottom-1">
-      <a href="#" style="display: none"  class="govuk-link load-headings"data-target="managingTherapy" data-heading="managingTherapyHeadings">Add prompts</a>
-    </p>
-    <textarea class="govuk-textarea" id="managingTherapy" name="managingTherapy" rows="10">
-
-Activity 3 – Managing Therapy
-
-Medication routine
-Prompting
-Supervision
-Dosette use
-Packaging
-Home therapy
-
-    </textarea>
-  </div>
-
-  <!-- WASHING & BATHING -->
-  <div id="washing-bathing" class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="washingBathing">Washing and bathing</label>
-    </h1>
-    <div id="washingBathing-hint" class="govuk-hint">
-      Document any challenges with personal hygiene tasks.
-    </div>
-    <p class="govuk-!-margin-bottom-1">
-      <a href="#" style="display: none"  class="govuk-link load-headings"data-target="washingBathing" data-heading="washingBathingHeadings">Add prompts</a>
-    </p>
-    <textarea class="govuk-textarea" id="washingBathing" name="washingBathing" rows="10">
-
-Activity 4 – Washing/Bathing
-
-Wash method
-Bath/shower
-Aids
-Access in/out
-Standing
-Breaks
-Duration
-Aftercare
-Falls
-Prompting
-Sequencing
-    </textarea>
-  </div>
-
-  <!-- TOILET NEEDS -->
-  <div id="toilet-needs" class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="toiletNeeds">Managing toilet needs</label>
-    </h1>
-    <div id="toiletNeeds-hint" class="govuk-hint">
-      Describe continence issues or difficulties accessing, using, or managing toilet needs.
-    </div>
-    <p class="govuk-!-margin-bottom-1">
-      <a href="#" style="display: none"  class="govuk-link load-headings"data-target="toiletNeeds" data-heading="toiletNeedsHeadings">Add prompts</a>
-    </p>
-    <textarea class="govuk-textarea" id="toiletNeeds" name="toiletNeeds" rows="10">
-      
-Activity 5 – Toilet Needs
-
-Toilet transfer
-Cleaning
-Incontinence
-Accidents
-Pads/wet pants
-Adaptations
-    </textarea>
-  </div>
-
-  <!-- DRESSING -->
-  <div id="dressing-undressing" class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="dressingUndressing">Dressing and undressing</label>
-    </h1>
-    <div id="dressingUndressing-hint" class="govuk-hint">
-      Record problems with selecting clothing or dressing independently.
-    </div>
-    <p class="govuk-!-margin-bottom-1">
-      <a href="#" style="display: none"  class="govuk-link load-headings"data-target="dressingUndressing" data-heading="dressingHeadings">Add prompts</a>
-    </p>
-    <textarea class="govuk-textarea" id="dressingUndressing" name="dressingUndressing" rows="10">
-
-Activity 6 – Dressing
-
-Frequency
-Method
-Fastenings
-Footwear
-Duration
-Breaks
-Weather choice
-
-    </textarea>
-  </div>
-
-<!-- COMMUNICATING VERBALLY -->
-<div id="communicating-verbally" class="govuk-form-group">
-  <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--l" for="communicatingVerbally">Communicating verbally</label>
-  </h1>
-
-  <div id="communicatingVerbally-hint" class="govuk-hint">
-    Note any communication difficulties observed during the consultation.
-  </div>
-
-  <p class="govuk-!-margin-bottom-1">
-    <a href="#" class="govuk-link load-headings" style="display: none"
-       data-target="communicatingVerbally"
-       data-heading="communicationHeadings">Add prompts</a>
-  </p>
-
-  <textarea class="govuk-textarea" id="communicatingVerbally" name="communicatingVerbally" rows="10">
-
-Activity 7 – Communicating Verbally
-
-Hearing diagnosis
-Speech issues
-Hearing aids
-Sight impairment
-Reading aids
-  </textarea>
-</div>
-
-<!-- READING -->
-<div id="reading-understanding" class="govuk-form-group">
-  <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--l" for="readingUnderstanding">
-      Reading and understanding signs, symbols and words
-    </label>
-  </h1>
-
-  <div id="readingUnderstanding-hint" class="govuk-hint">
-    Describe challenges with reading or processing written information.
-  </div>
-
-  <p class="govuk-!-margin-bottom-1">
-    <a href="#" class="govuk-link load-headings" style="display: none"
-       data-target="readingUnderstanding"
-       data-heading="readingHeadings">Add prompts</a>
-  </p>
-
-  <textarea class="govuk-textarea" id="readingUnderstanding" name="readingUnderstanding" rows="10">
-    
-Activity 8 – Reading/Understanding
-
-Reading
-Texting
-  </textarea>
-</div>
-
-<!-- face to face -->
-<div id="engaging-face-to-face" class="govuk-form-group">
-  <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--l" for="readingUnderstanding">
-      Engaging face to face
-    </label>
-  </h1>
-
-  <div id="readingUnderstanding-hint" class="govuk-hint">
-    Record how the claimant engages in face‑to‑face interactions, including cooperation, rapport, and social communication skills.
-  </div>
-
-  <p class="govuk-!-margin-bottom-1">
-    <a href="#" class="govuk-link load-headings" style="display: none"
-       data-target="readingUnderstanding"
-       data-heading="readingHeadings">Add prompts</a>
-  </p>
-
-  <textarea class="govuk-textarea" id="engagingFaceToFace" name="engagingFaceToFace" rows="10">
-
-Activity 9 – Engaging with Others
-
-Social contacts
-Asking help
-Ordering food
-Speaking to drivers
-Prompting/support
-Unfamiliar people
-
-  </textarea>
-</div>
-
-  <!-- BUDGETING -->
-  <div id="budgeting-section" class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="budgeting">Budgeting</label>
-    </h1>
-    <div id="budgeting-hint" class="govuk-hint">
-      Note any limitations in managing money or budgeting tasks.
-    </div>
-    <p class="govuk-!-margin-bottom-1">
-      <a href="#" style="display: none"  class="govuk-link load-headings"data-target="budgeting" data-heading="budgetingHeadings">Add prompts</a>
-    </p>
-    <textarea class="govuk-textarea" id="budgeting" name="budgeting" rows="10">
-      
-Activity 10 – Budgeting
-
-Paying bills
-Direct debits
-Online banking
-Transfers
-Giving change
-Quick test
-    </textarea>
-  </div>
-
-<!-- JOURNEYS -->
-<div id="planning-journeys" class="govuk-form-group">
-  <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--l" for="planningJourneys">Planning and following journeys</label>
-  </h1>
-
-  <div id="planningJourneys-hint" class="govuk-hint">
-    Describe difficulties with route planning or navigation.
-  </div>
-
-  <p class="govuk-!-margin-bottom-1">
-    <a href="#" class="govuk-link load-headings" style="display: none"
-       data-target="planningJourneys"
-       data-heading="journeysHeadings">Add prompts</a>
-  </p>
-
-  <textarea class="govuk-textarea" id="planningJourneys" name="planningJourneys" rows="10">
-    
-Activity 11 – Going Out
-
-Frequency
-Destinations
-Alone
-Appointments travel
-Transport
-Unfamiliar routes
-Independence
-Outdoor accidents
-Barriers
-Feelings
-Symptoms
-  </textarea>
-</div>
-
-<!-- MOVING AROUND -->
-<div id="moving-around" class="govuk-form-group">
-  <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--l" for="movingAround">Moving around</label>
-  </h1>
-
-  <div id="movingAround-hint" class="govuk-hint">
-    Record mobility issues, stability, pain or the use of mobility aids.
-  </div>
-
-  <p class="govuk-!-margin-bottom-1">
-    <a href="#" class="govuk-link load-headings" style="display: none"
-       data-target="movingAround"
-       data-heading="movingHeadings">Add prompts</a>
-  </p>
-
-  <textarea class="govuk-textarea" id="movingAround" name="movingAround" rows="10">
-
-Activity 12 – Walking
-
-Walking habits
-Frequency
-Pace
-Distance
-Aids
-Indoor walking
-Garden access
-Bus stop distance
-Shop/GP distance
-Hospital distance
-  </textarea>
-</div>
-
-
-  <div class="govuk-button-group">
-    {{ govukButton({ text: "Save and continue" }) }}
-
-    {{ govukButton({
-      text: "Save and exit",
-      href: "select-case",
-      classes: "govuk-button--secondary"
-    }) }}
-  </div>
-
-
-  {% block pageScripts %}
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  document.querySelectorAll(".load-headings").forEach(function (link) {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-
-      const targetId = this.dataset.target;      // textarea ID
-      const headingKey = this.dataset.heading;   // session variable name
-
-      // read from session data
-      const headingText = {{ data | dump | safe }}[headingKey];
-
-      if (!headingText) return;
-
-      const textarea = document.getElementById(targetId);
-      if (!textarea) return;
-
-      // Insert headings into the textarea
-      textarea.value = headingText.trim();
-    });
-  });
-
-});
-</script>
-{% endblock %}
-
-</form>
-
-
-  </div>
-
-
-
-
-
-  <!-- RIGHT SIDEBAR -->
-<div class="govuk-grid-column-one-third sticky-container2">
+  <!-- SIDEBAR -->
+<div class="govuk-grid-column-one-quarter sticky-container2">
   
   <div class="">
 
@@ -485,6 +95,226 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 
 </div>
+
+
+  <!-- body -->
+  <div class="govuk-grid-column-three-quarters">
+
+    <!-- Title -->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters">
+        <h1 class="govuk-heading-xl">Add your consultation notes</h1>
+          <p class="govuk-body">Your artificial intelligence assistant will review these notes and use them to produce an initial draft assessment report.</p>       
+  </div>
+    </div>
+
+    <form action="aan-observations" method="post" novalidate>
+     <!-- Prepare food title-->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters govuk-!-padding-top-5">
+          <label class="govuk-label govuk-label--l" for="preparingFood">Preparing food</label>
+          </h1>
+          <div id="preparingFood-hint" class="govuk-hint">
+            Record any difficulties with planning, preparing, or safely cooking meals.
+          </div>
+      </div>
+    </div>
+    <!-- Prepare food row-->
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+               <p class="govuk-!-margin-bottom-1">
+                <a href="#" style="display: none"  class="govuk-link load-headings" data-target="preparingFood" data-heading="preparingFoodHeadings">Add prompts</a>
+              </p>
+              <textarea class="govuk-textarea" id="preparingFood" name="preparingFood" rows="20">
+
+    Activity 1 – Preparing Food
+
+    Meals made
+    Frequency
+    Chopping
+    Opening
+    Lifting pans
+    Aids
+    Help
+    Supervision
+    Accidents
+    Standing
+    </textarea>
+          </div>
+
+          <div class="govuk-grid-column-one-half">
+      <h3 class="govuk-heading-m">Preparing food descriptors</h3>
+          {{ govukRadios({
+            idPrefix: "descriptor-1",
+            name: "descriptor1",
+            value: data['descriptor1'],
+            fieldset: {
+              legend: {
+                text: "",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "(1a) Can prepare and cook a simple meal unaided",
+                text: "(1a) Can prepare and cook a simple meal unaided"
+              },
+              {
+                value: "(1b) Needs to use an aid or appliance to be able to either prepare or cook a simple meal",
+                text: "(1b) Needs to use an aid or appliance to be able to either prepare or cook a simple meal"
+              },
+              {
+                value: "(1c) Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave",
+                text: "(1c) Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave"
+              },
+              {
+                value: "(1d) Needs prompting to be able to either prepare or cook a simple meal",
+                text: "(1d) Needs prompting to be able to either prepare or cook a simple meal"
+              },
+              {
+                value: "(1e) Needs supervision or assistance to either prepare or cook a simple meal",
+                text: "(1e) Needs supervision or assistance to either prepare or cook a simple meal"
+              },
+              {
+                value: "(1f) Cannot prepare and cook food",
+                text: "(1f) Cannot prepare and cook food"
+              }
+            ]
+          }) }}
+          </div>
+        </div>
+
+
+        <hr class="govuk-!-margin-top-5 govuk-!-margin-bottom-5">
+
+   <!-- TAKING NUTRITION -->   
+     <!-- title-->
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters govuk-!-padding-top-5">
+       <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="takingNutrition">Taking nutrition</label>
+        </h1>
+        <div id="takingNutrition-hint" class="govuk-hint">
+          Describe issues with eating, drinking, or managing nutritional needs independently.
+        </div>
+      </div>
+    </div> 
+    <!-- TAKING NUTRITION row-->
+  <div id="taking-nutrition" class="govuk-form-group">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <p class="govuk-!-margin-bottom-1">
+          <a href="#" style="display: none"  class="govuk-link load-headings"data-target="takingNutrition" data-heading="takingNutritionHeadings">Add prompts</a>
+        </p>
+        <textarea class="govuk-textarea" id="takingNutrition" name="takingNutrition" rows="18">
+
+    Activity 2 – Taking Nutrition
+
+    Meal count
+    Eating issues
+    Choking
+    Cutlery
+    Weight loss
+    Eating disorder
+    Weight/height
+    Prompting
+        </textarea>
+      </div>
+
+      <div class="govuk-grid-column-one-half">
+{{ govukRadios({
+    idPrefix: "descriptor-2",
+    name: "descriptor2",
+    value: data['descriptor2'],
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+
+    items: [
+      {
+        value: "(2a) Can take nutrition unaided",
+        text: "(2a) Can take nutrition unaided",
+        checked: true
+      },
+      {
+        value: "(2b) Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take nutrition, or assistance to be able to cut up food",
+        text: "(2b) Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take nutrition, or assistance to be able to cut up food"
+      },
+      {
+        value: "(2c) Needs a therapeutic source to be able to take nutrition",
+        text: "(2c) Needs a therapeutic source to be able to take nutrition"
+      },
+      {
+        value: "(2d) Needs prompting to be able to take nutrition",
+        text: "(2d) Needs prompting to be able to take nutrition"
+      },
+      {
+        value: "(2e) Needs assistance to be able to manage a therapeutic source to take nutrition",
+        text: "(2e) Needs assistance to be able to manage a therapeutic source to take nutrition"
+      },
+      {
+        value: "(2f) Cannot convey food and drink to their mouth and needs another person to do so",
+        text: "(2f) Cannot convey food and drink to their mouth and needs another person to do so"
+      }
+    ]
+  }) }}
+
+      </div>
+    </div>
+  </div>
+
+
+
+      <div class="govuk-button-group">
+        {{ govukButton({ text: "Save and continue" }) }}
+
+        {{ govukButton({
+          text: "Save and exit",
+          href: "select-case",
+          classes: "govuk-button--secondary"
+        }) }}
+      </div>
+
+      {% block pageScripts %}
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      document.querySelectorAll(".load-headings").forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.dataset.target;      // textarea ID
+          const headingKey = this.dataset.heading;   // session variable name
+
+          // read from session data
+          const headingText = {{ data | dump | safe }}[headingKey];
+
+          if (!headingText) return;
+
+          const textarea = document.getElementById(targetId);
+          if (!textarea) return;
+
+          // Insert headings into the textarea
+          textarea.value = headingText.trim();
+        });
+      });
+
+    });
+    </script>
+    {% endblock %}
+
+    </form>
+    <!-- Prepare food -->
+
+  </div>
+
+
 </div>
 
 

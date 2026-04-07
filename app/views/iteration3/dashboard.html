@@ -53,8 +53,44 @@
       <form method="post" novalidate>
       <!--tab1-->
 
-<!--table-->
+<!-- SEARCH + FILTER + RESULT COUNT -->
+<div class="govuk-grid-row govuk-!-margin-bottom-4">
 
+  <!-- SEARCH -->
+  <div class="govuk-grid-column-one-half">
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="file-search">
+        Search files
+      </label>
+      <input
+        class="govuk-input"
+        id="file-search"
+        name="file-search"
+        type="search"
+        placeholder="Search by file name"
+      >
+    </div>
+  </div>
+
+  <!-- FILTER -->
+  <div class="govuk-grid-column-one-quarter">
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="file-type-filter">
+        Filter by type
+      </label>
+      <select class="govuk-select" id="file-type-filter" name="file-type-filter">
+        <option value="">All documents</option>
+        <option value="pip2">PIP2</option>
+        <option value="fe">FE</option>
+        <option value="medical">Medical evidence</option>
+      </select>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- TABLE -->
 <table class="govuk-table" data-module="moj-sortable-table">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
@@ -230,7 +266,9 @@
   </tbody>
 </table>
 
-
+    <p class="govuk-body">
+      Showing 10 of 36 items
+    </p>
 
 <nav class="govuk-pagination" role="navigation" aria-label="results">
   <ul class="govuk-pagination__list">

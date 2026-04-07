@@ -12,148 +12,345 @@ module.exports = {
 
   // CONDITION HISTORY
   conditionHeadings: `
-• Summary of main conditions
-• Onset and duration
-• Progression over time
-• Current symptoms
-• Variability and fluctuation
-• Recent clinical changes
+Condition & History
+ Condition
+ Start date
+ Relapses
+ Recent treatment
+
+Current Status
+ Current state
+ Symptoms
+ Symptom detail
+
+Functional Impact
+ Restrictions
+ Activities affected
+ Coping
+ Good/bad days
+
+Treatment & Support
+ Current treatment
+ Effectiveness
+ Seeing a GP/nurse/consultant
+ Frequency
+ Last review
+ Ongoing/finished
+ Admissions
+ Duration/outcome
+
+Future Care
+ Upcoming appointments
+ Pending treatment
+ Aids/equipment
+
+Other Conditions
+ Additional conditions
+ Restrictions
+
+Mental Health
+ MH discussion
+ MH conditions
+ MH restrictions
+ MH daily impact
 `,
 
   // MEDICATION
   medicationHeadings: `
-• Medication name
-• Dosage
-• Frequency
-• Purpose / indication
-• Reported effectiveness
-• Reported side effects
+Medication Checklist 
+For Each Condition
+ Medication
+ Name
+ Dose
+ Helpful?
+Other Medications
+ Other drugs
+ Purpose
+ Dose
+ Frequency
+ Effective?
+ Home therapy
+ Anything else
 `,
 
   // SOCIAL HISTORY
   socialHistoryHeadings: `
-• Living situation
-• Daily routine
-• Work history
-• Social support / environment
-• Impact on functioning
+Home & Living
+ Home type
+ Floor level
+ Stairs
+ Stair management
+ Who lives with
+ Falls history
+ Fall injuries
+
+Aids / Adaptations
+ Home aids
+ Prescribed?
+ Usage frequency
+ Walking aids
+ Hand splints
+ Splint purpose
+ Splint use
+ Prescriber
+ Home adaptations
+ Bathroom aids
+ Toilet location
+
+Bathing / Dressing
+
+ Bath/shower method
+ Assistance
+ After‑care
+ Dressing process
+ Independent?
+
+Pets / Children / Caring
+ Children
+ Pets
+ Pet care
+ Dog walking
+ Route
+ Caring duties
+
+Driving
+ Manual/auto
+ Frequency
+ Destinations
+ Seatbelt
+ Blue badge
+
+Work / Education
+ Work type
+ Hours
+ Role
+ Interactions
+ Sick leave
+ Stopped work—why
+ School type
+ Coursework support
+ Travel to school
+Housework
+ Tasks managed
+ Frequency
+ Help given
+ Hanging clothes
+ Who does it
+ Why not
+Shopping
+ Frequency
+ Online?
+ Local shop
+ Travel to shop
+ Taxi use
+ Trolley/basket
+ Card use
+ Ask staff?
+ Who shops?
+ Why not?
+Cooking
+ Meals made
+ Duration
+ Chop/peel
+ Lift pans
+ Stand at cooker
+ Cooking aids
+ Assistance
+ Supervision
+ Accidents
+
+Correspondence
+ Open letters
+ Read letters
+ Manage appointments
+ Past ability
+ Reason stopped
+
+Hobbies / Weekends
+ Hobbies
+ Frequency
+ Duration
+
+Going Out / Socialising
+ Go out?
+ Reasons
+ Garden access
+ Family events
+ Stopped—why
+ Park visits
+ Travel to park
+
+Daily Routine
+ Typical day
+ After lunch
+ Rest time
+ Questionnaire filled by
+
+Sleep
+ Sleep pattern
+ Hours
+Standing
+ Standing tolerance
+
+ Internet
 `,
 
   // PREPARING FOOD
   preparingFoodHeadings: `
-• Planning meals
-• Preparing ingredients
-• Use of kitchen tools
-• Cooking safely
-• Fatigue or pain when cooking
+Meals made
+Frequency
+Chopping
+Opening
+Lifting pans
+Aids
+Help
+Supervision
+Accidents
+Standing
 `,
 
   // TAKING NUTRITION
   takingNutritionHeadings: `
-• Eating difficulties
-• Drinking concerns
-• Appetite or nausea issues
-• Safety concerns when eating
-• Independent vs supported eating
+Meal count
+Eating issues
+Choking
+Cutlery
+Weight loss
+Eating disorder
+Weight/height
+Prompting
 `,
 
   // MANAGING THERAPY
   managingTherapyHeadings: `
-• Understanding of treatment
-• Following therapy routines
-• Ability to self-manage treatments
-• Any assistance required
-• Compliance / barriers
+Medication routine
+Prompting
+Supervision
+Dosette use
+Packaging
+Home therapy
 `,
 
   // WASHING & BATHING
   washingBathingHeadings: `
-• Accessing bathroom
-• Standing / balance issues
-• Using aids
-• Washing upper/lower body
-• Risk or safety concerns
+Wash method
+Bath/shower
+Aids
+Access in/out
+Standing
+Breaks
+Duration
+Aftercare
+Falls
+Prompting
+Sequencing
 `,
 
   // TOILET NEEDS
   toiletNeedsHeadings: `
-• Continence
-• Getting to the toilet
-• Using toilet aids
-• Cleaning / hygiene challenges
-• Assistance required
+Toilet transfer
+Cleaning
+Incontinence
+Accidents
+Pads/wet pants
+Adaptations
 `,
 
   // DRESSING
   dressingHeadings: `
-• Selecting clothes
-• Putting on clothing
-• Fastenings (zips/buttons)
-• Removing clothing
-• Pain, stiffness or fatigue
+Frequency
+Method
+Fastenings
+Footwear
+Duration
+Breaks
+Weather choice
 `,
 
   // COMMUNICATING VERBALLY
   communicationHeadings: `
-• Speech clarity
-• Ability to express needs
-• Understanding spoken information
-• Conversational engagement
+Hearing diagnosis
+Speech issues
+Hearing aids
+Sight impairment
+Reading aids
 `,
 
   // READING & UNDERSTANDING
   readingHeadings: `
-• Reading printed text
-• Understanding written instructions
-• Visual or cognitive difficulties
+Reading
+Texting
 `,
 
   // ENGAGING FACE TO FACE
-  engagingHeadings: `
-• Eye contact
-• Interaction style
-• Social engagement
-• Responding to questions
+engagingHeadings: `
+Social contacts
+Asking help
+Ordering food
+Speaking to drivers
+Prompting/support
+Unfamiliar peoples
 `,
+
 
   // BUDGETING
   budgetingHeadings: `
-• Managing money
-• Paying bills
-• Budgeting tasks
-• Understanding financial information
+Paying bills
+Direct debits
+Online banking
+Transfers
+Giving change
+Quick test
 `,
 
   // JOURNEYS
   journeysHeadings: `
-• Planning routes
-• Following directions
-• Using public transport
-• Anxiety or safety concerns
+Frequency
+Destinations
+Alone
+Appointments travel
+Transport
+Unfamiliar routes
+Independence
+Outdoor accidents
+Barriers
+Feelings
+Symptoms
 `,
 
   // MOVING AROUND
   movingHeadings: `
-• Standing and walking
-• Balance and stability
-• Mobility aids used
-• Pain or fatigue when moving
+Walking habits
+Frequency
+Pace
+Distance
+Aids
+Indoor walking
+Garden access
+Bus stop distance
+Shop/GP distance
+Hospital distance
 `,
 
   // MENTAL STATE
   mentalStateHeadings: `
-• Behavioural observations
-• Cognitive function
-• Interaction during consultation
-• Attention, memory, insight
+Insight – none/poor/has insight  
+Cognition - adequate 
+Orientation – fully orientated/disorientated in time/place/person or completely disorientated  
+Prompting – did not require prompting/needed prompting/did not respond to prompt  
+General Memory – adequate/poor  
+Concentration – adequate/poor  
+Speech Amount – normal/spoke very little/talkative  
+Rate – normal/slow/rapid  
+Volume – normal/loud/quiet  
+Content – normal/monosyllabic/garbled/incongruous  
+Rapport – adequate/poor  
+Coping at interview – coped at interview/some difficulty coping/severe difficulty coping 
 `,
 
   // INFORMAL OBSERVATIONS
   informalHeadings: `
-• General appearance
-• Unstructured behaviours
-• Movements, mannerisms
-• Notable comments or actions
+
   `
 ,
 
