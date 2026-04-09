@@ -23,44 +23,48 @@
   
     <h1 class="govuk-heading-xl">Review the evidence</h1>
     <p class="">Before you continue, review the evidence.</p>
-    <p><strong> AI assistant will not use these documents to write the report. You must add any relevant details from the evidence yourself.</strong></p>
-    <p>All links open in a new tab.</p>
 
-<table class="govuk-table">
+      {{ govukWarningText({
+        text: "AI assistant will not use these documents to write the report. You must add any relevant details from the evidence yourself.",
+        iconFallbackText: "Warning"
+      }) }}
+  <div>
+        <p>All links open in a new tab.</p> 
+    <table class="govuk-table">
 
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">File name</th>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">File name</th>
 
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">
-          <a class="govuk-link" href="#">PIP2.pdf</a>
-      </th>
-    </tr>
-   <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">
-          <a class="govuk-link" href="#">FE.pdf</a>
-      </th>
-    </tr>
-     <tr class="govuk-table__row" style="display: none;">
-      <th scope="row" class="govuk-table__header">
-          <a class="govuk-link" href="#">Xray.pdf</a>
-      </th>
-    </tr>
-  </tbody>
-</table>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">
+              <a class="govuk-link" href="#">PIP2.pdf</a>
+          </th>
+        </tr>
+      <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">
+              <a class="govuk-link" href="#">FE.pdf</a>
+          </th>
+        </tr>
+        <tr class="govuk-table__row" style="display: none;">
+          <th scope="row" class="govuk-table__header">
+              <a class="govuk-link" href="#">Xray.pdf</a>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+ </div>   
    {{ govukButton({
-        text: "Save and continue",
+        text: "Continue",
         href: "consultation-details",
         isStartButton: false
       }) }}
     
 
     </div>
-
   </div>
 
 {% endblock %}

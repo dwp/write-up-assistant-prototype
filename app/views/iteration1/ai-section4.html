@@ -63,23 +63,7 @@
 </div>
 
 <p class="govuk-body pre-line">{{ wb.justification }}</p>
-
-      <details class="govuk-details govuk-!-margin-bottom-9 govuk-!-margin-top-6">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Application documents
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          
-                    <ul class="govuk-list govuk-list--bullet">
-            <li><a class="govuk-link" href="#">PIP2.pdf</a></li>
-            <li><a class="govuk-link" href="#">FE.pdf</a></li>
-          </ul>
-        </div>
-      </details>
-
-
+<hr class="govuk-!-margin-bottom-6 govuk-!-margin-top-6">
 
       {{ govukCheckboxes({
         name: "review-confirmation",
@@ -97,9 +81,9 @@
         ]
       }) }}
 
-      <div class="govuk-button-group">
+           <div class="govuk-button-group">
         {{ govukButton({
-          text: "Continue",
+          text: "Save and continue",
           href: "ai-section5",
           isStartButton: false
         }) }}
@@ -110,9 +94,19 @@
           href: "ai-checklist"
         }) }}
       </div>
+    </div>
+    <div class="govuk-grid-column-one-third">
 
-</div>
- 
-    
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
+            <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in a new tab</div>
+          <nav role="navigation" aria-labelledby="subsection-title">
+            <ul class="govuk-list">
+              <li>Evidence list</li>
+              <li><a class="govuk-link" href="/iteration2/files/view-pip2" target="_blank">PIP2.pdf</a></li>
+              <li><a class="govuk-link" href="/iteration2/files/view-pip2" target="_blank">FE.pdf</a></li>
+            </ul>
+          </nav>
+    </div>
+
   </div>
 {% endblock %}

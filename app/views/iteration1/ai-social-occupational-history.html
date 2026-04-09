@@ -19,7 +19,9 @@
     <a href="javascript:history.back()" class="govuk-back-link">Back</a>
   </div>
 
-<div class="govuk-grid-row">    
+<div class="govuk-grid-row">   
+  
+  
 <div class="govuk-grid-column-two-thirds">
 
 {{ govukNotificationBanner({
@@ -45,42 +47,6 @@
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 
-<!--
-{% for item in case.report[1].content %}
-
-  <div class="govuk-grid-row govuk-!-margin-bottom-2">
-    <div class="govuk-grid-column-two-thirds">
-      <h3 class="govuk-heading-m">{{ item.section }}</h3>
-    </div>
-    <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-      <a class="govuk-link" href="#">Change</a>
-    </div>
-  </div>
-
-  <p class="govuk-body pre-line">{{ item.text }}</p>
-
-  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-9">
-
-{% endfor %}
--->
-
-
-      <details class="govuk-details govuk-!-margin-bottom-9">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Application documents
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          
-                    <ul class="govuk-list govuk-list--bullet">
-            <li><a class="govuk-link" href="#">PIP2.pdf</a></li>
-            <li><a class="govuk-link" href="#">FE.pdf</a></li>
-          </ul>
-        </div>
-      </details>
-
-
 
       {{ govukCheckboxes({
         name: "review-confirmation",
@@ -100,7 +66,7 @@
 
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Continue",
+          text: "Save and continue",
           href: "ai-section1",
           isStartButton: false
         }) }}
@@ -115,6 +81,21 @@
 
 
 
+
+</div>
+
+        <div class="govuk-grid-column-one-third">
+
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
+            <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in a new tab</div>
+          <nav role="navigation" aria-labelledby="subsection-title">
+            <ul class="govuk-list">
+              <li>Evidence list</li>
+              <li><a class="govuk-link" href="/iteration2/files/view-pip2" target="_blank">PIP2.pdf</a></li>
+              <li><a class="govuk-link" href="/iteration2/files/view-pip2" target="_blank">FE.pdf</a></li>
+            </ul>
+          </nav>
+        </div>
 
 </div>
 {% endblock %}
