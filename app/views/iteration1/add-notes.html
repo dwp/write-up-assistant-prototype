@@ -24,7 +24,17 @@
       <h1 class="govuk-heading-xl">
         Add your consultation notes
       </h1>
-    <p class="govuk-body">Your artificial intelligence assistant will review these notes and use them to produce an initial draft assessment report. </p>
+    <p class="govuk-body">Use sections below to write a short summary for each actvivity.</p>
+    <p class="govuk-body">You can add the prompts to help guide your assessment.</p>
+    <p class="govuk-body">When writing notes,refer to the evidence you used during the during the assessment.</p>
+    <p class="govuk-body">You do not need to worry about grammar or spelling. AI will correct this later.</p>
+    <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    AI assistant will not review the evidence. You must add any relevant details from the evidence to the report yourself.
+  </strong>
+</div>
     
 <div class="govuk-form-group">
   <h1 class="govuk-label-wrapper">
@@ -32,7 +42,7 @@
       Condition history
     </label>
   </h1>
-  <div id="more-detail-hint" class="govuk-hint">
+  <div id="more-detail-hint" class="govuk-hint" style="display: none;">
     Provide a clear summary of the claimant’s health conditions, including onset, duration, progression and any recent changes.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="15" aria-describedby="more-detail-hint">
@@ -86,7 +96,7 @@ Mental Health
       Medication
     </label>
   </h1>
-  <div id="more-detail-hint" class="govuk-hint">
+  <div id="more-detail-hint" class="govuk-hint" style="display: none;">
     List all prescribed and over‑the‑counter medications, including dosage, frequency, reason for taking, and any reported side effects.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
@@ -113,7 +123,7 @@ Other Medications
       Social and occupational history
     </label>
   </h1>
-  <div id="more-detail-hint" class="govuk-hint">
+  <div id="more-detail-hint" class="govuk-hint" style="display: none;">
     Describe the claimant’s living situation, daily routines, work history and any social or environmental factors that affect their functioning.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="15" aria-describedby="more-detail-hint">
@@ -246,7 +256,7 @@ Standing
       Preparing food
     </label>
   </h1>
-  <div id="more-detail-hint" class="govuk-hint">
+  <div id="more-detail-hint" class="govuk-hint" style="display: none;">
     Record any difficulties with planning, preparing, or safely cooking meals.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
@@ -269,7 +279,7 @@ Standing
       Taking nutrition
     </label>
   </h1>
-  <div id="more-detail-hint" class="govuk-hint">
+  <div id="more-detail-hint" class="govuk-hint" style="display: none;">
     Describe issues with eating, drinking, or managing nutritional needs independently.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
@@ -290,7 +300,7 @@ Prompting
       Managing therapy
     </label>
   </h1>
-  <div id="more-detail-hint" class="govuk-hint">
+  <div id="more-detail-hint" class="govuk-hint" style="display: none;">
     Note the claimant’s ability to follow treatment plans, manage therapy routines, or carry out medical interventions.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
@@ -309,7 +319,7 @@ Home therapy
       Washing and bathing
     </label>
   </h1>
-  <div id="more-detail-hint" class="govuk-hint">
+  <div id="more-detail-hint" class="govuk-hint" style="display: none;">
     Document any challenges with personal hygiene tasks, including washing, bathing or using facilities safely.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
@@ -333,7 +343,7 @@ Sequencing
       Managing toilet needs
     </label>
   </h1>
-  <div id="more-detail-hint" class="govuk-hint">
+  <div id="more-detail-hint" class="govuk-hint" style="display: none;">
     Describe continence issues or difficulties accessing, using, or managing toilet needs.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
@@ -352,7 +362,7 @@ Adaptations
       Dressing and undressing
     </label>
   </h1>
-  <div id="more-detail-hint" class="govuk-hint">
+  <div id="more-detail-hint" class="govuk-hint" style="display: none;">
     Record problems with selecting clothing, dressing independently, or removing garments.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
@@ -372,7 +382,7 @@ Weather choice
       Communicating verbally
     </label>
   </h1>
-  <div id="more-detail-hint" class="govuk-hint">
+  <div id="more-detail-hint" class="govuk-hint" style="display: none;">
     Note speech, comprehension, articulation or communication difficulties observed during the consultation.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
@@ -390,7 +400,7 @@ Reading aids
       Reading and understanding signs, symbols and words
     </label>
   </h1>
-  <div id="more-detail-hint" class="govuk-hint">
+  <div id="more-detail-hint" class="govuk-hint" style="display: none;">
     Describe any challenges with reading, processing written information or understanding visual prompts.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
@@ -405,7 +415,7 @@ Texting
       Engaging face to face
     </label>
   </h1>
-  <div id="more-detail-hint" class="govuk-hint">
+  <div id="more-detail-hint" class="govuk-hint" style="display: none;">
     Record how the claimant engages in face‑to‑face interactions, including cooperation, rapport, and social communication skills.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
@@ -424,7 +434,7 @@ Unfamiliar people
       Budgeting
     </label>
   </h1>
-  <div id="more-detail-hint" class="govuk-hint">
+  <div id="more-detail-hint" class="govuk-hint" style="display: none;">
     Describe any limitations in managing money, budgeting tasks or making financial decisions.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
@@ -443,7 +453,7 @@ Quick test
       Planning and following journeys
     </label>
   </h1>
-  <div id="more-detail-hint" class="govuk-hint">
+  <div id="more-detail-hint" class="govuk-hint" style="display: none;">
     Document difficulties with route planning, navigation, or travelling independently.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
@@ -467,7 +477,7 @@ Symptoms
       Moving around
     </label>
   </h1>
-  <div id="more-detail-hint" class="govuk-hint">
+  <div id="more-detail-hint" class="govuk-hint" style="display: none;">
     Record mobility issues, including walking distances, balance, pain, stability or the use of mobility aids.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
@@ -490,7 +500,7 @@ Hospital distance
       Mental state observations
     </label>
   </h1>
-  <div id="more-detail-hint" class="govuk-hint">
+  <div id="more-detail-hint" class="govuk-hint" style="display: none;">
    Describe any observations about the claimant’s mood, behaviour, communication, awareness, and interaction during the assessment.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
@@ -515,7 +525,7 @@ Coping at interview – coped at interview/some difficulty coping/severe difficu
       Informal observations 
     </label>
   </h1>
-  <div id="more-detail-hint" class="govuk-hint">
+  <div id="more-detail-hint" class="govuk-hint" style="display: none;">
    Record any informal observations you noticed before, during, or after the assessment, not captured elsewhere.
   </div>
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="10" aria-describedby="more-detail-hint">
