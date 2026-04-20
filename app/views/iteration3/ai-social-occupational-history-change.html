@@ -1,0 +1,92 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a not a service, it is a prototype created for user testing'
+  }) }}
+{% endblock %}
+
+{% block content %}
+{% set case = data.cases[0] %}
+  <div style="margin-top: -30px;">
+    <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+  </div>
+
+<div class="govuk-grid-row">
+
+
+
+
+  
+  <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Social and occupational history</h1>
+ 
+  {% set mio1 = case.report[1].content[0] %}
+
+
+
+<div class="govuk-form-group">
+  <textarea
+    class="govuk-textarea"
+    rows="30"
+    readonly
+  >{{ mio1.text }}</textarea>
+</div>
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+    <div class="govuk-grid-column-one-third">
+
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
+      <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in a new tab</div>
+    <nav role="navigation" aria-labelledby="subsection-title">
+      <ul class="govuk-list">
+        <li><a href="add-notes-view" target="_blank">Consultation notes</a></li>
+        <li><a class="govuk-link" href="review-evidence" target="_blank">Evidence list</a></li>
+        <li><a class="govuk-link" href="files/view-pip2" target="_blank">PIP2.pdf</a></li>
+        <li><a class="govuk-link" href="files/view-pip2" target="_blank">FE.pdf</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+<div class="govuk-grid-column-two-thirds">
+
+
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Save changes",
+          href: "ai-social-occupational-history",
+          isStartButton: false
+        }) }}
+
+                {{ govukButton({
+          text: "Cancel",
+          classes: "govuk-button--secondary",
+          href: "ai-checklist"
+        }) }}
+      </div>
+
+</div>
+
+</div>
+{% endblock %}

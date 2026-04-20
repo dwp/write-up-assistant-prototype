@@ -9,10 +9,13 @@
     tag: { text: "Prototype" },
     html: 'This is not a service, it is a prototype created for user testing'
   }) }}
-  <div class="govuk-grid-row">
+
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-summary-card govuk-!-margin-bottom-1">
-  <div class="govuk-summary-card__content">
+
+      <!--claimant details-->
+    <div class="govuk-summary-card govuk-!-margin-bottom-1" style="background-color: #f3f2f1; border: none;">
+  <div class="govuk-summary-card__content" >
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dd class="govuk-summary-list__value">
@@ -25,9 +28,36 @@
 
     </dl>
   </div>
-</div>
+   </div>
+<!--menu-->
+      <div class="dwp-ds-render">
+  
+    <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+        <ul class="dwp-horizontal-navigation__list">
+        
+        
+            <li class="dwp-horizontal-navigation__item ">
+            <a id="s-item-1" href="dashboard" class="dwp-horizontal-navigation__link dwp-horizontal-navigation__item--selected">Evidence</a>
+            </li> 
+        
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="s-item-2" href="dashboard-details" class="dwp-horizontal-navigation__link">Consultation details</a>
+            </li> 
+        
+        
+            <li class="dwp-horizontal-navigation__item">
+            <a id="s-item-3" href="dashboard-notes" class="dwp-horizontal-navigation__link" aria-current="true">Assessment</a>
+            </li> 
+        
+        </ul>
+    </nav>
+       </div>
+
+
   </div>
 </div>
+
 {% endblock %}
 
 {% block content %}
@@ -36,36 +66,15 @@
 
 <div class="govuk-grid-row">
 <!-- main layout-->
-   <div class="govuk-grid-column-one-quarter">
-    <!-- left side menu -->
-     <nav data-module="dwp-side-navigation-panel" class="dwp-side-navigation dwp-side-navigation--mobile" aria-label="Side" role="navigation">
-  
-  <ul class="dwp-side-navigation__list">
-    <li class="dwp-side-navigation__item dwp-side-navigation__item--selected">
-      <a id="s-item-2" href="dashboard" class="dwp-side-navigation__link dwp-side-navigation__link--selected" aria-current="true">
-        Review evidence
-      </a>
-    </li>
-
-    <li class="dwp-side-navigation__item">
-      <a id="s-item-3" href="dashboard-details" class="dwp-side-navigation__link">
-         Confirm consultation details
-      </a>
-    </li>
-    <li class="dwp-side-navigation__item">
-      <a id="s-item-3" href="dashboard-notes" class="dwp-side-navigation__link">
-       Add assessment and report notes
-      </a>
-    </li>
-  </ul>
-    </nav>
-  </div>   
-
   <!-- body and right side row-->
     <div class="govuk-grid-column-three-quarters">
     
     <h1 class="govuk-heading-xl">Review evidence</h1>
-    <p class="govuk-!-padding-bottom-3">Select the documents you want to include in the assessment.<strong> The AI assistant will not use these documents to write the report, so you must add any relevant details from the evidence yourself</strong>.</p>
+    <p class="govuk-!-padding-bottom-3">Select the documents you want to include in the assessment.</p>
+         {{ govukWarningText({
+        text: "AI assistant will not review the evidence. You must add any relevant details from the evidence to the report yourself.",
+        iconFallbackText: "Warning"
+      }) }}
 
 
     <p>All links open in a new tab.</p>
@@ -77,6 +86,43 @@
 
       <form method="post" novalidate>
       <!--tab1-->
+
+      <!-- SEARCH + FILTER + RESULT COUNT -->
+<div class="govuk-grid-row govuk-!-margin-bottom-4">
+
+  <!-- SEARCH -->
+  <div class="govuk-grid-column-one-half">
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="file-search">
+        Search files
+      </label>
+      <input
+        class="govuk-input"
+        id="file-search"
+        name="file-search"
+        type="search"
+        placeholder="Search by file name"
+      >
+    </div>
+  </div>
+
+  <!-- FILTER -->
+  <div class="govuk-grid-column-one-quarter">
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="file-type-filter">
+        Filter by type
+      </label>
+      <select class="govuk-select" id="file-type-filter" name="file-type-filter">
+        <option value="">All documents</option>
+        <option value="pip2">PIP Applications</option>
+        <option value="fe">Questionnaire</option>
+        <option value="medical">Medical evidence</option>
+         <option value="medical">Exams</option>
+      </select>
+    </div>
+  </div>
+
+</div>
 
 <!--table-->
 
@@ -310,7 +356,7 @@
           <div class="govuk-button-group">
             {{ govukButton({
             text: "Save and continue",
-            href: "consultation-details"
+            href: "dashboard-details"
             }) }}
             {{ govukButton({
             text: "Save and exit",

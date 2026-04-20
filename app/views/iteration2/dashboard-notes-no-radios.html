@@ -41,7 +41,7 @@
         
         
             <li class="dwp-horizontal-navigation__item">
-            <a id="s-item-2" href="dashboard-details" class="dwp-horizontal-navigation__link">Consultation details</a>
+            <a id="s-item-2" href="dashboard-details" class="dwp-horizontal-navigation__link">Consultation</a>
             </li> 
         
         
@@ -69,17 +69,13 @@
 
 
  
-  <!-- body and right side row-->
-    <div id="toppage" class="govuk-grid-column-three-quarters">
+  <!-- body -->
+    <div class="govuk-grid-column-three-quarters">
+
+
 
     <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Add your assessment notes</h1>
-   <p class="govuk-body govuk-!-margin-bottom-6 govuk-!-margin-top-2">Write your consultation notes for each section below. Your work is saved automatically. Your AI assistant will use these notes to create a draft assessment report for you to review and edit.</p>
-
-      {{ govukWarningText({
-        text: "AI assistant will not review the evidence. You must add any relevant details from the evidence to the report yourself.",
-        iconFallbackText: "Warning"
-      }) }}
-
+   <p class="govuk-body govuk-!-margin-bottom-6 govuk-!-margin-top-2">Write your assessment notes for each section below. Your work is saved automatically. Your AI assistant will use these notes to create a draft assessment report for you to review and edit.</p>
 
     <form action="dashboard-select-descriptors" method="post" novalidate>
     
@@ -103,7 +99,7 @@
               <a class="govuk-tabs__tab" href="#addConditions-conditionHistory">Add conditions</a>
             </li>
             <li class="govuk-tabs__list-item">
-              <a class="govuk-tabs__tab" href="#notes-conditionHistory">Add as free‑text</a>
+              <a class="govuk-tabs__tab" href="#notes-conditionHistory">Notes</a>
             </li>
           </ul>
     
@@ -182,7 +178,7 @@
               <a class="govuk-tabs__tab" href="#add-medicationTab">Add medications</a>
             </li>
             <li class="govuk-tabs__list-item">
-              <a class="govuk-tabs__tab" href="#notes-medicationTab">Add as free‑text</a>
+              <a class="govuk-tabs__tab" href="#notes-medicationTab">Notes</a>
             </li>
           </ul>
     
@@ -277,7 +273,7 @@
     
           <ul class="govuk-tabs__list">
             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-              <a class="govuk-tabs__tab" href="#notes-preparingFood">Assessment notes</a>
+              <a class="govuk-tabs__tab" href="#notes-preparingFood">Notes</a>
             </li>
             <li class="govuk-tabs__list-item">
               <a class="govuk-tabs__tab" href="#descriptors-preparingFood">Descriptors</a>
@@ -296,44 +292,15 @@
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-preparingFood">
             <h3 class="govuk-heading-m">Preparing food descriptors</h3>
-      {{ govukRadios({
-        idPrefix: "descriptor-1",
-        name: "descriptor1",
-        value: data['descriptor1'],
-        fieldset: {
-          legend: {
-            text: "",
-            isPageHeading: false,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
-          {
-            value: "(1a) Can prepare and cook a simple meal unaided",
-            text: "(1a) Can prepare and cook a simple meal unaided"
-          },
-          {
-            value: "(1b) Needs to use an aid or appliance to be able to either prepare or cook a simple meal",
-            text: "(1b) Needs to use an aid or appliance to be able to either prepare or cook a simple meal"
-          },
-          {
-            value: "(1c) Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave",
-            text: "(1c) Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave"
-          },
-          {
-            value: "(1d) Needs prompting to be able to either prepare or cook a simple meal",
-            text: "(1d) Needs prompting to be able to either prepare or cook a simple meal"
-          },
-          {
-            value: "(1e) Needs supervision or assistance to either prepare or cook a simple meal",
-            text: "(1e) Needs supervision or assistance to either prepare or cook a simple meal"
-          },
-          {
-            value: "(1f) Cannot prepare and cook food",
-            text: "(1f) Cannot prepare and cook food"
-          }
-        ]
-      }) }}
+            <p>You’ll select the descriptors on the next pages.</p>
+            <ul class="govuk-list">
+              <li>(1a) Can prepare and cook a simple meal unaided</li>
+              <li>(1b) Needs to use an aid or appliance to be able to either prepare or cook a simple meal</li>
+              <li>(1c) Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave</li>
+              <li>(1d) Needs prompting to be able to either prepare or cook a simple meal</li>
+              <li>(1e) Needs supervision or assistance to either prepare or cook a simple meal</li>
+              <li>(1f) Cannot prepare and cook food</li>
+            </ul>
     
           </div>
     
@@ -359,7 +326,7 @@
     
           <ul class="govuk-tabs__list">
             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-              <a class="govuk-tabs__tab" href="#notes-takingNutrition">Assessment notes</a>
+              <a class="govuk-tabs__tab" href="#notes-takingNutrition">Notes</a>
             </li>
             <li class="govuk-tabs__list-item">
               <a class="govuk-tabs__tab" href="#descriptors-takingNutrition">Descriptors</a>
@@ -382,62 +349,16 @@
           <!-- DESCRIPTORS TAB -->
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-takingNutrition">
             <h3 class="govuk-heading-m">Taking nutrition descriptors</h3>
-            
-
-  <form action="descriptor-3" method="post" novalidate="">
-
-{{ govukRadios({
-    idPrefix: "descriptor-2",
-    name: "descriptor2",
-    value: data['descriptor2'],
-    fieldset: {
-      legend: {
-        text: "",
-        isPageHeading: false,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-
-    items: [
-      {
-        value: "(2a) Can take nutrition unaided",
-        text: "(2a) Can take nutrition unaided",
-        checked: true
-      },
-      {
-        value: "(2b) Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take nutrition, or assistance to be able to cut up food",
-        text: "(2b) Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take nutrition, or assistance to be able to cut up food"
-      },
-      {
-        value: "(2c) Needs a therapeutic source to be able to take nutrition",
-        text: "(2c) Needs a therapeutic source to be able to take nutrition"
-      },
-      {
-        value: "(2d) Needs prompting to be able to take nutrition",
-        text: "(2d) Needs prompting to be able to take nutrition"
-      },
-      {
-        value: "(2e) Needs assistance to be able to manage a therapeutic source to take nutrition",
-        text: "(2e) Needs assistance to be able to manage a therapeutic source to take nutrition"
-      },
-      {
-        value: "(2f) Cannot convey food and drink to their mouth and needs another person to do so",
-        text: "(2f) Cannot convey food and drink to their mouth and needs another person to do so"
-      }
-    ]
-  }) }}
-
-
-
-
-
-<!-- place it in a form if will use it-->
-
-
-
-</form>
-
-
+            <p>You’ll select the descriptors on the next pages.</p>
+            <ul class="govuk-list">
+              <li>(2a) Can take nutrition unaided</li>
+              <li>(2b) Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take
+                nutrition, or assistance to be able to cut up food</li>
+              <li>(2c) Needs a therapeutic source to be able to take nutrition</li>
+              <li>(2d) Needs prompting to be able to take nutrition</li>
+              <li>(2e) Needs assistance to be able to manage a therapeutic source to take nutrition</li>
+              <li>(2f) Cannot convey food and drink to their mouth and needs another person to do so</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -458,7 +379,7 @@
     
           <ul class="govuk-tabs__list">
             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-              <a class="govuk-tabs__tab" href="#notes-managingTherapy">Assessment notes</a>
+              <a class="govuk-tabs__tab" href="#notes-managingTherapy">Notes</a>
             </li>
             <li class="govuk-tabs__list-item">
               <a class="govuk-tabs__tab" href="#descriptors-managingTherapy">Descriptors</a>
@@ -478,54 +399,21 @@
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-managingTherapy">
             <h3 class="govuk-heading-m">Managing therapy descriptors</h3>
- <form action="descriptor-4" method="post" novalidate="">
-
-{{ govukRadios({
-    idPrefix: "descriptor-3",
-    name: "descriptor3",
-    value: data['descriptor3'],
-    fieldset: {
-      legend: {
-        text: "",
-        isPageHeading: false,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-
-    items: [
-      {
-        value: "(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided",
-        text: "(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided",
-        checked: true
-      },
-      {
-        value: "(3b) Needs to use an aid or appliance to be able to manage medication, or needs supervision, prompting or assistance to be able to manage medication, or needs ",
-        text: "(3b) Needs to use an aid or appliance to be able to manage medication, or needs supervision, prompting or assistance to be able to manage medication, or needs "
-      },
-      {
-        value: "(3c) Needs supervision, prompting or assistance to be able to manage therapy that takes no more than 3.5 hours a week",
-        text: "(3c) Needs supervision, prompting or assistance to be able to manage therapy that takes no more than 3.5 hours a week"
-      },
-      {
-        value: "(3d) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 3.5 but no more than 7 hours a week",
-        text: "(3d) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 3.5 but no more than 7 hours a week"
-      },
-      {
-        value: "(3e) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 7 but no more than 14 hours a week",
-        text: "(3e) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 7 but no more than 14 hours a week"
-      },
-      {
-        value: "(3f) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 14 hours a week",
-        text: "(3f) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 14 hours a week"
-      }
-    ]
-  }) }}
-
-
-
-
-
-  </form>
+            <p>You’ll select the descriptors on the next pages.</p>
+            <ul class="govuk-list">
+              <li>(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage
+                medication or therapy or monitor a health condition unaided</li>
+              <li>(3b) Needs to use an aid or appliance to be able to manage medication, or needs supervision, prompting or
+                assistance to be able to manage medication, or needs</li>
+              <li>(3c) Needs supervision, prompting or assistance to be able to manage therapy that takes no more than 3.5
+                hours a week</li>
+              <li>(3d) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 3.5 but
+                no more than 7 hours a week</li>
+              <li>(3e) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 7 but no
+                more than 14 hours a week</li>
+              <li>(3f) Needs supervision, prompting or assistance to be able to manage therapy that takes more than 14 hours
+                a week</li>
+            </ul>
           </div>
     
         </div>
@@ -549,7 +437,7 @@
     
           <ul class="govuk-tabs__list">
             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-              <a class="govuk-tabs__tab" href="#notes-washingBathing">Assessment notes</a>
+              <a class="govuk-tabs__tab" href="#notes-washingBathing">Notes</a>
             </li>
             <li class="govuk-tabs__list-item">
               <a class="govuk-tabs__tab" href="#descriptors-washingBathing">Descriptors</a>
@@ -569,58 +457,16 @@
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-washingBathing">
             <h3 class="govuk-heading-m">Washing and bathing descriptors</h3>
- <form action="descriptor-5" method="post" novalidate="">
-
-{{ govukRadios({
-    idPrefix: "descriptor-4",
-    name: "descriptor4",
-    value: data['descriptor4'],
-    fieldset: {
-      legend: {
-        text: "",
-        isPageHeading: false,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-
-    items: [
-      {
-        value: "(4a) Can wash and bathe unaided",
-        text: "(4a) Can wash and bathe unaided"
-      },
-      {
-        value: "(4b) Needs to use an aid or appliance to be able to wash or bathe",
-        text: "(4b) Needs to use an aid or appliance to be able to wash or bathe"
-      },
-      {
-        value: "(4c) Needs supervision or prompting to be able to wash or bathe",
-        text: "(4c) Needs supervision or prompting to be able to wash or bathe"
-      },
-      {
-        value: "(4d) Needs assistance to be able to wash either their hair or body below the waist",
-        text: "(4d) Needs assistance to be able to wash either their hair or body below the waist"
-      },
-      {
-        value: "(4e) Needs assistance to be able to get in or out of a bath or shower",
-        text: "(4e) Needs assistance to be able to get in or out of a bath or shower",
-        checked: true
-      },
-      {
-        value: "(4f) Needs assistance to be able to wash their body between the shoulders and waist",
-        text: "(4f) Needs assistance to be able to wash their body between the shoulders and waist"
-      }
-      ,
-      {
-        value: "(4g) Cannot wash and bathe at all and needs another person to wash their entire body",
-        text: "(4g) Cannot wash and bathe at all and needs another person to wash their entire body"
-      }
-    ]
-  }) }}
-
-
-
-
-</form>
+            <p>You’ll select the descriptors on the next pages.</p>
+            <ul class="govuk-list">
+              <li>(4a) Can wash and bathe unaided</li>
+              <li>(4b) Needs to use an aid or appliance to be able to wash or bathe</li>
+              <li>(4c) Needs supervision or prompting to be able to wash or bathe</li>
+              <li>(4d) Needs assistance to be able to wash either their hair or body below the waist</li>
+              <li>(4e) Needs assistance to be able to get in or out of a bath or shower</li>
+              <li>(4f) Needs assistance to be able to wash their body between the shoulders and waist</li>
+              <li>(4g) Cannot wash and bathe at all and needs another person to wash their entire body</li>
+            </ul>
           </div>
     
         </div>
@@ -643,7 +489,7 @@
     
           <ul class="govuk-tabs__list">
             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-              <a class="govuk-tabs__tab" href="#notes-toiletNeeds">Assessment notes</a>
+              <a class="govuk-tabs__tab" href="#notes-toiletNeeds">Notes</a>
             </li>
             <li class="govuk-tabs__list-item">
               <a class="govuk-tabs__tab" href="#descriptors-toiletNeeds">Descriptors</a>
@@ -662,49 +508,15 @@
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-toiletNeeds">
             <h3 class="govuk-heading-m">Managing toilet needs descriptors</h3>
- <form action="descriptor-6" method="post" novalidate="">
-      {{ govukRadios({
-          idPrefix: "descriptor-5",
-          name: "descriptor5",
-          value: data['descriptor5'],
-          fieldset: {
-            legend: {
-              text: "",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-
-          items: [
-            {
-              value: "(5a) Can manage toilet needs or incontinence unaided",
-              text: "(5a) Can manage toilet needs or incontinence unaided"
-            },
-            {
-              value: "(5b) Needs to use an aid or appliance to be able to manage toilet needs or incontinence",
-              text: "(5b) Needs to use an aid or appliance to be able to manage toilet needs or incontinence",
-              checked: true
-            },
-            {
-              value: "(5c) Needs supervision or prompting to be able to manage toilet needs",
-              text: "(5c) Needs supervision or prompting to be able to manage toilet needs"
-            },
-            {
-              value: "(5d) Needs assistance to be able to manage toilet needs",
-              text: "(5d) Needs assistance to be able to manage toilet needs"
-            },
-            {
-              value: "(5e) Needs assistance to be able to manage incontinence of either bladder or bowel",
-              text: "(5e) Needs assistance to be able to manage incontinence of either bladder or bowel"
-            },
-            {
-              value: "(5f) Needs assistance to be able to manage incontinence of both bladder and bowel",
-              text: "(5f) Needs assistance to be able to manage incontinence of both bladder and bowel"
-            }
-          ]
-        }) }}
-
-</form>
+            <p>You’ll select the descriptors on the next pages.</p>
+            <ul class="govuk-list">
+              <li>(5a) Can manage toilet needs or incontinence unaided</li>
+              <li>(5b) Needs to use an aid or appliance to be able to manage toilet needs or incontinence</li>
+              <li>(5c) Needs supervision or prompting to be able to manage toilet needs</li>
+              <li>(5d) Needs assistance to be able to manage toilet needs</li>
+              <li>(5e) Needs assistance to be able to manage incontinence of either bladder or bowel</li>
+              <li>(5f) Needs assistance to be able to manage incontinence of both bladder and bowel</li>
+            </ul>
           </div>
     
         </div>
@@ -727,7 +539,7 @@
     
           <ul class="govuk-tabs__list">
             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-              <a class="govuk-tabs__tab" href="#notes-dressingUndressing">Assessment notes</a>
+              <a class="govuk-tabs__tab" href="#notes-dressingUndressing">Notes</a>
             </li>
             <li class="govuk-tabs__list-item">
               <a class="govuk-tabs__tab" href="#descriptors-dressingUndressing">Descriptors</a>
@@ -746,52 +558,16 @@
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-dressingUndressing">
             <h3 class="govuk-heading-m">Dressing and undressing descriptors</h3>
-<form action="descriptor-7" method="post" novalidate="">
-
-{{ govukRadios({
-    idPrefix: "descriptor-6",
-    name: "descriptor6",
-    value: data['descriptor6'],
-    fieldset: {
-      legend: {
-        text: "",
-        isPageHeading: false,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-
-    items: [
-      {
-        value: "(6a) Can dress and undress unaided",
-        text: "(6a) Can dress and undress unaided"
-      },
-      {
-        value: "(6b) Needs to use an aid or appliance to be able to dress or undress",
-        text: "(6b) Needs to use an aid or appliance to be able to dress or undress",
-        checked: true
-      },
-      {
-        value:  "(6c) Needs either prompting to be able to dress, undress or determine appropriate circumstances for remaining clothed, or needs prompting or assistance to be able to select appropriate clothing",
-        text: "(6c) Needs either prompting to be able to dress, undress or determine appropriate circumstances for remaining clothed, or needs prompting or assistance to be able to select appropriate clothing"
-      },
-      {
-        value: "(6d) Needs assistance to be able to dress or undress their lower body",
-        text: "(6d) Needs assistance to be able to dress or undress their lower body"
-      },
-      {
-        value: "(6e) Needs assistance to be able to dress or undress their upper body",
-        text: "(6e) Needs assistance to be able to dress or undress their upper body"
-      },
-      {
-        value: "(6f) Cannot dress or undress at all",
-        text: "(6f) Cannot dress or undress at all"
-      }
-    ]
-  }) }}
-
-
-
-</form>  
+            <p>You’ll select the descriptors on the next pages.</p>
+            <ul class="govuk-list">
+              <li>(6a) Can dress and undress unaided</li>
+              <li>(6b) Needs to use an aid or appliance to be able to dress or undress</li>
+              <li>(6c) Needs either prompting to be able to dress, undress or determine appropriate circumstances for
+                remaining clothed, or needs prompting or assistance to be able to select appropriate clothing</li>
+              <li>(6d) Needs assistance to be able to dress or undress their lower body</li>
+              <li>(6e) Needs assistance to be able to dress or undress their upper body</li>
+              <li>(6f) Cannot dress or undress at all</li>
+            </ul>
           </div>
     
         </div>
@@ -814,7 +590,7 @@
     
           <ul class="govuk-tabs__list">
             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-              <a class="govuk-tabs__tab" href="#notes-communicatingVerbally">Assessment notes</a>
+              <a class="govuk-tabs__tab" href="#notes-communicatingVerbally">Notes</a>
             </li>
             <li class="govuk-tabs__list-item">
               <a class="govuk-tabs__tab" href="#descriptors-communicatingVerbally">Descriptors</a>
@@ -836,47 +612,14 @@
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-communicatingVerbally">
     
             <h3 class="govuk-heading-m">Communicating verbally descriptors</h3>
-<form action="descriptor-8" method="post" novalidate="">
-
-{{ govukRadios({
-    idPrefix: "descriptor-7",
-    name: "descriptor7",
-    value: data['descriptor7'],
-    fieldset: {
-      legend: {
-        text: "",
-        isPageHeading: false,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-
-    items: [
-      {
-        value: "(7a) Can express and understand verbal information unaided",
-        text: "(7a) Can express and understand verbal information unaided",
-        checked: true
-      },
-      {
-        value: "(7b) Needs to use an aid or appliance to be able to speak or hear",
-        text: "(7b) Needs to use an aid or appliance to be able to speak or hear"
-      },
-      {
-        value: "(7c) Needs communication support to be able to express or understand complex verbal information",
-        text: "(7c) Needs communication support to be able to express or understand complex verbal information"
-      },
-      {
-        value: "(7d) Needs communication support to be able to express or understand basic verbal information",
-        text: "(7d) Needs communication support to be able to express or understand basic verbal information"
-      },
-      {
-        value: "(7e) Cannot express or understand verbal information at all even with communication support",
-        text: "(7e) Cannot express or understand verbal information at all even with communication support"
-      }
-    ]
-  }) }}
-
-  
-</form>
+            <p>You’ll select the descriptors on the next pages.</p>
+            <ul class="govuk-list">
+              <li>(7a) Can express and understand verbal information unaided</li>
+              <li>(7b) Needs to use an aid or appliance to be able to speak or hear</li>
+              <li>(7c) Needs communication support to be able to express or understand complex verbal information</li>
+              <li>(7d) Needs communication support to be able to express or understand basic verbal information</li>
+              <li>(7e) Cannot express or understand verbal information at all even with communication support</li>
+            </ul>
     
           </div>
     
@@ -902,7 +645,7 @@
     
           <ul class="govuk-tabs__list">
             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-              <a class="govuk-tabs__tab" href="#notes-readingUnderstanding">Assessment notes</a>
+              <a class="govuk-tabs__tab" href="#notes-readingUnderstanding">Notes</a>
             </li>
             <li class="govuk-tabs__list-item">
               <a class="govuk-tabs__tab" href="#descriptors-readingUnderstanding">Descriptors</a>
@@ -924,48 +667,16 @@
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-readingUnderstanding">
     
             <h3 class="govuk-heading-m">Reading and understanding descriptors</h3>
-
-<form action="descriptor-9" method="post" novalidate="">
-
-
-{{ govukRadios({
-    idPrefix: "descriptor-8",
-    name: "descriptor8",
-    value: data['descriptor8'],
-    fieldset: {
-      legend: {
-        text: "",
-        isPageHeading: false,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-
-    items: [
-      {
-        value: "(8a) Can read and understand basic and complex written information either unaided or using spectacles or contact lenses",
-        text: "(8a) Can read and understand basic and complex written information either unaided or using spectacles or contact lenses",
-        checked: true
-      },
-      {
-        value: "(8b) Needs to use an aid or appliance, other than spectacles or contact lenses, to be able to read or understand either basic or complex written information",
-        text: "(8b) Needs to use an aid or appliance, other than spectacles or contact lenses, to be able to read or understand either basic or complex written information"
-      },
-      {
-        value: "(8c) Needs prompting to be able to read or understand complex written information",
-        text: "(8c) Needs prompting to be able to read or understand complex written information"
-      },
-      {
-        value: "(8d) Needs prompting to be able to read or understand basic written information",
-        text: "(8d) Needs prompting to be able to read or understand basic written information"
-      },
-      {
-        value: "(8e) Cannot read or understand signs, symbols or words at all",
-        text: "(8e) Cannot read or understand signs, symbols or words at all"
-      }
-    ]
-  }) }}
-
-</form>
+            <p>You’ll select the descriptors on the next pages.</p>
+            <ul class="govuk-list">
+              <li>(8a) Can read and understand basic and complex written information either unaided or using spectacles or
+                contact lenses</li>
+              <li>(8b) Needs to use an aid or appliance, other than spectacles or contact lenses, to be able to read or
+                understand either basic or complex written information</li>
+              <li>(8c) Needs prompting to be able to read or understand complex written information</li>
+              <li>(8d) Needs prompting to be able to read or understand basic written information</li>
+              <li>(8e) Cannot read or understand signs, symbols or words at all</li>
+            </ul>
     
           </div>
     
@@ -992,7 +703,7 @@
     
           <ul class="govuk-tabs__list">
             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-              <a class="govuk-tabs__tab" href="#notes-engagingFaceToFace">Assessment notes</a>
+              <a class="govuk-tabs__tab" href="#notes-engagingFaceToFace">Notes</a>
             </li>
             <li class="govuk-tabs__list-item">
               <a class="govuk-tabs__tab" href="#descriptors-engagingFaceToFace">Descriptors</a>
@@ -1013,41 +724,15 @@
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-engagingFaceToFace">
     
             <h3 class="govuk-heading-m">Engaging face to face descriptors</h3>
-            <form action="descriptor-10" method="post" novalidate="">
-
-            {{ govukRadios({
-                idPrefix: "descriptor-9",
-                name: "descriptor9",
-                value: data['descriptor9'],
-                fieldset: {
-                  legend: {
-                    text: "",
-                    isPageHeading: false,
-                    classes: "govuk-fieldset__legend--l"
-                  }
-                },
-
-                items: [
-                  {
-                    value: "(9a) Can engage with other people unaided",
-                    text: "(9a) Can engage with other people unaided",
-                    checked: true
-                  },
-                  {
-                    value: "(9b) Needs prompting to be able to engage with other people",
-                    text: "(9b) Needs prompting to be able to engage with other people"
-                  },
-                  {
-                    value: "(9c) Needs social support to be able to engage with other people",
-                    text: "(9c) Needs social support to be able to engage with other people"
-                  },
-                  {
-                    value: "(9d) Cannot engage with other people due to such engagement, causing either overwhelming psychological distress to the claimant or leading the claimant to exhibit behaviour which would result in a substantial risk of harm to the claimant or another person",
-                    text: "(9d) Cannot engage with other people due to such engagement, causing either overwhelming psychological distress to the claimant or leading the claimant to exhibit behaviour which would result in a substantial risk of harm to the claimant or another person"
-                  }
-                ]
-              }) }}
-            </form>  
+            <p>You’ll select the descriptors on the next pages.</p>
+            <ul class="govuk-list">
+              <li>(9a) Can engage with other people unaided</li>
+              <li>(9b) Needs prompting to be able to engage with other people</li>
+              <li>(9c) Needs social support to be able to engage with other people</li>
+              <li>(9d) Cannot engage with other people due to such engagement causing either overwhelming psychological
+                distress to the claimant or leading the claimant to exhibit behaviour which would result in a substantial
+                risk of harm to the claimant or another person</li>
+            </ul>
     
           </div>
     
@@ -1073,7 +758,7 @@
     
           <ul class="govuk-tabs__list">
             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-              <a class="govuk-tabs__tab" href="#notes-budgeting">Assessment notes</a>
+              <a class="govuk-tabs__tab" href="#notes-budgeting">Notes</a>
             </li>
             <li class="govuk-tabs__list-item">
               <a class="govuk-tabs__tab" href="#descriptors-budgeting">Descriptors</a>
@@ -1094,42 +779,13 @@
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-budgeting">
     
             <h3 class="govuk-heading-m">Budgeting descriptors</h3>
-<form action="descriptor-11" method="post" novalidate="">
-
-
-{{ govukRadios({
-    idPrefix: "descriptor-10",
-    name: "descriptor10",
-    value: data['descriptor10'],
-    fieldset: {
-      legend: {
-        text: "",
-        isPageHeading: false,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-
-    items: [
-      {
-        value: "(10a) Can manage complex budgeting decisions unaided",
-        text: "(10a) Can manage complex budgeting decisions unaided",
-        checked: true
-      },
-      {
-        value: "(10b) Needs prompting or assistance to be able to make complex budgeting decisions",
-        text: "(10b) Needs prompting or assistance to be able to make complex budgeting decisions"
-      },
-      {
-        value: "(10c) Needs prompting or assistance to be able to make simple budgeting decisions",
-        text: "(10c) Needs prompting or assistance to be able to make simple budgeting decisions"
-      },
-      {
-        value: "(10d) Cannot make any budgeting decisions at all",
-        text: "(10d) Cannot make any budgeting decisions at all"
-      }
-    ]
-  }) }}
-</form>
+            <p>You’ll select the descriptors on the next pages.</p>
+            <ul class="govuk-list">
+              <li>(10a) Can manage complex budgeting decisions unaided</li>
+              <li>(10b) Needs prompting or assistance to be able to make complex budgeting decisions</li>
+              <li>(10c) Needs prompting or assistance to be able to make simple budgeting decisions</li>
+              <li>(10d) Cannot make any budgeting decisions at all</li>
+            </ul>
     
           </div>
     
@@ -1155,7 +811,7 @@
     
           <ul class="govuk-tabs__list">
             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-              <a class="govuk-tabs__tab" href="#notes-planningJourneys">Assessment notes</a>
+              <a class="govuk-tabs__tab" href="#notes-planningJourneys">Notes</a>
             </li>
             <li class="govuk-tabs__list-item">
               <a class="govuk-tabs__tab" href="#descriptors-planningJourneys">Descriptors</a>
@@ -1176,52 +832,20 @@
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-planningJourneys">
     
             <h3 class="govuk-heading-m">Planning and following journeys descriptors</h3>
-
-                    <form action="descriptor-12" method="post" novalidate="">
-
-
-        {{ govukRadios({
-            idPrefix: "descriptor-11",
-            name: "descriptor11",
-            value: data['descriptor11'],
-            fieldset: {
-              legend: {
-                text: "",
-                isPageHeading: false,
-                classes: "govuk-fieldset__legend--l"
-              }
-            },
-
-            items: [
-              {
-                value: "(11a) Can plan and follow the route of a journey unaided",
-                text: "(11a) Can plan and follow the route of a journey unaided",
-                checked: true
-              },
-              {
-                value: "(11b) Needs prompting to be able to undertake any journey to avoid overwhelming psychological distress to the claimant",
-                text: "(11b) Needs prompting to be able to undertake any journey to avoid overwhelming psychological distress to the claimant"
-              },
-              {
-                value: "(11c) Cannot plan the route of a journey",
-                text: "(11c) Cannot plan the route of a journey"
-              },
-              {
-                value: "(11d) Cannot follow the route of an unfamiliar journey without another person, assistance dog or orientation aid",
-                text: "(11d) Cannot follow the route of an unfamiliar journey without another person, assistance dog or orientation aid"
-              },
-              {
-                value: "(11e) Cannot undertake any journey because it would cause overwhelming psychological distress to the claimant",
-                text: "(11e) Cannot undertake any journey because it would cause overwhelming psychological distress to the claimant"
-              },
-              {
-                value: "(11f) Cannot follow the route of a familiar journey without another person, an assistance dog or an orientation aid",
-                text: "(11f) Cannot follow the route of a familiar journey without another person, an assistance dog or an orientation aid"
-              }
-            ]
-          }) }}
-
-        </form>
+            <p>You’ll select the descriptors on the next pages.</p>
+            <ul class="govuk-list">
+              <li>(11a) Can plan and follow the route of a journey unaided</li>
+              <li>(11b) Needs prompting to be able to undertake any journey to avoid overwhelming psychological distress to
+                the claimant</li>
+              <li>(11c) Cannot plan the route of a journey</li>
+              <li>(11d) Cannot follow the route of an unfamiliar journey without another person, assistance dog or
+                orientation aid</li>
+              <li>(11e) Cannot undertake any journey because it would cause overwhelming psychological distress to the
+                claimant</li>
+              <li>(11f) Cannot follow the route of a familiar journey without another person, an assistance dog or an
+                orientation aid</li>
+    
+            </ul>
     
           </div>
     
@@ -1245,7 +869,7 @@
     
           <ul class="govuk-tabs__list">
             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-              <a class="govuk-tabs__tab" href="#notes-movingAround">Assessment notes</a>
+              <a class="govuk-tabs__tab" href="#notes-movingAround">Notes</a>
             </li>
             <li class="govuk-tabs__list-item">
               <a class="govuk-tabs__tab" href="#descriptors-movingAround">Descriptors</a>
@@ -1267,50 +891,17 @@
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-movingAround">
     
             <h3 class="govuk-heading-m">Moving around descriptors</h3>
-<form action="check-your-answers" method="post" novalidate="">
-
-{{ govukRadios({
-    idPrefix: "descriptor-12",
-    name: "descriptor12",
-    value: data['descriptor12'],
-    fieldset: {
-      legend: {
-        text: "",
-        isPageHeading: false,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-
-    items: [
-      {
-        value: "(12a) Can stand and then move more than 200 metres, either aided or unaided",
-        text: "(12a) Can stand and then move more than 200 metres, either aided or unaided"
-      },
-      {
-        value: "(12b) Can stand and then move more than 50 metres but no more than 200 metres, either aided or unaided",
-        text: "(12b) Can stand and then move more than 50 metres but no more than 200 metres, either aided or unaided"
-      },
-      {
-        value: "(12c) Can stand and then move unaided more than 20 metres but no more than 50 metres",
-        text: "(12c) Can stand and then move unaided more than 20 metres but no more than 50 metres",
-        checked: true
-      },
-      {
-        value: "(12d) Can stand and then move using an aid or appliance more than 20 metres but no more than 50 metres",
-        text: "(12d) Can stand and then move using an aid or appliance more than 20 metres but no more than 50 metres"
-      },
-      {
-        value: "(12e) Can stand and then move more than 1 metre but no more than 20 metres, either aided or unaided",
-        text: "(12e) Can stand and then move more than 1 metre but no more than 20 metres, either aided or unaided"
-      },
-      {
-        value: "(12f) Cannot stand or move more than 1 metre, either aided or unaided",
-        text: "(12f) Cannot stand or move more than 1 metre, either aided or unaided"
-      }
-    ]
-  }) }}
-
-</form>
+            <p>You’ll select the descriptors on the next pages.</p>
+            <ul class="govuk-list">
+              <li>(12a) Can stand and then move more than 200 metres, either aided or unaided</li>
+              <li>(12b) Can stand and then move more than 50 metres but no more than 200 metres, either aided or unaided
+              </li>
+              <li>(12c) Can stand and then move unaided more than 20 metres but no more than 50 metres</li>
+              <li>(12d) Can stand and then move using an aid or appliance more than 20 metres but no more than 50 metres
+              </li>
+              <li>(12e) Can stand and then move more than 1 metre but no more than 20 metres, either aided or unaided</li>
+              <li>(12f) Cannot stand or move more than 1 metre, either aided or unaided</li>
+            </ul>
     
           </div>
     
@@ -1349,13 +940,14 @@
         <textarea class="govuk-textarea" id="informalObservations" name="informalObservations" rows="10"></textarea>
       </div>
 
-            <!-- justifications -->
+
+      <!-- Justifications-->
       <div id="justifications" class="govuk-form-group">
         <h1 class="govuk-label-wrapper">
-          <label class="govuk-label govuk-label--l" for="informalObservations">Justification summary</label>
+          <label class="govuk-label govuk-label--l" for="informalObservations">Justifications</label>
         </h1>
         <div id="informalObservations-hint" class="govuk-hint">
-          Record your justification observations.
+          Record informal observations not captured elsewhere.
         </div>
         <p class="govuk-!-margin-bottom-1">
           <a href="#" class="govuk-link load-headings" data-target="informalObservations"
@@ -1363,13 +955,10 @@
         </p>
         <textarea class="govuk-textarea" id="informalObservations" name="informalObservations" rows="10"></textarea>
       </div>
+
     
       <div class="govuk-button-group">
-        {{ govukButton({ 
-          text: "Save and continue" ,
-        href: "check-your-answers"
-        
-        }) }}
+        {{ govukButton({ text: "Save and continue" }) }}
     
         {{ govukButton({
         text: "Save and exit",
@@ -1422,7 +1011,6 @@
     <h2 class="govuk-heading-m" id="subsection-title">Jump to section</h2>
     <nav role="navigation" class="border" aria-labelledby="subsection-title">
       <ul class="govuk-list">
-        <li><a class="govuk-link" href="#toppage">Page top</a></li>
         <li><a class="govuk-link" href="#condition-history">Condition history</a></li>
         <li><a class="govuk-link" href="#medication-section">Medication</a></li>
         <li><a class="govuk-link" href="#social-history">Social & occupational history</a></li>
@@ -1441,7 +1029,6 @@
         <li><a class="govuk-link" href="#mental-state">Mental state observations</a></li>
         <li><a class="govuk-link" href="#informal-observations">Informal observations</a></li>
         <li><a class="govuk-link" href="#justifications">Justifications</a></li>
-        <li><a class="govuk-link" href="#justifications">Page bottom</a></li>
       </ul>
     </nav>
 

@@ -37,149 +37,23 @@
 
 <div class="govuk-grid-row">
 
-  <!-- LEFT COLUMN: FORM -->
+  <!-- right COLUMN: FORM -->
   <div class="govuk-grid-column-two-thirds">
-
-    <h1 class="govuk-heading-xl">Add your consultation notes</h1>
-    <p class="govuk-body">Your artificial intelligence assistant will review these notes and use them to produce an initial draft assessment report.</p>
 
 <form action="aa-other-sections" method="post" novalidate>
 
   <!-- SOCIAL HISTORY -->
   <div id="social-history" class="govuk-form-group">
     <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="socialHistory">Social and occupational history</label>
+      <label class="govuk-label govuk-label--xl" for="socialHistory">Social and occupational history</label>
     </h1>
-    <div id="socialHistory-hint" class="govuk-hint">
-      Describe the claimant’s living situation, daily routines, work history and any social or environmental factors that affect their functioning.
-    </div>
     <p class="govuk-!-margin-bottom-1">
       <a href="#" style="display: none;" class="govuk-link load-headings" data-target="socialHistory" data-heading="socialHistoryHeadings">Add prompts</a>
     </p>
     <textarea class="govuk-textarea" id="socialHistory" name="socialHistory" rows="30">
-CHECKLIST PROMPTS
-
-Social occupational history
-
-Home & Living
- Home type
- Floor level
- Stairs
- Stair management
- Who lives with
- Falls history
- Fall injuries
-
-Aids / Adaptations
- Home aids
- Prescribed?
- Usage frequency
- Walking aids
- Hand splints
- Splint purpose
- Splint use
- Prescriber
- Home adaptations
- Bathroom aids
- Toilet location
-
-Bathing / Dressing
-
- Bath/shower method
- Assistance
- After‑care
- Dressing process
- Independent?
-
-Pets / Children / Caring
- Children
- Pets
- Pet care
- Dog walking
- Route
- Caring duties
-
-Driving
- Manual/auto
- Frequency
- Destinations
- Seatbelt
- Blue badge
-
-Work / Education
- Work type
- Hours
- Role
- Interactions
- Sick leave
- Stopped work—why
- School type
- Coursework support
- Travel to school
-Housework
- Tasks managed
- Frequency
- Help given
- Hanging clothes
- Who does it
- Why not
-Shopping
- Frequency
- Online?
- Local shop
- Travel to shop
- Taxi use
- Trolley/basket
- Card use
- Ask staff?
- Who shops?
- Why not?
-Cooking
- Meals made
- Duration
- Chop/peel
- Lift pans
- Stand at cooker
- Cooking aids
- Assistance
- Supervision
- Accidents
-
-Correspondence
- Open letters
- Read letters
- Manage appointments
- Past ability
- Reason stopped
-
-Hobbies / Weekends
- Hobbies
- Frequency
- Duration
-
-Going Out / Socialising
- Go out?
- Reasons
- Garden access
- Family events
- Stopped—why
- Park visits
- Travel to park
-
-Daily Routine
- Typical day
- After lunch
- Rest time
- Questionnaire filled by
-
-Sleep
- Sleep pattern
- Hours
-Standing
- Standing tolerance
+Prompt
 
 
- Internet
 
     </textarea>
   </div>
@@ -229,11 +103,8 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 
 
-
-
-
-  <!-- RIGHT SIDEBAR -->
-<div class="govuk-grid-column-one-third sticky-container3">
+  <!-- left SIDEBAR -->
+<div class="govuk-grid-column-one-third">
   
   <div class="">
 
@@ -245,9 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
          <a href="my-crib-sheet" target="_blank">Crib-sheet</a>
           </li>
         <li>
-          <a class="govuk-link" href="review-case-evidence">Evidence list</a>
-        </li>
-        <li>
           <a class="govuk-link" href="files/view-pip2" target="_blank">PIP2.pdf</a>
         </li>
         <li>
@@ -256,13 +124,12 @@ document.addEventListener("DOMContentLoaded", function () {
       </ul>
     </nav>
 
-  </div>
-
-    <div class="sticky-nav">
+    <div class="sticky-nav" style="display: none;">
 
     <h2 class="govuk-heading-m" id="subsection-title">Related content</h2>
     <nav role="navigation" class="border" aria-labelledby="subsection-title">
       <ul class="govuk-list">
+        <li><a class="govuk-link" href="review-case-evidence">Evidence</a></li>
         <li><a class="govuk-link" href="aan-conditions-and-medication">Condition history and medication</a></li>
         <li><a class="govuk-link" href="#social-history">Social & occupational history</a></li>
       </ul>
@@ -270,7 +137,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   </div>
 
+
+  </div>
+
 </div>
+
+
 </div>
 
 

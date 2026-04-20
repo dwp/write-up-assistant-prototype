@@ -36,7 +36,6 @@
       <tbody class="govuk-table__body">
 
         {% set status = data['caseStatus'] or "New" %}
-
         <!-- ROW 1 -->
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header" data-sort-value="2026-03-20T09:00">
@@ -61,66 +60,6 @@
             {% endif %}
           </td>
         </tr>
-
-        <!-- ROW 2 -->
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header" data-sort-value="2026-03-20T09:00">
-           <a class="govuk-link" href="review-case-evidence.html">
-              {{ data['userNameee'] or "Jonny Simpleton"}}
-            </a>
-          </th>
-
-          <td class="govuk-table__cell">PIP</td>
-          <td class="govuk-table__cell">Telephone</td>
-          <td class="govuk-table__cell" data-sort-value="2026-03-20T09:00">20 April 2026, 2pm</td>
-
-          <td class="govuk-table__cell">
-            {% if status == "New" %}
-              <strong class="govuk-tag govuk-tag--grey">New</strong>
-            {% elif status == "Started" %}
-              <strong class="govuk-tag govuk-tag--blue">Started</strong>
-            {% elif status == "Complete" %}
-              <strong class="govuk-tag govuk-tag--green">Complete</strong>
-            {% else %}
-              <strong class="govuk-tag govuk-tag--grey">{{ status }}</strong>
-            {% endif %}
-          </td>
-        </tr>
-
-        <!-- ROW 3 -->
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header" data-sort-value="2026-03-19T14:30">
-            <a class="govuk-link" href="#">
-              Sarah Thompson
-            </a>
-          </th>
-
-          <td class="govuk-table__cell">PIP</td>
-          <td class="govuk-table__cell">Telephone</td>
-          <td class="govuk-table__cell" data-sort-value="2026-03-19T14:30">19 March 2026, 2:30pm</td>
-
-          <td class="govuk-table__cell">
-            <strong class="govuk-tag govuk-tag--green">Complete</strong>
-          </td>
-        </tr>
-
-        <!-- ROW 4 -->
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header" data-sort-value="2026-03-18T11:15">
-            <a class="govuk-link" href="#">
-              James Walker
-            </a>
-          </th>
-
-          <td class="govuk-table__cell">PIP</td>
-          <td class="govuk-table__cell">Telephone</td>
-          <td class="govuk-table__cell" data-sort-value="2026-03-18T11:15">18 March 2026, 11am</td>
-
-          <td class="govuk-table__cell">
-            <strong class="govuk-tag govuk-tag--green">Complete</strong>
-          </td>
-        </tr>
-
       </tbody>
     </table>
 

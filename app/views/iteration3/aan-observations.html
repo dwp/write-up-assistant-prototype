@@ -38,13 +38,13 @@
 <div class="govuk-grid-row">
 
 
-
-
   <!-- LEFT COLUMN: FORM -->
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Add your consultation notes</h1>
-    <p class="govuk-body">Your artificial intelligence assistant will review these notes and use them to produce an initial draft assessment report.</p>
+       <!-- Title -->
+
+        <h1 class="govuk-heading-xl">Add your observations</h1>
+
 
 <form action="aan-justification" method="post" novalidate>
 
@@ -53,9 +53,7 @@
     <h1 class="govuk-label-wrapper">
       <label class="govuk-label govuk-label--l" for="mentalStateObservations">Mental state observations</label>
     </h1>
-    <div id="mentalStateObservations-hint" class="govuk-hint">
-      Observations about the claimant’s behaviour and interaction.
-    </div>
+
 
     <textarea class="govuk-textarea" id="mentalStateObservations" name="mentalStateObservations" rows="10"></textarea>
   </div>
@@ -65,9 +63,7 @@
     <h1 class="govuk-label-wrapper">
       <label class="govuk-label govuk-label--l" for="informalObservations">Informal observations</label>
     </h1>
-    <div id="informalObservations-hint" class="govuk-hint">
-      Record informal observations not captured elsewhere.
-    </div>
+
     <p class="govuk-!-margin-bottom-1">
 
     </p>
@@ -150,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    <div class="sticky-nav">
+    <div class="sticky-nav" style="display: none;">
 
     <h2 class="govuk-heading-m" id="subsection-title">Navigate</h2>
     <nav role="navigation" class="border" aria-labelledby="subsection-title">

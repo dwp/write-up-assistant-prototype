@@ -38,9 +38,7 @@
 <div class="govuk-grid-row">
 
 
-
-
-  <!-- LEFT COLUMN: FORM -->
+  <!-- right COLUMN: FORM -->
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">Add your consultation notes</h1>
@@ -53,55 +51,13 @@
     <h1 class="govuk-label-wrapper">
       <label class="govuk-label govuk-label--l" for="conditionHistory">Condition history</label>
     </h1>
-    <div id="conditionHistory-hint" class="govuk-hint">
-      Provide a clear summary of the claimant’s health conditions, including onset, duration, progression and any recent changes.
-    </div>
+   
     <p class="govuk-!-margin-bottom-1">
       <a href="#" class="govuk-link load-headings" style="display: none;" data-target="conditionHistory" data-heading="conditionHeadings">Add prompts</a>
     </p>
     <textarea class="govuk-textarea" id="conditionHistory" name="conditionHistory" rows="30">
 
-Condition & History
- Condition
- Start date
- Relapses
- Recent treatment
 
-Current Status
- Current state
- Symptoms
- Symptom detail
-
-Functional Impact
- Restrictions
- Activities affected
- Coping
- Good/bad days
-
-Treatment & Support
- Current treatment
- Effectiveness
- Seeing a GP/nurse/consultant
- Frequency
- Last review
- Ongoing/finished
- Admissions
- Duration/outcome
-
-Future Care
- Upcoming appointments
- Pending treatment
- Aids/equipment
-
-Other Conditions
- Additional conditions
- Restrictions
-
-Mental Health
- MH discussion
- MH conditions
- MH restrictions
- MH daily impact
 
     </textarea>
   </div>
@@ -111,30 +67,13 @@ Mental Health
     <h1 class="govuk-label-wrapper">
       <label class="govuk-label govuk-label--l" for="medication">Medication</label>
     </h1>
-    <div id="medication-hint" class="govuk-hint">
-      List all prescribed and over‑the‑counter medications, including dosage, frequency, reason for taking, and any reported side effects.
-    </div>
+
     <p class="govuk-!-margin-bottom-1">
       <a href="#" class="govuk-link load-headings" style="display: none;" data-target="medication" data-heading="medicationHeadings">Add prompts</a>
     </p>
     <textarea class="govuk-textarea" id="medication" name="medication" rows="20">
 
-Medication Checklist 
-
-For Each Condition
- Medication
- Name
- Dose
- Helpful?
-
-Other Medications
- Other drugs
- Purpose
- Dose
- Frequency
- Effective?
- Home therapy
- Anything else
+Prompt
 
     </textarea>
   </div>
@@ -184,12 +123,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   </div>
 
-
-
-
-
-  <!-- RIGHT SIDEBAR -->
-<div class="govuk-grid-column-one-third sticky-container2">
+  <!-- left SIDEBAR -->
+<div class="govuk-grid-column-one-third">
   
   <div class="">
 
@@ -214,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   </div>
 
-    <div class="sticky-nav">
+    <div class="sticky-nav" style="display: none;">
 
     <h2 class="govuk-heading-m" id="subsection-title">On this page</h2>
     <nav role="navigation" class="border" aria-labelledby="subsection-title">
@@ -227,6 +162,9 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 
 </div>
+
+
+
 </div>
 
 

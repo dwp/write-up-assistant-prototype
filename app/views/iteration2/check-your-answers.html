@@ -14,10 +14,12 @@
     html: 'This is a not a service, it is a prototype created for user testing'
   }) }}
 
-   <div class="govuk-grid-row">
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-summary-card govuk-!-margin-bottom-1">
-  <div class="govuk-summary-card__content">
+
+      <!--claimant details-->
+    <div class="govuk-summary-card govuk-!-margin-bottom-1" style="background-color: #f3f2f1; border: none;">
+  <div class="govuk-summary-card__content" >
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dd class="govuk-summary-list__value">
@@ -30,7 +32,7 @@
 
     </dl>
   </div>
-</div>
+   </div>
   </div>
 </div>
 {% endblock %}
@@ -53,7 +55,7 @@
           {{ data['descriptor1']  or "(1b) Needs to use an aid or appliance to be able to either prepare or cook a simple meal" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="descriptor-1">
+          <a class="govuk-link" href="dashboard-notes#descriptors-preparingFood">
             Change
           </a>
         </dd>
@@ -67,7 +69,7 @@
            {{ data['descriptor2']  or "(2a) Can take nutrition unaided" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="descriptor-2">
+          <a class="govuk-link" href="dashboard-notes#descriptors-takingNutrition">
             Change
           </a>
         </dd>
@@ -81,7 +83,7 @@
            {{ data['descriptor3']  or "(3a) Either does not receive medication or therapy or need to monitor a health condition, or can manage medication or therapy or monitor a health condition unaided" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="descriptor-3">
+          <a class="govuk-link" href="dashboard-notes#descriptors-managingTherapy">
             Change
           </a>
         </dd>
@@ -95,7 +97,7 @@
           {{ data['descriptor4']  or "(4e) Needs assistance to be able to get in or out of a bath or showe" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="descriptor-4">
+          <a class="govuk-link" href="dashboard-notes#descriptors-washingBathing">
             Change
           </a>
         </dd>
@@ -109,7 +111,7 @@
            {{ data['descriptor5']  or "(5b) Needs to use an aid or appliance to be able to manage toilet needs or incontinence" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="descriptor-5">
+          <a class="govuk-link" href="dashboard-notes#descriptors-toiletNeeds">
             Change
           </a>
         </dd>
@@ -123,7 +125,7 @@
            {{ data['descriptor6']  or "(6b) Needs to use an aid or appliance to be able to dress or undress" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="descriptor-6">
+          <a class="govuk-link" href="dashboard-notes#descriptors-dressingUndressing">
             Change
           </a>
         </dd>
@@ -137,7 +139,7 @@
            {{ data['descriptor7']  or "(7a) Can express and understand verbal information unaided" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="descriptor-7">
+          <a class="govuk-link" href="dashboard-notes#descriptors-communicatingVerbally">
             Change
           </a>
         </dd>
@@ -151,7 +153,7 @@
            {{ data['descriptor8']  or "(8a) Can read and understand basic and complex written information either unaided or using spectacles or contact lenses" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="descriptor-8">
+          <a class="govuk-link" href="dashboard-notes#descriptors-readingUnderstanding">
             Change
           </a>
         </dd>
@@ -165,7 +167,7 @@
            {{ data['descriptor9']  or "(9a) Can engage with other people unaided" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="descriptor-9">
+          <a class="govuk-link" href="dashboard-notes#descriptors-engagingFaceToFace">
             Change
           </a>
         </dd>
@@ -179,7 +181,7 @@
            {{ data['descriptor10']  or "(10a) Can manage complex budgeting decisions unaided" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="descriptor-10">
+          <a class="govuk-link" href="dashboard-notes#descriptors-budgeting">
             Change
           </a>
         </dd>
@@ -193,7 +195,7 @@
            {{ data['descriptor11']  or "(11a) Can plan and follow the route of a journey unaided" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="descriptor-11">
+          <a class="govuk-link" href="dashboard-notes#descriptors-planningJourneys">
             Change
           </a>
         </dd>
@@ -207,7 +209,7 @@
            {{ data['descriptor12']  or "(12c) Can stand and then move unaided more than 20 metres but no more than 50 metres" }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="descriptor-12">
+          <a class="govuk-link" href="dashboard-notes#descriptors-movingAround">
             Change
           </a>
         </dd>
@@ -231,7 +233,7 @@
 
   </div>
 
-    <div class="govuk-grid-column-one-third">
+    <div class="govuk-grid-column-one-third" style="display: none;">
 
    <h2 class="govuk-heading-m" id="subsection-title">Quick access</h2>
     <nav role="navigation" aria-labelledby="subsection-title">

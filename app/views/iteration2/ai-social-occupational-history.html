@@ -57,14 +57,14 @@
     </h3>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-    <p><a class="govuk-link" href="#" class="govuk-link">Change</a></p>
+    <p><a class="govuk-link" href="ai-social-occupational-history-change" class="govuk-link">Change</a></p>
   </div>
 </div>
 <p class="govuk-body pre-line">{{ mio1.text }}</p>
 
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-<form action="/iteration2/save/ai-social-occupational-history" method="post" novalidate>
+<form action="ai-section1" method="post" novalidate>
 
   {{ govukCheckboxes({
     name: "ai_ack_soh",
@@ -101,16 +101,65 @@
 
     <div class="govuk-grid-column-one-third">
 
-      <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
-      <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in a new tab</div>
-    <nav role="navigation" aria-labelledby="subsection-title">
-      <ul class="govuk-list">
-        <li><a href="add-notes-view" target="_blank">Consultation notes</a></li>
-        <li><a class="govuk-link" href="review-evidence" target="_blank">Evidence list</a></li>
-        <li><a class="govuk-link" href="files/view-pip2" target="_blank">PIP2.pdf</a></li>
-        <li><a class="govuk-link" href="files/view-pip2" target="_blank">FE.pdf</a></li>
-      </ul>
-    </nav>
+  <div class="govuk-accordion" data-module="govuk-accordion" id="sidebar-accordion">
+
+    <!-- SECTION 1: QUICK ACCESS -->
+    <div class="govuk-accordion__section">
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+          <span class="govuk-accordion__section-button">
+            Quick access
+          </span>
+        </h2>
+      </div>
+
+      <div class="govuk-accordion__section-content">
+
+        <div class="govuk-hint govuk-!-font-size-16">Opens in a new tab</div>
+
+        <nav role="navigation">
+          <ul class="govuk-list">
+            <li><a href="add-notes-view" target="_blank">Consultation notes</a></li>
+            <li><a href="review-evidence" target="_blank">Evidence list</a></li>
+            <li><a href="files/view-pip2" target="_blank">PIP2.pdf</a></li>
+            <li><a href="files/view-pip2" target="_blank">FE.pdf</a></li>
+          </ul>
+        </nav>
+
+      </div>
+    </div>
+
+    <!-- SECTION 2: YOUR NOTES ON THIS SECTION -->
+    <div class="govuk-accordion__section">
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+          <span class="govuk-accordion__section-button">
+            Your notes on this section
+          </span>
+        </h2>
+      </div>
+
+      <div class="govuk-accordion__section-content">
+
+        <div class="govuk-form-group govuk-!-padding-4 govuk-!-margin-bottom-3"
+             style="background: #f3f2f1;">
+          <textarea
+            class="govuk-textarea"
+            id="preparingFood"
+            name="preparingFood"
+            rows="20"
+            disabled
+            aria-describedby="preparingFood-hint"
+            style="border: none; box-shadow: none; background: transparent;"
+          >The claimant cannot cook meals on their own because of back pain and bladder problems. Their wife now prepares meals for them. They can use a microwave and do simple tasks, but they haven’t done this lately. Standing or bending makes the pain and incontinence worse, and this has caused accidents in the kitchen. They are doing daily pelvic floor exercises, which may take months to help. They also get hives every day.
+If you want it even shorter, more basic, or more clinical, I can adjust it.
+        </textarea>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 
   </div>
 

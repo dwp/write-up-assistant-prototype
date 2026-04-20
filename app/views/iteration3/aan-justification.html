@@ -43,19 +43,15 @@
   <!-- LEFT COLUMN: FORM -->
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Add your consultation notes</h1>
-    <p class="govuk-body">Your artificial intelligence assistant will review these notes and use them to produce an initial draft assessment report.</p>
+  
 
 <form action="aa-soh" method="post" novalidate>
 
   <!-- justufy -->
   <div id="mental-state" class="govuk-form-group">
     <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="mentalStateObservations">Justification summary</label>
+      <label class="govuk-label govuk-label--xl" for="mentalStateObservations">Justification summary</label>
     </h1>
-    <div id="mentalStateObservations-hint" class="govuk-hint">
-     Assessment observations and professional considerations.
-    </div>
     <p class="govuk-!-margin-bottom-1" style="display: none;">
       <a href="#" class="govuk-link load-headings" data-target="mentalStateObservations" data-heading="mentalStateHeadings">Add prompts</a>
     </p>
@@ -66,7 +62,11 @@
 
 
   <div class="govuk-button-group">
-    {{ govukButton({ text: "Save and continue" }) }}
+    {{ govukButton({ 
+      text: "Save and continue",
+      href:"daily-living-test"
+    
+    }) }}
 
     {{ govukButton({
       text: "Save and exit",
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   </div>
 
-    <div class="sticky-nav">
+    <div class="sticky-nav" style="display: none;">
 
     <h2 class="govuk-heading-m" id="subsection-title">Navigate</h2>
     <nav role="navigation" class="border" aria-labelledby="subsection-title">
