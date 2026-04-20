@@ -9,6 +9,25 @@
     tag: { text: "Prototype" },
     html: 'This is a not a service, it is a prototype created for user testing'
   }) }}
+     <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card govuk-!-margin-bottom-1" style="background-color:#f4f8fb; border-color: #8eb8dc;">
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          <strong>Claimant:</strong> John Smith
+         <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+         <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+        <strong class="govuk-!-padding-left-2"> Postcode:</strong>  N2 1XX
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</div>
+  </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -41,37 +60,37 @@
       <textarea class="govuk-textarea"
                 id="medication-name"
                 name="medication-name"
-                rows="1">Paracetamol</textarea>
+                rows="1" style="background-color:#f4f8fb;">Paracetamol</textarea>
 
       <h3 class="govuk-heading-m">Dosage</h3>
       <textarea class="govuk-textarea"
                 id="medication-dosage"
                 name="medication-dosage"
-                rows="1">1g</textarea>
+                rows="1" style="background-color:#f4f8fb;">1g</textarea>
 
       <h3 class="govuk-heading-m">Frequency</h3>
       <textarea class="govuk-textarea"
                 id="medication-frequency"
                 name="medication-frequency"
-                rows="1">Up to four times a day</textarea>
+                rows="1" style="background-color:#f4f8fb;">Up to four times a day</textarea>
 
       <h3 class="govuk-heading-m">Reason for taking</h3>
       <textarea class="govuk-textarea"
                 id="medication-reason"
                 name="medication-reason"
-                rows="3">For back pain</textarea>
+                rows="3" style="background-color:#f4f8fb;">For back pain</textarea>
 
       <h3 class="govuk-heading-m">Effectiveness (optional)</h3>
       <textarea class="govuk-textarea"
                 id="medication-effectiveness"
                 name="medication-effectiveness"
-                rows="3">{{ medication.effectiveness }}</textarea>
+                rows="3" style="background-color:#f4f8fb;">{{ medication.effectiveness }}</textarea>
 
       <h3 class="govuk-heading-m">Side effects (optional)</h3>
       <textarea class="govuk-textarea"
                 id="medication-sideeffects"
                 name="medication-sideeffects"
-                rows="3">{{ medication.sideeffects }}</textarea>
+                rows="3" style="background-color:#f4f8fb;">{{ medication.sideeffects }}</textarea>
 
     </div>
 
@@ -84,7 +103,7 @@
       {{ govukButton({
         text: "Cancel",
         classes: "govuk-button--secondary",
-        href: "/iteration2/dashboard-notes.html#add-medicationTab"
+        href: "dashboard-notes.html#add-medicationTab"
       }) }}
     </div>
 
@@ -113,6 +132,94 @@
 
   </div>
 
+
+  <div class="govuk-grid-column-full govuk-feedback">
+
+  <!-- TOP BAR -->
+  <div class="govuk-grid-row govuk-!-padding-top-4 govuk-!-padding-bottom-2"
+       style="background-color:#f4f8fb; border-top: 1px solid #1d70b8; border-bottom: 1px solid #d8dde0;">
+
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+        Rate this AI generation
+      </h2>
+
+      {{ govukRadios({
+        name: "ai-rating",
+        classes: "govuk-radios--inline",
+        items: [
+          { value: "1", text: "1" },
+          { value: "2", text: "2" },
+          { value: "3", text: "3" },
+          { value: "4", text: "4" },
+          { value: "5", text: "5" }
+        ]
+      }) }}
+    </div>
+
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right govuk-!-padding-top-4">
+      <a class="govuk-button govuk-button--secondary"
+         href="#report-problem"
+         data-module="govuk-button">
+        Report issues in this page
+      </a>
+    </div>
+
+  </div>
+
+  <!-- REPORT A PROBLEM PANEL -->
+  <div id="report-problem"
+       class="govuk-grid-row govuk-!-padding-top-5 govuk-!-padding-bottom-5 govuk-!-padding-left-6 govuk-!-padding-right-6"
+       style="background-color:#f4f8fb; display:none;">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-m">
+        Help us improve this service
+      </h2>
+
+      <p class="govuk-body">
+        Do not include personal or financial information such as your National Insurance number.
+      </p>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="problem-description">
+          Please describe the problem or leave your opinion
+        </label>
+        <textarea
+          class="govuk-textarea"
+          id="problem-description"
+          rows="4"></textarea>
+      </div>
+
+      <div class="govuk-button-group">
+        {{ govukButton({ text: "Send", attributes: { id: "send-feedback" } }) }}
+        <a href="#" class="govuk-link" id="cancel-feedback">Cancel</a>
+      </div>
+
+    </div>
+  </div>
+
 </div>
+
+</div>
+
+<script>
+  const panel = document.getElementById('report-problem')
+
+  document.addEventListener('click', function (e) {
+
+    if (e.target.closest('[href="#report-problem"]')) {
+      e.preventDefault()
+      panel.style.display = 'block'
+    }
+
+    if (e.target.id === 'cancel-feedback' || e.target.id === 'send-feedback') {
+      e.preventDefault()
+      panel.style.display = 'none'
+    }
+
+  })
+</script>
 
 {% endblock %}

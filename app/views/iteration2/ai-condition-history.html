@@ -12,7 +12,7 @@
   }) }}
    <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-summary-card govuk-!-margin-bottom-1">
+    <div class="govuk-summary-card govuk-!-margin-bottom-1" style="background-color:#f4f8fb; border-color: #8eb8dc;">
   <div class="govuk-summary-card__content">
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
@@ -45,11 +45,13 @@
     }) }}
 
     <h1 class="govuk-heading-xl">Condition history</h1>
+    
 
     {% for cond in case.report[0].content %}
       <div class="govuk-grid-row govuk-!-margin-bottom-2">
         <div class="govuk-grid-column-two-thirds">
-          <h3 class="govuk-heading-m">{{ cond["Condition or disability name"] }}</h3>
+          <strong class="govuk-tag--blue govuk-body-s" style="padding-top: 0px;">AI Generated content</strong>
+          <h3 class="govuk-heading-m" style="background-color:#f4f8fb; padding: 5px;">{{ cond["Condition or disability name"] }}</h3>
         </div>
         <div class="govuk-grid-column-one-third govuk-!-text-align-right">
           <p><a class="govuk-link" href="ai-condition-history-change">Change</a></p>
@@ -61,7 +63,7 @@
           <h4 class="govuk-heading-s">When did the condition or disability start?</h4>
         </div>
       </div>
-      <p class="govuk-body">{{ cond["When did the condition or disability start?"] }}</p>
+      <p class="govuk-body" style="background-color:#f4f8fb; padding: 5px;">{{ cond["When did the condition or disability start?"] }}</p>
 
       <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
@@ -70,7 +72,7 @@
           <h4 class="govuk-heading-s">Diagnosis, impact and variability</h4>
         </div>
       </div>
-      <p class="govuk-body pre-line">{{ cond["Diagnosis, impact and variability"] }}</p>
+      <p class="govuk-body pre-line" style="background-color:#f4f8fb; padding: 5px;">{{ cond["Diagnosis, impact and variability"] }}</p>
 
       <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
@@ -79,7 +81,7 @@
           <h4 class="govuk-heading-s">Current treatments, specialist input and hospital stays</h4>
         </div>
       </div>
-      <p class="govuk-body pre-line">{{ cond["Current treatments, specialist input and hospital stays"] }}</p>
+      <p class="govuk-body pre-line" style="background-color:#f4f8fb; padding: 5px;">{{ cond["Current treatments, specialist input and hospital stays"] }}</p>
 
       <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
@@ -88,7 +90,7 @@
           <h4 class="govuk-heading-s">Home therapies (optional)</h4>
         </div>
       </div>
-      <p class="govuk-body">{{ cond["Home therapies (optional)"] }}</p>
+      <p class="govuk-body" style="background-color:#f4f8fb; padding: 5px;">{{ cond["Home therapies (optional)"] }}</p>
 
       <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
@@ -97,7 +99,7 @@
           <h4 class="govuk-heading-s">Suicidal thoughts and self harm (optional)</h4>
         </div>
       </div>
-      <p class="govuk-body govuk-!-margin-bottom-9">
+      <p class="govuk-body govuk-!-margin-bottom-9" style="background-color:#f4f8fb; padding: 5px;">
         {{ cond["Suicidal thoughts and self harm (optional)"] or "No details provided" }}
       </p>
     {% endfor %}
@@ -136,6 +138,8 @@
   </div>
 
 </form>
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 
   </div>
@@ -203,5 +207,97 @@ If you want it even shorter, more basic, or more clinical, I can adjust it.
   </div>
   
   </div>
+
+
+<div class="govuk-grid-column-full govuk-feedback">
+
+  <!-- TOP BAR -->
+  <div class="govuk-grid-row govuk-!-padding-top-4 govuk-!-padding-bottom-2"
+       style="background-color:#f4f8fb; border-top: 1px solid #1d70b8; border-bottom: 1px solid #d8dde0;">
+
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+        Rate this AI generation
+      </h2>
+
+      {{ govukRadios({
+        name: "ai-rating",
+        classes: "govuk-radios--inline",
+        items: [
+          { value: "1", text: "1" },
+          { value: "2", text: "2" },
+          { value: "3", text: "3" },
+          { value: "4", text: "4" },
+          { value: "5", text: "5" }
+        ]
+      }) }}
+    </div>
+
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right govuk-!-padding-top-4">
+      <a class="govuk-button govuk-button--secondary"
+         href="#report-problem"
+         data-module="govuk-button">
+        Report issues in this page
+      </a>
+    </div>
+
+  </div>
+
+  <!-- REPORT A PROBLEM PANEL -->
+  <div id="report-problem"
+       class="govuk-grid-row govuk-!-padding-top-5 govuk-!-padding-bottom-5 govuk-!-padding-left-6 govuk-!-padding-right-6"
+       style="background-color:#f4f8fb; display:none;">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-m">
+        Help us improve this service
+      </h2>
+
+      <p class="govuk-body">
+        Do not include personal or financial information such as your National Insurance number.
+      </p>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="problem-description">
+          Please describe the problem or leave your opinion
+        </label>
+        <textarea
+          class="govuk-textarea"
+          id="problem-description"
+          rows="4"></textarea>
+      </div>
+
+      <div class="govuk-button-group">
+        {{ govukButton({ text: "Send", attributes: { id: "send-feedback" } }) }}
+        <a href="#" class="govuk-link" id="cancel-feedback">Cancel</a>
+      </div>
+
+    </div>
+  </div>
+
 </div>
+
+
+</div>
+
+
+<script>
+  const panel = document.getElementById('report-problem')
+
+  document.addEventListener('click', function (e) {
+
+    if (e.target.closest('[href="#report-problem"]')) {
+      e.preventDefault()
+      panel.style.display = 'block'
+    }
+
+    if (e.target.id === 'cancel-feedback' || e.target.id === 'send-feedback') {
+      e.preventDefault()
+      panel.style.display = 'none'
+    }
+
+  })
+</script>
+
 {% endblock %}

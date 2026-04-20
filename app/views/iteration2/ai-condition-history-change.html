@@ -9,6 +9,25 @@
     tag: { text: "Prototype" },
     html: 'This is a not a service, it is a prototype created for user testing'
   }) }}
+     <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card govuk-!-margin-bottom-1" style="background-color:#f4f8fb; border-color: #8eb8dc;">
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          <strong>Claimant:</strong> John Smith
+         <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+         <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+        <strong class="govuk-!-padding-left-2"> Postcode:</strong>  N2 1XX
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</div>
+  </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -21,7 +40,7 @@
 
 <div class="govuk-grid-row">
 
-  <div class="govuk-grid-column-three-quarters">
+  <div class="govuk-grid-column-two-thirds">
 
     <div style="display:none;">
       {{ govukNotificationBanner({
@@ -39,37 +58,37 @@
         <textarea class="govuk-textarea"
                   id="condition-name"
                   name="condition-name"
-                  rows="2">{{ cond["Condition or disability name"] }}</textarea>
+                  rows="2" style="background-color:#f4f8fb; border: 1px solid #8eb8dc;">{{ cond["Condition or disability name"] }}</textarea>
 
         <h3 class="govuk-heading-m">When did the condition or disability start?</h3>
         <textarea class="govuk-textarea"
                   id="condition-start"
                   name="condition-start"
-                  rows="1">{{ cond["When did the condition or disability start?"] }}</textarea>
+                  rows="1" style="background-color:#f4f8fb; border: 1px solid #8eb8dc;">{{ cond["When did the condition or disability start?"] }}</textarea>
 
         <h3 class="govuk-heading-m">Diagnosis, impact and variability</h3>
         <textarea class="govuk-textarea"
                   id="condition-diagnosis"
                   name="condition-diagnosis"
-                  rows="7">{{ cond["Diagnosis, impact and variability"] }}</textarea>
+                  rows="7" style="background-color:#f4f8fb; border: 1px solid #8eb8dc;">{{ cond["Diagnosis, impact and variability"] }}</textarea>
 
         <h3 class="govuk-heading-m">Current treatments, specialist input and hospital stays</h3>
         <textarea class="govuk-textarea"
                   id="condition-treatments"
                   name="condition-treatments"
-                  rows="7">{{ cond["Current treatments, specialist input and hospital stays"] }}</textarea>
+                  rows="7" style="background-color:#f4f8fb; border: 1px solid #8eb8dc;">{{ cond["Current treatments, specialist input and hospital stays"] }}</textarea>
 
         <h3 class="govuk-heading-m">Home therapies (optional)</h3>
         <textarea class="govuk-textarea"
                   id="condition-home-therapies"
                   name="condition-home-therapies"
-                  rows="7">{{ cond["Home therapies (optional)"] }}</textarea>
+                  rows="7" style="background-color:#f4f8fb; border: 1px solid #8eb8dc;">{{ cond["Home therapies (optional)"] }}</textarea>
 
         <h3 class="govuk-heading-m">Suicidal thoughts and self harm (optional)</h3>
         <textarea class="govuk-textarea"
                   id="condition-risk"
                   name="condition-risk"
-                  rows="7">{{ cond["Suicidal thoughts and self harm (optional)"] or "Not recorded for this condition" }}</textarea>
+                  rows="7" style="background-color:#f4f8fb; border: 1px solid #8eb8dc;">{{ cond["Suicidal thoughts and self harm (optional)"] or "Not recorded for this condition" }}</textarea>
 
       </div>
 
@@ -94,28 +113,159 @@
     </form>
 
   </div>
-    <div class="govuk-grid-column-one-quarter">
+  <div class="govuk-grid-column-one-third">
 
-  <h2 class="govuk-heading-m" id="subsection-title">Quick access</h2>
-    <nav role="navigation" aria-labelledby="subsection-title">
-      <ul class="govuk-list">
-         <li>
-         <a href="add-notes">My assessment notes</a>
-          </li>
-        <li>
-          <a class="govuk-link" href="review-evidence">Evidence list</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="review-evidence">PIP2.pdf</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="review-evidence">FE.pdf</a>
-        </li>
-      </ul>
-    </nav>
+  <div class="govuk-accordion" data-module="govuk-accordion" id="sidebar-accordion">
+
+    <!-- SECTION 1: QUICK ACCESS -->
+    <div class="govuk-accordion__section">
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+          <span class="govuk-accordion__section-button">
+            Quick access
+          </span>
+        </h2>
+      </div>
+
+      <div class="govuk-accordion__section-content">
+
+        <div class="govuk-hint govuk-!-font-size-16">Opens in a new tab</div>
+
+        <nav role="navigation">
+          <ul class="govuk-list">
+            <li><a href="add-notes-view" target="_blank">Consultation notes</a></li>
+            <li><a href="review-evidence" target="_blank">Evidence list</a></li>
+            <li><a href="files/view-pip2" target="_blank">PIP2.pdf</a></li>
+            <li><a href="files/view-pip2" target="_blank">FE.pdf</a></li>
+          </ul>
+        </nav>
+
+      </div>
+    </div>
+
+    <!-- SECTION 2: YOUR NOTES ON THIS SECTION -->
+    <div class="govuk-accordion__section">
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+          <span class="govuk-accordion__section-button">
+            Your notes on this section
+          </span>
+        </h2>
+      </div>
+
+      <div class="govuk-accordion__section-content">
+
+        <div class="govuk-form-group govuk-!-padding-4 govuk-!-margin-bottom-3"
+             style="background: #f3f2f1;">
+          <textarea
+            class="govuk-textarea"
+            id="preparingFood"
+            name="preparingFood"
+            rows="20"
+            disabled
+            aria-describedby="preparingFood-hint"
+            style="border: none; box-shadow: none; background: transparent;"
+          >The claimant cannot cook meals on their own because of back pain and bladder problems. Their wife now prepares meals for them. They can use a microwave and do simple tasks, but they haven’t done this lately. Standing or bending makes the pain and incontinence worse, and this has caused accidents in the kitchen. They are doing daily pelvic floor exercises, which may take months to help. They also get hives every day.
+If you want it even shorter, more basic, or more clinical, I can adjust it.
+        </textarea>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  
+  </div>
+
+
+<div class="govuk-grid-column-full govuk-feedback">
+
+  <!-- TOP BAR -->
+  <div class="govuk-grid-row govuk-!-padding-top-4 govuk-!-padding-bottom-2"
+       style="background-color:#f4f8fb; border-top: 1px solid #1d70b8; border-bottom: 1px solid #d8dde0;">
+
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+        Rate this AI generation
+      </h2>
+
+      {{ govukRadios({
+        name: "ai-rating",
+        classes: "govuk-radios--inline",
+        items: [
+          { value: "1", text: "1" },
+          { value: "2", text: "2" },
+          { value: "3", text: "3" },
+          { value: "4", text: "4" },
+          { value: "5", text: "5" }
+        ]
+      }) }}
+    </div>
+
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right govuk-!-padding-top-4">
+      <a class="govuk-button govuk-button--secondary"
+         href="#report-problem"
+         data-module="govuk-button">
+        Report issues in this page
+      </a>
+    </div>
 
   </div>
 
+  <!-- REPORT A PROBLEM PANEL -->
+  <div id="report-problem"
+       class="govuk-grid-row govuk-!-padding-top-5 govuk-!-padding-bottom-5 govuk-!-padding-left-6 govuk-!-padding-right-6"
+       style="background-color:#f4f8fb; display:none;">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-m">
+        Help us improve this service
+      </h2>
+
+      <p class="govuk-body">
+        Do not include personal or financial information such as your National Insurance number.
+      </p>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="problem-description">
+          Please describe the problem or leave your opinion
+        </label>
+        <textarea
+          class="govuk-textarea"
+          id="problem-description"
+          rows="4"></textarea>
+      </div>
+
+      <div class="govuk-button-group">
+        {{ govukButton({ text: "Send", attributes: { id: "send-feedback" } }) }}
+        <a href="#" class="govuk-link" id="cancel-feedback">Cancel</a>
+      </div>
+
+    </div>
+  </div>
+
 </div>
+
+
+</div>
+
+<script>
+  const panel = document.getElementById('report-problem')
+
+  document.addEventListener('click', function (e) {
+
+    if (e.target.closest('[href="#report-problem"]')) {
+      e.preventDefault()
+      panel.style.display = 'block'
+    }
+
+    if (e.target.id === 'cancel-feedback' || e.target.id === 'send-feedback') {
+      e.preventDefault()
+      panel.style.display = 'none'
+    }
+
+  })
+</script>
 
 {% endblock %}

@@ -11,9 +11,9 @@
     },
     html: 'This is a not a service, it is a prototype created for user testing'
   }) }}
- <div class="govuk-grid-row">
+   <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-summary-card govuk-!-margin-bottom-1">
+    <div class="govuk-summary-card govuk-!-margin-bottom-1" style="background-color:#f4f8fb; border-color: #8eb8dc;">
   <div class="govuk-summary-card__content">
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
@@ -52,15 +52,19 @@
 
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
+
     <h3 class="govuk-heading-m">
       {{ mio1.section }}
     </h3>
+       
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+
     <p><a class="govuk-link" href="ai-social-occupational-history-change" class="govuk-link">Change</a></p>
   </div>
 </div>
-<p class="govuk-body pre-line">{{ mio1.text }}</p>
+<p class="govuk-body pre-line" style="background-color:#f4f8fb; padding: 5px;"> <strong class="govuk-tag--blue govuk-body-s" style="padding-top: 0px;">AI Generated content</strong>
+  {{ mio1.text }}</p>
 
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
@@ -163,6 +167,95 @@ If you want it even shorter, more basic, or more clinical, I can adjust it.
 
   </div>
 
+
+    <div class="govuk-grid-column-full govuk-feedback">
+
+  <!-- TOP BAR -->
+  <div class="govuk-grid-row govuk-!-padding-top-4 govuk-!-padding-bottom-2"
+       style="background-color:#f4f8fb; border-top: 1px solid #1d70b8; border-bottom: 1px solid #d8dde0;">
+
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+        Rate this AI generation
+      </h2>
+
+      {{ govukRadios({
+        name: "ai-rating",
+        classes: "govuk-radios--inline",
+        items: [
+          { value: "1", text: "1" },
+          { value: "2", text: "2" },
+          { value: "3", text: "3" },
+          { value: "4", text: "4" },
+          { value: "5", text: "5" }
+        ]
+      }) }}
+    </div>
+
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right govuk-!-padding-top-4">
+      <a class="govuk-button govuk-button--secondary"
+         href="#report-problem"
+         data-module="govuk-button">
+        Report issues in this page
+      </a>
+    </div>
+
+  </div>
+
+  <!-- REPORT A PROBLEM PANEL -->
+  <div id="report-problem"
+       class="govuk-grid-row govuk-!-padding-top-5 govuk-!-padding-bottom-5 govuk-!-padding-left-6 govuk-!-padding-right-6"
+       style="background-color:#f4f8fb; display:none;">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-m">
+        Help us improve this service
+      </h2>
+
+      <p class="govuk-body">
+        Do not include personal or financial information such as your National Insurance number.
+      </p>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="problem-description">
+          Please describe the problem or leave your opinion
+        </label>
+        <textarea
+          class="govuk-textarea"
+          id="problem-description"
+          rows="4"></textarea>
+      </div>
+
+      <div class="govuk-button-group">
+        {{ govukButton({ text: "Send", attributes: { id: "send-feedback" } }) }}
+        <a href="#" class="govuk-link" id="cancel-feedback">Cancel</a>
+      </div>
+
+    </div>
+  </div>
+
 </div>
+
+</div>
+
+
+<script>
+  const panel = document.getElementById('report-problem')
+
+  document.addEventListener('click', function (e) {
+
+    if (e.target.closest('[href="#report-problem"]')) {
+      e.preventDefault()
+      panel.style.display = 'block'
+    }
+
+    if (e.target.id === 'cancel-feedback' || e.target.id === 'send-feedback') {
+      e.preventDefault()
+      panel.style.display = 'none'
+    }
+
+  })
+</script>
 
 {% endblock %}
