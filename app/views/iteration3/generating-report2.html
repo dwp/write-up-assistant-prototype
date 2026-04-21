@@ -1,0 +1,130 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Creating your draft report
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: 'This is not a service, it is a prototype created for user testing'
+  }) }}
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-summary-card govuk-!-margin-bottom-1">
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value">
+          <strong>Claimant:</strong> John Smith
+         <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+         <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+        <strong class="govuk-!-padding-left-2"> Postcode:</strong>  N2 1XX
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .govuk-spinner {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+  }
+
+  .govuk-spinner__svg {
+    animation: govuk-spinner 1s linear infinite;
+    width: 60px;
+    height: 60px;
+  }
+
+  .govuk-spinner__circle {
+    fill: none;
+    stroke: #1d70b8;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: 0;
+    animation: govuk-spinner-dash 1.5s ease-in-out infinite;
+  }
+
+  @keyframes govuk-spinner {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes govuk-spinner-dash {
+    0% {
+      stroke-dasharray: 1,150;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90,150;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 90,150;
+      stroke-dashoffset: -124;
+    }
+  }
+</style>
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-top:-20px;">Back</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">We’re creating your draft report</h1>
+
+    <p class="govuk-body">
+      Your AI assistant is organising the information you added and preparing a draft assessment report.
+    </p>
+
+    <p class="govuk-body">
+      This includes structuring the report, adding clinical justifications, and highlighting areas that may need your attention.
+      You’ll be able to review and edit every part before you submit it.
+    </p>
+
+    <div class="govuk-inset-text">
+      Please wait while we prepare your draft. Do not close your browser.
+    </div>
+
+    <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="text-align:center;">
+      <div class="govuk-!-margin-bottom-2">
+        <strong class="govuk-body">Preparing your report…</strong>
+      </div>
+
+      <div class="govuk-spinner" role="status" aria-live="polite">
+        <svg class="govuk-spinner__svg" viewBox="0 0 50 50">
+          <circle class="govuk-spinner__circle" cx="25" cy="25" r="20"></circle>
+        </svg>
+      </div>
+    </div>
+
+    <div class="govuk-button-group govuk-!-margin-top-8">
+      {{ govukButton({
+        text: "Cancel and return",
+        href: "check-your-answers",
+        classes: "govuk-button--secondary"
+      }) }}
+    </div>
+
+  </div>
+</div>
+
+<script>
+  setTimeout(function () {
+    window.location.href = "report-final-preview-new.html";
+  }, 4000);
+</script>
+
+{% endblock %}
