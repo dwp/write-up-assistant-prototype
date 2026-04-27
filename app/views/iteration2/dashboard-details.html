@@ -1,80 +1,81 @@
+
 {% extends "layouts/main-wua.html" %}
 
 {% block pageTitle %}
 {{ serviceName }} – Add consultation notes (free‑form)
 {% endblock %}
 
+{# ---- FULL‑WIDTH GREY BAR (outside container) ---- #}
+{% block header %}
+  {{ super() }}
+
+  <div style="background-color:#f3f2f1;">
+    <div class="govuk-width-container">
+      <div class="govuk-summary-card govuk-!-margin-bottom-0" style="border: none; background: transparent;">
+         <div class="govuk-summary-card__content govuk-!-padding-left-0 govuk-!-margin-left-0">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                <strong>Claimant:</strong> John Smith
+                <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+                <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+                <strong class="govuk-!-padding-left-2">Postcode:</strong> N2 1XX
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
 {% block beforeContent %}
+
   {{ govukPhaseBanner({
     tag: { text: "Prototype" },
-    html: 'This is not a service, it is a prototype created for user testing'
+    html: "This is not a service, it is a prototype created for user testing"
   }) }}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
 
-      <!--claimant details-->
-    <div class="govuk-summary-card govuk-!-margin-bottom-1" style="background-color: #f3f2f1; border: none;">
-  <div class="govuk-summary-card__content" >
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dd class="govuk-summary-list__value">
-          <strong>Claimant:</strong> John Smith
-         <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
-         <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
-        <strong class="govuk-!-padding-left-2"> Postcode:</strong>  N2 1XX
-        </dd>
-      </div>
-
-    </dl>
-  </div>
-   </div>
-<!--menu-->
-      <div class="dwp-ds-render">
-  
+  <!-- MENU (standard width) -->
+  <div class="dwp-ds-render">
     <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
-        <ul class="dwp-horizontal-navigation__list">
-        
-        
-            <li class="dwp-horizontal-navigation__item ">
-            <a id="s-item-1" href="dashboard" class="dwp-horizontal-navigation__link">Evidence</a>
-            </li> 
-        
-        
-            <li class="dwp-horizontal-navigation__item">
-            <a id="s-item-2" href="dashboard-details" class="dwp-horizontal-navigation__link dwp-horizontal-navigation__item--selected">Consultation details</a>
-            </li> 
-        
-        
-            <li class="dwp-horizontal-navigation__item">
-            <a id="s-item-3" href="dashboard-notes" class="dwp-horizontal-navigation__link" aria-current="true">Assessment</a>
-            </li> 
-        
-        </ul>
+      <ul class="dwp-horizontal-navigation__list">
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link" href="dashboard">
+            Evidence
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link dwp-horizontal-navigation__item--selected" href="dashboard-details">
+            Claimant verification
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link" href="dashboard-notes" aria-current="true">
+            Assessment
+          </a>
+        </li>
+      </ul>
     </nav>
-       </div>
-
-
   </div>
-</div>
+
 {% endblock %}
 
 {% block content %}
 
-
-
 <div class="govuk-grid-row">
-  <!-- body and right side row-->
-    <div class="govuk-grid-column-three-quarters">
-    
+  <div class="govuk-grid-column-three-quarters">
 
 
 
 
 
 
-      <h1 class="govuk-heading-xl">Confirm consultation details</h1>
 
-      <p>Provide the details from the consultation. These will be used to help prepare the assessment report.</p>
+
+      <h1 class="govuk-heading-xl">Confirm assessment booking</h1>
+
+      <p>Check the details of the consultation, confirm the claimant’s identity, confirm the purpose, and get the consent for assessment.</p>
 
 
 
@@ -179,64 +180,56 @@
 </div>
          </div>
 
-        {# Conditional checkbox content #}
-        {% set identityCheck %}
-          {{ govukCheckboxes({
-            id: "id-docs",
-            name: "id-docs",
-            fieldset: {
-              legend: {
-                text: "How did you confirm their identity?",
-                classes: "govuk-fieldset__legend--s"
-              }
-            },
-            items: [
-              { value: "Full name", text: "Full name" },
-              { value: "Date of Birth", text: "Date of birth"},
-              { value: "Address", text: "Address (first line and postcode)" },
-              { value: "NINO", text: "National Insurance number (NINO)" },
-              { value: "security Questions", text: "DWP security questions (case details)" }
-            ]
-          }) }}
-        {% endset -%}
+        {# Identity confirmation details – shown by default #}
+{{ govukCheckboxes({
+  id: "id-docs",
+  name: "id-docs",
+  fieldset: {
+    legend: {
+      text: "Have you confirmed the claimant’s identity, and how?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+      {
+      value: "identity-confirmed",
+      text: "Yes, I confirmed the claimant’s identity",
+      checked: false
+    },
+    
+    { value: "Full name", text: "Full name" },
+    { value: "Date of Birth", text: "Date of birth" },
+    { value: "Address", text: "Address (first line and postcode)" },
+    { value: "NINO", text: "National Insurance number (NINO)" },
+    { value: "security-questions", text: "DWP security questions (case details)" }
+  ]
+}) }}
 
-        {{ govukCheckboxes({
-          idPrefix: "identity-consent",
-          name: "identity-consent",
-          fieldset: {
-            legend: {
-              text: "",
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "identity-confirmed",
-              text: "Yes, I confirmed the claimant’s identity",
-             
-              conditional: { html: identityCheck }
-            },
-            {
-              value: "consent-given",
-              text: "Yes, the claimant understands the purpose of the consultation, and consent to continue.",
-            
-              hint: {
-                text: ""
-              }
-            },
-            {
-              divider: "or"
-            },
-            {
-              value: "cancel",
-              text: "The consultation had to be postponed",
-              checked: false,
-              hint: {
-                text: ""
-              }
-            }
-          ]
-        }) }}
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+{{ govukCheckboxes({
+  idPrefix: "identity-consent",
+  name: "identity-consent",
+  fieldset: {
+    legend: {
+      text: "",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "consent-given",
+      text: "Yes, the claimant understands the purpose of the consultation, and consent to continue."
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "cancel",
+      text: "The consultation had to be postponed"
+    }
+  ]
+}) }}
 
 
         

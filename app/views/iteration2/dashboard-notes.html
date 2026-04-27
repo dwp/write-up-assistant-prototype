@@ -1,78 +1,72 @@
+
 {% extends "layouts/main-wua.html" %}
 
 {% block pageTitle %}
 {{ serviceName }} – Add consultation notes (free‑form)
 {% endblock %}
 
+{# ---- FULL‑WIDTH GREY BAR (outside container) ---- #}
+{% block header %}
+  {{ super() }}
+
+  <div style="background-color:#f3f2f1;">
+    <div class="govuk-width-container">
+      <div class="govuk-summary-card govuk-!-margin-bottom-0" style="border: none; background: transparent; margin-left: 0px; padding-left: 0px;">
+        <div class="govuk-summary-card__content govuk-!-padding-left-0 govuk-!-margin-left-0">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                <strong>Claimant:</strong> John Smith
+                <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+                <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+                <strong class="govuk-!-padding-left-2">Postcode:</strong> N2 1XX
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
 {% block beforeContent %}
+
   {{ govukPhaseBanner({
     tag: { text: "Prototype" },
-    html: 'This is not a service, it is a prototype created for user testing'
+    html: "This is not a service, it is a prototype created for user testing"
   }) }}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
 
-      <!--claimant details-->
-    <div class="govuk-summary-card govuk-!-margin-bottom-1" style="background-color: #f3f2f1; border: none;">
-  <div class="govuk-summary-card__content" >
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dd class="govuk-summary-list__value">
-          <strong>Claimant:</strong> John Smith
-         <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
-         <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
-        <strong class="govuk-!-padding-left-2"> Postcode:</strong>  N2 1XX
-        </dd>
-      </div>
-
-    </dl>
-  </div>
-   </div>
-<!--menu-->
-      <div class="dwp-ds-render">
-  
+  <!-- MENU (standard width) -->
+  <div class="dwp-ds-render">
     <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
-        <ul class="dwp-horizontal-navigation__list">
-        
-        
-            <li class="dwp-horizontal-navigation__item ">
-            <a id="s-item-1" href="dashboard" class="dwp-horizontal-navigation__link">Evidence</a>
-            </li> 
-        
-        
-            <li class="dwp-horizontal-navigation__item">
-            <a id="s-item-2" href="dashboard-details" class="dwp-horizontal-navigation__link">Consultation details</a>
-            </li> 
-        
-        
-            <li class="dwp-horizontal-navigation__item dwp-horizontal-navigation__item--selected">
-            <a id="s-item-3" href="dashboard-notes" class="dwp-horizontal-navigation__link" aria-current="true">Assessment</a>
-            </li> 
-        
-        </ul>
+      <ul class="dwp-horizontal-navigation__list">
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link " href="dashboard">
+            Evidence
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link" href="dashboard-details">
+            Claimant verification
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link dwp-horizontal-navigation__item--selected" href="dashboard-notes" aria-current="true">
+            Assessment
+          </a>
+        </li>
+      </ul>
     </nav>
-       </div>
-
-
   </div>
-</div>
+
 {% endblock %}
 
 {% block content %}
 
-
-
 <div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
 
-
-
-
-
- 
-  <!-- body and right side row-->
-    <div id="toppage" class="govuk-grid-column-three-quarters">
-
-    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Add your assessment notes</h1>
+    <h1 id="toppage" class="govuk-heading-xl govuk-!-margin-bottom-6">Add your assessment notes</h1>
    <p class="govuk-body govuk-!-margin-bottom-6 govuk-!-margin-top-2">Write your consultation notes for each section below. Your work is saved automatically. Your AI assistant will use these notes to create a draft assessment report for you to review and edit.</p>
 
       {{ govukWarningText({
@@ -295,7 +289,7 @@
           </div>
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-preparingFood">
-            <h3 class="govuk-heading-m">Preparing food descriptors</h3>
+            <h3 class="govuk-heading-m">How well can the claimant prepare food?</h3>
       {{ govukRadios({
         idPrefix: "descriptor-1",
         name: "descriptor1",
@@ -381,7 +375,7 @@
     
           <!-- DESCRIPTORS TAB -->
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-takingNutrition">
-            <h3 class="govuk-heading-m">Taking nutrition descriptors</h3>
+            <h3 class="govuk-heading-m">How well can the claimant take nutrition?</h3>
             
 
   <form action="descriptor-3" method="post" novalidate="">
@@ -477,7 +471,7 @@
           </div>
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-managingTherapy">
-            <h3 class="govuk-heading-m">Managing therapy descriptors</h3>
+            <h3 class="govuk-heading-m">How well can the claimant manage therapy or monitor a health condition?</h3>
  <form action="descriptor-4" method="post" novalidate="">
 
 {{ govukRadios({
@@ -568,7 +562,7 @@
           </div>
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-washingBathing">
-            <h3 class="govuk-heading-m">Washing and bathing descriptors</h3>
+            <h3 class="govuk-heading-m">How well can the claimant wash and bathe?</h3>
  <form action="descriptor-5" method="post" novalidate="">
 
 {{ govukRadios({
@@ -661,7 +655,7 @@
           </div>
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-toiletNeeds">
-            <h3 class="govuk-heading-m">Managing toilet needs descriptors</h3>
+            <h3 class="govuk-heading-m">How well the claimant can manage toilet needs?</h3>
  <form action="descriptor-6" method="post" novalidate="">
       {{ govukRadios({
           idPrefix: "descriptor-5",
@@ -745,7 +739,7 @@
           </div>
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-dressingUndressing">
-            <h3 class="govuk-heading-m">Dressing and undressing descriptors</h3>
+            <h3 class="govuk-heading-m">How well the claimant can dress and undress?</h3>
 <form action="descriptor-7" method="post" novalidate="">
 
 {{ govukRadios({
@@ -835,7 +829,7 @@
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-communicatingVerbally">
     
-            <h3 class="govuk-heading-m">Communicating verbally descriptors</h3>
+            <h3 class="govuk-heading-m">How well the claimant can communicate verbally?</h3>
 <form action="descriptor-8" method="post" novalidate="">
 
 {{ govukRadios({
@@ -923,7 +917,7 @@
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-readingUnderstanding">
     
-            <h3 class="govuk-heading-m">Reading and understanding descriptors</h3>
+            <h3 class="govuk-heading-m">How well can the claimant read and understand signs, symbols and words?</h3>
 
 <form action="descriptor-9" method="post" novalidate="">
 
@@ -1012,7 +1006,7 @@
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-engagingFaceToFace">
     
-            <h3 class="govuk-heading-m">Engaging face to face descriptors</h3>
+            <h3 class="govuk-heading-m">How well the claimant can engage face to face?</h3>
             <form action="descriptor-10" method="post" novalidate="">
 
             {{ govukRadios({
@@ -1093,7 +1087,7 @@
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-budgeting">
     
-            <h3 class="govuk-heading-m">Budgeting descriptors</h3>
+            <h3 class="govuk-heading-m">How well can the claimant budget?</h3>
 <form action="descriptor-11" method="post" novalidate="">
 
 
@@ -1175,7 +1169,7 @@
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-planningJourneys">
     
-            <h3 class="govuk-heading-m">Planning and following journeys descriptors</h3>
+            <h3 class="govuk-heading-m">How well can the claimant plan and follow journeys?</h3>
 
                     <form action="descriptor-12" method="post" novalidate="">
 
@@ -1266,7 +1260,7 @@
     
           <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="descriptors-movingAround">
     
-            <h3 class="govuk-heading-m">Moving around descriptors</h3>
+            <h3 class="govuk-heading-m">How well can the claimant move around?</h3>
 <form action="check-your-answers" method="post" novalidate="">
 
 {{ govukRadios({

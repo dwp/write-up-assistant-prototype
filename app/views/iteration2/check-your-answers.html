@@ -1,47 +1,70 @@
+
 {% extends "layouts/main-wua.html" %}
 
 {% block pageTitle %}
-{{ serviceName }} – Start page
+{{ serviceName }} – Add consultation notes (free‑form)
 {% endblock %}
 
+{# ---- FULL‑WIDTH GREY BAR (outside container) ---- #}
+{% block header %}
+  {{ super() }}
+
+  <div style="background-color:#f3f2f1;">
+    <div class="govuk-width-container">
+      <div class="govuk-summary-card govuk-!-margin-bottom-0" style="border: none; background: transparent; margin-left: 0px; padding-left: 0px;">
+        <div class="govuk-summary-card__content govuk-!-padding-left-0 govuk-!-margin-left-0">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                <strong>Claimant:</strong> John Smith
+                <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+                <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+                <strong class="govuk-!-padding-left-2">Postcode:</strong> N2 1XX
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
 
 {% block beforeContent %}
 
   {{ govukPhaseBanner({
-    tag: {
-      text: "Prototype"
-    },
-    html: 'This is a not a service, it is a prototype created for user testing'
+    tag: { text: "Prototype" },
+    html: "This is not a service, it is a prototype created for user testing"
   }) }}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-
-      <!--claimant details-->
-    <div class="govuk-summary-card govuk-!-margin-bottom-1" style="background-color: #f3f2f1; border: none;">
-  <div class="govuk-summary-card__content" >
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dd class="govuk-summary-list__value">
-          <strong>Claimant:</strong> John Smith
-         <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
-         <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
-        <strong class="govuk-!-padding-left-2"> Postcode:</strong>  N2 1XX
-        </dd>
-      </div>
-
-    </dl>
+  <!-- MENU (standard width) -->
+  <div class="dwp-ds-render">
+    <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+      <ul class="dwp-horizontal-navigation__list">
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link" href="dashboard">
+            Evidence
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link" href="dashboard-details">
+            Claimant verification
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link dwp-horizontal-navigation__item--selected" href="dashboard-notes" aria-current="true">
+            Assessment
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
-   </div>
-  </div>
-</div>
+
 {% endblock %}
 
 {% block content %}
- <div style="margin-top: -30px;"><a href="javascript:history.back()" class="govuk-back-link">Back</a></div> 
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+   <div class="govuk-grid-column-three-quarters">
 
     <h1 class="govuk-heading-xl">Check your answers</h1>
     <p class="govuk-">These are the descriptors you have selected</p>
