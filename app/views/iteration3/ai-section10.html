@@ -167,8 +167,7 @@
             disabled
             aria-describedby="preparingFood-hint"
             style="border: none; box-shadow: none; background: transparent;"
-          >The claimant cannot cook meals on their own because of back pain and bladder problems. Their wife now prepares meals for them. They can use a microwave and do simple tasks, but they haven’t done this lately. Standing or bending makes the pain and incontinence worse, and this has caused accidents in the kitchen. They are doing daily pelvic floor exercises, which may take months to help. They also get hives every day.
-If you want it even shorter, more basic, or more clinical, I can adjust it.
+          >Your notes:
         </textarea>
         </div>
 
@@ -179,6 +178,119 @@ If you want it even shorter, more basic, or more clinical, I can adjust it.
 
   </div>
 
+      <div class="govuk-grid-column-full govuk-feedback govuk-!-margin-top-8">
+
+  <!-- TOP BAR -->
+  <div class="govuk-grid-row govuk-!-padding-top-4 govuk-!-padding-bottom-2"
+       style="background-color:#f4f8fb; border-top: 1px solid #1d70b8; border-bottom: 1px solid #d8dde0;">
+
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+        Rate this AI generation
+      </h2>
+
+<div class="govuk-radios govuk-radios--inline govuk-margin-bottom-0">
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="ai-rating-1" name="ai-rating" type="radio" value="1">
+    <label class="govuk-label govuk-radios__label" for="ai-rating-1">
+      1
+    </label>
+  </div>
+
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="ai-rating-2" name="ai-rating" type="radio" value="2">
+    <label class="govuk-label govuk-radios__label" for="ai-rating-2">
+      2
+    </label>
+  </div>
+
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="ai-rating-3" name="ai-rating" type="radio" value="3">
+    <label class="govuk-label govuk-radios__label" for="ai-rating-3">
+      3
+    </label>
+  </div>
+
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="ai-rating-4" name="ai-rating" type="radio" value="4">
+    <label class="govuk-label govuk-radios__label" for="ai-rating-4">
+      4
+    </label>
+  </div>
+
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="ai-rating-5" name="ai-rating" type="radio" value="5">
+    <label class="govuk-label govuk-radios__label" for="ai-rating-5">
+      5
+    </label>
+  </div>
+</div>
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third govuk-!-text-align-right govuk-!-padding-top-4">
+      <a class="govuk-button govuk-button--secondary"
+         href="#report-problem"
+         data-module="govuk-button">
+        Report issues in this page
+      </a>
+    </div>
+
+  </div>
+
+  <!-- REPORT A PROBLEM PANEL -->
+  <div id="report-problem"
+       class="govuk-grid-row govuk-!-padding-top-5 govuk-!-padding-bottom-5 govuk-!-padding-left-6 govuk-!-padding-right-6"
+       style="background-color:#f4f8fb; display:none;">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-m">
+        Help us improve this service
+      </h2>
+
+      <p class="govuk-body">
+        Do not include personal or financial information such as your National Insurance number.
+      </p>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="problem-description">
+          Please describe the problem or leave your opinion
+        </label>
+        <textarea
+          class="govuk-textarea"
+          id="problem-description"
+          rows="4"></textarea>
+      </div>
+
+      <div class="govuk-button-group">
+        {{ govukButton({ text: "Send", attributes: { id: "send-feedback" } }) }}
+        <a href="#" class="govuk-link" id="cancel-feedback">Cancel</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const panel = document.getElementById('report-problem')
+
+  document.addEventListener('click', function (e) {
+
+    if (e.target.closest('[href="#report-problem"]')) {
+      e.preventDefault()
+      panel.style.display = 'block'
+    }
+
+    if (e.target.id === 'cancel-feedback' || e.target.id === 'send-feedback') {
+      e.preventDefault()
+      panel.style.display = 'none'
+    }
+
+  })
+</script>
 
   </div>
 {% endblock %}

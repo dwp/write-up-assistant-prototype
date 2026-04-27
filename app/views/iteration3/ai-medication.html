@@ -182,7 +182,7 @@
             disabled
             aria-describedby="preparingFood-hint"
             style="border: none; box-shadow: none; background: transparent;"
-          >Notes on medications
+          >Your notes:
         </textarea>
         </div>
 
@@ -194,7 +194,7 @@
   </div>
 
   
-  <div class="govuk-grid-column-full govuk-feedback">
+  <div class="govuk-grid-column-full govuk-feedback govuk-!-margin-top-8">
 
   <!-- TOP BAR -->
   <div class="govuk-grid-row govuk-!-padding-top-4 govuk-!-padding-bottom-2"
@@ -205,17 +205,44 @@
         Rate this AI generation
       </h2>
 
-      {{ govukRadios({
-        name: "ai-rating",
-        classes: "govuk-radios--inline",
-        items: [
-          { value: "1", text: "1" },
-          { value: "2", text: "2" },
-          { value: "3", text: "3" },
-          { value: "4", text: "4" },
-          { value: "5", text: "5" }
-        ]
-      }) }}
+<div class="govuk-radios govuk-radios--inline govuk-margin-bottom-0">
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="ai-rating-1" name="ai-rating" type="radio" value="1">
+    <label class="govuk-label govuk-radios__label" for="ai-rating-1">
+      1
+    </label>
+  </div>
+
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="ai-rating-2" name="ai-rating" type="radio" value="2">
+    <label class="govuk-label govuk-radios__label" for="ai-rating-2">
+      2
+    </label>
+  </div>
+
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="ai-rating-3" name="ai-rating" type="radio" value="3">
+    <label class="govuk-label govuk-radios__label" for="ai-rating-3">
+      3
+    </label>
+  </div>
+
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="ai-rating-4" name="ai-rating" type="radio" value="4">
+    <label class="govuk-label govuk-radios__label" for="ai-rating-4">
+      4
+    </label>
+  </div>
+
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="ai-rating-5" name="ai-rating" type="radio" value="5">
+    <label class="govuk-label govuk-radios__label" for="ai-rating-5">
+      5
+    </label>
+  </div>
+</div>
+
+
     </div>
 
     <div class="govuk-grid-column-one-third govuk-!-text-align-right govuk-!-padding-top-4">
