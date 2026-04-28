@@ -163,11 +163,22 @@
 
 </form>
 
-<div class="govuk-grid-column-full govuk-feedback govuk-!-margin-top-8">
 
+
+
+</div>
+
+{% endblock %}
+
+{% block footer %}
+  <div style="background-color:#f4f8fb;">
+    <div class="govuk-width-container">
+
+
+  <div>
   <!-- TOP BAR -->
   <div class="govuk-grid-row govuk-!-padding-top-4 govuk-!-padding-bottom-2"
-       style="background-color:#f4f8fb; border-top: 1px solid #1d70b8; border-bottom: 1px solid #d8dde0;">
+       style="background-color:#f4f8fb;  border-bottom: 1px solid #d8dde0;">
 
     <div class="govuk-grid-column-two-thirds">
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
@@ -210,10 +221,7 @@
     </label>
   </div>
 </div>
-
-
     </div>
-
     <div class="govuk-grid-column-one-third govuk-!-text-align-right govuk-!-padding-top-4">
       <a class="govuk-button govuk-button--secondary"
          href="#report-problem"
@@ -223,7 +231,6 @@
     </div>
 
   </div>
-
   <!-- REPORT A PROBLEM PANEL -->
   <div id="report-problem"
        class="govuk-grid-row govuk-!-padding-top-5 govuk-!-padding-bottom-5 govuk-!-padding-left-6 govuk-!-padding-right-6"
@@ -256,7 +263,6 @@
 
     </div>
   </div>
-
 </div>
 <script>
   const panel = document.getElementById('report-problem')
@@ -277,6 +283,9 @@
 </script>
 
 
-</div>
 
+    </div>
+  </div>
+
+  {{ super() }}
 {% endblock %}
