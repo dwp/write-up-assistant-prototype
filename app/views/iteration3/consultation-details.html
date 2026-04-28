@@ -151,53 +151,67 @@
 </div>
          </div>
 
-        {# Conditional checkbox content #}
-        {% set identityCheck %}
-          {{ govukCheckboxes({
-            id: "id-docs",
-            name: "id-docs",
-            fieldset: {
-              legend: {
-                text: "How did you confirm their identity?",
-                classes: "govuk-fieldset__legend--s"
-              }
-            },
-            items: [
-              { value: "Full name", text: "Full name", checked:false },
-              { value: "Date of Birth", text: "Date of birth", checked:false },
-              { value: "Address", text: "Address (first line and postcode)", checked:false },
-              { value: "NINO", text: "National Insurance number (NINO)", checked:false },
-              { value: "security Questions", text: "DWP security questions (case details)" }
-            ]
-          }) }}
-        {% endset -%}
 
-        {{ govukCheckboxes({
-          idPrefix: "identity-consent",
-          name: "identity-consent",
-          fieldset: {
-            legend: {
-              text: "",
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "identity-confirmed",
-              text: "Yes, I confirmed the claimant’s identity",
-              checked: false,
-              conditional: { html: identityCheck }
-            },
-            {
-              value: "consent-given",
-              text: "Yes, the claimant gave consent",
-              checked: false,
-              hint: {
-                text: "Make sure the claimant understands the purpose of the consultation, and they consent to continue."
-              }
-            }
-          ]
-        }) }}
+  {{ govukCheckboxes({
+  idPrefix: "identity-consent",
+  name: "identity-consent",
+  fieldset: {
+    legend: {
+      text: "",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "identity-confirmed",
+      text: "Yes, I confirmed the claimant’s identity",
+      checked: false
+    }
+  ]
+}) }}       
+
+       {# Identity confirmation details – shown by default #}
+
+{{ govukCheckboxes({
+  id: "id-docs",
+  name: "id-docs",
+  fieldset: {
+    legend: {
+      text: "How did you confirm their identity?",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  items: [
+    { value: "Full name", text: "Full name", checked: false },
+    { value: "Date of Birth", text: "Date of birth", checked: false },
+    { value: "Address", text: "Address (first line and postcode)", checked: false },
+    { value: "NINO", text: "National Insurance number (NINO)", checked: false },
+    { value: "security-questions", text: "DWP security questions (case details)", checked: false }
+  ]
+}) }}
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+{{ govukCheckboxes({
+  idPrefix: "identity-consent",
+  name: "identity-consent",
+  fieldset: {
+    legend: {
+      text: "",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "consent-given",
+      text: "Yes, the claimant gave consent",
+      checked: false,
+      hint: {
+        text: "Make sure the claimant understands the purpose of the consultation, and they consent to continue."
+      }
+    }
+  ]
+}) }}
 
         <h2 class="govuk-heading-m">Additional attendees</h2>
 
