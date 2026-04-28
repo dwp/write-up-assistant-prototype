@@ -34,10 +34,10 @@
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Claimant name</dt>
+    <dt class="govuk-summary-list__key">Name</dt>
     <dd class="govuk-summary-list__value">{{ data['userName']  or "not captured" }}</dd>
     <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" style="display: none;" href="#change-name">Change<span class="govuk-visually-hidden"> name</span></a>
+      <a class="govuk-link" href="#change-name">Change<span class="govuk-visually-hidden"> name</span></a>
     </dd>
   </div>
 
@@ -45,7 +45,7 @@
     <dt class="govuk-summary-list__key">National insurance number</dt>
     <dd class="govuk-summary-list__value">{{ data['userNINO']  or "not captured" }}</dd>
     <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" style="display: none;" href="#change-nino">Change<span class="govuk-visually-hidden"> national insurance number</span></a>
+      <a class="govuk-link" href="#change-nino">Change<span class="govuk-visually-hidden"> national insurance number</span></a>
     </dd>
   </div>
 
@@ -53,7 +53,7 @@
     <dt class="govuk-summary-list__key">Date of birth</dt>
     <dd class="govuk-summary-list__value">{{ data['userDoB']  or "not captured" }}</dd>
     <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" style="display: none;" href="#change-dob">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+      <a class="govuk-link" href="#change-dob">Change<span class="govuk-visually-hidden"> date of birth</span></a>
     </dd>
   </div>
 
@@ -88,7 +88,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Healthcare professional</dt>
-    <dd class="govuk-summary-list__value">HCP - Your name</dd>
+    <dd class="govuk-summary-list__value">{{ data['reportHCP']  or "not captured" }}</dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="#change-hcp">Change<span class="govuk-visually-hidden"> healthcare professional</span></a>
     </dd>
@@ -102,12 +102,12 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Evidence used 1</dt>
     <dd class="govuk-summary-list__value">PIP2.pdf</dd>
-    <dd class="govuk-summary-list__actions"><a href="dashboard">Change</a></dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Evidence used 2</dt>
     <dd class="govuk-summary-list__value">Questionnaire.pdf</dd>
-    <dd class="govuk-summary-list__actions"><a href="dashboard">Change</a></dd>
+    <dd class="govuk-summary-list__actions"><a href="">Change</a></dd>
   </div>
 </dl>
 
@@ -116,22 +116,22 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Consultation date</dt>
     <dd class="govuk-summary-list__value">{{ data['ConsultationDate']  or "20 March 2026" }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="consultation-details">Change</a></dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
     <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Was the claimant's identity confirmed?</dt>
     <dd class="govuk-summary-list__value">{{ data['gave-concsent']  or "Yes" }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="consultation-details">Change</a></dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">How was their identity confirmed?</dt>
     <dd class="govuk-summary-list__value">{{ data['yescheck']  or "Passport, NINo, First line of address" }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="consultation-details">Change</a></dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
     <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Did the claimant consent to the consultation?</dt>
     <dd class="govuk-summary-list__value">{{ data['gave-concsent']  or "Yes" }}</dd>
-    <dd class="govuk-summary-list__actions"><a href="consultation-details">Change</a></dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
 </dl>
 
@@ -164,7 +164,7 @@
       <h4 class="govuk-heading-s">When did the condition or disability start?</h4>
     </div>
     <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-     <p><a class="govuk-link" style="display: none;" href="ai-condition-history-change">Change</a></p> 
+     <p><a class="govuk-link" href="ai-condition-history-change">Change</a></p> 
     </div>
   </div>
   <p class="govuk-body pre-line">{{ cond["When did the condition or disability start?"] }}</p>
@@ -175,7 +175,7 @@
       <h4 class="govuk-heading-s">Diagnosis, impact and variability</h4>
     </div>
     <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-      <p><a class="govuk-link" style="display: none;" href="ai-condition-history-change">Change</a></p> 
+      <p><a class="govuk-link" href="ai-condition-history-change">Change</a></p> 
     </div>
   </div>
   <p class="govuk-body pre-line">{{ cond["Diagnosis, impact and variability"] }}</p>
@@ -186,7 +186,7 @@
       <h4 class="govuk-heading-s">Current treatments, specialist input and hospital stays</h4>
     </div>
     <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-      <p><a class="govuk-link" style="display: none;" href="ai-condition-history-change">Change</a></p> 
+      <p><a class="govuk-link" href="ai-condition-history-change">Change</a></p> 
     </div>
   </div>
   <p class="govuk-body pre-line">{{ cond["Current treatments, specialist input and hospital stays"] }}</p>
@@ -197,7 +197,7 @@
       <h4 class="govuk-heading-s">Home therapies (optional)</h4>
     </div>
     <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-      <p><a class="govuk-link" style="display: none;" href="ai-condition-history-change">Change</a></p> 
+      <p><a class="govuk-link" href="ai-condition-history-change">Change</a></p> 
     </div>
   </div>
   <p class="govuk-body pre-line">{{ cond["Home therapies (optional)"] }}</p>
@@ -208,7 +208,7 @@
       <h4 class="govuk-heading-s">Suicidal thoughts and self harm (optional)</h4>
     </div>
     <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-      <p><a class="govuk-link" style="display: none;" href="ai-condition-history-change">Change</a></p> 
+      <p><a class="govuk-link" href="ai-condition-history-change">Change</a></p> 
     </div>
   </div>
   <p class="govuk-body pre-line">
@@ -227,33 +227,33 @@
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key"><h2 class="govuk-heading-m">{{ med["Medication Name"] }}</h2> </dt>
       <dd class="govuk-summary-list__value"></dd>
-    <dd class="govuk-summary-list__actions"><a href="ai-medication-change">Change</a></dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Dosage</dt>
     <dd class="govuk-summary-list__value">{{ med.Dosage }}</dd>
-    <dd class="govuk-summary-list__actions"><a style="display: none;" href="#">Change</a></dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
     <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Frequency</dt>
     <dd class="govuk-summary-list__value">{{ med.Frequency }}</dd>
-    <dd class="govuk-summary-list__actions"><a style="display: none;" href="#">Change</a></dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
     <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Reason for taking</dt>
     <dd class="govuk-summary-list__value">{{ med["Reason for taking"] }}</dd>
-    <dd class="govuk-summary-list__actions"><a style="display: none;" href="#">Change</a></dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Effectiveness (optional)</dt>
     <dd class="govuk-summary-list__value">{{ med["Effectiveness (optional)"] }}</dd>
-    <dd class="govuk-summary-list__actions"><a style="display: none;" href="#">Change</a></dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Side effects (optional)</dt>
     <dd class="govuk-summary-list__value">{{ med["Side effects (optional)"] }}</dd>
-    <dd class="govuk-summary-list__actions"><a style="display: none;" href="#">Change</a></dd>
+    <dd class="govuk-summary-list__actions"><a href="#">Change</a></dd>
   </div>
 </dl>
 
@@ -268,7 +268,7 @@
 <h2 id="social-history" class="govuk-heading-l">Social and occupational history</h2>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-   <p class="govuk-body"><a href="ai-social-occupational-history-change">Change</a></p>
+   <p class="govuk-body"><a href="#">Change</a></p>
   </div>
 </div>
 <p class="govuk-body pre-line">{{ mio1.text }}</p>

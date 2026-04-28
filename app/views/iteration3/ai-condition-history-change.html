@@ -4,11 +4,41 @@
 {{ serviceName }} – Review documents
 {% endblock %}
 
+
+
+{# ---- FULL‑WIDTH GREY BAR (outside container) ---- #}
+{% block header %}
+  {{ super() }}
+
+  <div style="background-color:#f4f8fb;">
+    <div class="govuk-width-container">
+      <div class="govuk-summary-card govuk-!-margin-bottom-0" style="border: none; background: transparent;">
+          <div class="govuk-summary-card__content govuk-!-padding-left-0 govuk-!-margin-left-0">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                <strong>Claimant:</strong> John Smith
+                <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+                <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+                <strong class="govuk-!-padding-left-2">Postcode:</strong> N2 1XX
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}
+
 {% block beforeContent %}
+
   {{ govukPhaseBanner({
     tag: { text: "Prototype" },
-    html: 'This is a not a service, it is a prototype created for user testing'
+    html: "This is not a service, it is a prototype created for user testing"
   }) }}
+
+
 {% endblock %}
 
 {% block content %}
@@ -96,23 +126,64 @@
   </div>
     <div class="govuk-grid-column-one-quarter">
 
-  <h2 class="govuk-heading-m" id="subsection-title">Quick access</h2>
-    <nav role="navigation" aria-labelledby="subsection-title">
-      <ul class="govuk-list">
-         <li>
-         <a href="add-notes">My assessment notes</a>
-          </li>
-        <li>
-          <a <a href="dashboard-sidemenu-evidence" target="_blank">Evidence list</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="review-evidence">PIP2.pdf</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="review-evidence">FE.pdf</a>
-        </li>
-      </ul>
-    </nav>
+  <div class="govuk-accordion" data-module="govuk-accordion" id="sidebar-accordion">
+
+    <!-- SECTION 1: QUICK ACCESS -->
+    <div class="govuk-accordion__section">
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+          <span class="govuk-accordion__section-button">
+            Quick access
+          </span>
+        </h2>
+      </div>
+
+      <div class="govuk-accordion__section-content">
+
+        <div class="govuk-hint govuk-!-font-size-16">Opens in a new tab</div>
+
+        <nav role="navigation">
+          <ul class="govuk-list">
+            <li><a href="add-notes-view" target="_blank">Consultation notes</a></li>
+            <li> <a href="dashboard-sidemenu-evidence" target="_blank">Evidence list</a></li>
+            <li><a href="files/view-pip2" target="_blank">PIP2.pdf</a></li>
+            <li><a href="files/view-pip2" target="_blank">FE.pdf</a></li>
+          </ul>
+        </nav>
+
+      </div>
+    </div>
+
+    <!-- SECTION 2: YOUR NOTES ON THIS SECTION -->
+    <div class="govuk-accordion__section">
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+          <span class="govuk-accordion__section-button">
+            Your notes on this section
+          </span>
+        </h2>
+      </div>
+
+      <div class="govuk-accordion__section-content">
+
+        <div class="govuk-form-group govuk-!-padding-4 govuk-!-margin-bottom-3"
+             style="background: #f3f2f1;">
+          <textarea
+            class="govuk-textarea"
+            id="preparingFood"
+            name="preparingFood"
+            rows="20"
+            disabled
+            aria-describedby="preparingFood-hint"
+            style="border: none; box-shadow: none; background: transparent;"
+          >Your notes:
+        </textarea>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 
   </div>
 

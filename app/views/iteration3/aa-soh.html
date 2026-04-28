@@ -4,30 +4,42 @@
 {{ serviceName }} – Review documents
 {% endblock %}
 
+
+{# ---- FULL‑WIDTH GREY BAR (outside container) ---- #}
+{% block header %}
+  {{ super() }}
+
+  <div style="background-color:#f3f2f1;">
+    <div class="govuk-width-container">
+      <div class="govuk-summary-card govuk-!-margin-bottom-0" style="border: none; background: transparent;">
+          <div class="govuk-summary-card__content govuk-!-padding-left-0 govuk-!-margin-left-0">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                <strong>Claimant:</strong> John Smith
+                <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+                <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+                <strong class="govuk-!-padding-left-2">Postcode:</strong> N2 1XX
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}
+
 {% block beforeContent %}
+
   {{ govukPhaseBanner({
     tag: { text: "Prototype" },
-    html: 'This is a not a service, it is a prototype created for user testing'
+    html: "This is not a service, it is a prototype created for user testing"
   }) }}
-      <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <div class="govuk-summary-card govuk-!-margin-bottom-1">
-  <div class="govuk-summary-card__content">
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dd class="govuk-summary-list__value">
-          <strong>Claimant:</strong> John Smith
-         <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
-         <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
-        <strong class="govuk-!-padding-left-2"> Postcode:</strong>  N2 1XX
-        </dd>
-      </div>
 
-    </dl>
-  </div>
-</div>
-  </div>
-</div>
+
+
+
 {% endblock %}
 
 {% block content %}
@@ -53,7 +65,7 @@
     <textarea class="govuk-textarea" id="socialHistory" name="socialHistory" rows="30">
 Home  
 Type of home 
-Ais & Adaptations, Prescribed
+Aids & Adaptations, Prescribed
 Who with   
 
 Caring 
