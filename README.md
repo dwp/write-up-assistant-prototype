@@ -31,3 +31,19 @@ Use the #govuk-prototype-kit channel on cross-government Slack.
 Email
 
 Email the GOV.UK Prototype team at govuk-prototype-kit-support@digital.cabinet-office.gov.uk.
+
+Information about the prototype kit and how it works can be found here: https://prototype-kit.service.gov.uk/docs/
+
+Info on how to run the prototype:
+
+You’ll use the terminal to start and stop the kit.
+Open the prototype folder in terminal e.g. cd ~/Documents/prototypes/write-up-assistant-prototype
+In the terminal, enter:
+
+npm run dev
+
+The first time you run npm run dev, the kit will ask you whether you want to send anonymous data to help the team improve the service. Enter y or n to answer yes or no.
+
+In your web browser, go to open http://localhost:3000
+
+Last updated in May 2026, Prototype kit Version 13
