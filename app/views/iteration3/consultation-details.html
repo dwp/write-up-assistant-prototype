@@ -34,12 +34,30 @@
 
 {% block beforeContent %}
 
-  {{ govukPhaseBanner({
-    tag: { text: "Prototype" },
-    html: "This is not a service, it is a prototype created for user testing"
-  }) }}
 
 
+  <!-- MENU (standard width) -->
+  <div class="dwp-ds-render">
+    <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+      <ul class="dwp-horizontal-navigation__list">
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link " href="dashboard">
+            Evidence
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link dwp-horizontal-navigation__item--selected" href="consultation-details">
+            Claimant verification
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link" href="aassessment" aria-current="true">
+            Assessment
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
 
 {% endblock %}
@@ -50,13 +68,11 @@
 
 <div class="govuk-grid-row">
 
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-three-quarters">
 
-      <h1 class="govuk-heading-xl">Add the consultation details</h1>
+      <h1 class="govuk-heading-l">Check claimant and consultation details</h1>
 
-      <p>Provide the details from the consultation. These will be used to help prepare the assessment report.</p>
-
-      <form action="aan-conditions-and-medication" method="post" novalidate>
+      <form action="aassessment" method="post" novalidate>
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="consultation-date-hint">
@@ -238,7 +254,7 @@
   </div>
 
   <!-- RIGHT COLUMN NAV -->
-  <div class="govuk-grid-column-one-third">
+  <div class="govuk-grid-column-one-third" style="display: none;">
 
       <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
       <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in a new tab</div>
@@ -267,4 +283,15 @@
 
 </div>
 
+{% endblock %}
+
+
+{% block footer %}
+<div class="govuk-width-container">
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: "This is not a service, it is a prototype created for user testing"
+  }) }}
+</div>
+  {{ super() }}
 {% endblock %}

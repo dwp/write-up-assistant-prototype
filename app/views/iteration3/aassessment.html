@@ -32,11 +32,28 @@
 
 {% block beforeContent %}
 
-  {{ govukPhaseBanner({
-    tag: { text: "Prototype" },
-    html: "This is not a service, it is a prototype created for user testing"
-  }) }}
-
+    <!-- MENU (standard width) -->
+  <div class="dwp-ds-render">
+    <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+      <ul class="dwp-horizontal-navigation__list">
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link " href="dashboard">
+            Evidence
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link " href="consultation-details">
+            Claimant verification
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link dwp-horizontal-navigation__item--selected" href="aassessment" aria-current="true">
+            Assessment
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
 {% endblock %}
 
@@ -46,18 +63,61 @@
 <a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
 
 <div class="govuk-grid-row">
+  <!-- left SIDEBAR -->
+<div class="govuk-grid-column-one-quarter">
+  
+ <nav data-module="dwp-side-navigation-panel" class="dwp-side-navigation dwp-side-navigation--mobile" aria-label="Side" role="navigation">
+  
+  <ul class="dwp-side-navigation__list">
+    <li class="dwp-side-navigation__item dwp-side-navigation__item--selected">
+       <a id="s-item-2" href="aassessment" class="dwp-side-navigation__link dwp-side-navigation__link--selected" aria-current="true">
+        Condition history and medication
+      </a>
+    </li>
 
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment2" class="dwp-side-navigation__link">
+        Social and occupational history
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment3" class="dwp-side-navigation__link">
+       Activities and descriptors
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment4" class="dwp-side-navigation__link">
+       Observations
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment5" class="dwp-side-navigation__link">
+       Justification summary
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment6" class="dwp-side-navigation__link">
+       Daily living qualifying period and prospective test
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment7" class="dwp-side-navigation__link">
+       Review period 
+      </a>
+    </li>
+  </ul>
+    </nav>
+
+</div>
 
   <!-- right COLUMN: FORM -->
-  <div class="govuk-grid-column-two-thirds">
-
-    <h1 class="govuk-heading-xl">Add your consultation notes</h1>
+  <div class="govuk-grid-column-three-quarters">
     <p class="govuk-body">Your artificial intelligence assistant will review these notes and use them to produce an initial draft assessment report.</p>
       {{ govukWarningText({
         text: "AI assistant will not review the evidence. You must add any relevant details from the evidence to the report yourself.",
         iconFallbackText: "Warning"
       }) }}
-<form action="aa-soh" method="post" novalidate>
+<form action="aassessment2" method="post" novalidate>
 
   <!-- CONDITION HISTORY -->
   <div id="condition-history" class="govuk-form-group">
@@ -154,53 +214,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   </div>
 
-  <!-- left SIDEBAR -->
-<div class="govuk-grid-column-one-third">
-  
-  <div class="">
 
-      <h2 class="govuk-heading-m govuk-!-margin-bottom-1" id="subsection-title">Quick access</h2>
-      <div id="example-hint" class="govuk-hint govuk-!-padding-top-1 govuk-!-font-size-16">Opens in a new tab</div>
-    <nav role="navigation" aria-labelledby="subsection-title">
-      <ul class="govuk-list">
-        <li>
-           <a href="dashboard-sidemenu-evidence" target="_blank">Evidence list</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="files/view-pip2" target="_blank">PIP2.pdf</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="files/view-fe" target="_blank">FE.pdf</a>
-        </li>
-      </ul>
-    </nav>
-        <nav role="navigation" aria-labelledby="subsection-title">
-      <ul class="govuk-list">
-        <li>
-          <a class="govuk-link" href="consultation-details" target="_blank">Consultation details</a>
-        </li>
-      </ul>
-    </nav>
-
-  </div>
-
-    <div class="sticky-nav" style="display: none;">
-
-    <h2 class="govuk-heading-m" id="subsection-title">On this page</h2>
-    <nav role="navigation" class="border" aria-labelledby="subsection-title">
-      <ul class="govuk-list">
-        <li><a class="govuk-link" href="#condition-history">Condition history</a></li>
-        <li><a class="govuk-link" href="#medication-section">Medication</a></li>
-      </ul>
-    </nav>
-
-  </div>
-
-</div>
 
 
 
 </div>
 
 
+{% endblock %}
+
+{% block footer %}
+<div class="govuk-width-container">
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: "This is not a service, it is a prototype created for user testing"
+  }) }}
+</div>
+  {{ super() }}
 {% endblock %}

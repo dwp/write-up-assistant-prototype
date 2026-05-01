@@ -31,10 +31,6 @@
 
 {% block beforeContent %}
 
-  {{ govukPhaseBanner({
-    tag: { text: "Prototype" },
-    html: "This is not a service, it is a prototype created for user testing"
-  }) }}
 
 {% endblock %}
 
@@ -90,7 +86,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">We’re creating your draft report</h1>
+    <h1 class="govuk-heading-l">We’re creating your draft report</h1>
 
     <p class="govuk-body">
       Your AI assistant is organising the information you added and preparing a draft assessment report.
@@ -131,7 +127,17 @@
 <script>
   setTimeout(function () {
     window.location.href = "review-ai-report-start.html";
-  }, 4000);
+  }, 3000);
 </script>
 
+{% endblock %}
+
+{% block footer %}
+<div class="govuk-width-container">
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: "This is not a service, it is a prototype created for user testing"
+  }) }}
+</div>
+  {{ super() }}
 {% endblock %}

@@ -1,0 +1,197 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{# ---- FULL‑WIDTH GREY BAR (outside container) ---- #}
+{% block header %}
+  {{ super() }}
+
+  <div style="background-color:#f3f2f1;">
+    <div class="govuk-width-container">
+      <div class="govuk-summary-card govuk-!-margin-bottom-0" style="border: none; background: transparent;">
+          <div class="govuk-summary-card__content govuk-!-padding-left-0 govuk-!-margin-left-0">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                <strong>Claimant:</strong> John Smith
+                <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+                <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+                <strong class="govuk-!-padding-left-2">Postcode:</strong> N2 1XX
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}
+
+{% block beforeContent %}
+
+
+    <!-- MENU (standard width) -->
+  <div class="dwp-ds-render">
+    <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+      <ul class="dwp-horizontal-navigation__list">
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link " href="dashboard">
+            Evidence
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link " href="consultation-details">
+            Claimant verification
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link dwp-horizontal-navigation__item--selected" href="aassessment" aria-current="true">
+            Assessment
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+{% endblock %}
+
+{% block content %}
+{% set case = data.cases[0] %}
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
+
+<div class="govuk-grid-row">
+  <!-- left SIDEBAR -->
+<div class="govuk-grid-column-one-quarter">
+  
+ <nav data-module="dwp-side-navigation-panel" class="dwp-side-navigation dwp-side-navigation--mobile" aria-label="Side" role="navigation">
+  
+  <ul class="dwp-side-navigation__list">
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment" class="dwp-side-navigation__link">
+        Condition history and medication
+      </a>
+    </li>
+
+    <li class="dwp-side-navigation__item ">
+       <a id="s-item-2" href="aassessment2" class="dwp-side-navigation__link" aria-current="true">
+        Social and occupational history
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment3" class="dwp-side-navigation__link">
+       Activities and descriptors
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment4" class="dwp-side-navigation__link">
+       Observations
+      </a>
+    </li>
+     <li class="dwp-side-navigation__item dwp-side-navigation__item--selected">
+      <a id="s-item-3" href="aassessment5" class="dwp-side-navigation__link dwp-side-navigation__link--selected">
+       Justification summary
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment6" class="dwp-side-navigation__link">
+       Daily living qualifying period and prospective test
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment7" class="dwp-side-navigation__link">
+       Review period 
+      </a>
+    </li>
+  </ul>
+    </nav>
+
+</div>
+
+  <!-- right COLUMN: FORM -->
+  <div class="govuk-grid-column-three-quarters">
+
+<form action="aassessment6.html" method="post" novalidate>
+
+  <!-- justufy -->
+  <div id="mental-state" class="govuk-form-group">
+    <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--l" for="mentalStateObservations">Justification summary</label>
+    </h1>
+    <p class="govuk-!-margin-bottom-1" style="display: none;">
+      <a href="#" class="govuk-link load-headings" data-target="mentalStateObservations" data-heading="mentalStateHeadings">Add prompts</a>
+    </p>
+    <textarea class="govuk-textarea" id="mentalStateObservations" name="mentalStateObservations" rows="10"></textarea>
+  </div>
+
+
+
+
+  <div class="govuk-button-group">
+    {{ govukButton({ 
+      text: "Save and continue",
+      href:"aassessment6"
+    
+    }) }}
+
+    {{ govukButton({
+      text: "Save and exit",
+      href: "select-case",
+      classes: "govuk-button--secondary"
+    }) }}
+  </div>
+
+
+  {% block pageScripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  document.querySelectorAll(".load-headings").forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const targetId = this.dataset.target;      // textarea ID
+      const headingKey = this.dataset.heading;   // session variable name
+
+      // read from session data
+      const headingText = {{ data | dump | safe }}[headingKey];
+
+      if (!headingText) return;
+
+      const textarea = document.getElementById(targetId);
+      if (!textarea) return;
+
+      // Insert headings into the textarea
+      textarea.value = headingText.trim();
+    });
+  });
+
+});
+</script>
+{% endblock %}
+
+</form>
+
+
+
+  </div>
+
+
+</div>
+
+
+{% endblock %}
+
+
+{% block footer %}
+<div class="govuk-width-container">
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: "This is not a service, it is a prototype created for user testing"
+  }) }}
+</div>
+  {{ super() }}
+{% endblock %}

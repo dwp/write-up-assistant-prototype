@@ -52,7 +52,7 @@
     </div>
 
 
-      <h1 class="govuk-heading-xl">Change preparing food section</h1>
+      <h1 class="govuk-heading-l">Change preparing food section</h1>
 
 
 {% set pf = case.report[3].content %}
@@ -62,7 +62,8 @@
      <textarea class="govuk-textarea"
                   id="condition-diagnosis"
                   name="condition-diagnosis"
-                  rows="10">{{ pf.description }}
+                  style="background-color:#f4f8fb; padding: 5px; border: 1px solid #8eb8dc;"
+                  rows="15">{{ pf.description }}
   </textarea>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
@@ -120,6 +121,7 @@
      <textarea class="govuk-textarea"
                   id="condition-diagnosis"
                   name="condition-diagnosis"
+                  style="background-color:#f4f8fb; padding: 5px; border: 1px solid #8eb8dc;"
                   rows="10">{{ pf.justification }}
       </textarea>
 
@@ -185,7 +187,11 @@
             disabled
             aria-describedby="preparingFood-hint"
             style="border: none; box-shadow: none; background: transparent;"
-          >Your notes:
+          >Struggles to cook or prepare meals on own due to ongoing lower back pain and bladder incontinence. Wife does most of the meal prep.
+Can use microwave and do basic things like chopping or peeling but hasn’t done this recently.
+Standing makes back pain worse and bending/straining causes incontinence. Has had accidents or near misses in the kitchen.
+Doing daily pelvic floor exercises for incontinence, told this could take 6–12 months to improve.
+Also gets daily hives.
         </textarea>
         </div>
 
@@ -222,6 +228,19 @@
 {% endblock %}
 
 {% block footer %}
+
+<div class="govuk-phase-banner govuk-width-container" style="border: none;">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Prototype
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a service, it is a prototype created for user testing
+    </span>
+  </p>
+</div>
+
+
   <div style="background-color:#f4f8fb;">
     <div class="govuk-width-container">
 

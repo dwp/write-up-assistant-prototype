@@ -1,0 +1,291 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{# ---- FULL‑WIDTH GREY BAR (outside container) ---- #}
+{% block header %}
+  {{ super() }}
+
+  <div style="background-color:#f3f2f1;">
+    <div class="govuk-width-container">
+      <div class="govuk-summary-card govuk-!-margin-bottom-0" style="border: none; background: transparent;">
+          <div class="govuk-summary-card__content govuk-!-padding-left-0 govuk-!-margin-left-0">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                <strong>Claimant:</strong> John Smith
+                <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+                <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+                <strong class="govuk-!-padding-left-2">Postcode:</strong> N2 1XX
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}
+
+{% block beforeContent %}
+
+
+    <!-- MENU (standard width) -->
+  <div class="dwp-ds-render">
+    <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+      <ul class="dwp-horizontal-navigation__list">
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link " href="dashboard">
+            Evidence
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link " href="consultation-details">
+            Claimant verification
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link dwp-horizontal-navigation__item--selected" href="aassessment" aria-current="true">
+            Assessment
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+{% endblock %}
+
+{% block content %}
+{% set case = data.cases[0] %}
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
+
+<div class="govuk-grid-row">
+  <!-- left SIDEBAR -->
+<div class="govuk-grid-column-one-quarter">
+  
+ <nav data-module="dwp-side-navigation-panel" class="dwp-side-navigation dwp-side-navigation--mobile" aria-label="Side" role="navigation">
+  
+  <ul class="dwp-side-navigation__list">
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment" class="dwp-side-navigation__link">
+        Condition history and medication
+      </a>
+    </li>
+
+    <li class="dwp-side-navigation__item ">
+       <a id="s-item-2" href="aassessment2" class="dwp-side-navigation__link " aria-current="true">
+        Social and occupational history
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment3" class="dwp-side-navigation__link">
+       Activities and descriptors
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment4" class="dwp-side-navigation__link">
+       Observations
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment5" class="dwp-side-navigation__link">
+       Justification summary
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment6" class="dwp-side-navigation__link">
+       Daily living qualifying period and prospective test
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item dwp-side-navigation__item--selected">
+      <a id="s-item-3" href="aassessment7" class="dwp-side-navigation__link dwp-side-navigation__link--selected">
+       Review period 
+      </a>
+    </li>
+  </ul>
+    </nav>
+
+</div>
+
+  <!-- right COLUMN: FORM -->
+  <div class="govuk-grid-column-three-quarters">
+
+
+          <h1 class="govuk-heading-l">
+        Review period for PIP
+      </h1>
+
+      <p>Your artificial intelligence assistant will review the documents and extract the relevant information to produce an initial draft assessment report.</p>
+
+      <!-- Start form -->
+      <form action="generating-report" method="post" novalidate>
+      
+        <!-- Review period for PIP (radios – unchanged) -->
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Should this claim be reviewed?
+            </legend>
+      
+            {% set yescheck %}
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" role="group">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  What is your recommended review period?
+                </legend>
+      
+                <div class="govuk-date-input">
+      
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="review-years">
+                        Years
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="review-years"
+                        name="review-years" type="text" inputmode="numeric" pattern="[0-9]*">
+                    </div>
+                  </div>
+      
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="review-months">
+                        Months
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="review-months"
+                        name="review-months" type="text" inputmode="numeric" pattern="[0-9]*">
+                    </div>
+                  </div>
+      
+                </div>
+              </fieldset>
+            </div>
+            {% endset %}
+      
+      
+            {{ govukRadios({
+            classes: "govuk-radios",
+            name: "changedName",
+            fieldset: {
+            legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+            }
+            },
+            items: [
+            {
+            value: "Yes",
+            text: "Yes",
+            conditional: {
+            html: yescheck
+            }
+            },
+            {
+            value: "No",
+            text: "No future review required"
+            }
+            ]
+            }) }}
+      
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--m" for="review-reason">
+                Why do you recommend this review period?
+              </label>
+              <textarea class="govuk-textarea" id="review-reason" name="review-reason" rows="5">
+          </textarea>
+            </div>
+          </fieldset>
+        </div>
+      
+      
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="affirmations-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Select all that apply
+            </legend>
+            <div id="affirmations-hint" class="govuk-hint">
+              Tick every statement that applies to this claim.
+            </div>
+      
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <!-- From: Is it likely that the functional restriction... (ignore "Not applicable") -->
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="affirmation-restriction-present" name="review-affirmations"
+                  type="checkbox" value="restriction-present">
+                <label class="govuk-label govuk-checkboxes__label" for="affirmation-restriction-present">
+                  Yes, the functional restriction identified in this report is likely to still be present at the review.
+                </label>
+              </div>
+      
+              <!-- From: Is the claimant likely to need additional support... -->
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="affirmation-future-support" name="review-affirmations"
+                  type="checkbox" value="future-support">
+                <label class="govuk-label govuk-checkboxes__label" for="affirmation-future-support">
+                  Yes, the claimant is likely to need additional support for future claim processes.
+                </label>
+              </div>
+      
+              <!-- From: Does the claimant meet the criteria for special rules... -->
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="affirmation-special-rules" name="review-affirmations"
+                  type="checkbox" value="special-rules">
+                <label class="govuk-label govuk-checkboxes__label" for="affirmation-special-rules">
+                  Yes, the claimant meets the criteria for special rules.
+                </label>
+              </div>
+      
+              <!-- Moved here: No harmful information... (as an affirmation) -->
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="affirmation-no-harmful-info" name="review-affirmations"
+                  type="checkbox" value="no-harmful-information">
+                <label class="govuk-label govuk-checkboxes__label" for="affirmation-no-harmful-info">
+                  No harmful information has been included in this report.
+                </label>
+              </div>
+      
+            </div>
+          </fieldset>
+        </div>
+      
+        <div class="govuk-!-margin-top-8">
+          <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Generate AI draft report",
+            isStartButton: false
+            }) }}
+      
+            {{ govukButton({
+            text: "Save and return",
+            classes: "govuk-button--secondary",
+            href: "select-case"
+            }) }}
+          </div>
+        </div>
+      
+      </form>
+      <!-- End form -->
+
+
+  </div>
+
+
+</div>
+
+
+{% endblock %}
+
+
+{% block footer %}
+<div class="govuk-width-container">
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: "This is not a service, it is a prototype created for user testing"
+  }) }}
+</div>
+  {{ super() }}
+{% endblock %}

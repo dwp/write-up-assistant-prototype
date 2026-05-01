@@ -1,0 +1,295 @@
+{% extends "layouts/main-wua.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – Review documents
+{% endblock %}
+
+
+{# ---- FULL‑WIDTH GREY BAR (outside container) ---- #}
+{% block header %}
+  {{ super() }}
+
+  <div style="background-color:#f3f2f1;">
+    <div class="govuk-width-container">
+      <div class="govuk-summary-card govuk-!-margin-bottom-0" style="border: none; background: transparent;">
+          <div class="govuk-summary-card__content govuk-!-padding-left-0 govuk-!-margin-left-0">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                <strong>Claimant:</strong> John Smith
+                <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+                <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+                <strong class="govuk-!-padding-left-2">Postcode:</strong> N2 1XX
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}
+
+{% block beforeContent %}
+
+
+    <!-- MENU (standard width) -->
+  <div class="dwp-ds-render">
+    <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+      <ul class="dwp-horizontal-navigation__list">
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link " href="dashboard">
+            Evidence
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link " href="consultation-details">
+            Claimant verification
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link dwp-horizontal-navigation__item--selected" href="aassessment" aria-current="true">
+            Assessment
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+{% endblock %}
+
+{% block content %}
+{% set case = data.cases[0] %}
+
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-top: -20px;">Back</a>
+
+<div class="govuk-grid-row">
+  <!-- left SIDEBAR -->
+<div class="govuk-grid-column-one-quarter">
+  
+ <nav data-module="dwp-side-navigation-panel" class="dwp-side-navigation dwp-side-navigation--mobile" aria-label="Side" role="navigation">
+  
+  <ul class="dwp-side-navigation__list">
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment" class="dwp-side-navigation__link">
+        Condition history and medication
+      </a>
+    </li>
+
+    <li class="dwp-side-navigation__item ">
+       <a id="s-item-2" href="aassessment2" class="dwp-side-navigation__link " aria-current="true">
+        Social and occupational history
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment3" class="dwp-side-navigation__link">
+       Activities and descriptors
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment4" class="dwp-side-navigation__link">
+       Observations
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment5" class="dwp-side-navigation__link">
+       Justification summary
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item dwp-side-navigation__item--selected">
+      <a id="s-item-3" href="aassessment6" class="dwp-side-navigation__link dwp-side-navigation__link--selected">
+       Daily living qualifying period and prospective test
+      </a>
+    </li>
+    <li class="dwp-side-navigation__item">
+      <a id="s-item-3" href="aassessment7" class="dwp-side-navigation__link">
+       Review period 
+      </a>
+    </li>
+  </ul>
+    </nav>
+
+</div>
+
+  <!-- right COLUMN: FORM -->
+  <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l">
+        Daily living qualifying period and prospective test
+      </h1>
+     
+<form action="aassessment7" method="post" novalidate="">
+   <!--3m?--> 
+
+<div class="govuk-!-mardin-bottom-8">
+  {{ govukRadios({
+  name: "func-restric-3m",
+  fieldset: {
+    legend: {
+      text: "Has the claimant had the functional restriction for at least 3 months?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      checked: true
+    },
+    {
+      value: "No",
+      text: "No"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "No daily living restriction found",
+      text: "No daily living restriction found"
+    }
+  ]
+}) }}
+</div>
+
+   <!--9m?--> 
+
+<div class="govuk-!-marging-bottom-8">
+  {{ govukRadios({
+  name: "func-restric-9m",
+  fieldset: {
+    legend: {
+      text: "Is the claimant likely to have the functional restriction in 9 months?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      checked: true
+    },
+    {
+      value: "No",
+      text: "No"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "No daily living restriction found",
+      text: "No daily living restriction found"
+    }
+  ]
+}) }}
+</div>
+
+<div class="govuk-body govuk-!-margin-top-8">
+
+<h1 class="govuk-heading-l">
+  Mobility qualifying period and prospective test
+</h1>
+</div>     
+
+   <!--3m?--> 
+
+<div class="govuk-!-mardin-bottom-8">
+  {{ govukRadios({
+  name: "func-restric-mob-3m",
+  fieldset: {
+    legend: {
+      text: "Has the claimant had the functional restriction for at least 3 months?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      checked: true
+    },
+    {
+      value: "No",
+      text: "No"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "No daily living restriction found",
+      text: "No daily living restriction found"
+    }
+  ]
+}) }}
+</div>
+
+   <!--9m?--> 
+
+<div class="govuk-!-mardin-bottom-8">
+  {{ govukRadios({
+  name: "func-restric-mob-9m",
+  fieldset: {
+    legend: {
+      text: "Is the claimant likely to have the functional restriction in 9 months?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      checked: true
+    },
+    {
+      value: "No",
+      text: "No"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "No daily living restriction found",
+      text: "No daily living restriction found"
+    }
+  ]
+}) }}
+</div>
+
+
+<div class="govuk-!-margin-top-8">
+ <div class="govuk-button-group">
+    {{ govukButton({
+        text: "Save and continue",
+        isStartButton: false
+      }) }}
+
+          {{ govukButton({
+          text: "Save and return home",
+          classes: "govuk-button--secondary",
+          href: "select-case"
+        }) }}
+      </div>
+</div>
+
+ </form>  
+
+  </div>
+
+
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+<div class="govuk-width-container">
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: "This is not a service, it is a prototype created for user testing"
+  }) }}
+</div>
+  {{ super() }}
+{% endblock %}

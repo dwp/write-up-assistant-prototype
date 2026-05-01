@@ -281,17 +281,18 @@
 
 {% set pf = case.report[3].content %}
 
-<h3 id="preparing-food" class="govuk-heading-m">{{ pf.name }}</h3>
+
 
 {# Functional history for preparing food + Change link #}
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
-    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for preparing food</h4>
+   <h3 id="preparing-food" class="govuk-heading-m">{{ pf.name }}</h3> 
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
      <p><a class="govuk-link" href="ai-section1-change">Change</a></p> 
   </div>
 </div>
+<h4 class="govuk-heading-s">Functional history for preparing food</h4>
 <p class="govuk-body pre-line"> {{ pf.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
@@ -301,7 +302,7 @@
     <h4 class="govuk-heading-s govuk-!-margin-bottom-1">How well can the claimant prepare food?</h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-    <p><a class="govuk-link" href="ai-section1-change">Change</a></p> 
+    <p><a class="govuk-link" style="display: none;" href="ai-section1-change">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body">{{ pf.option }}</p>
@@ -313,7 +314,7 @@
     <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Justification for preparing food</h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-   <p><a class="govuk-link" href="ai-section1-change">Change</a></p> 
+   <p><a class="govuk-link" style="display: none;" href="ai-section1-change">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body pre-line">{{ pf.justification }}</p>
@@ -321,18 +322,19 @@
 
 <!---->
 
-<h3 id="taking-nutrition" class="govuk-heading-m">Taking nutrition</h3>
+
 {% set tn = case.report[4].content %}
 
 {# Functional history for taking nutrition + Change link #}
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
-    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for taking nutrition</h4>
+   <h3 id="taking-nutrition" class="govuk-heading-m">Taking nutrition</h3> 
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
      <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
+<h4 class="govuk-heading-s ">Functional history for taking nutrition</h4>
 <p class="govuk-body pre-line">{{ tn.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
@@ -342,7 +344,7 @@
     <h4 class="govuk-heading-s govuk-!-margin-bottom-1">How well can the claimant take nutrition?</h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-     <p><a class="govuk-link" href="#">Change</a></p> 
+     <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body">{{ tn.option }}</p>
@@ -354,7 +356,7 @@
     <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Justification for taking nutrition</h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-     <p><a class="govuk-link" href="#">Change</a></p> 
+     <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body pre-line">{{ tn.justification }}</p>
@@ -363,29 +365,30 @@
 
 
 {# Managing therapy (report[5]) #}
-<h3 id="managing-therapy" class="govuk-heading-m">Managing therapy</h3>
+
 {% set mt = case.report[5].content %}
 
 
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
-    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for managing therapy</h4>
+   <h3 id="managing-therapy" class="govuk-heading-m">Managing therapy</h3> 
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
    <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
+<h4 class="govuk-heading-s ">Functional history for managing therapy</h4>
 <p class="govuk-body pre-line">{{ mt.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
     <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
       How well can the claimant manage therapy or monitor a health condition?
     </h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-  <p><a class="govuk-link" href="#">Change</a></p> 
+  <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body">{{ mt.option }}</p>
@@ -396,7 +399,7 @@
     <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Justification for managing therapy</h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-    <p><a class="govuk-link" href="#">Change</a></p> 
+    <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 
@@ -406,17 +409,18 @@
 
 
 {# Washing and bathing (report[6]) #}
-<h3 id="washing-bathing" class="govuk-heading-m">Washing and bathing</h3>
+
 
 {% set wb = case.report[6].content %}
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
-    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for washing and bathing</h4>
+   <h3 id="washing-bathing" class="govuk-heading-m">Washing and bathing</h3> 
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
      <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
+<h4 class="govuk-heading-s ">Functional history for washing and bathing</h4>
 <p class="govuk-body pre-line">{{ wb.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
@@ -427,7 +431,7 @@
     </h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-     <p><a class="govuk-link" href="#">Change</a></p> 
+     <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body">{{ wb.option }}</p>
@@ -438,7 +442,7 @@
     <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Justification for washing and bathing</h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-     <p><a class="govuk-link" href="#">Change</a></p> 
+     <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 
@@ -447,17 +451,18 @@
 <!---->
 
 
-<h3 id="toilet-needs" class="govuk-heading-m">Managing toilet needs</h3>
+
 {% set mtn = case.report[7].content %}
 
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
-    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for managing toilet needs</h4>
+   <h3 id="toilet-needs" class="govuk-heading-m">Managing toilet needs</h3> 
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
       <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
+<h4 class="govuk-heading-s ">Functional history for managing toilet needs</h4>
 <p class="govuk-body pre-line">{{ mtn.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
@@ -467,7 +472,7 @@
     </h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-      <p><a class="govuk-link" href="#">Change</a></p> 
+      <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body">{{ mtn.option }}</p>
@@ -477,25 +482,27 @@
     <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Justification for managing toilet needs</h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-      <p><a class="govuk-link" href="#">Change</a></p> 
+      <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body pre-line">{{ mtn.justification }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
 <!---->
 
-<h3 id="dressing-undressing" class="govuk-heading-m">Dressing and undressing</h3>
+
 {% set mtn = case.report[8].content %}
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
-    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
-      Functional history for {{ mtn.name | lower }}
-    </h4>
+    <h3 id="dressing-undressing" class="govuk-heading-m">Dressing and undressing</h3>
+    
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
      <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
+<h4 class="govuk-heading-s ">
+      Functional history for {{ mtn.name | lower }}
+    </h4>
 <p class="govuk-body pre-line">{{ mtn.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
@@ -505,7 +512,7 @@
     </h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-     <p><a class="govuk-link" href="#">Change</a></p> 
+     <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body">{{ mtn.option }}</p>
@@ -517,23 +524,24 @@
     </h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-     <p><a class="govuk-link" href="#">Change</a></p> 
+     <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body pre-line">{{ mtn.justification }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-bottom-8">
 <!---->
-<h3 id="communicating-verbally" class="govuk-heading-m">Communicating verbally</h3>
+
 {% set cmv = case.report[9].content %}
 
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
-    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for communicating verbally</h4>
+    <h3 id="communicating-verbally" class="govuk-heading-m">Communicating verbally</h3>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
     <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
+<h4 class="govuk-heading-s ">Functional history for communicating verbally</h4>
 <p class="govuk-body pre-line">{{ cmv.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
@@ -543,7 +551,7 @@
     </h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-    <p><a class="govuk-link" href="#">Change</a></p> 
+    <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body">{{ cmv.option }}</p>
@@ -553,7 +561,7 @@
     <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Justification for communicating verbally</h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-    <p><a class="govuk-link" href="#">Change</a></p> 
+    <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body pre-line">{{ cmv.justification }}</p>
@@ -564,16 +572,17 @@
 
 
 {# Reading and understanding signs, symbols and words (report[10]) #}
-<h3 id="reading-understanding" class="govuk-heading-m">Reading and understanding signs, symbols and words</h3>
+
 {% set rus = case.report[10].content %}
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
-  <div class="govuk-grid-column-two-thirds">
-    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for reading and understanding signs, symbols and words</h4>
+  <div class="govuk-grid-column-three-quarters">
+    <h3 id="reading-understanding" class="govuk-heading-m">Reading and understanding signs, symbols and words</h3>
   </div>
-  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+  <div class="govuk-grid-column-one-quarter govuk-!-text-align-right">
     <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
+<h4 class="govuk-heading-s">Functional history for reading and understanding signs, symbols and words</h4>
 <p class="govuk-body pre-line">{{ rus.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
@@ -583,7 +592,7 @@
     </h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-     <p><a class="govuk-link" href="#">Change</a></p> 
+     <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body">{{ rus.option }}</p>
@@ -593,7 +602,7 @@
     <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Justification for reading and understanding signs, symbols and words</h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-     <p><a class="govuk-link" href="#">Change</a></p> 
+     <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body pre-line">{{ rus.justification }}</p>
@@ -602,16 +611,17 @@
 
 
 {# Engaging face to face (report[11]) #}
-<h3 id="engaging-face-to-face" class="govuk-heading-m">Engaging face to face</h3>
+
 {% set eff = case.report[11].content %}
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
-    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for engaging face to face</h4>
+   <h3 id="engaging-face-to-face" class="govuk-heading-m">Engaging face to face</h3> 
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
     <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
+<h4 class="govuk-heading-s">Functional history for engaging face to face</h4>
 <p class="govuk-body pre-line">{{ eff.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
@@ -621,7 +631,7 @@
     </h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-    <p><a class="govuk-link" href="#">Change</a></p> 
+    <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body">{{ eff.option }}</p>
@@ -633,7 +643,7 @@
     </h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-   <p><a class="govuk-link" href="#">Change</a></p> 
+   <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body pre-line">{{ eff.justification }}</p>
@@ -642,16 +652,17 @@
 
 
 {# Budgeting (report[12]) #}
-<h3 id="budgeting-section" class="govuk-heading-m">Budgeting</h3>
+
 {% set bdg = case.report[12].content %}
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
-    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for budgeting</h4>
+    <h3 id="budgeting-section" class="govuk-heading-m">Budgeting</h3>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
     <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
+<h4 class="govuk-heading-s">Functional history for budgeting</h4>
 <p class="govuk-body pre-line">{{ bdg.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
@@ -661,7 +672,7 @@
     </h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-    <p><a class="govuk-link" href="#">Change</a></p> 
+    <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body">{{ bdg.option }}</p>
@@ -673,7 +684,7 @@
     </h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-    <p><a class="govuk-link" href="#">Change</a></p> 
+    <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body pre-line">{{ bdg.justification }}</p>
@@ -698,38 +709,39 @@
 <h2 class="govuk-heading-l">Mobility</h2>
 
 {# Planning and following journeys (report[13]) #}
-<h3 id="planning-journeys" class="govuk-heading-m">Planning and following journeys</h3>
+
 {% set pfj = case.report[13].content %}
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
-    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for planning and following journeys</h4>
+    <h3 id="planning-journeys" class="govuk-heading-m">Planning and following journeys</h3>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
     <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
+<h4 class="govuk-heading-s">Functional history for planning and following journeys</h4>
 <p class="govuk-body pre-line">{{ pfj.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
     <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
       How well can the claimant plan and follow journeys?
     </h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-     <p><a class="govuk-link" href="#">Change</a></p> 
+     <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body">{{ pfj.option }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-three-quarters">
     <h4 class="govuk-heading-s govuk-!-margin-bottom-1">
      Justification for planning and following journeys
     </h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-    <p><a class="govuk-link" href="#">Change</a></p> 
+    <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body pre-line">{{ pfj.justification }}</p>
@@ -739,16 +751,17 @@
 
 
 {# Moving around (report[14]) #}
-<h3 id="moving-around" class="govuk-heading-m">Moving around</h3>
+
 {% set mva = case.report[14].content %}
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
   <div class="govuk-grid-column-two-thirds">
-    <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Functional history for moving around</h4>
+   <h3 id="moving-around" class="govuk-heading-m">Moving around</h3> 
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
  <p><a class="govuk-link" href="#">Change</a></p> 
   </div>
 </div>
+<h4 class="govuk-heading-s">Functional history for moving around</h4>
 <p class="govuk-body pre-line">{{ mva.description }}</p>
 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 <div class="govuk-grid-row govuk-!-margin-bottom-1">
@@ -758,7 +771,7 @@
     </h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
- <p><a class="govuk-link" href="#">Change</a></p> 
+ <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body">{{ mva.option }}</p>
@@ -770,7 +783,7 @@
     </h4>
   </div>
   <div class="govuk-grid-column-one-third govuk-!-text-align-right">
- <p><a class="govuk-link" href="#">Change</a></p> 
+ <p><a class="govuk-link" style="display: none;" href="#">Change</a></p> 
   </div>
 </div>
 <p class="govuk-body pre-line">{{ mva.justification }}</p>
@@ -946,6 +959,20 @@
 {% endblock %}
 
 {% block footer %}
+
+<div class="govuk-phase-banner govuk-width-container" style="border: none;">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Prototype
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a service, it is a prototype created for user testing
+    </span>
+  </p>
+</div>
+
+
+
   <div style="background-color:#f4f8fb;">
     <div class="govuk-width-container">
 

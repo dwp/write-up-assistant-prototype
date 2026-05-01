@@ -31,14 +31,35 @@
 
 {% block beforeContent %}
 
-  {{ govukPhaseBanner({
-    tag: { text: "Prototype" },
-    html: "This is not a service, it is a prototype created for user testing"
-  }) }}
-
-
+  <!-- MENU (standard width) -->
+  <div class="dwp-ds-render">
+    <nav class="dwp-horizontal-navigation" aria-label="Horizontal">
+      <ul class="dwp-horizontal-navigation__list">
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link dwp-horizontal-navigation__item--selected" href="dashboard">
+            Evidence
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link" href="consultation-details">
+            Claimant verification
+          </a>
+        </li>
+        <li class="dwp-horizontal-navigation__item">
+          <a class="dwp-horizontal-navigation__link" href="aassessment" aria-current="true">
+            Assessment
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
 {% endblock %}
+
+
+
+
+
 
 {% block content %}
 
@@ -49,7 +70,7 @@
   <!-- body and right side row-->
     <div class="govuk-grid-column-three-quarters">
     
-       <h1 class="govuk-heading-xl">Review the evidence</h1>
+       <h1 class="govuk-heading-l">Review the evidence</h1>
     <p class="">Before you continue, review the evidence.</p>
 
       {{ govukWarningText({
@@ -351,8 +372,6 @@
 
     </div>
 
-
-
   </div>
 </div>    
 
@@ -360,4 +379,17 @@
 
 
 
+{% endblock %}
+
+
+
+
+{% block footer %}
+<div class="govuk-width-container">
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: "This is not a service, it is a prototype created for user testing"
+  }) }}
+</div>
+  {{ super() }}
 {% endblock %}
