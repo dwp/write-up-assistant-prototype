@@ -219,6 +219,17 @@ router.get('/iteration2/remove-medication', function (req, res) {
 
 
 
+router.post('/iteration3/ai-section1-change', function (req, res) {
+
+    const data = req.session.data
+
+    data.cases[0].report[3].content.description = req.body.description
+    data.cases[0].report[3].content.option = req.body.option
+    data.cases[0].report[3].content.justification = req.body.justification
+
+    res.redirect('/iteration3/ai-section1')
+  })
+
 
 
 module.exports = router;

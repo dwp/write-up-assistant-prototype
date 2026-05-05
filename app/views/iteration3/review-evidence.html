@@ -4,31 +4,37 @@
 {{ serviceName }} – Add consultation notes (free‑form)
 {% endblock %}
 
-{% block beforeContent %}
-  {{ govukPhaseBanner({
-    tag: { text: "Prototype" },
-    html: 'This is not a service, it is a prototype created for user testing'
-  }) }}
-  <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <div class="govuk-summary-card govuk-!-margin-bottom-1">
-  <div class="govuk-summary-card__content">
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dd class="govuk-summary-list__value">
-          <strong>Claimant:</strong> John Smith
-         <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
-         <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
-        <strong class="govuk-!-padding-left-2"> Postcode:</strong>  N2 1XX
-        </dd>
-      </div>
+{# ---- FULL‑WIDTH GREY BAR (outside container) ---- #}
+{% block header %}
+  {{ super() }}
 
-    </dl>
+  <div style="background-color:#f3f2f1;">
+    <div class="govuk-width-container">
+      <div class="govuk-summary-card govuk-!-margin-bottom-0" style="border: none; background: transparent;">
+          <div class="govuk-summary-card__content govuk-!-padding-left-0 govuk-!-margin-left-0">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dd class="govuk-summary-list__value">
+                <strong>Claimant:</strong> John Smith
+                <strong class="govuk-!-padding-left-2">NINO:</strong> QQ 12 34 56 C
+                <strong class="govuk-!-padding-left-2">Date of birth:</strong> 31 December 1999
+                <strong class="govuk-!-padding-left-2">Postcode:</strong> N2 1XX
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-  </div>
-</div>
+  
 {% endblock %}
+
+
+
+
+
+
+
 
 {% block content %}
 
@@ -39,7 +45,7 @@
   <!-- body and right side row-->
     <div class="govuk-grid-column-three-quarters">
     
-       <h1 class="govuk-heading-xl">Review the evidence</h1>
+       <h1 class="govuk-heading-l">Review the evidence</h1>
     <p class="">Before you continue, review the evidence.</p>
 
       {{ govukWarningText({
@@ -54,7 +60,7 @@
         Evidence files and notes
       </h2>
 
-      <form method="post" novalidate>
+
       <!--tab1-->
 
 <!-- SEARCH + FILTER + RESULT COUNT -->
@@ -323,28 +329,19 @@
     }
   ]
 }) }}
-
-    <div class="govuk-button-group">
-
-      {{ govukButton({
-        text: "Save and return"
-      }) }}
-
-        <a href="review-ai-report-start?ai_ack_section1=yes" role="button"
-          class="govuk-button govuk-button--secondary"
-          data-module="govuk-button">
-          Save and return to list
-        </a>
-
-    </div>
           </div>
-
+          <div class="govuk-button-group">
+            {{ govukButton({
+            text: "Save changes",
+            href: ""
+            }) }}
+            
           
-        </form>
+
+          </div>
+    
 
     </div>
-
-
 
   </div>
 </div>    
@@ -353,4 +350,17 @@
 
 
 
+{% endblock %}
+
+
+
+
+{% block footer %}
+<div class="govuk-width-container">
+  {{ govukPhaseBanner({
+    tag: { text: "Prototype" },
+    html: "This is not a service, it is a prototype created for user testing"
+  }) }}
+</div>
+  {{ super() }}
 {% endblock %}
