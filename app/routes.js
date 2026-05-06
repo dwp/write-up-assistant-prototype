@@ -231,5 +231,12 @@ router.post('/iteration3/ai-section1-change', function (req, res) {
   })
 
 
+router.get('/iteration3/select-case', function (req, res) {
+  if (req.query.Dstatus) {
+    req.session.data.caseStatus = req.query.Dstatus
+  }
+  res.render('iteration3/select-case')
+})
+
 
 module.exports = router;

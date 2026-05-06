@@ -7,8 +7,7 @@ module.exports = {
   reportAssessType: "Telephone assessment",
   reportHCP: "Dr. Smith",
   ConsultationDate: "20th March 2026",
-
-
+  wasSubmitted: "New",
 
   // CONDITION HISTORY
   conditionHeadings: `
